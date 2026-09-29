@@ -324,6 +324,21 @@ class CommitGate:
         return result
 
 
+# Identifiers spelled out loud ("D… L… five five five") come back as "D-L-5-5-5", "k-2",
+# "v777". Tool schemas give compact uppercase examples (order_id "e.g. 'BOB12'"), and the
+# baseline run (stock prompt) shows the same hyphen/lowercase pattern, so this is a speech
+# artefact, not a prompt effect. Canonicalize *_id / *_number values before execution.
+ID_NORMALIZE_ON = os.getenv("GATE_ID_NORMALIZE", "1") == "1"
+
+
+def _is_identifier(param: str) -> bool:
+    return param.endswith("_id") or param.endswith("_number")
+
+
+def normalize_identifier(v: str) -> str:
+    return "".join(ch for ch in v if ch.isalnum()).upper()
+
+
 def _is_plain(v: Any) -> bool:
     """True for JSON-like tool arguments; False for injected objects (e.g. RunContext)."""
     return v is None or isinstance(v, (str, int, float, bool, list, dict))
@@ -341,9 +356,13 @@ def gate_tools(tools: list, gate: CommitGate, function_tool_cls) -> list:
         async def wrapper(*a, __t=t, __name=name, __sig=sig, **kw):
             # LiveKit may pass tool arguments positionally, so bind them to parameter
             # names; otherwise every call to a tool would look identical to the gate.
-            bound = __sig.bind_partial(*a, **kw).arguments
-            args = {k: v for k, v in bound.items() if _is_plain(v)}
-            return await gate.run(__name, args, lambda: __t(*a, **kw))
+            ba = __sig.bind_partial(*a, **kw)
+            if ID_NORMALIZE_ON:
+                for k, v in list(ba.arguments.items()):
+                    if _is_identifier(k) and isinstance(v, str):
+                        ba.arguments[k] = normalize_identifier(v)
+            args = {k: v for k, v in ba.arguments.items() if _is_plain(v)}
+            return await gate.run(__name, args, lambda: __t(*ba.args, **ba.kwargs))
 
         functools.update_wrapper(wrapper, t)
         wrapper.__signature__ = sig

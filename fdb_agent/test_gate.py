@@ -303,6 +303,16 @@ async def wrapped_tools():
     await tr("A1")
     check(g.stats["executed"] == 2 and g.stats["duplicate"] == 1,
           f"wrapped tool: positional+keyword args reach the gate {g.stats}")
+    # 15. spelled-out identifiers are canonicalized before the tool runs
+    from gate import normalize_identifier
+    check(normalize_identifier("B-7") == "B7" and normalize_identifier("d-l-5-5-5") == "DL555"
+          and normalize_identifier("v 777") == "V777" and normalize_identifier("ORD120") == "ORD120",
+          "identifier canonicalization")
+    g = CommitGate(quiet_s=0.05)
+    tr = {t.info.name: t for t in gate_tools(orig, g, FunctionTool)}["track_order"]
+    await tr("bob-12")
+    ex = [e for e in g.events if e["kind"] == "proposed"]
+    check(ex and ex[-1]["args"] == {"order_id": "BOB12"}, f"wrapped tool receives the canonical id {ex[-1]['args'] if ex else None}")
 
 asyncio.run(scenarios())
 asyncio.run(transcript_driven())
