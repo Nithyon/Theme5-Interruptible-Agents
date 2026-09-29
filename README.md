@@ -63,6 +63,16 @@ We never tune on FDB-v3's own 100 recordings — that's disqualifying. Instead w
 
 **Honest conclusion:** on our dev set, Jev (config C) roughly **ties** the rules-only gate (config A2) on strict pass (41/62 both), with a modest reduction in stale calls (4/30 vs 5/30) — a real but small effect, not a decisive win. The residual failures share one shape: a sentence that already sounds grammatically complete, followed by a pause and then a correction ("Track order QM77 [1.6s pause] wait, no, QM78") — Gemini ends its turn right at the pause, and Jev *correctly* reports the turn as "complete" too, because at that point in time it genuinely does sound finished. **No turn-final judge — ours or Jev's — can foresee a correction that hasn't been spoken yet.** We tried buying more time against exactly this failure by increasing Gemini's own end-of-turn silence threshold to 1800ms (config D), but it made the stale-call rate worse again while adding over a second of latency (5.28s vs 4.24s) — rejected. The rest of the residual gap is TTS/ASR mishearing (e.g. "Vancouver" heard as "London", "K442" as "A442") and two cases where the model still asked a follow-up question despite the prompt rule against it — neither is something the gate or Jev can fix.
 
+**Decision-level evidence, not just end-to-end pass rate** (`devset/eval_decisions.py`, scored against our own dev-set utterances, logged in `project-log/runs/2026-09-29_decision_eval.json`):
+
+| Decision | Rules-only | Jev-only | **Combined (rules OR Jev)** |
+|---|---|---|---|
+| Turn-state accuracy | **0.796** | 0.714 | 0.735 |
+| Mid-sentence pause catch | 0.60 | 0.64 | **0.68** |
+| Correction-vs-addition | 0.963 | 0.963 | 0.963 (tie) |
+
+This is why the shipped gate uses `GATE_COMBINE=either`: hold if *either* the rule-based logic or Jev thinks the user is still going, and only take the fast 0.4 s release when Jev says complete **and** the rules see no hesitation cue. Read plainly: **Jev alone does not beat the rules** on turn-state accuracy (0.714 vs 0.796); it adds 5 false "continuing" verdicts on genuinely complete sentences, which costs latency, not correctness. On **mid-sentence pauses** (utterances cut at a pause point, e.g. "flights to Amsterdam on…") Jev catches slightly more (0.64 vs 0.60), and the OR-combination catches the most (0.68: rules 15, Jev 16, combined 17 of 25), so the two largely overlap and combining them gives a small, real gain. Neither can catch a correction that follows a sentence that already sounds complete ("Track order QM77 … wait, no, QM78"); that remains the main open failure. Correction-vs-addition classification is a tie (0.963 each). Net: this is not "Jev is smarter than the rules"; requiring both to agree before an early release trades a little latency for catching the most pauses on our dev set.
+
 ## Results
 
 | System | Pass@1 (exact-match) | Pass@1 (`--use-llm` GPT-4o judge) | Latency | Source |
@@ -71,7 +81,7 @@ We never tune on FDB-v3's own 100 recordings — that's disqualifying. Instead w
 | Paper: Gemini Live 3.1 | — | 0.540 | 4.25 s task completion | arXiv 2604.04847 |
 | Paper: Cascaded (Whisper/GPT-4o/TTS) | — | 0.450 | 10.12 s task completion | arXiv 2604.04847 |
 | **Ours: stock agent, no gate** (`baseline_agent.py`, `gemini-3.8-live`, all 100) | **0.50 (50/100)** | TBD (no judge key yet) | 3.92 s median perceived (first reply); task completion TBD | `project-log/SCORES.md`, `runs/2026-09-29_full_gemini3_8/` |
-| **Ours: with commit gate** (`gate_agent.py`, config C — Jev + draft-call hold + dangling-word trigger + prompt v2, the winning dev-set config above) | **TBD — full 100-recording run in progress** | TBD | TBD | `project-log/runs/` (link added once frozen) |
+| **Ours: with commit gate** (`gate_agent.py`, `GATE_COMBINE=either` — rules + Jev as one decider, draft-call hold + dangling-word trigger + prompt v2) | **TBD — full 100-recording run in progress** (`gate_gemini38_final`, started ~15:23 UTC 2026-09-29; an earlier config-C-only run was stopped at 10/100 once the combined decider was adopted) | TBD | TBD | `project-log/runs/` (link added once frozen) |
 
 > The paper's pass rates were scored with the GPT-4o judge; our exact-match numbers are stricter, so they are **not** directly comparable until our runs are re-scored with the judge. Latency: the paper reports task-completion time; "perceived" is time from the user's speech end to the agent's first reply.
 

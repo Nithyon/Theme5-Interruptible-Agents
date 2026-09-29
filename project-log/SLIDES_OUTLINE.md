@@ -26,6 +26,7 @@ Draft for the Theme 05 submission deck. Every number is either sourced or marked
 - Supersede: a newer call to the same tool, after the user speaks again, replaces the held one — the stale one is dropped, never executed, never logged; Jev additionally classifies *what kind* of follow-up it is (correction / addition / retraction / new request / backchannel)
 - Dedupe: canonicalized-argument check blocks executing an identical call twice
 - Draft-call hold + dangling-word trigger: catches Gemini's mid-sentence placeholder calls (empty/default args) and utterances that trail off on an incomplete word
+- **`GATE_COMBINE=either` — rules and Jev vote together, not Jev alone:** hold if *either* says the user is still going; fast 0.4s release only when Jev says complete **and** the rules see no hesitation. Decision-level eval (`devset/eval_decisions.py`): turn-state accuracy rules 0.796 vs Jev 0.714 vs combined 0.735 (Jev alone is *not* more accurate); but mid-sentence pause catch is rules 0.60, Jev 0.64, **combined 0.68** — the two catch different mistakes, so requiring agreement on early release beats either alone. Correction-vs-addition: 0.963 for both, a tie.
 - 8 s hard cap so a long pause can't stall the conversation
 - Timing constants tuned on our own 62-item synthetic dev set (`devset/scenarios.jsonl` + Lohit's 12 pause scenarios), not on FDB-v3 itself — never on the graded test items
 - **Figure:** none, or a small before/after timeline sketch (held → superseded vs. held → executed)
@@ -34,7 +35,7 @@ Draft for the Theme 05 submission deck. Every number is either sourced or marked
 - Baseline (stock agent, `gemini-3.8-live`, no gate, all 100): **50/100 (0.50) exact-match**, perceived latency median 3.92 s
 - Failure breakdown: self-correction 0.471, pause 0.389, false start 0.667 (by disfluency); travel 0.15, housing 0.115 lowest domains
 - **Dev-set tuning (README.md, "How we tuned"):** rules-only gate (A2) 41/62, 5/30 stale calls, 4.16s — Jev+extras (C) 41/62, 4/30 stale calls, 4.24s. Roughly a tie on pass rate, a modest reduction in stale calls; remaining failures are pauses *after* a complete-sounding sentence, which no turn judge can foresee
-- **Full 100-recording benchmark, config C (Jev + draft hold + dangling trigger + prompt v2): TBD — run in progress**, frozen number and log link added before submission
+- **Full 100-recording benchmark, `GATE_COMBINE=either` (rules + Jev as one decider) + draft hold + dangling trigger + prompt v2: TBD — run in progress** (`gate_gemini38_final`, started ~15:23 UTC 2026-09-29; an earlier config-C-only run was stopped at 10/100 once the combined decider was adopted), frozen number and log link added before submission
 - `--use-llm` judge column: **TBD**, pending an OpenAI/Azure key
 - **Figure:** the Results table from `README.md`, with the gate row filled in once frozen
 

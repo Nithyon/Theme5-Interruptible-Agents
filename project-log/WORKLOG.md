@@ -81,3 +81,4 @@ Newest first. One entry per working session: what was done, results, files touch
 ## 2026-09-20 → 2026-09-21
 - Read the Theme 5 guide and participant kit; baseline agent 56.6 on the public scenarios.
 - Created `D:\Theme5-Interruptible-Agents`, flattened the kit so `submission.yaml` is at the root, wrote `BRIEFING.md`, initialized git (nothing committed yet).
+- 2026-09-29 (Sonnet, S14): Updated README.md "How we tuned" and SLIDES_OUTLINE.md with combined-decider (`GATE_COMBINE=either`) decision-level evidence from `project-log/runs/2026-09-29_decision_eval.json` — turn-state accuracy rules 0.796/Jev 0.714/combined 0.735, pause catch rules 0.60/Jev 0.64/combined 0.68, correction-vs-addition 0.963 tie. Honest framing: Jev alone doesn't beat rules on accuracy; the OR-combination catches the most pauses. Results table now describes the shipped combined-decider config and notes the stopped config-C run / new `gate_gemini38_final` run.
