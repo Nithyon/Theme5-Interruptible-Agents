@@ -17,6 +17,7 @@ import functools
 import inspect
 import json
 import logging
+import os
 import time
 from dataclasses import dataclass, field
 from typing import Any, Awaitable, Callable, Dict, List, Optional
@@ -40,10 +41,24 @@ _HESITANT_TAILS = ("um", "uh", "er", "erm", "hmm", "wait", "no", "actually", "so
                    "i mean", "or", "and", "but", "like", "so", "make that", "scratch that")
 
 
+# Words that leave a sentence grammatically unfinished when they come last ("flights to
+# Amsterdam on…", "autopay from…"). From Lohit's hold rule (T5_upgrade_pack); enabled with
+# GATE_DANGLING=1.
+_DANGLING = {"to", "for", "from", "on", "in", "at", "with", "by", "of", "into", "under", "over",
+             "about", "then", "also", "plus", "the", "a", "an", "my", "our", "your", "some",
+             "this", "that", "is", "be", "make", "set", "change", "add", "book", "track",
+             "search", "convert", "update", "find", "get", "show", "around", "maybe"}
+DANGLING_ON = os.getenv("GATE_DANGLING", "0") == "1"
+
+
 def ends_hesitantly(text: str) -> bool:
     words = "".join(c if c.isalnum() or c in " '" else " " for c in text.lower()).split()
     tail = " ".join(words[-2:])
-    return bool(words) and (words[-1] in _HESITANT_TAILS or tail in _HESITANT_TAILS)
+    if not words:
+        return False
+    if words[-1] in _HESITANT_TAILS or tail in _HESITANT_TAILS:
+        return True
+    return DANGLING_ON and (words[-1] in _DANGLING or text.rstrip().endswith(("...", "…", "--", ",")))
 
 
 # Words in what the user said *after* a call was proposed that decide whether a newer call

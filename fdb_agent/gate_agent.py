@@ -47,11 +47,32 @@ EXTRA_RULES = (
 )
 
 
+# GATE_PROMPT=2: the merged rule set (ours + Lohit's prompt_addendum, T5_upgrade_pack).
+EXTRA_RULES_V2 = (
+    " TURN RULES: Wait until the user has finished the whole request before acting; people"
+    " pause, say 'um', and correct themselves. The LAST stated value wins: 'Boston… no wait,"
+    " New York' means New York; '200, make that 250' means 250. If the user cancels or"
+    " replaces a request ('don't book, just…', 'forget that'), do not perform the cancelled"
+    " action. Call each tool exactly once per distinct request and never repeat a call you"
+    " already made. If the user asks for two different items with the same tool (two order"
+    " ids, two cards), call it once for each item. Use values exactly as the user said them"
+    " (city names, product ids, order ids, names); currencies as 3-letter codes (USD, EUR,"
+    " GBP, JPY, INR, CAD); numbers as digits. The user cannot answer follow-up questions: if a"
+    " detail is not stated, use the user's own words as the value (for example 'home', 'my"
+    " office'); never ask for more details. After the tools return, always speak a short"
+    " answer that states the key results first. Never say something is done before its tool"
+    " result arrives; while waiting you may say you're checking."
+)
+
+
 class GatedVoiceAgent(stock.VoiceAgent):
     def __init__(self) -> None:
         super().__init__()
-        if os.getenv("GATE_PROMPT", "1") == "1":
+        mode = os.getenv("GATE_PROMPT", "1")
+        if mode == "1":
             self._instructions = self.instructions + EXTRA_RULES
+        elif mode == "2":
+            self._instructions = self.instructions + EXTRA_RULES_V2
 
 
 server = stock.AgentServer()
