@@ -20,6 +20,7 @@ from livekit.agents.llm.tool_context import FunctionTool          # noqa: E402
 from gate import CommitGate, gate_tools                           # noqa: E402
 from models import gemini_live                                    # noqa: E402
 from jev import make_judge                                        # noqa: E402
+from responsive import Responsiveness                             # noqa: E402
 
 MODEL = os.getenv("GEMINI_LIVE_MODEL", "gemini-3.8-live")
 PROVIDER = os.getenv("LK_PROVIDER", "gate_gemini38")
@@ -89,6 +90,9 @@ async def entrypoint(ctx: agents.JobContext):
                       draft_hold_s=float(os.getenv("GATE_DRAFT_HOLD_S", "0")))
     tools = gate_tools(llm.find_function_tools(fnc_ctx), gate, FunctionTool)
     session = AgentSession(llm=realtime_model(), tools=tools)
+    resp = Responsiveness(session, gate,
+                          ack=os.getenv("GATE_ACK", "0") == "1",
+                          watchdog=os.getenv("GATE_WATCHDOG", "0") == "1")
 
     @session.on("user_state_changed")
     def _user_state(ev):
@@ -103,6 +107,7 @@ async def entrypoint(ctx: agents.JobContext):
 
     @session.on("agent_state_changed")
     def _agent_state(ev):
+        resp.on_agent_state(ev.new_state)
         if ev.new_state == "speaking" and tracker.query_received and not tracker.agent_start_at:
             tracker.agent_start_at = time.time()
             tracker.log_breakdown(tool_name="Search Tool", room_name=ctx.room.name)

@@ -228,6 +228,30 @@ async def draft_rule():
     check(ran == ["real"], f"draft call replaced by the completed call {ran}")
 
 
+async def turn_done_signal():
+    # 13. "stay responsive": the turn-done signal fires once, only when the user is done
+    fired = []
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(turn={"complete": 0.95, "continuing": 0.05}))
+    g.on_turn_done = lambda: fired.append(1)
+    g.on_user_transcript("track order 4471 please", True)
+    await asyncio.sleep(0.05)
+    check(fired == [1], "turn done: fires when Jev says complete and no hesitation")
+    g.on_user_transcript("track order 4471 please", True)       # same idea, new event
+    await asyncio.sleep(0.05)
+    check(len(fired) == 2, "turn done: fires again for a new final transcript")
+    fired.clear()
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(turn={"complete": 0.95, "continuing": 0.05}))
+    g.on_turn_done = lambda: fired.append(1)
+    g.on_user_transcript("search flights to Boston, um", True)
+    await asyncio.sleep(0.05)
+    check(fired == [], "turn done: never fires on a hesitation (no talking over a pause)")
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(turn={"complete": 0.1, "continuing": 0.9}))
+    g.on_turn_done = lambda: fired.append(1)
+    g.on_user_transcript("book the flight for", True)
+    await asyncio.sleep(0.05)
+    check(fired == [], "turn done: never fires when Jev says continuing")
+
+
 async def wrapped_tools():
     # 7. through the real wrapped tools: positional and keyword calls both carry their
     # arguments into the gate, so two different orders are not treated as duplicates
@@ -244,6 +268,7 @@ asyncio.run(scenarios())
 asyncio.run(transcript_driven())
 asyncio.run(with_jev())
 asyncio.run(draft_rule())
+asyncio.run(turn_done_signal())
 asyncio.run(wrapped_tools())
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)

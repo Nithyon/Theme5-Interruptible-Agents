@@ -135,6 +135,9 @@ class CommitGate:
     unclear_supersedes: bool = True       # a same-tool re-call after more speech with no cue
     judge: Any = None                     # optional JevJudge; None = rules only
     draft_hold_s: float = 0.0             # >0: hold placeholder-looking calls this long
+    on_turn_done: Optional[Callable[[], None]] = None      # the user has really finished
+    on_tool_done: Optional[Callable[[str], None]] = None   # a tool result was returned
+    _turn_done_idx: int = -1
     jev_turn: Optional[Dict[str, float]] = None   # Jev's view of the latest transcript
     jev_turn_idx: int = -1                # which transcript event jev_turn refers to
     transcript: List[tuple] = field(default_factory=list)   # (monotonic time, text) per event
@@ -167,19 +170,36 @@ class CommitGate:
             self.transcript.append((now, text))
             self.stats["transcripts"] += 1
             self._event("transcript", text=text[-120:], final=final)
+            idx = len(self.transcript) - 1
             if self.judge is not None:
-                idx = len(self.transcript) - 1
                 context = " ".join(t for _, t in self.transcript[-3:])
                 try:
                     asyncio.get_running_loop().create_task(self._ask_turn(idx, context))
                 except RuntimeError:
                     pass                          # no loop (sync caller): rules only
+            elif final and not ends_hesitantly(text):
+                self._turn_done(idx)              # rules only: a final, unhesitant transcript
 
     async def _ask_turn(self, idx: int, context: str) -> None:
         probs = await self.judge.turn_state(context)
         if probs is not None and idx == len(self.transcript) - 1:
             self.jev_turn, self.jev_turn_idx = probs, idx
             self._event("jev_turn", idx=idx, probs={k: round(v, 3) for k, v in probs.items()})
+            if probs.get("complete", 0.0) >= JEV_DONE_P and not ends_hesitantly(self.last_user_text):
+                self._turn_done(idx)
+        elif probs is None and idx == len(self.transcript) - 1 and not ends_hesitantly(self.last_user_text):
+            self._turn_done(idx)                  # Jev unavailable: fall back to the rules
+
+    def _turn_done(self, idx: int) -> None:
+        """Both deciders agree the user has finished: time to acknowledge (once per turn)."""
+        if self.on_turn_done is None or idx <= self._turn_done_idx:
+            return
+        self._turn_done_idx = idx
+        self._event("turn_done", idx=idx)
+        try:
+            self.on_turn_done()
+        except Exception as e:                    # never let feedback break the gate
+            log.warning("on_turn_done failed: %s", e)
 
     def _speech_since(self, idx: int) -> str:
         return " ".join(t for _, t in self.transcript[idx:])
@@ -263,6 +283,11 @@ class CommitGate:
         result = await execute()
         self.executed[key] = result
         self.stats["executed"] += 1
+        if self.on_tool_done is not None:
+            try:
+                self.on_tool_done(name)
+            except Exception as e:
+                log.warning("on_tool_done failed: %s", e)
         return result
 
 
