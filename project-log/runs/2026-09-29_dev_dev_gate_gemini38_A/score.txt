@@ -1,0 +1,59 @@
+folder                                   scenario status       pass   must_not_call_hit
+s01_cf7feafa3aa4cb182315dd8e             s01    completed    PASS   False
+s02_9006ca73243ea4b8c42e2026             s02    completed    PASS   False
+s03_15745002c5191fb9d4aa4c69             s03    completed    PASS   None
+s04_df861765d96ba99bed8d1cd3             s04    completed    fail   None
+s05_7dc45b82b9669bac551ec318             s05    completed    PASS   False
+s06_dfb6a8939414b71ff6657f3e             s06    completed    fail   False
+s07_5244fe716b77e3d469b4db59             s07    completed    fail   True
+s08_6eb7a4346055906be342ee88             s08    completed    PASS   False
+s09_34aedc27a20ebdb9145fc41b             s09    completed    PASS   None
+s10_52da956d75805a0e9efef40f             s10    completed    PASS   False
+s11_ee4cbc211d6ca3aa1d95cbbe             s11    completed    PASS   False
+s12_0096012d05c5880222340ae2             s12    completed    fail   False
+s13_2c884f9e4722fa10d615265b             s13    completed    PASS   None
+s14_0a158f3317369c492819a759             s14    completed    PASS   False
+s15_1aa2939b5fc0fd294fbdb67d             s15    completed    PASS   None
+s16_b6bbed2a2128425461f8ce0f             s16    completed    fail   False
+s17_d703e445a77bdbbcf8cd422b             s17    completed    PASS   None
+s18_0fbc6692e57f17e1f4aaa807             s18    completed    PASS   False
+s19_ec40b686314d2d507fd8d7ff             s19    completed    fail   None
+s20_03fde5cf9bb66ec2bd470d3d             s20    completed    PASS   False
+s21_ba7fe23551a112368d7f41d4             s21    completed    PASS   False
+s22_ef9e6af0a8f8b00cac4ffe08             s22    completed    PASS   False
+s23_7be3b0068e1e78b5985a55fa             s23    completed    PASS   False
+s24_a8e90c639590344e198a52c1             s24    completed    PASS   None
+s25_82234274110a509e36b3c9a7             s25    completed    PASS   None
+s26_0eb8e1ea8e8fff487110f243             s26    completed    PASS   False
+s27_4e68beae3fa255eaf029fa2c             s27    completed    fail   None
+s28_aade5c5c134d109c958339a4             s28    completed    fail   False
+s29_6e62a737401b4f06d468e6ca             s29    completed    fail   False
+s30_413c3c34c786333e8df64041             s30    completed    PASS   None
+s31_e715446bbcbcf1239676ea21             s31    completed    PASS   False
+s32_6210f16d25ac701bf9abc4b9             s32    completed    PASS   False
+s33_a73834924953665b4438652c             s33    completed    PASS   None
+s34_a048c8ab603eb4fc0267e369             s34    completed    PASS   False
+s35_ac4234a18d7d217c4b7fa134             s35    completed    PASS   None
+s36_976d24576f8331972c02bfc7             s36    completed    PASS   False
+s37_220159c0117488726bce6875             s37    completed    PASS   None
+s38_5aed877210d76b79b60cf064             s38    completed    PASS   False
+s39_40c0df72186d6c36471bb7ca             s39    completed    fail   None
+s40_4bc24a6771527f72f194fd71             s40    completed    PASS   False
+s41_bc40f000ff71bdda95a5174d             s41    completed    fail   None
+s42_259b2f92f910d37feb513189             s42    completed    fail   None
+s43_f49fd413a5c1f6150c5920bc             s43    completed    fail   None
+s44_1d6c3ca6e371e2239f05e2c7             s44    completed    fail   None
+s45_38a044f425b5b86409efda56             s45    completed    fail   None
+s46_cdbdca632dab5f77f2866b44             s46    completed    fail   None
+s47_7b9a8bca64d16775060a545e             s47    completed    fail   None
+s48_fe7f9609f280d1832019ff10             s48    completed    fail   None
+s49_ce699b790bdc5817cbe68617             s49    completed    PASS   None
+s50_56537ecf698acfd80d3905de             s50    completed    PASS   None
+
+--- summary ---
+strict pass: 32/50 (64.0%)
+must_not_call hits: 1/25 (4.0%) — lower is better, 0% is the goal
+  ecommerce: 9/12 (75.0%)
+  finance: 8/13 (61.5%)
+  housing: 7/12 (58.3%)
+  travel: 8/13 (61.5%)

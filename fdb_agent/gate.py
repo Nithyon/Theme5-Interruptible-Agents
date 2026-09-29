@@ -75,6 +75,17 @@ def classify_followup(text: str) -> str:
     return "unclear"
 
 
+def looks_draft(args: Dict[str, Any]) -> bool:
+    """A call with an empty or zero-valued argument is usually a placeholder the model
+    emitted at a mid-sentence pause ("flights to Amsterdam on…" → date="")."""
+    for v in args.values():
+        if v is None or (isinstance(v, str) and not v.strip()):
+            return True
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and v == 0:
+            return True
+    return False
+
+
 def _canon(args: Dict[str, Any]) -> str:
     def norm(v):
         return v.strip().lower() if isinstance(v, str) else v
@@ -107,6 +118,7 @@ class CommitGate:
     seq: int = 0
     unclear_supersedes: bool = True       # a same-tool re-call after more speech with no cue
     judge: Any = None                     # optional JevJudge; None = rules only
+    draft_hold_s: float = 0.0             # >0: hold placeholder-looking calls this long
     jev_turn: Optional[Dict[str, float]] = None   # Jev's view of the latest transcript
     jev_turn_idx: int = -1                # which transcript event jev_turn refers to
     transcript: List[tuple] = field(default_factory=list)   # (monotonic time, text) per event
@@ -184,7 +196,9 @@ class CommitGate:
             if old.speech_epoch < p.speech_epoch and kind == "none":
                 kind = "correction"           # a VAD/interrupt said the user spoke again
             source = "rules"
-            if self.judge is not None and kind != "none":
+            if self.draft_hold_s > 0 and looks_draft(old.args) and not looks_draft(args):
+                kind, source = "correction", "draft"   # placeholder refined by the real call
+            elif self.judge is not None and kind != "none":
                 probs = await self.judge.followup({"tool": old.name, "args": old.args},
                                                   {"tool": name, "args": args}, said)
                 if probs:
@@ -207,7 +221,10 @@ class CommitGate:
                                        "note": "The user corrected this request; the updated "
                                                "request is being handled instead."})
                 now = time.monotonic()
-                settled = (not self.user_speaking) and now - self.last_user_activity >= self.required_quiet()
+                need = self.required_quiet()
+                if self.draft_hold_s > 0 and looks_draft(p.args):
+                    need = max(need, self.draft_hold_s)
+                settled = (not self.user_speaking) and now - self.last_user_activity >= need
                 if settled or now - p.created >= self.max_hold_s:
                     break
                 await asyncio.sleep(POLL_S)

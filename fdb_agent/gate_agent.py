@@ -64,7 +64,8 @@ async def entrypoint(ctx: agents.JobContext):
     gate = CommitGate(quiet_s=float(os.getenv("GATE_QUIET_S", "0.9")),
                       hesitant_quiet_s=float(os.getenv("GATE_HESITANT_QUIET_S", "1.8")),
                       unclear_supersedes=os.getenv("GATE_UNCLEAR_SUPERSEDES", "1") == "1",
-                      judge=make_judge())
+                      judge=make_judge(),
+                      draft_hold_s=float(os.getenv("GATE_DRAFT_HOLD_S", "0")))
     tools = gate_tools(llm.find_function_tools(fnc_ctx), gate, FunctionTool)
     session = AgentSession(llm=realtime_model(), tools=tools)
 

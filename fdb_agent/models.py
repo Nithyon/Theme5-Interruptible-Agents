@@ -11,6 +11,14 @@ def gemini_live(model: str):
     from livekit.plugins.google.realtime import realtime_api
 
     kw = dict(model=model, voice=os.getenv("GOOGLE_VOICE", "Puck"))
+    # Optional: make Gemini's own end-of-turn detection wait longer through thinking
+    # pauses (GEMINI_SILENCE_MS, e.g. 1200) so it doesn't end the turn mid-sentence.
+    silence = os.getenv("GEMINI_SILENCE_MS")
+    if silence:
+        from google.genai import types
+        kw["realtime_input_config"] = types.RealtimeInputConfig(
+            automatic_activity_detection=types.AutomaticActivityDetection(
+                silence_duration_ms=int(silence)))
     if os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "").lower() in ("1", "true", "yes"):
         # The plugin's hard-coded list marks gemini-3.8-live as AI-Studio-only, but
         # Vertex serves it (checked with project-log/scripts/check_vertex.py), so drop

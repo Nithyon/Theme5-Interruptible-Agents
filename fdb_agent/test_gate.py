@@ -195,6 +195,28 @@ async def with_jev():
     check(ran == ["New York"], f"jev down: rule fallback still corrects {ran}")
 
 
+async def draft_rule():
+    # 12. a placeholder call (empty date) at a pause is held and replaced by the real one
+    from gate import looks_draft
+    check(looks_draft({"destination": "Amsterdam", "date": ""}) and looks_draft({"bedrooms": 0})
+          and not looks_draft({"quantity": 3, "product_id": "P42"}), "draft detection")
+    ran = []
+
+    def fake(v):
+        async def go():
+            ran.append(v)
+            return "ok"
+        return go
+    g = CommitGate(quiet_s=0.3, draft_hold_s=1.5)
+    g.on_user_transcript("search flights to Amsterdam on")
+    t1 = asyncio.create_task(g.run("search_flights", {"destination": "Amsterdam", "date": ""}, fake("draft")))
+    await asyncio.sleep(1.0)                        # a 1 s pause: past the normal window
+    g.on_user_transcript("September 20th")
+    t2 = asyncio.create_task(g.run("search_flights", {"destination": "Amsterdam", "date": "2026-09-20"}, fake("real")))
+    await asyncio.gather(t1, t2)
+    check(ran == ["real"], f"draft call replaced by the completed call {ran}")
+
+
 async def wrapped_tools():
     # 7. through the real wrapped tools: positional and keyword calls both carry their
     # arguments into the gate, so two different orders are not treated as duplicates
@@ -210,6 +232,7 @@ async def wrapped_tools():
 asyncio.run(scenarios())
 asyncio.run(transcript_driven())
 asyncio.run(with_jev())
+asyncio.run(draft_rule())
 asyncio.run(wrapped_tools())
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)
