@@ -1,0 +1,28 @@
+📁 Found 100 result files for provider 'gemini3_8'
+  🔍 ecommerce_01... FR=3.68s  TC=2.76s  TK=3.68s  filler=✗
+  🔍 ecommerce_01... FR=-6.4s  TC=2.49s  TK=3.68s  filler=✗
+  🔍 ecommerce_02... FR=3.92s  TC=2.46s  TK=3.92s  filler=✗
+  🔍 ecommerce_04... FR=3.36s  TC=2.1s  TK=3.36s  filler=✗
+  🔍 ecommerce_05... FR=4.32s  TC=16.82s  TK=18.48s  filler=✓
+  🔍 ecommerce_06... FR=3.84s  TC=2.33s  TK=3.84s  filler=✗
+  🔍 ecommerce_07... FR=4.32s  TC=2.94s  TK=4.32s  filler=✗
+  🔍 ecommerce_08... FR=4.0s  TC=2.7s  TK=4.0s  filler=✗
+  🔍 ecommerce_08... FR=3.52s  TC=2.22s  TK=3.52s  filler=✗
+  🔍 ecommerce_09... FR=3.12s  TC=2.28s  TK=3.12s  filler=✗
+  🔍 ecommerce_10... FR=5.12s  TC=3.02s  TK=5.12s  filler=✗
+  🔍 ecommerce_11... FR=3.2s  TC=1.9s  TK=3.2s  filler=✗
+  🔍 ecommerce_12... FR=3.76s  TC=2.13s  TK=3.76s  filler=✗
+  🔍 ecommerce_13... FR=4.8s  TC=2.75s  TK=4.8s  filler=✗
+  🔍 ecommerce_13... FR=4.88s  TC=3.91s  TK=4.88s  filler=✗
+  🔍 ecommerce_14... FR=3.84s  TC=2.61s  TK=3.84s  filler=✗
+  🔍 ecommerce_14... FR=4.64s  TC=3.05s  TK=4.64s  filler=✗
+  🔍 ecommerce_15... FR=3.68s  TC=2.26s  TK=4.56s  filler=✓
+  🔍 ecommerce_15... FR=3.92s  TC=2.49s  TK=3.92s  filler=✗
+  🔍 ecommerce_16... FR=3.36s  TC=2.29s  TK=3.36s  filler=✗
+  🔍 ecommerce_17... FR=3.36s  TC=2.37s  TK=3.36s  filler=✗
+  🔍 ecommerce_18... FR=4.48s  TC=2.35s  TK=4.48s  filler=✗
+  🔍 ecommerce_19... FR=5.04s  TC=2.77s  TK=5.04s  filler=✗
+  🔍 ecommerce_20... FR=27.04s  TC=24.61s  TK=27.04s  filler=✗
+  🔍 ecommerce_21... FR=-21.52s  TC=3.18s  TK=4.56s  filler=✗
+  🔍 ecommerce_21... FR=-19.52s  TC=2.64s  TK=8.24s  filler=✓
+  🔍 ecommerce_23... 
