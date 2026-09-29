@@ -19,6 +19,14 @@ Evidence sources: baseline run `runs/2026-09-29_full_gemini3_8/` (strict + Gemin
 | A9 | Latency | `analyze_tool_latency.py`: first response, tool-call, task completion | first reply median **3.92 s** (baseline); dev: A2 4.16 s, C 4.24 s | first reply ≤ 4.5 s; report tool-call latency | Jev fast release (0.4 s) on clearly finished turns | TODO: run latency analysis |
 | A10 | No empty/failed conversations | results with status ≠ completed or no response | 0 in baseline after billing fix | 0 | retry on Gemini connection drop | watch in final run |
 
+## G. The guide's three capabilities ("What you build": stay responsive / work async / recover cleanly)
+
+| # | Capability | Objective | Now (evidence) | Target | Plan | Status |
+|---|---|---|---|---|---|---|
+| G1 | **Stay responsive**: acknowledge instantly ("meaningful spoken feedback within a few hundred milliseconds, no dead air, no false done") | cut time to first speech | first reply median **3.9 s** (baseline), 4.2 s dev | ≈ 1 s, with passes unchanged | on end of user turn, a short neutral acknowledgement ("Sure, one moment") while the gate/tools work; never result-like words; test on the dev set only; check that speaking on demand via Gemini is actually faster | TODO (test after final run) |
+| G2 | **Work async**: tools + perception | tools never block the conversation; slow tools narrated | Gemini 3.8 NON_BLOCKING tools; gate holds without pausing speech; extension narrates slow tools (offline tests) | shown live in the extension demo | run `ext_agent.py` live | TODO (D1) |
+| G3 | **Recover cleanly**: corrections + rollback | drop stale intent, never double-execute, **undo** when possible | gate supersede/duplicate block; extension idempotency + handoff; **rollback built**: `ToolRunner.rollback_and_run` compensates (`cancel_charging_booking`) then re-books, `on_rollback` callback for the talker, compensation-failure → handoff (35/35 offline tests incl. rollback + failed-compensation cases) | extension shows a compensating action (cancel old booking, book new) on a change of mind after execution | wired into `ext_agent.py` (write-only) + demo beat added to `DESIGN.md`/`VIDEO_SCRIPT.md`; live run pending with D1 | done offline; live demo TODO |
+
 ## B. Reproducibility (gates the whole 60%)
 
 | # | Objective | Now | Target | Status |
@@ -43,7 +51,7 @@ Evidence sources: baseline run `runs/2026-09-29_full_gemini3_8/` (strict + Gemin
 
 | # | Objective | Now | Target | Status |
 |---|---|---|---|---|
-| D1 | In-car recovery agent runs live end to end | core + 22 offline tests; `ext_agent.py` never run | live session works (slow tool, retry, change of mind, handoff) | TODO after the final run (LiveKit busy) |
+| D1 | In-car recovery agent runs live end to end | core + rollback (35 offline tests); wired into `ext_agent.py`, never run live | live session works (slow tool, retry, change of mind, handoff, rollback) | TODO after the final run (LiveKit busy) |
 | D2 | Recorded on video, unedited take | script ready (`VIDEO_SCRIPT.md`) | 2-min segment | TODO |
 
 ## E. Docs, architecture, video (20%)

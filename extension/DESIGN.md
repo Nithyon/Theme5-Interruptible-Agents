@@ -9,8 +9,9 @@ because FDB-v3 has no video in Round 1, so this stays audio/text-only by design,
 compromise.
 
 **Status: design + offline core built (`recovery.py`, `mock_tools.py`, `test_recovery.py`,
-all offline tests passing). Not yet wired into a live LiveKit agent** — that happens after
-the gate run finishes (see "How this plugs in" below).
+35/35 offline tests passing, including the rollback/compensation path). Wired into
+`ext_agent.py` (write-only draft) but not yet run live** — that happens after the gate run
+finishes (see "How this plugs in" below).
 
 ## The scenario
 
@@ -18,14 +19,15 @@ Driver: *"Reroute me to the airport... actually, no, take me downtown instead. A
 traffic on the way. Also find me a charging station near downtown, CCS connector, and book
 the 6pm slot. If none of that works, get me roadside assistance."*
 
-## The 5 mock tools (`mock_tools.py`)
+## The 6 mock tools (`mock_tools.py`)
 
 | Tool | Kind | Behavior |
 |---|---|---|
 | `reroute_navigation(destination)` | state-changing, fast | Always succeeds quickly |
 | `check_traffic(route_id)` | read-only, **slow** (3–8 s) | Always succeeds, but takes a while |
 | `find_charging_station(near, connector_type)` | read-only, **intermittent failures** | Fails the first 2 attempts for a given (near, connector) pair, then succeeds — a flaky upstream, not a permanent outage |
-| `book_charging_slot(station_id, time_slot)` | **state-changing, must be idempotent** | Booking the same station+slot twice returns the same booking, never creates a second one |
+| `book_charging_slot(station_id, time_slot)` | **state-changing, must be idempotent** | Booking the same station+slot twice returns the same booking, never creates a second one. Not exposed to the model as a separate "rollback" tool — the model just calls this again with the new station, and the recovery layer compensates the old booking transparently (see (f) below) |
+| `cancel_charging_booking(booking_ref)` | **state-changing, must be idempotent, compensating** | Cancels an existing booking by id; cancelling the same booking twice returns the same "already cancelled" result rather than erroring. Only ever called by the recovery layer itself, never exposed as a model-callable tool |
 | `call_roadside_assistance(issue)` | state-changing, **permanently down** in this mock | Always fails — exists specifically to exercise the handoff path |
 
 ## Behaviors, and where they're implemented/tested
@@ -63,6 +65,30 @@ reference HANDOFF-0001."* Tested in scenario (d), using the permanently-failing
 `ToolFailure`) is never auto-retried at all** — a timeout is ambiguous (did the booking land
 before the timeout or not?), so it goes straight to the failure/handoff path rather than
 risking a duplicate state change. Also tested in scenario (d).
+
+**(f) Correction *after* a booking already succeeded → rollback, not just supersede.**
+Supersede (c) only helps while a call is still pending — it does nothing once
+`book_charging_slot` has already returned success and the driver *then* changes their mind
+("actually, the Ionity one instead"). For that, `ToolRunner.rollback_and_run(...)` first runs
+a compensating call (`cancel_charging_booking(booking_ref)`, routed through the same
+timeout/retry/idempotency machinery as any other call) and only proceeds to the new booking if
+the compensation actually succeeds; it then fires `on_rollback(old_tool, compensate_tool,
+new_tool, new_result)` so the talker can say *"I've cancelled the Tesla booking and booked
+Ionity instead."* Three safety rules, enforced in the recovery layer itself rather than left
+to the model or the caller:
+- **never compensates a call that didn't succeed** — nothing is compensated if there's no
+  successful `CompletedCall` recorded for that slot, and asking for the exact same booking
+  again is just idempotency (handled by `run()`'s cache), not a rollback;
+- **never runs the same compensation twice** — `CompletedCall.compensated` flips once a
+  booking has been cancelled, so a second correction in the same slot compensates the *new*
+  (second) booking, not the first one again;
+- **if the compensation itself fails, go straight to human handoff and never attempt the new
+  call** — so the driver is never left with two bookings active with nobody told, nor silently
+  down to zero with no explanation.
+
+Tested in `test_recovery.py`, scenarios (f) (successful rollback, replay-is-a-no-op, a second
+correction compensates the second booking not the first) and (g) (a failed compensation routes
+to handoff and the new booking is never attempted).
 
 **(e) Everything logged.**
 `EventLog` records one JSON-serializable `Event` per state transition — `proposed`,
@@ -106,7 +132,7 @@ flowchart LR
 This is a plan for the lead session to execute once the current gate run finishes (per the
 task's rule not to start any agent or touch `fdb_agent/` from this session) — not yet done.
 
-## 60–90 s demo script (for the video)
+## ~105 s demo script (for the video)
 
 1. *(0–15s)* Driver: "Reroute to the airport." → instant reroute confirmed.
 2. *(15–30s)* Driver: "Actually, check traffic on the way to downtown instead." → talker says
@@ -116,8 +142,12 @@ task's rule not to start any agent or touch `fdb_agent/` from this session) — 
    fail internally (flaky mock), retried automatically with backoff, third succeeds — driver
    only hears the final answer, not the retries. Driver: "Book the 6pm slot" → confirmed once;
    driver repeats "book it again" as a joke/test → same booking ID returned, no duplicate.
-4. *(50–65s)* Driver: "Reroute to the mall instead — no wait, actually, forget it, call
+4. *(50–65s)* Driver, after the booking is already confirmed: "Actually, book the Ionity
+   station instead." → talker says "Done — I've cancelled the previous booking and booked
+   Ionity instead," having actually cancelled the Tesla booking first (rollback, not
+   supersede — the booking had already succeeded, this isn't a pending call being replaced).
+5. *(65–80s)* Driver: "Reroute to the mall instead — no wait, actually, forget it, call
    roadside assistance, my tire's flat." → the pending reroute is superseded/dropped cleanly.
-5. *(65–90s)* Roadside assistance fails twice (mock is permanently down) → talker says
+6. *(80–105s)* Roadside assistance fails twice (mock is permanently down) → talker says
    "I've passed this to a human agent, reference HANDOFF-0001" instead of failing silently or
    retrying forever.

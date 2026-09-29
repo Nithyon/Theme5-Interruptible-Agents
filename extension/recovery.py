@@ -9,6 +9,9 @@ LiveKit agent later (see extension/DESIGN.md). It gives any tool call:
   (same pattern as fdb_agent/gate.py's dedupe-by-canonical-args, reused here deliberately);
 - cancel/supersede, so a call still pending is dropped cleanly when the user interrupts or
   changes their mind, without touching a call that already finished;
+- rollback, so a state-changing call the user corrects *after* it already succeeded (not just
+  while pending) runs a compensating action first, then the new call — never the new call
+  without a successful compensation, and never the same compensation twice;
 - progress callbacks, so the talker can say "still checking..." without claiming the tool
   is done;
 - a graceful handoff to a human after too many consecutive failures on the same request;
@@ -43,7 +46,7 @@ class ToolFailure(Exception):
 @dataclass
 class Event:
     seq: int
-    kind: str  # proposed|started|progress|retry|succeeded|failed|cancelled|superseded|handoff|duplicate
+    kind: str  # proposed|started|progress|retry|succeeded|failed|cancelled|superseded|handoff|duplicate|rollback
     call_id: str
     tool: str
     detail: str = ""
@@ -81,6 +84,17 @@ class PendingCall:
 
 
 @dataclass
+class CompletedCall:
+    """The last state-changing call that actually succeeded in a given slot — what a later
+    rollback would need to compensate for. `compensated` flips once, so the same success is
+    never compensated twice even if the driver corrects themselves more than once in a row."""
+    tool: str
+    args_key: str
+    result: Dict[str, Any]
+    compensated: bool = False
+
+
+@dataclass
 class ToolRunner:
     """Runs tool calls with timeout, retry/backoff, idempotency, cancel/supersede, progress
     callbacks, and a graceful handoff after repeated failures on the same logical request."""
@@ -92,10 +106,13 @@ class ToolRunner:
     handoff_after_failures: int = 3      # consecutive failed run() calls on one slot
     on_progress: Optional[Callable[[str, str], None]] = None       # (tool, call_id)
     on_handoff: Optional[Callable[[str, str, str], None]] = None   # (tool, call_id, ref)
+    on_rollback: Optional[Callable[[str, str, str, Dict[str, Any]], None]] = None
+    # (old_tool, compensate_tool, new_tool, new_result)
     log: EventLog = field(default_factory=EventLog)
     executed: Dict[str, Any] = field(default_factory=dict)        # idempotency key -> result
     failures: Dict[str, int] = field(default_factory=dict)        # slot -> consecutive fails
     pending: Dict[str, PendingCall] = field(default_factory=dict)  # slot -> in-flight call
+    completed: Dict[str, CompletedCall] = field(default_factory=dict)  # slot -> last succeeded
     _seq: int = 0
     _handoff_seq: int = 0
 
@@ -152,6 +169,8 @@ class ToolRunner:
                     result = await asyncio.wait_for(execute(), timeout=self.timeout_s)
                     self.executed[key] = result
                     self.failures[slot] = 0
+                    if state_changing:
+                        self.completed[slot] = CompletedCall(tool=tool, args_key=key, result=result)
                     self.log.emit("succeeded", call_id, tool, f"attempt {attempts}")
                     return result
                 except asyncio.CancelledError:
@@ -195,6 +214,56 @@ class ToolRunner:
             if cur is not None and cur.call_id == call_id:
                 del self.pending[slot]
         return result
+
+    async def rollback_and_run(self, tool: str, args: Dict[str, Any], execute: Callable[[], Awaitable[Any]],
+                               *, slot: str, compensate_tool: str, compensate_args: Dict[str, Any],
+                               compensate_execute: Callable[[], Awaitable[Any]]) -> Dict[str, Any]:
+        """For a state-changing correction that arrives *after* the previous call in this slot
+        already succeeded (e.g. the charger is already booked, and the driver says "actually,
+        the Ionity one instead") — run the compensating action first (e.g. cancel the old
+        booking), then the new call, and tell `on_rollback` so the talker can narrate both.
+
+        Rules, enforced here rather than left to the caller:
+        - never compensates a call that didn't succeed (nothing recorded in `completed[slot]`,
+          or the "new" request is identical to what's already booked — that's just idempotency,
+          handled by `run()`'s own cache, not a rollback);
+        - never runs the same compensation twice (`CompletedCall.compensated` flips once);
+        - if the compensation itself fails, goes to human handoff immediately and never
+          attempts the new call — so the driver is never left with both bookings active with
+          nobody having told them, nor silently down a booking with no explanation.
+        """
+        key = tool + "|" + _canon(args)
+        prior = self.completed.get(slot)
+        if prior is None or prior.compensated or prior.args_key == key:
+            # nothing to compensate: either there was no prior success, we already compensated
+            # it, or this "correction" is actually identical to what's already booked (run()'s
+            # own idempotency cache will just return the cached result).
+            return await self.run(tool, args, execute, slot=slot, state_changing=True)
+
+        comp_result = await self.run(compensate_tool, compensate_args, compensate_execute,
+                                     slot=f"{slot}:compensate", state_changing=True)
+        if comp_result.get("status") != "success":
+            if comp_result.get("status") == "handoff":
+                return comp_result  # already handed off after repeated compensation failures
+            ref = self._handoff_ref()
+            cid = self._next_call_id()
+            self.log.emit("handoff", cid, compensate_tool,
+                          f"ref={ref} compensation failed for slot={slot}: rollback aborted, "
+                          f"new call not attempted, prior booking left in place")
+            if self.on_handoff:
+                self.on_handoff(compensate_tool, cid, ref)
+            return {"status": "handoff", "reference": ref, "reason": "compensation_failed"}
+
+        prior.compensated = True
+        new_result = await self.run(tool, args, execute, slot=slot, state_changing=True)
+        if new_result.get("status") == "success":
+            rb_id = self._next_call_id()
+            self.log.emit("rollback", rb_id, tool,
+                          f"compensated {prior.tool} (key={prior.args_key}) via {compensate_tool}, "
+                          f"then executed {tool}")
+            if self.on_rollback:
+                self.on_rollback(prior.tool, compensate_tool, tool, new_result)
+        return new_result
 
     async def _progress_loop(self, tool: str, call_id: str) -> None:
         try:

@@ -8,10 +8,10 @@ gate run was in progress, and this needs live LiveKit + Gemini credentials).
 
 | File | What |
 |---|---|
-| `recovery.py` | `ToolRunner` — timeout, retry/backoff, idempotency, cancel/supersede, progress callbacks, handoff. No LiveKit imports. |
-| `mock_tools.py` | 5 deterministic mock tools (`MockBackend`), seed-controlled. |
-| `ext_agent.py` | The LiveKit agent: wires `InCarAssistant`'s 5 `function_tool`s through a shared `ToolRunner`, speaks progress/handoff lines. |
-| `test_recovery.py` | Offline tests for `recovery.py` (22 checks, all passing — see `project-log/SONNET_TASKS.md` S9). |
+| `recovery.py` | `ToolRunner` — timeout, retry/backoff, idempotency, cancel/supersede, rollback/compensation, progress callbacks, handoff. No LiveKit imports. |
+| `mock_tools.py` | 6 deterministic mock tools (`MockBackend`), seed-controlled, including the compensating `cancel_charging_booking`. |
+| `ext_agent.py` | The LiveKit agent: wires `InCarAssistant`'s 5 `function_tool`s through a shared `ToolRunner`, speaks progress/handoff/rollback lines. |
+| `test_recovery.py` | Offline tests for `recovery.py` (35 checks, all passing — see `project-log/SONNET_TASKS.md` S9, S16 for the rollback/compensation additions). |
 | `DESIGN.md` | Scenario, behaviors, architecture diagram, demo script. |
 
 ## Prerequisites

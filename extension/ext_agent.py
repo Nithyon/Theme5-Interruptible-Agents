@@ -29,7 +29,7 @@ from livekit import agents                                    # noqa: E402
 from livekit.agents import Agent, AgentServer, AgentSession, llm  # noqa: E402
 
 from mock_tools import MockBackend                             # noqa: E402
-from recovery import ToolRunner                                 # noqa: E402
+from recovery import ToolRunner, _canon                         # noqa: E402
 from models import gemini_live                                  # noqa: E402
 
 if hasattr(llm, "function_tool"):
@@ -46,7 +46,10 @@ SYSTEM_PROMPT = (
     "assistance. Execute the right tool immediately when the driver asks for something — "
     "do not ask clarifying questions, do not wait for confirmation before calling a tool. "
     "If the driver corrects themselves mid-request (e.g. 'reroute to the airport... actually "
-    "downtown instead'), act only on their final, corrected request. "
+    "downtown instead'), act only on their final, corrected request. If the driver changes "
+    "their mind about a charging booking that's already confirmed (e.g. 'actually, book the "
+    "Ionity one instead'), just call book_charging_slot again with the new station — the old "
+    "booking is cancelled for you automatically, don't call anything else first. "
     "Some tools take a few seconds; you will be told to say a short progress update if one is "
     "still running — keep it brief and never claim a result before you actually have one. "
     "If a tool reports a 'handoff' status, tell the driver you've passed their request to a "
@@ -112,11 +115,28 @@ class InCarAssistant:
             station_id: The station id from a prior search, e.g. 'CHG-001'
             time_slot: Requested time, e.g. '18:00'
         """
-        result = await self.runner.run(
-            "book_charging_slot", {"station_id": station_id, "time_slot": time_slot},
-            lambda: self.backend.book_charging_slot(station_id, time_slot),
-            slot="charging_booking", state_changing=True,
-        )
+        args = {"station_id": station_id, "time_slot": time_slot}
+        prior = self.runner.completed.get("charging_booking")
+        if prior is None or prior.compensated or prior.args_key == "book_charging_slot|" + _canon(args):
+            # nothing already booked in this slot, or this "booking" is identical to what's
+            # already there — a normal call, no compensation involved.
+            result = await self.runner.run(
+                "book_charging_slot", args,
+                lambda: self.backend.book_charging_slot(station_id, time_slot),
+                slot="charging_booking", state_changing=True,
+            )
+        else:
+            # the driver already has a successful booking in this slot and is now asking for a
+            # different one — cancel the old one first, then book the new one.
+            old_booking_id = prior.result["booking_id"]
+            result = await self.runner.rollback_and_run(
+                "book_charging_slot", args,
+                lambda: self.backend.book_charging_slot(station_id, time_slot),
+                slot="charging_booking",
+                compensate_tool="cancel_charging_booking",
+                compensate_args={"booking_ref": old_booking_id},
+                compensate_execute=lambda: self.backend.cancel_charging_booking(old_booking_id),
+            )
         return json.dumps(result)
 
     @ai_callable_decorator(description="Call roadside assistance for a car problem.")
@@ -168,6 +188,9 @@ async def entrypoint(ctx: agents.JobContext):
     runner.on_handoff = lambda tool, call_id, ref: _speak(
         f"I've passed this to a human agent. Your reference number is {ref}."
     )
+    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: _speak(
+        _rollback_line(old_tool, new_result)
+    )
 
     async def _report():
         with open("/tmp/ext_recovery_events.log", "a") as f:
@@ -186,6 +209,12 @@ def _progress_line(tool: str) -> str:
         "reroute_navigation": "Still rerouting...",
         "call_roadside_assistance": "Still trying to reach roadside assistance...",
     }.get(tool, "Still working on that...")
+
+
+def _rollback_line(old_tool: str, new_result: dict) -> str:
+    if old_tool == "book_charging_slot":
+        return f"Done — I've cancelled the previous booking and booked {new_result.get('station_id', 'the new station')} instead."
+    return "Done — I've reversed the previous action and completed the new one instead."
 
 
 if __name__ == "__main__":

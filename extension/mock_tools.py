@@ -1,8 +1,8 @@
 """Deterministic mock tools for the extension demo: an in-car assistant that reroutes
-navigation, checks traffic, and books EV charging, plus a permanently-down roadside-dispatch
-line to exercise the handoff path. No network calls. Behaviour is controlled entirely by a
-seed, so the same seed always produces the same sequence of delays/failures — useful for a
-repeatable demo and for offline tests.
+navigation, checks traffic, books (and, on rollback, cancels) EV charging, plus a
+permanently-down roadside-dispatch line to exercise the handoff path. No network calls.
+Behaviour is controlled entirely by a seed, so the same seed always produces the same
+sequence of delays/failures — useful for a repeatable demo and for offline tests.
 """
 from __future__ import annotations
 
@@ -56,6 +56,17 @@ class MockBackend:
                    "station_id": station_id, "time_slot": time_slot}
         self.bookings[key] = booking
         return booking
+
+    # -- state-changing, must be idempotent -> compensates a book_charging_slot on rollback --
+    async def cancel_charging_booking(self, booking_ref: str) -> dict:
+        await asyncio.sleep(0.05)
+        for booking in self.bookings.values():
+            if booking["booking_id"] == booking_ref:
+                if booking.get("cancelled"):
+                    return {"status": "success", "booking_id": booking_ref, "already_cancelled": True}
+                booking["cancelled"] = True
+                return {"status": "success", "booking_id": booking_ref, "cancelled": True}
+        raise ToolFailure(f"no booking found for {booking_ref}")
 
     # -- state-changing, permanently down in this mock -> exercises the handoff path ----
     async def call_roadside_assistance(self, issue: str) -> dict:

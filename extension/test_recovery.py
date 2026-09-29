@@ -133,6 +133,100 @@ async def scenarios():
     check(r_timeout["status"] == "failed" and not retry_events,
           "(d) a state-changing call that times out is never auto-retried (no retry event logged)")
 
+    # (f) rollback: correcting a booking that already succeeded compensates, then rebooks ---
+    backend = MockBackend(seed=6)
+    rollbacks = []
+    runner = ToolRunner(timeout_s=2.0)
+    all_runners.append(runner)
+    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: rollbacks.append(
+        (old_tool, comp_tool, new_tool, new_result))
+
+    tesla_args = {"station_id": "TESLA-01", "time_slot": "18:00"}
+    tesla = await runner.run("book_charging_slot", tesla_args,
+                             lambda: backend.book_charging_slot(**tesla_args),
+                             slot="charging_booking", state_changing=True)
+    check(tesla["status"] == "success", "(f) initial Tesla booking succeeds")
+
+    ionity_args = {"station_id": "IONITY-02", "time_slot": "18:00"}
+    ionity_booking_id = tesla["booking_id"]  # captured before the compensate call overwrites `tesla`
+    ionity = await runner.rollback_and_run(
+        "book_charging_slot", ionity_args,
+        lambda: backend.book_charging_slot(**ionity_args),
+        slot="charging_booking",
+        compensate_tool="cancel_charging_booking",
+        compensate_args={"booking_ref": tesla["booking_id"]},
+        compensate_execute=lambda: backend.cancel_charging_booking(tesla["booking_id"]),
+    )
+    check(ionity["status"] == "success" and ionity["station_id"] == "IONITY-02",
+          "(f) the corrected booking succeeds after compensation")
+    check(backend.bookings[f"TESLA-01|18:00"]["cancelled"] is True,
+          "(f) the old booking is actually marked cancelled in the backend")
+    check(len(rollbacks) == 1 and rollbacks[0][0] == "book_charging_slot"
+          and rollbacks[0][1] == "cancel_charging_booking",
+          "(f) on_rollback fired exactly once, naming the old and compensating tools")
+    rollback_events = [e for e in runner.log.events if e.kind == "rollback"]
+    check(len(rollback_events) == 1, "(f) exactly one rollback event was logged")
+
+    # asking for the exact same (already-cancelled) Tesla slot again is a no-op booking replay,
+    # not a second rollback — the idempotency cache in `run()` handles it, `rollback_and_run`
+    # must not fire the compensation again
+    replay = await runner.rollback_and_run(
+        "book_charging_slot", ionity_args,
+        lambda: backend.book_charging_slot(**ionity_args),
+        slot="charging_booking",
+        compensate_tool="cancel_charging_booking",
+        compensate_args={"booking_ref": ionity["booking_id"]},
+        compensate_execute=lambda: backend.cancel_charging_booking(ionity["booking_id"]),
+    )
+    check(replay == ionity, "(f) repeating the same corrected booking just returns the cached result")
+    check(len(rollbacks) == 1, "(f) no second rollback fired for a repeat of the same booking")
+
+    # a THIRD correction compensates the Ionity booking (not the already-compensated Tesla one)
+    ccs3_args = {"station_id": "CCS3-03", "time_slot": "18:00"}
+    third = await runner.rollback_and_run(
+        "book_charging_slot", ccs3_args,
+        lambda: backend.book_charging_slot(**ccs3_args),
+        slot="charging_booking",
+        compensate_tool="cancel_charging_booking",
+        compensate_args={"booking_ref": ionity["booking_id"]},
+        compensate_execute=lambda: backend.cancel_charging_booking(ionity["booking_id"]),
+    )
+    check(third["status"] == "success" and len(rollbacks) == 2 and rollbacks[1][0] == "book_charging_slot",
+          "(f) a second correction compensates the most recent booking, not the first one again")
+
+    # (g) rollback aborts if the compensation itself fails -> handoff, new call never attempted
+    backend2 = MockBackend(seed=7)
+    handoffs2 = []
+    runner2 = ToolRunner(timeout_s=2.0, backoff_base_s=0.01, backoff_cap_s=0.02, max_retries=0,
+                         handoff_after_failures=99)  # keep the compensate call's own handoff from firing first
+    all_runners.append(runner2)
+    runner2.on_handoff = lambda tool, call_id, ref: handoffs2.append((tool, call_id, ref))
+
+    orig_args = {"station_id": "TESLA-01", "time_slot": "09:00"}
+    orig = await runner2.run("book_charging_slot", orig_args,
+                             lambda: backend2.book_charging_slot(**orig_args),
+                             slot="charging_booking", state_changing=True)
+    check(orig["status"] == "success", "(g) initial booking for the failure case succeeds")
+
+    async def always_fails_to_cancel():
+        raise ToolFailure("cancellation service down")
+
+    new_args = {"station_id": "IONITY-02", "time_slot": "09:00"}
+    blocked = await runner2.rollback_and_run(
+        "book_charging_slot", new_args,
+        lambda: backend2.book_charging_slot(**new_args),
+        slot="charging_booking",
+        compensate_tool="cancel_charging_booking",
+        compensate_args={"booking_ref": orig["booking_id"]},
+        compensate_execute=always_fails_to_cancel,
+    )
+    check(blocked["status"] == "handoff", "(g) a failed compensation routes to handoff, not a silent failure")
+    check(len(handoffs2) == 1, "(g) on_handoff fired for the failed compensation")
+    check(f"IONITY-02|09:00" not in backend2.bookings,
+          "(g) the new booking was never attempted after the compensation failed")
+    check(not backend2.bookings["TESLA-01|09:00"].get("cancelled"),
+          "(g) the original booking was never marked cancelled either — nothing silently changed")
+
     # (e) everything is logged, and every line is valid JSON -----------------------------
     all_events = [line for r in all_runners for line in r.log.lines()]
     check(len(all_events) > 0, "(e) events were recorded")
@@ -145,7 +239,7 @@ async def scenarios():
     check(parsed_ok, "(e) every logged event line is valid JSON")
     kinds_seen = {json.loads(l)["kind"] for l in all_events}
     expected_kinds = {"proposed", "started", "succeeded", "failed", "retry", "cancelled",
-                      "superseded", "handoff"}
+                      "superseded", "handoff", "duplicate", "rollback"}
     check(expected_kinds.issubset(kinds_seen), f"(e) all expected event kinds appear: missing {expected_kinds - kinds_seen}")
 
 
