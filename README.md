@@ -40,6 +40,29 @@ Full-Duplex-Bench v3's own scoring is unforgiving of early commitment: a single 
 
 Self-correction is explicitly named in the paper as one of the two most consistent failure modes across *every* system tested — that's the gap this gate targets. (Our 0.9s/1.8s hold windows are a tuned starting point refined against our own synthetic dev set, `devset/scenarios.jsonl` — not a number taken from the paper; the paper does not publish a specific hesitation-pause duration, and we don't claim it does.)
 
+## How we tuned (practice set, never the benchmark)
+
+We never tune on FDB-v3's own 100 recordings — that's disqualifying. Instead we built our own **62-item practice set**: our 50 scenarios (`devset/scenarios.jsonl`, written from scratch against the tool signatures) plus 12 more pause-focused scenarios (`p01`–`p12`) contributed via a teammate's ("Lohit's") independent upgrade pack, all synthesized to audio with Kokoro TTS.
+
+**A padding bug voided our first A/B test — worth stating honestly rather than hiding.** The benchmark's own `livekit_inference.py` records the agent for *exactly the input recording's duration* plus a short trailing window. Real FDB-v3 inputs run 40–59s, giving the agent 20+ seconds of room after the user stops talking. Our first Kokoro-synthesized clips were only 4–12s with ~2s of tail — so a call the gate correctly held for a second or two sometimes never got the chance to execute before the recording simply ended. That's not a gate failure, it's a test-harness mismatch we introduced. Fix: every dev-set input is now padded with 20s of trailing silence to match the real benchmark's margin. **Any comparison below marked "unpadded" is void for judging hold-length decisions** — we're keeping it in the table anyway, because the void result is itself a useful, honest data point about the harness.
+
+| Run | Config | Strict pass | Stale calls (`must_not_call` hits) | Median latency |
+|---|---|---|---|---|
+| A | Rules-only gate, prompt v1, **unpadded** | 32/50 | 1/25 | — |
+| B | Rules + Jev, **unpadded** | 24/50 — **void, recording-window artifact, not a real regression** | 0/25 | — |
+| A2 | Rules-only gate, prompt v1, padded | 41/62 | 5/30 | 4.16 s |
+| C | Jev + draft-call hold + dangling-word trigger + prompt v2, padded | 41/62 | 4/30 | 4.24 s |
+| D | C + Gemini end-of-turn silence set to 1800 ms, padded | 40/62 | 5/30 | 5.28 s — **rejected** |
+
+**What each component does:**
+- **Commit gate** (`fdb_agent/gate.py`): holds a proposed call until the user's turn settles, supersedes a held call when a newer one for the same tool arrives, never executes an identical call twice.
+- **Jev turn-state + follow-up classification** (`fdb_agent/jev.py`, TypeSafe Jev): a typed judgment on whether the turn actually sounds finished ("complete"/"continuing"/"unsure"), and on what a follow-up utterance does to a held call — with a **rules-only fallback** whenever Jev returns no answer or times out, so it can only ever help, never block a turn.
+- **Draft-call hold** (`GATE_DRAFT_HOLD_S`): Gemini sometimes emits a placeholder call mid-sentence with empty or default arguments (an empty date, `bedrooms=0`, `quantity=1`) before the real call arrives — this holds a proposal that "looks draft" a little longer so the placeholder doesn't execute ahead of the real one.
+- **Dangling-word trigger** (`GATE_DANGLING`, merged from Lohit's upgrade pack): extends the hold when the utterance trails off on an incomplete word.
+- **Prompt rules** (`GATE_PROMPT=2`, merged prompt rules from the same upgrade pack): act on the last stated value, never ask a follow-up question, never claim a result before the tool returns.
+
+**Honest conclusion:** on our dev set, Jev (config C) roughly **ties** the rules-only gate (config A2) on strict pass (41/62 both), with a modest reduction in stale calls (4/30 vs 5/30) — a real but small effect, not a decisive win. The residual failures share one shape: a sentence that already sounds grammatically complete, followed by a pause and then a correction ("Track order QM77 [1.6s pause] wait, no, QM78") — Gemini ends its turn right at the pause, and Jev *correctly* reports the turn as "complete" too, because at that point in time it genuinely does sound finished. **No turn-final judge — ours or Jev's — can foresee a correction that hasn't been spoken yet.** We tried buying more time against exactly this failure by increasing Gemini's own end-of-turn silence threshold to 1800ms (config D), but it made the stale-call rate worse again while adding over a second of latency (5.28s vs 4.24s) — rejected. The rest of the residual gap is TTS/ASR mishearing (e.g. "Vancouver" heard as "London", "K442" as "A442") and two cases where the model still asked a follow-up question despite the prompt rule against it — neither is something the gate or Jev can fix.
+
 ## Results
 
 | System | Pass@1 (exact-match) | Pass@1 (`--use-llm` GPT-4o judge) | Latency | Source |
@@ -48,7 +71,7 @@ Self-correction is explicitly named in the paper as one of the two most consiste
 | Paper: Gemini Live 3.1 | — | 0.540 | 4.25 s task completion | arXiv 2604.04847 |
 | Paper: Cascaded (Whisper/GPT-4o/TTS) | — | 0.450 | 10.12 s task completion | arXiv 2604.04847 |
 | **Ours: stock agent, no gate** (`baseline_agent.py`, `gemini-3.8-live`, all 100) | **0.50 (50/100)** | TBD (no judge key yet) | 3.92 s median perceived (first reply); task completion TBD | `project-log/SCORES.md`, `runs/2026-09-29_full_gemini3_8/` |
-| **Ours: with commit gate** (`gate_agent.py`) | **TBD — run in progress** | TBD | TBD | `project-log/runs/` (link added once frozen) |
+| **Ours: with commit gate** (`gate_agent.py`, config C — Jev + draft-call hold + dangling-word trigger + prompt v2, the winning dev-set config above) | **TBD — full 100-recording run in progress** | TBD | TBD | `project-log/runs/` (link added once frozen) |
 
 > The paper's pass rates were scored with the GPT-4o judge; our exact-match numbers are stricter, so they are **not** directly comparable until our runs are re-scored with the judge. Latency: the paper reports task-completion time; "perceived" is time from the user's speech end to the agent's first reply.
 

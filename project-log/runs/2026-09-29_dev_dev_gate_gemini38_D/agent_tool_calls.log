@@ -1,0 +1,80 @@
+{"room": "eval-113f06cd", "call": {"function": "search_flights", "args": {"destination": "Denver", "date": "2026-11-02"}, "timestamp_start": 1790692502.6653476, "timestamp_end": 1790692502.8796365}}
+{"room": "eval-113f06cd", "call": {"function": "search_flights", "args": {"destination": "Denver", "date": "2026-11-09"}, "timestamp_start": 1790692508.9390013, "timestamp_end": 1790692509.6998277}}
+{"room": "eval-9be3c50e", "call": {"function": "modify_autopay", "args": {"bill_type": "phone bill", "source_account": "checking"}, "timestamp_start": 1790692574.3262925, "timestamp_end": 1790692574.3263106}}
+{"room": "eval-9be3c50e", "call": {"function": "modify_autopay", "args": {"bill_type": "phone bill", "source_account": "savings"}, "timestamp_start": 1790692579.2827888, "timestamp_end": 1790692579.282805}}
+{"room": "eval-447706be", "call": {"function": "calculate_commute", "args": {"origin_address": "Elm Street", "destination_address": "the harbor", "mode": "driving"}, "timestamp_start": 1790692645.275349, "timestamp_end": 1790692645.7609005}}
+{"room": "eval-447706be", "call": {"function": "calculate_commute", "args": {"origin_address": "Elm Street", "destination_address": "the harbor", "mode": "transit"}, "timestamp_start": 1790692651.0897686, "timestamp_end": 1790692651.361105}}
+{"room": "eval-52c892f9", "call": {"function": "search_products", "args": {"query": "Adidas", "max_price": null}, "timestamp_start": 1790692680.1658323, "timestamp_end": 1790692680.1658516}}
+{"room": "eval-52c892f9", "call": {"function": "add_to_cart", "args": {"product_id": "K442", "quantity": 2}, "timestamp_start": 1790692683.5287328, "timestamp_end": 1790692683.5287507}}
+{"room": "eval-9b91d4fb", "call": {"function": "track_order", "args": {"order_id": "ZX301"}, "timestamp_start": 1790692715.511321, "timestamp_end": 1790692715.5113373}}
+{"room": "eval-9b91d4fb", "call": {"function": "track_order", "args": {"order_id": "ZX302"}, "timestamp_start": 1790692715.511627, "timestamp_end": 1790692715.5116313}}
+{"room": "eval-f7d2da65", "call": {"function": "get_card_benefits", "args": {"card_type": "gold"}, "timestamp_start": 1790692746.384723, "timestamp_end": 1790692746.3847413}}
+{"room": "eval-f7d2da65", "call": {"function": "get_card_benefits", "args": {"card_type": "silver"}, "timestamp_start": 1790692750.336359, "timestamp_end": 1790692750.336376}}
+{"room": "eval-d7ce27f2", "call": {"function": "track_order", "args": {"order_id": "QM77"}, "timestamp_start": 1790692779.8155453, "timestamp_end": 1790692779.815564}}
+{"room": "eval-d7ce27f2", "call": {"function": "track_order", "args": {"order_id": "QM78"}, "timestamp_start": 1790692787.152711, "timestamp_end": 1790692787.152728}}
+{"room": "eval-11ca35e1", "call": {"function": "book_flight", "args": {"passenger_name": "Priya Nair"}, "timestamp_start": 1790692816.582743, "timestamp_end": 1790692816.5827627}}
+{"room": "eval-11ca35e1", "call": {"function": "search_flights", "args": {"destination": "Goa", "date": "2026-12-20"}, "timestamp_start": 1790692821.3883588, "timestamp_end": 1790692822.115183}}
+{"room": "eval-01969871", "call": {"function": "search_flights", "args": {"destination": "New York", "date": "2026-03-03"}, "timestamp_start": 1790692890.2404242, "timestamp_end": 1790692890.953195}}
+{"room": "eval-d4b6f63a", "call": {"function": "search_flights", "args": {"destination": "Paris", "date": "2026-12-08"}, "timestamp_start": 1790692922.2473218, "timestamp_end": 1790692922.668829}}
+{"room": "eval-34042e6e", "call": {"function": "search_flights", "args": {"destination": "Rome", "date": "2026-04-12"}, "timestamp_start": 1790692952.922339, "timestamp_end": 1790692953.2517507}}
+{"room": "eval-6a290d14", "call": {"function": "search_flights", "args": {"destination": "Tokyo", "date": "2026-07-04"}, "timestamp_start": 1790692985.8202224, "timestamp_end": 1790692986.434893}}
+{"room": "eval-6a290d14", "call": {"function": "book_flight", "args": {"passenger_name": "John Smith"}, "timestamp_start": 1790692987.5103226, "timestamp_end": 1790692987.5103388}}
+{"room": "eval-d31487af", "call": {"function": "update_identity_doc", "args": {"doc_type": "passport", "doc_number": "P4471900"}, "timestamp_start": 1790693024.6957426, "timestamp_end": 1790693024.6957614}}
+{"room": "eval-e1ca939c", "call": {"function": "search_flights", "args": {"destination": "Berlin", "date": "2026-05-05"}, "timestamp_start": 1790693060.7213442, "timestamp_end": 1790693061.3420405}}
+{"room": "eval-e1ca939c", "call": {"function": "book_flight", "args": {"passenger_name": "Michael Chen"}, "timestamp_start": 1790693061.3422878, "timestamp_end": 1790693061.342296}}
+{"room": "eval-e1ca939c", "call": {"function": "update_identity_doc", "args": {"doc_type": "id_card", "doc_number": "ID-882-13"}, "timestamp_start": 1790693061.3423622, "timestamp_end": 1790693061.342366}}
+{"room": "eval-f2f20216", "call": {"function": "update_identity_doc", "args": {"doc_type": "passport", "doc_number": "Y1000"}, "timestamp_start": 1790693091.500079, "timestamp_end": 1790693091.5000956}}
+{"room": "eval-f2f20216", "call": {"function": "update_identity_doc", "args": {"doc_type": "passport", "doc_number": "Y2201"}, "timestamp_start": 1790693096.7066202, "timestamp_end": 1790693096.7066364}}
+{"room": "eval-c4dfe131", "call": {"function": "search_flights", "args": {"destination": "Lisbon", "date": "2026-06-15"}, "timestamp_start": 1790693128.457939, "timestamp_end": 1790693129.0796287}}
+{"room": "eval-f843ac5e", "call": {"function": "book_flight", "args": {"passenger_name": "Anita Rao"}, "timestamp_start": 1790693159.2075505, "timestamp_end": 1790693159.2075686}}
+{"room": "eval-c7edcc38", "call": {"function": "search_flights", "args": {"destination": "Barcelona", "date": "2026-08-09"}, "timestamp_start": 1790693193.2142801, "timestamp_end": 1790693193.8900175}}
+{"room": "eval-cbb0acb5", "call": {"function": "get_card_benefits", "args": {"card_type": "platinum"}, "timestamp_start": 1790693226.8758292, "timestamp_end": 1790693226.875847}}
+{"room": "eval-f72820d5", "call": {"function": "get_exchange_rate", "args": {"amount": 100.0, "from_currency": "USD", "to_currency": "GBP"}, "timestamp_start": 1790693261.3618474, "timestamp_end": 1790693261.3618655}}
+{"room": "eval-721c62ca", "call": {"function": "get_card_benefits", "args": {"card_type": "gold"}, "timestamp_start": 1790693292.9695737, "timestamp_end": 1790693292.9695911}}
+{"room": "eval-721c62ca", "call": {"function": "get_exchange_rate", "args": {"amount": 100.0, "from_currency": "USD", "to_currency": "EUR"}, "timestamp_start": 1790693292.9697576, "timestamp_end": 1790693292.9697626}}
+{"room": "eval-b565f1d2", "call": {"function": "modify_autopay", "args": {"bill_type": "utilities", "source_account": "checking"}, "timestamp_start": 1790693329.156059, "timestamp_end": 1790693329.1560779}}
+{"room": "eval-c70b1d62", "call": {"function": "modify_autopay", "args": {"bill_type": "credit_card", "source_account": "checking"}, "timestamp_start": 1790693359.5096776, "timestamp_end": 1790693359.509694}}
+{"room": "eval-9551878e", "call": {"function": "modify_autopay", "args": {"bill_type": "utilities", "source_account": "savings"}, "timestamp_start": 1790693392.510244, "timestamp_end": 1790693392.510261}}
+{"room": "eval-9f24ebdf", "call": {"function": "get_exchange_rate", "args": {"amount": 250.0, "from_currency": "USD", "to_currency": "EUR"}, "timestamp_start": 1790693430.1639192, "timestamp_end": 1790693430.1639392}}
+{"room": "eval-9f24ebdf", "call": {"function": "get_card_benefits", "args": {"card_type": "platinum"}, "timestamp_start": 1790693430.1641207, "timestamp_end": 1790693430.1641276}}
+{"room": "eval-9f24ebdf", "call": {"function": "modify_autopay", "args": {"bill_type": "utilities", "source_account": "savings"}, "timestamp_start": 1790693430.1664612, "timestamp_end": 1790693430.1664684}}
+{"room": "eval-8cb0b10f", "call": {"function": "get_exchange_rate", "args": {"amount": 50.0, "from_currency": "USD", "to_currency": "INR"}, "timestamp_start": 1790693467.5210128, "timestamp_end": 1790693467.5210314}}
+{"room": "eval-32beef34", "call": {"function": "get_card_benefits", "args": {"card_type": "gold"}, "timestamp_start": 1790693499.6397042, "timestamp_end": 1790693499.6397216}}
+{"room": "eval-19adf6be", "call": {"function": "get_exchange_rate", "args": {"amount": 250.0, "from_currency": "USD", "to_currency": "EUR"}, "timestamp_start": 1790693533.3868473, "timestamp_end": 1790693533.3868654}}
+{"room": "eval-23ea668b", "call": {"function": "search_apartments", "args": {"city": "Dallas", "bedrooms": 2, "max_price": 1500.0}, "timestamp_start": 1790693567.997638, "timestamp_end": 1790693568.36106}}
+{"room": "eval-a44b32b1", "call": {"function": "search_apartments", "args": {"city": "Denver", "bedrooms": 3, "max_price": 1800.0}, "timestamp_start": 1790693601.7796109, "timestamp_end": 1790693602.1710677}}
+{"room": "eval-d80ce066", "call": {"function": "search_apartments", "args": {"city": "Seattle", "bedrooms": 1, "max_price": 1800.0}, "timestamp_start": 1790693636.9798758, "timestamp_end": 1790693637.2221982}}
+{"room": "eval-ff07d6a0", "call": {"function": "search_apartments", "args": {"city": "Chicago", "bedrooms": 2, "max_price": 2000.0}, "timestamp_start": 1790693674.128246, "timestamp_end": 1790693674.9061117}}
+{"room": "eval-ff07d6a0", "call": {"function": "calculate_commute", "args": {"origin_address": "downtown Chicago", "destination_address": "O'Hare Airport", "mode": "driving"}, "timestamp_start": 1790693674.9063425, "timestamp_end": 1790693675.236727}}
+{"room": "eval-e261f009", "call": {"function": "calculate_commute", "args": {"origin_address": "Union Station", "destination_address": "Fifth Avenue Tower", "mode": "transit"}, "timestamp_start": 1790693707.5076256, "timestamp_end": 1790693707.7610457}}
+{"room": "eval-99e223a3", "call": {"function": "update_search_filter", "args": {"filter_name": "parking", "value": "true"}, "timestamp_start": 1790693742.923947, "timestamp_end": 1790693743.0441499}}
+{"room": "eval-6e809141", "call": {"function": "search_apartments", "args": {"city": "Portland", "bedrooms": 2, "max_price": 1700.0}, "timestamp_start": 1790693779.6980498, "timestamp_end": 1790693780.4188414}}
+{"room": "eval-6e809141", "call": {"function": "update_search_filter", "args": {"filter_name": "sort_by", "value": "price"}, "timestamp_start": 1790693780.4190857, "timestamp_end": 1790693780.4741926}}
+{"room": "eval-6e809141", "call": {"function": "calculate_commute", "args": {"origin_address": "APT1", "destination_address": "Tech District", "mode": "bicycling"}, "timestamp_start": 1790693781.7507699, "timestamp_end": 1790693782.0581555}}
+{"room": "eval-8e2f7886", "call": {"function": "calculate_commute", "args": {"origin_address": "home", "destination_address": "the office", "mode": "transit"}, "timestamp_start": 1790693814.4062886, "timestamp_end": 1790693815.0790324}}
+{"room": "eval-9df6955b", "call": {"function": "update_search_filter", "args": {"filter_name": "sort", "value": "newest"}, "timestamp_start": 1790693851.46109, "timestamp_end": 1790693851.5732722}}
+{"room": "eval-3c0f3e71", "call": {"function": "update_search_filter", "args": {"filter_name": "min_bedrooms", "value": "2"}, "timestamp_start": 1790693881.9275517, "timestamp_end": 1790693882.089857}}
+{"room": "eval-42f8bbc9", "call": {"function": "track_order", "args": {"order_id": "BOB21"}, "timestamp_start": 1790693916.4440708, "timestamp_end": 1790693916.4440885}}
+{"room": "eval-7a3b6165", "call": {"function": "add_to_cart", "args": {"product_id": "P200", "quantity": 1}, "timestamp_start": 1790693949.1135106, "timestamp_end": 1790693949.1135302}}
+{"room": "eval-22da11e9", "call": {"function": "track_order", "args": {"order_id": "ORD556"}, "timestamp_start": 1790693981.0142057, "timestamp_end": 1790693981.014222}}
+{"room": "eval-22da11e9", "call": {"function": "search_products", "args": {"query": "wireless headphones", "max_price": null}, "timestamp_start": 1790693983.1044931, "timestamp_end": 1790693983.10451}}
+{"room": "eval-9be7e1f1", "call": {"function": "add_to_cart", "args": {"product_id": "P77", "quantity": 5}, "timestamp_start": 1790694014.3519228, "timestamp_end": 1790694014.3519394}}
+{"room": "eval-a0dc0759", "call": {"function": "track_order", "args": {"order_id": "ORD991"}, "timestamp_start": 1790694045.593429, "timestamp_end": 1790694045.5934432}}
+{"room": "eval-3ca7da99", "call": {"function": "search_products", "args": {"query": "wireless mouse", "max_price": null}, "timestamp_start": 1790694082.6047368, "timestamp_end": 1790694082.6047559}}
+{"room": "eval-eda461c0", "call": {"function": "search_products", "args": {"query": "wireless earbuds", "max_price": 60.0}, "timestamp_start": 1790694117.9176762, "timestamp_end": 1790694117.917693}}
+{"room": "eval-eda461c0", "call": {"function": "add_to_cart", "args": {"product_id": "P900", "quantity": 2}, "timestamp_start": 1790694117.9178615, "timestamp_end": 1790694117.9178784}}
+{"room": "eval-eda461c0", "call": {"function": "track_order", "args": {"order_id": "ORD120"}, "timestamp_start": 1790694117.917946, "timestamp_end": 1790694117.9179504}}
+{"room": "eval-58f938a8", "call": {"function": "search_products", "args": {"query": "running shoes", "max_price": 80.0}, "timestamp_start": 1790694151.9807305, "timestamp_end": 1790694151.98076}}
+{"room": "eval-c16ce808", "call": {"function": "search_products", "args": {"query": "bluetooth speakers", "max_price": 100.0}, "timestamp_start": 1790694185.1703808, "timestamp_end": 1790694185.170401}}
+{"room": "eval-02e106ff", "call": {"function": "track_order", "args": {"order_id": "ABC99"}, "timestamp_start": 1790694222.8664734, "timestamp_end": 1790694222.8664904}}
+{"room": "eval-6d051f7e", "call": {"function": "get_exchange_rate", "args": {"amount": 300.0, "from_currency": "USD", "to_currency": "JPY"}, "timestamp_start": 1790694288.603639, "timestamp_end": 1790694288.6036572}}
+{"room": "eval-36901f0c", "call": {"function": "calculate_commute", "args": {"origin_address": "my office", "destination_address": "home", "mode": "driving"}, "timestamp_start": 1790694319.3962576, "timestamp_end": 1790694320.0489895}}
+{"room": "eval-704473f0", "call": {"function": "add_to_cart", "args": {"product_id": "P42", "quantity": 3}, "timestamp_start": 1790694356.605911, "timestamp_end": 1790694356.605929}}
+{"room": "eval-929c2092", "call": {"function": "update_identity_doc", "args": {"doc_type": "id_card", "doc_number": "2"}, "timestamp_start": 1790694388.7574434, "timestamp_end": 1790694388.757483}}
+{"room": "eval-929c2092", "call": {"function": "update_identity_doc", "args": {"doc_type": "id_card", "doc_number": "855210"}, "timestamp_start": 1790694391.9086325, "timestamp_end": 1790694391.9086504}}
+{"room": "eval-74b856dc", "call": {"function": "modify_autopay", "args": {"bill_type": "credit_card", "source_account": "checking"}, "timestamp_start": 1790694424.1068425, "timestamp_end": 1790694424.1068597}}
+{"room": "eval-74b856dc", "call": {"function": "modify_autopay", "args": {"bill_type": "credit_card", "source_account": "savings account"}, "timestamp_start": 1790694426.07309, "timestamp_end": 1790694426.0731072}}
+{"room": "eval-7b6c3137", "call": {"function": "search_apartments", "args": {"city": "Austin", "bedrooms": 2, "max_price": 1600.0}, "timestamp_start": 1790694460.963311, "timestamp_end": 1790694461.3487701}}
+{"room": "eval-88861e69", "call": {"function": "search_flights", "args": {"destination": "Vienna", "date": "2026-10-03"}, "timestamp_start": 1790694529.1798828, "timestamp_end": 1790694529.7715676}}
+{"room": "eval-88861e69", "call": {"function": "book_flight", "args": {"passenger_name": "Alina Petrova"}, "timestamp_start": 1790694530.9595506, "timestamp_end": 1790694530.9595685}}
+{"room": "eval-29859a8a", "call": {"function": "get_card_benefits", "args": {"card_type": "platinum"}, "timestamp_start": 1790694562.3001928, "timestamp_end": 1790694562.3002257}}

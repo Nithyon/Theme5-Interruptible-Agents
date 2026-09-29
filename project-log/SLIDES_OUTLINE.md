@@ -15,23 +15,26 @@ Draft for the Theme 05 submission deck. Every number is either sourced or marked
 - **Figure/table:** the paper's Pass@1 table from `README.md`'s "Why this design" section
 
 ## 3. Architecture
-- LiveKit room → Gemini 3.8 Live (realtime) → **commit gate** → 12 stock tools → tool log
+- LiveKit room → Gemini 3.8 Live (realtime) → **commit gate (+ Jev)** → 12 stock tools → tool log
 - The gate sits between the model's proposed call and the real tool execution — same tool functions, same log format as the stock agent, nothing changed downstream
 - Talker (spoken response) and reasoner (tool-calling) share one realtime model here, not split into separate stages
+- Jev (TypeSafe) is an optional typed classifier layered on the gate — a rules-only fallback fires whenever it times out or has no answer, so it can only help, never block
 - **Figure:** the mermaid diagram from `README.md`'s Architecture section
 
-## 4. The commit gate
-- Hold until the user is quiet for 0.9 s — or 1.8 s if their last words are a filler/hesitation/correction cue (um, wait, actually, no, I mean...)
-- Supersede: a newer call to the same tool, after the user speaks again, replaces the held one — the stale one is dropped, never executed, never logged
+## 4. The commit gate (+ Jev)
+- Hold until the user is quiet for 0.9 s — or 1.8 s if their last words are a filler/hesitation/correction cue (um, wait, actually, no, I mean...) — or, when Jev is available, a typed "is this turn actually finished?" judgment instead of the fixed timer
+- Supersede: a newer call to the same tool, after the user speaks again, replaces the held one — the stale one is dropped, never executed, never logged; Jev additionally classifies *what kind* of follow-up it is (correction / addition / retraction / new request / backchannel)
 - Dedupe: canonicalized-argument check blocks executing an identical call twice
+- Draft-call hold + dangling-word trigger: catches Gemini's mid-sentence placeholder calls (empty/default args) and utterances that trail off on an incomplete word
 - 8 s hard cap so a long pause can't stall the conversation
-- Timing constants tuned on our own synthetic dev set (`devset/scenarios.jsonl`), not on FDB-v3 itself — never on the graded test items
+- Timing constants tuned on our own 62-item synthetic dev set (`devset/scenarios.jsonl` + Lohit's 12 pause scenarios), not on FDB-v3 itself — never on the graded test items
 - **Figure:** none, or a small before/after timeline sketch (held → superseded vs. held → executed)
 
 ## 5. Results
 - Baseline (stock agent, `gemini-3.8-live`, no gate, all 100): **50/100 (0.50) exact-match**, perceived latency median 3.92 s
 - Failure breakdown: self-correction 0.471, pause 0.389, false start 0.667 (by disfluency); travel 0.15, housing 0.115 lowest domains
-- **With the commit gate: TBD — run in progress**, frozen number and log link added before submission
+- **Dev-set tuning (README.md, "How we tuned"):** rules-only gate (A2) 41/62, 5/30 stale calls, 4.16s — Jev+extras (C) 41/62, 4/30 stale calls, 4.24s. Roughly a tie on pass rate, a modest reduction in stale calls; remaining failures are pauses *after* a complete-sounding sentence, which no turn judge can foresee
+- **Full 100-recording benchmark, config C (Jev + draft hold + dangling trigger + prompt v2): TBD — run in progress**, frozen number and log link added before submission
 - `--use-llm` judge column: **TBD**, pending an OpenAI/Azure key
 - **Figure:** the Results table from `README.md`, with the gate row filled in once frozen
 
@@ -46,7 +49,7 @@ Draft for the Theme 05 submission deck. Every number is either sourced or marked
 - One baseline run so far; gate run and a second full run still pending
 - Exact-match only until a judge key is wired in
 - Cloud-dependent reasoner, no local fallback in the current build
-- Tuned only on our own 40-scenario synthetic dev set, never on the real 100 test recordings
+- Tuned only on our own 62-scenario synthetic dev set (50 ours + Lohit's 12 pause scenarios), never on the real 100 test recordings
 - Extension is a plan, not working code, as of this slide
 - **Figure:** none — bullet list, matches `README.md`'s Honest Limitations section verbatim
 
