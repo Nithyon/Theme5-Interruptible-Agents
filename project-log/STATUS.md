@@ -12,6 +12,15 @@ _Last updated: 2026-09-29. Update this file whenever the state or the next step 
 - C: filled up (0 GB) and broke WSL. Ubuntu's disk is now at `D:\WSL\Ubuntu\ext4.vhdx`; C: has ~47 GB free. Everything inside Ubuntu survived. C: is still nearly full overall; Sonnet's S1 survey will say what's safe to clean.
 - Parakeet ASR (scoring) runs on the RTX 5070: 4.7 GB GPU memory.
 
+## Deadline
+- **30 Sep 2026, 11:59 PM IST; Google Form by 22:30 IST** (from the teammate's upgrade plan, `D:\Downloads\ur-gonna-code-from-synthetic-kurzweil.md`). Jev cut. A full 100-recording run takes ~1 h 45 min and runs can't overlap on one LiveKit project, so plan at most 2 full runs on 30 Sep (gate check AM, frozen final PM).
+- Teammate plan reviewed 2026-09-29: keep dual auth (API key or Vertex), Azure gpt-4o judge (check real quota first), dev-set audio + pause scenarios, fresh-clone test. Hold rule and supersede/dedupe already in `gate.py`. Collaborate via the private repo (branches/PRs), not zips.
+
+## Code repository
+- **Private GitHub repo:** https://github.com/Nithyon/Theme5-Interruptible-Agents (created 2026-09-29, branch `main`). Commits use the account's noreply email. `.gitattributes` keeps `.sh`/`.py` as LF. Excluded: `.venv/`, `docs-source/` (organizer guide), `.env*`; keys live only in WSL `~/theme5/Full-Duplex-Bench/v3/.env.local`, never in the repo.
+- Push the full baseline run folder (`project-log/runs/2026-09-29_full_gemini3_8/`) after the run finishes; it also holds a stale report from the aborted first run, so replace that first.
+- Before submission: organizers need access (add them as collaborators, or make it public), and check that run reports containing benchmark expected answers are OK to share.
+
 ## AWS GPU box
 - **Stopped** (2026-09-29, by the user). A10G 24 GB, Amazon Linux 2023, `ssh -i ~/.ssh/nithiyon-gpu.pem ec2-user@ec2-16-106-29-14.ap-east-1.compute.amazonaws.com` (from WSL). **Stop it when idle (~$1.87/h).** Rotate the key pair (it was exposed in chat) **on the day we next start it**: user makes a new key locally (never in chat), Claude logs in once with the old key, adds the new public key to `~/.ssh/authorized_keys`, removes the old; then user deletes `hahaha.pem` and the old EC2 key pair. The instance itself is kept.
 

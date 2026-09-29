@@ -1,0 +1,43 @@
+📖 Loading benchmark data from benchmark_data_v2.json...
+📁 Scanning fdb_v3_data_released for provider 'gemini3_8'...
+🔍 Found 100 valid result files matching benchmark scenarios.
+
+📊 PASS RATE REPORT — GEMINI3_8
+========================================================
+  Total Scenarios : 100
+  ✅ Passed       : 50
+  ❌ Failed       : 50
+  📈 Pass Rate    : 50.0%
+
+  Failure Breakdown:
+    Wrong Tools     : 18
+    Wrong Arguments : 32
+
+  By Domain:
+    ecommerce_support: 75.9%
+    finance_billing: 88.0%
+    housing_location: 11.5%
+    travel_identity: 15.0%
+
+  By Difficulty:
+    medium: 50.0%
+    hard: 40.0%
+    easy: 58.3%
+
+  By Num Tool Calls:
+    1 tools: 54.5%
+    2 tools: 50.0%
+    3 tools: 31.2%
+
+  By Disfluency Feature:
+    SELF_CORRECTION: 47.1%
+    PAUSE: 38.9%
+    FILLER: 44.8%
+    FALSE_START: 66.7%
+    HESITATION: 50.0%
+
+  State Rollback:
+    With rollback:    47.1%
+    Without rollback: 50.6%
+
+  📄 Report saved: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-29_full_gemini3_8/gemini3_8_pass_rate_report.json
