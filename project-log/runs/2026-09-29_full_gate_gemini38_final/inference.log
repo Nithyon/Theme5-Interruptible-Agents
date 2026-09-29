@@ -1001,3 +1001,966 @@ No exporters were provided. This means that no telemetry data will be collected.
 [NeMo W 2026-09-29 16:09:29 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
 [NeMo W 2026-09-29 16:09:29 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
 Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.71it/s]Transcribing: 1it [00:00,  4.70it/s]
+  📝 Transcript: The converted amount is three hundred thirty British pounds....
+  ⏱️  Perceived Latency: 7.84s (Agent Start: 22.32s - User End: 14.48s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[51/100] Processing Speaker=66c4f3cb... Example=finance_20...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-68c70850
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:10:33 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:10:33 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:10:33 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.42it/s]Transcribing: 1it [00:00,  2.41it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:10:33 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:10:33 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:10:33 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.00it/s]Transcribing: 1it [00:00,  3.93it/s]
+  📝 Transcript: The current exchange rate gives you nine hundred Euros for one thousand dollars....
+  ⏱️  Perceived Latency: 10.48s (Agent Start: 32.160000000000004s - User End: 21.68s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[52/100] Processing Speaker=5e3c1fbe... Example=finance_21...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-a325d20c
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:11:38 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:11:38 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:11:38 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.25it/s]Transcribing: 1it [00:00,  2.24it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:11:39 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:11:39 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:11:39 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.57it/s]Transcribing: 1it [00:00,  4.55it/s]
+  📝 Transcript: The gold card offers 2% cash back and no foreign transaction fees. Also, 500 USSD is currently 450 y...
+  ⏱️  Perceived Latency: 8.24s (Agent Start: 25.2s - User End: 16.96s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[53/100] Processing Speaker=5f4a4da1... Example=finance_22...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-19ba7c3c
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:12:39 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:12:39 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:12:39 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.03it/s]Transcribing: 1it [00:00,  2.02it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:12:40 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:12:40 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:12:40 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.17it/s]Transcribing: 1it [00:00,  4.12it/s]
+  📝 Transcript: I've successfully updated your mortgage auto pay to pull from savings and your credit card payment t...
+  ⏱️  Perceived Latency: 6.32s (Agent Start: 25.92s - User End: 19.6s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[54/100] Processing Speaker=66f59c76... Example=finance_23...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-0481f141
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:13:40 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:13:40 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:13:40 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.48it/s]Transcribing: 1it [00:00,  2.45it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:13:41 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:13:41 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:13:41 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.09it/s]Transcribing: 1it [00:00,  4.06it/s]
+  📝 Transcript: I've successfully updated your mortgage auto pay to be pulled from your savings account....
+  ⏱️  Perceived Latency: 11.28s (Agent Start: 29.2s - User End: 17.92s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[55/100] Processing Speaker=62a885d5... Example=housing_01...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-7483b703
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:14:35 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:14:35 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:14:35 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.43it/s]Transcribing: 1it [00:00,  2.43it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:14:35 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:14:35 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:14:35 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.84it/s]Transcribing: 1it [00:00,  5.71it/s]
+  📝 Transcript: I found a two-bedroom apartment available in Seattle for twenty-four hundred dollars a month....
+  ⏱️  Perceived Latency: 7.52s (Agent Start: 17.92s - User End: 10.4s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[56/100] Processing Speaker=5f4a4da1... Example=housing_02...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-f673e47d
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:15:43 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:15:43 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:15:43 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.25it/s]Transcribing: 1it [00:00,  2.23it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:15:43 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:15:43 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:15:43 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.87it/s]Transcribing: 1it [00:00,  5.84it/s]
+  📝 Transcript: ...
+  💾 Saved: result_gate_gemini38_final.json
+
+[57/100] Processing Speaker=5f4a4da1... Example=housing_03...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-61ad0476
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:16:40 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:16:40 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:16:40 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.39it/s]Transcribing: 1it [00:00,  2.38it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:16:41 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:16:41 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:16:41 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.52it/s]Transcribing: 1it [00:00,  4.48it/s]
+  📝 Transcript: Mm-hmm. Your maximum price filter has been successfully updated to $1,800 per month....
+  ⏱️  Perceived Latency: -9.28s (Agent Start: 8.4s - User End: 17.68s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[58/100] Processing Speaker=695bd157... Example=housing_04...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-b6b37830
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:17:41 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:17:41 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:17:41 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.26it/s]Transcribing: 1it [00:00,  2.26it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:17:42 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:17:42 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:17:42 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.52it/s]Transcribing: 1it [00:00,  4.72it/s]
+  📝 Transcript: ...
+  💾 Saved: result_gate_gemini38_final.json
+
+[59/100] Processing Speaker=5ff07b5e... Example=housing_05...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-b0b8af62
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:18:39 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:18:39 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:18:39 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.35it/s]Transcribing: 1it [00:00,  2.34it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:18:40 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:18:40 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:18:40 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.05it/s]Transcribing: 1it [00:00,  4.96it/s]
+  📝 Transcript: I found a pet-friendly apartment in Miami within your budget for $1,400 a month....
+  ⏱️  Perceived Latency: 10.00s (Agent Start: 28.48s - User End: 18.48s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[60/100] Processing Speaker=61517db6... Example=housing_05...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-2f33986f
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:19:40 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:19:40 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:19:40 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.97it/s]Transcribing: 1it [00:00,  2.95it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:19:40 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:19:40 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:19:40 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.95it/s]Transcribing: 1it [00:00,  4.86it/s]
+  📝 Transcript: I found a one-bedroom apartment in Miami for $1,400 a month....
+  ⏱️  Perceived Latency: 3.28s (Agent Start: 23.04s - User End: 19.76s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[61/100] Processing Speaker=5f4a4da1... Example=housing_06...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-cfed0e23
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:20:35 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:20:35 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:20:35 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.30it/s]Transcribing: 1it [00:00,  2.30it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:20:35 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:20:35 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:20:35 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.34it/s]Transcribing: 1it [00:00,  4.17it/s]
+  📝 Transcript: We'll take about twenty five minutes to walk from Oaks M....
+  ⏱️  Perceived Latency: 22.00s (Agent Start: 36.72s - User End: 14.72s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[62/100] Processing Speaker=66f59c76... Example=housing_08...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-c3f702e9
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:21:30 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:21:30 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:21:30 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.10it/s]Transcribing: 1it [00:00,  2.09it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:21:31 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:21:31 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:21:31 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.82it/s]Transcribing: 1it [00:00,  4.80it/s]
+  📝 Transcript: I've updated your search builder to only show pet-friendly places....
+  ⏱️  Perceived Latency: 10.00s (Agent Start: 23.36s - User End: 13.36s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[63/100] Processing Speaker=695bd157... Example=housing_09...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-4834eeee
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:22:26 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:22:26 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:22:26 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.41it/s]Transcribing: 1it [00:00,  2.38it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:22:26 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:22:26 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:22:26 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.68it/s]Transcribing: 1it [00:00,  4.57it/s]
+  📝 Transcript: I found one two-bedroom apartment in Chicago for nineteen hundred dollars a month....
+  ⏱️  Perceived Latency: 9.52s (Agent Start: 24.8s - User End: 15.280000000000001s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[64/100] Processing Speaker=66f59c76... Example=housing_10...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-480880b2
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:23:30 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:23:30 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:23:30 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.44it/s]Transcribing: 1it [00:00,  2.43it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:23:30 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:23:30 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:23:30 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.66it/s]Transcribing: 1it [00:00,  4.63it/s]
+  📝 Transcript: The transit commute from 500 Central Ave to the University takes 25 minutes, and I've updated your p...
+  ⏱️  Perceived Latency: 8.64s (Agent Start: 25.6s - User End: 16.96s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[65/100] Processing Speaker=62a885d5... Example=housing_11...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-f006f82e
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:24:20 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:24:20 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:24:20 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.71it/s]Transcribing: 1it [00:00,  2.71it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:24:20 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:24:20 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:24:20 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.25it/s]Transcribing: 1it [00:00,  5.23it/s]
+  📝 Transcript: I've updated your search to a two-bedroom with a maximum budget of sixteen hundred per month....
+  ⏱️  Perceived Latency: 11.52s (Agent Start: 22.48s - User End: 10.96s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[66/100] Processing Speaker=5f4a4da1... Example=housing_13...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-35eadd65
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:25:18 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:25:18 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:25:18 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.14it/s]Transcribing: 1it [00:00,  2.13it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:25:19 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:25:19 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:25:19 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.90it/s]Transcribing: 1it [00:00,  4.87it/s]
+  📝 Transcript: I've updated your minimum bedrooms to three....
+  ⏱️  Perceived Latency: 6.40s (Agent Start: 23.68s - User End: 17.28s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[67/100] Processing Speaker=5ff07b5e... Example=housing_14...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-f04f4134
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:26:16 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:26:16 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:26:16 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.15it/s]Transcribing: 1it [00:00,  2.14it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:26:16 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:26:16 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:26:16 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.89it/s]Transcribing: 1it [00:00,  4.83it/s]
+  📝 Transcript: I found a one-bedroom apartment in Portland for seventeen hundred dollars per month....
+  ⏱️  Perceived Latency: 6.32s (Agent Start: 24.48s - User End: 18.16s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[68/100] Processing Speaker=61517db6... Example=housing_14...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-0cc7de66
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:27:17 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:27:17 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:27:17 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.02it/s]Transcribing: 1it [00:00,  2.02it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:27:18 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:27:18 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:27:18 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.02it/s]Transcribing: 1it [00:00,  4.00it/s]
+  📝 Transcript: I've updated your search. I found a one-bedroom apartment in Portland for $1,700 a month that meets ...
+  ⏱️  Perceived Latency: 9.84s (Agent Start: 30.400000000000002s - User End: 20.56s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[69/100] Processing Speaker=5ff07b5e... Example=housing_15...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-79216693
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:28:19 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:28:19 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:28:19 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.10it/s]Transcribing: 1it [00:00,  2.09it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:28:20 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:28:20 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:28:20 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.24it/s]Transcribing: 1it [00:00,  5.18it/s]
+  📝 Transcript: I found a three-bedroom apartment available in Atlanta....
+  ⏱️  Perceived Latency: 7.12s (Agent Start: 25.52s - User End: 18.400000000000002s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[70/100] Processing Speaker=61517db6... Example=housing_15...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-2ae23215
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:29:20 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:29:20 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:29:20 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.97it/s]Transcribing: 1it [00:00,  1.95it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:29:20 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:29:20 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:29:20 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.23it/s]Transcribing: 1it [00:00,  4.19it/s]
+  📝 Transcript: I found a three-bedroom apartment in Atlanta for $9,900 per month....
+  ⏱️  Perceived Latency: 9.12s (Agent Start: 28.48s - User End: 19.36s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[71/100] Processing Speaker=65e8cf8f... Example=housing_17...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-d9b571db
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:30:15 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:30:15 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:30:15 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.41it/s]Transcribing: 1it [00:00,  2.40it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:30:15 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:30:15 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:30:15 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.66it/s]Transcribing: 1it [00:00,  4.54it/s]
+  📝 Transcript: It will take you about twenty-five minutes to drive to the office....
+  ⏱️  Perceived Latency: 6.64s (Agent Start: 22.32s - User End: 15.68s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[72/100] Processing Speaker=69a9cf80... Example=housing_17...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-f1d1b158
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:31:12 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:31:12 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:31:12 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.15it/s]Transcribing: 1it [00:00,  2.15it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:31:12 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:31:12 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:31:12 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.39it/s]Transcribing: 1it [00:00,  4.23it/s]
+  📝 Transcript: It will take about twenty-five minutes to drive to the office from your house....
+  ⏱️  Perceived Latency: 9.44s (Agent Start: 25.68s - User End: 16.240000000000002s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[73/100] Processing Speaker=66c4f3cb... Example=housing_18...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-22e6ffdb
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:32:11 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:32:11 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:32:11 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.42it/s]Transcribing: 1it [00:00,  2.41it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:32:12 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:32:12 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:32:12 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.67it/s]Transcribing: 1it [00:00,  4.51it/s]
+  📝 Transcript: The cheapest apartment found is $700 per month, and biking from there to the coffee shop on 5th Stre...
+  ⏱️  Perceived Latency: 7.44s (Agent Start: 24.48s - User End: 17.04s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[74/100] Processing Speaker=62a885d5... Example=housing_19...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-70795501
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:33:06 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:33:06 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:33:06 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.06it/s]Transcribing: 1it [00:00,  2.06it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:33:06 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:33:06 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:33:06 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.11it/s]Transcribing: 1it [00:00,  5.03it/s]
+  📝 Transcript: The drive from your house to the gym will take about 25 minutes....
+  ⏱️  Perceived Latency: 5.84s (Agent Start: 19.2s - User End: 13.36s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[75/100] Processing Speaker=62a885d5... Example=housing_20...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-77afccbe
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:34:08 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:34:08 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:34:08 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.28it/s]Transcribing: 1it [00:00,  2.13it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:34:08 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:34:08 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:34:08 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.79it/s]Transcribing: 1it [00:00,  2.75it/s]
+  📝 Transcript: A commute to your office from the initial apartment was 25 minutes, so at the increased budget of $2...
+  ⏱️  Perceived Latency: 18.08s (Agent Start: 35.36s - User End: 17.28s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[76/100] Processing Speaker=66c4f3cb... Example=housing_21...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-495b68fb
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:35:15 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:35:15 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:35:16 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.90it/s]Transcribing: 1it [00:00,  1.78it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:35:16 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:35:16 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:35:16 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.10it/s]Transcribing: 1it [00:00,  4.02it/s]
+  📝 Transcript: I understand you're looking for a three-bedroom apartment and want to check the walking time to the ...
+  ⏱️  Perceived Latency: 4.40s (Agent Start: 23.68s - User End: 19.28s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[77/100] Processing Speaker=695bd157... Example=housing_22...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-27f8629a
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:36:21 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:36:21 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:36:21 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.88it/s]Transcribing: 1it [00:00,  1.87it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:36:21 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:36:21 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:36:21 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.87it/s]Transcribing: 1it [00:00,  3.85it/s]
+  📝 Transcript: I've updated your search filter. I understand. And please let me know the details when you're ready....
+  ⏱️  Perceived Latency: 9.20s (Agent Start: 28.72s - User End: 19.52s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[78/100] Processing Speaker=65e8cf8f... Example=housing_24...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-4723b54b
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:37:30 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:37:30 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:37:30 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.83it/s]Transcribing: 1it [00:00,  1.82it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:37:30 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:37:31 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:37:31 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.81it/s]Transcribing: 1it [00:00,  3.79it/s]
+  📝 Transcript: I've updated your max price to $1,500. The apartment in Dallas I found is $1,400 per month, and the ...
+  ⏱️  Perceived Latency: 4.08s (Agent Start: 29.6s - User End: 25.52s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[79/100] Processing Speaker=69a9cf80... Example=housing_24...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-1b398fc8
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:38:41 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:38:41 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:38:41 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:01,  1.09s/it]Transcribing: 1it [00:01,  1.10s/it]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:38:42 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:38:42 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:38:42 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.46it/s]Transcribing: 1it [00:00,  3.44it/s]
+  📝 Transcript: I found a one-bedroom apartment in Dallas for $1,400, but I don't have the address or a specific gro...
+  ⏱️  Perceived Latency: 6.16s (Agent Start: 34.160000000000004s - User End: 28.0s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[80/100] Processing Speaker=66f59c76... Example=housing_25...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-0e9b1b07
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:39:44 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:39:45 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:39:45 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.81it/s]Transcribing: 1it [00:00,  1.81it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:39:45 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:39:45 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:39:45 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.42it/s]Transcribing: 1it [00:00,  4.33it/s]
+  📝 Transcript: I've updated your filters and found one apartment in San Francisco that allows pets within your budg...
+  ⏱️  Perceived Latency: 7.36s (Agent Start: 27.68s - User End: 20.32s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[81/100] Processing Speaker=62a885d5... Example=travel_01...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-d0c9af16
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:40:30 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:40:30 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:40:30 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.28it/s]Transcribing: 1it [00:00,  2.21it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:40:31 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:40:31 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:40:31 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.98it/s]Transcribing: 1it [00:00,  2.92it/s]
+  📝 Transcript: I found one flight available to Tokyo on July 15th. It's flight FL123 and costs $450....
+  ⏱️  Perceived Latency: 4.24s (Agent Start: 10.72s - User End: 6.48s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[82/100] Processing Speaker=5e3c1fbe... Example=travel_02...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-16ea5fd8
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:41:27 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:41:28 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:41:28 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.15it/s]Transcribing: 1it [00:00,  2.14it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:41:28 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:41:28 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:41:28 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.03it/s]Transcribing: 1it [00:00,  4.89it/s]
+  📝 Transcript: I've successfully updated your passport number in the system....
+  ⏱️  Perceived Latency: 5.36s (Agent Start: 18.64s - User End: 13.280000000000001s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[83/100] Processing Speaker=5ff07b5e... Example=travel_03...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-435bfbf9
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:42:21 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:42:22 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:42:22 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.16it/s]Transcribing: 1it [00:00,  2.15it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:42:22 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:42:22 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:42:22 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.95it/s]Transcribing: 1it [00:00,  4.89it/s]
+  📝 Transcript: I found a flight to London on August 20th for $450....
+  ⏱️  Perceived Latency: 3.84s (Agent Start: 16.72s - User End: 12.88s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[84/100] Processing Speaker=61517db6... Example=travel_03...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-c647c6d4
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:43:16 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:43:16 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:43:16 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.81it/s]Transcribing: 1it [00:00,  2.76it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:43:16 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:43:16 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:43:16 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.74it/s]Transcribing: 1it [00:00,  4.54it/s]
+  📝 Transcript: I found a flight to London on August 20th for $450....
+  ⏱️  Perceived Latency: 5.68s (Agent Start: 18.080000000000002s - User End: 12.4s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[85/100] Processing Speaker=6998abd7... Example=travel_05...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-8e826809
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:44:07 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:44:07 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:44:07 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.49it/s]Transcribing: 1it [00:00,  2.48it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:44:08 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:44:08 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:44:08 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.14it/s]Transcribing: 1it [00:00,  5.06it/s]
+  📝 Transcript: I found a flight to Chicago on December 12th for $450....
+  ⏱️  Perceived Latency: 3.92s (Agent Start: 14.0s - User End: 10.08s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[86/100] Processing Speaker=5ff07b5e... Example=travel_07...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-29382fc9
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:45:03 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:45:03 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:45:03 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.09it/s]Transcribing: 1it [00:00,  2.07it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:45:04 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:45:04 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:45:04 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.01it/s]Transcribing: 1it [00:00,  4.98it/s]
+  📝 Transcript: Your driver license has been successfully updated....
+  ⏱️  Perceived Latency: 2.64s (Agent Start: 17.12s - User End: 14.48s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[87/100] Processing Speaker=61517db6... Example=travel_07...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-0e5fce87
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:45:56 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:45:56 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:45:56 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.48it/s]Transcribing: 1it [00:00,  2.47it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:45:56 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:45:56 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:45:56 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.00it/s]Transcribing: 1it [00:00,  4.90it/s]
+  📝 Transcript: Your driver's license number has been successfully updated....
+  ⏱️  Perceived Latency: 6.88s (Agent Start: 18.8s - User End: 11.92s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[88/100] Processing Speaker=695bd157... Example=travel_08...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-73f12c6b
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:46:49 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:46:49 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:46:49 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.12it/s]Transcribing: 1it [00:00,  2.11it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:46:50 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:46:50 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:46:50 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.03it/s]Transcribing: 1it [00:00,  4.93it/s]
+  📝 Transcript: I found a flight to Seattle on November 1st for $450....
+  ⏱️  Perceived Latency: 5.92s (Agent Start: 16.8s - User End: 10.88s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[89/100] Processing Speaker=5f4a4da1... Example=travel_10...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-48f1a8bf
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:47:48 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:47:48 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:47:48 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.24it/s]Transcribing: 1it [00:00,  2.22it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:47:49 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:47:49 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:47:49 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.82it/s]Transcribing: 1it [00:00,  4.79it/s]
+  📝 Transcript: I'm listening. I have a flight to Miami on October 7th for $450....
+  ⏱️  Perceived Latency: 2.16s (Agent Start: 9.84s - User End: 7.68s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[90/100] Processing Speaker=66c4f3cb... Example=travel_11...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-ac22ca97
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:48:42 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:48:42 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:48:42 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.23it/s]Transcribing: 1it [00:00,  2.22it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:48:43 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:48:43 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:48:43 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.44it/s]Transcribing: 1it [00:00,  4.41it/s]
+  📝 Transcript: The flight to Austin has been successfully booked for Morgan Smith under the booking reference B sev...
+  ⏱️  Perceived Latency: 12.80s (Agent Start: 23.44s - User End: 10.64s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[91/100] Processing Speaker=66c4f3cb... Example=travel_14...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-fef32d65
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:49:34 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:49:34 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:49:34 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.45it/s]Transcribing: 1it [00:00,  2.43it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:49:35 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:49:35 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:49:35 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  5.28it/s]Transcribing: 1it [00:00,  5.24it/s]
+  📝 Transcript: I'm currently checking the available flights to Seoul for you. I found a flight to Seoul on March 22...
+  ⏱️  Perceived Latency: 5.84s (Agent Start: 17.12s - User End: 11.28s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[92/100] Processing Speaker=66f59c76... Example=travel_16...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-a0744d7d
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:50:32 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:50:32 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:50:32 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.98it/s]Transcribing: 1it [00:00,  1.97it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:50:32 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:50:32 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:50:32 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.76it/s]Transcribing: 1it [00:00,  4.68it/s]
+  📝 Transcript: There's a flight available to Vegas on August 8th for $450....
+  ⏱️  Perceived Latency: 5.60s (Agent Start: 19.92s - User End: 14.32s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[93/100] Processing Speaker=66f59c76... Example=travel_18...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-7718e49f
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:51:35 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:51:35 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:51:35 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.00it/s]Transcribing: 1it [00:00,  2.00it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:51:36 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:51:36 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:51:36 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.15it/s]Transcribing: 1it [00:00,  3.71it/s]
+  📝 Transcript: I've successfully booked your flight to Dubai under the name Casey Lee and updated your passport num...
+  ⏱️  Perceived Latency: 7.12s (Agent Start: 27.92s - User End: 20.8s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[94/100] Processing Speaker=695bd157... Example=travel_19...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-ac9331ed
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:52:36 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:52:36 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:52:36 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.46it/s]Transcribing: 1it [00:00,  2.45it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:52:36 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:52:36 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:52:36 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.51it/s]Transcribing: 1it [00:00,  4.37it/s]
+  📝 Transcript: I found a flight to Milan on June 3 for $450....
+  ⏱️  Perceived Latency: 5.68s (Agent Start: 23.28s - User End: 17.6s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[95/100] Processing Speaker=62a885d5... Example=travel_20...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-bd9b14a1
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:53:33 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:53:33 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:53:33 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.85it/s]Transcribing: 1it [00:00,  1.85it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:53:34 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:53:34 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:53:34 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.83it/s]Transcribing: 1it [00:00,  3.80it/s]
+  📝 Transcript: Hello. The flight was over your budget, so I've updated your driver's license to DL eighty eight....
+  ⏱️  Perceived Latency: -14.72s (Agent Start: 1.84s - User End: 16.56s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[96/100] Processing Speaker=65e8cf8f... Example=travel_21...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-7c00f1ae
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:54:36 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:54:36 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:54:36 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.35it/s]Transcribing: 1it [00:00,  2.34it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:54:36 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:54:36 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:54:36 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  4.28it/s]Transcribing: 1it [00:00,  4.25it/s]
+  📝 Transcript: I've updated your visa number and successfully booked your flight to Vegas for August 8th under the ...
+  ⏱️  Perceived Latency: 9.44s (Agent Start: 29.04s - User End: 19.6s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[97/100] Processing Speaker=69a9cf80... Example=travel_21...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-3e0c1948
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:55:41 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:55:41 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:55:41 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.82it/s]Transcribing: 1it [00:00,  1.82it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:55:42 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:55:42 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:55:42 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.69it/s]Transcribing: 1it [00:00,  3.64it/s]
+  📝 Transcript: Your Las Vegas flight on August 8th is booked under the name Quinn Davis with confirmation reference...
+  ⏱️  Perceived Latency: 12.56s (Agent Start: 35.2s - User End: 22.64s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[98/100] Processing Speaker=65e8cf8f... Example=travel_23...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-19d1ec4e
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:56:47 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:56:47 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:56:47 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.85it/s]Transcribing: 1it [00:00,  1.77it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:56:47 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:56:47 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:56:47 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.83it/s]Transcribing: 1it [00:00,  3.40it/s]
+  📝 Transcript: I've successfully updated both your passport and your driver's license with the new numbers you prov...
+  ⏱️  Perceived Latency: 1.36s (Agent Start: 23.52s - User End: 22.16s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[99/100] Processing Speaker=69a9cf80... Example=travel_23...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-a2b9a68d
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:57:55 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:57:55 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:57:55 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  1.97it/s]Transcribing: 1it [00:00,  1.96it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:57:55 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:57:55 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:57:55 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  3.93it/s]Transcribing: 1it [00:00,  3.84it/s]
+  📝 Transcript: Hmm. Both your passport and driver's license have been successfully updated in the system....
+  ⏱️  Perceived Latency: -19.36s (Agent Start: 4.72s - User End: 24.080000000000002s)
+  💾 Saved: result_gate_gemini38_final.json
+
+[100/100] Processing Speaker=695bd157... Example=travel_24...
+  🚀 Running LiveKit inference with provider=gate_gemini38_final...
+  🔗 Streaming via livekit_inference.py into room: eval-72e3bc66
+  ✅ livekit_inference.py finished successfully.
+  🗣️  Running ASR on input audio...
+[NeMo I 2026-09-29 16:59:05 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:59:05 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:59:05 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.21it/s]Transcribing: 1it [00:00,  2.20it/s]
+  ⏱️  Measuring latency...
+  🗣️  Running ASR on model output...
+[NeMo I 2026-09-29 16:59:05 _contextlib:124] Timestamps requested, setting decoding timestamps to True. Capture them in Hypothesis object,                         with output[0][idx].timestep['word'/'segment'/'char']
+[NeMo W 2026-09-29 16:59:05 dataloader:343] The following configuration keys are ignored by Lhotse dataloader: use_start_end_token
+[NeMo W 2026-09-29 16:59:05 dataloader:349] You are using a non-tarred dataset and requested tokenization during data sampling (pretokenize=True). This will cause the tokenization to happen in the main (GPU) process,possibly impacting the training speed if your tokenizer is very large.If the impact is noticable, set pretokenize=False in dataloader config.(note: that will disable token-per-second filtering and 2D bucketing features)
+Transcribing: 0it [00:00, ?it/s]Transcribing: 1it [00:00,  2.23it/s]Transcribing: 1it [00:00,  2.19it/s]
+  📝 Transcript: I have successfully booked your flight to Vancouver for Skylar, updated your visa number, and I'm lo...
+  ⏱️  Perceived Latency: 6.00s (Agent Start: 31.6s - User End: 25.6s)
+  💾 Saved: result_gate_gemini38_final.json
+
+------------------------------------------------------------
+🏁 Batch Evaluation Complete
+⏱️  Total Duration: 96.69 minutes
+📊 Summary:
+   - Total:   100
+   - Success: 100
+   - Error:   0
+   - Skipped: 0
+   - Avg First-Speech Latency: 22.63s
+   - Avg Perceived Latency:    6.58s
+------------------------------------------------------------

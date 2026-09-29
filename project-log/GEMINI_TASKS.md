@@ -104,3 +104,16 @@ Claude or the user adds tasks; Gemini works them top to bottom and fills in **Re
     - ❌ **Lead-session check (2026-09-29): the quote is NOT on that page** (it's a site-navigation page). Don't cite; find a real source or drop this example.
 
 **Lead-session spot check:** #1 LiveKit quote verified on the page. The page also says the audio turn detector works with realtime models without an STT, but the realtime model's own turn detection must be disabled. #10 failed (see above). Others not re-checked; #7 Stripe and #9 Moshi match their known wording.
+
+---
+
+## G5 — Jev Decision Layer Briefing & Architectural Plan for Claude · status: done
+**Goal:** Document the finalized architectural plan, cost/latency breakdown, empirical evidence, and fallback strategy for TypeSafe Jev in the Commit Gate for Claude (Lead Engineer).
+**Done when:** A structured briefing document is written to `project-log/JEV_PLAN_BRIEFING.md` and summarized here.
+**Result:** (2026-09-29) Antigravity formalized and delivered `project-log/JEV_PLAN_BRIEFING.md` detailing:
+1. **Cost & Latency Edge:** TypeSafe Jev System One classifier runs in ~70–350 ms at $0.042 / 1M tokens (output tokens free) vs 800–1,500 ms and $2.50–$10.00 / 1M tokens for generative LLM self-reflection.
+2. **What Was Cut:** Generative reflection loops inside the live streaming loop, cascaded STT-LLM-TTS pipelines (10.12s latency per Lin), and speculative external API calls.
+3. **Commit Gate Integration:** `turn_state` (fast release at 0.4s on complete >= 0.8; 2.5s hold on continuing >= 0.6) and `followup` (supersedes stale calls on correction, allows concurrent calls on addition).
+4. **Combined Decider Synergy:** Decision eval shows OR-combination (`GATE_COMBINE=either`) catches 68% of pauses (17/25) vs 60% for rules (15/25) and 64% for Jev (16/25).
+5. **Zero-Downtime Fallback:** 0.8s hard timeout with instant degradation to deterministic local regex/lexical heuristics (`ends_hesitantly`, `_CORRECTION_CUES`); unit-tested with 18/18 passes.
+

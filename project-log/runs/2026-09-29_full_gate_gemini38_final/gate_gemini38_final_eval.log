@@ -1,0 +1,43 @@
+📖 Loading benchmark data from benchmark_data_v2.json...
+📁 Scanning fdb_v3_data_released for provider 'gate_gemini38_final'...
+🔍 Found 100 valid result files matching benchmark scenarios.
+
+📊 PASS RATE REPORT — GATE_GEMINI38_FINAL
+========================================================
+  Total Scenarios : 100
+  ✅ Passed       : 46
+  ❌ Failed       : 54
+  📈 Pass Rate    : 46.0%
+
+  Failure Breakdown:
+    Wrong Tools     : 18
+    Wrong Arguments : 36
+
+  By Domain:
+    ecommerce_support: 62.1%
+    finance_billing: 88.0%
+    housing_location: 11.5%
+    travel_identity: 15.0%
+
+  By Difficulty:
+    medium: 47.1%
+    hard: 36.7%
+    easy: 52.8%
+
+  By Num Tool Calls:
+    1 tools: 50.0%
+    2 tools: 50.0%
+    3 tools: 25.0%
+
+  By Disfluency Feature:
+    SELF_CORRECTION: 47.1%
+    PAUSE: 27.8%
+    FILLER: 41.4%
+    FALSE_START: 66.7%
+    HESITATION: 50.0%
+
+  State Rollback:
+    With rollback:    47.1%
+    Without rollback: 45.8%
+
+  📄 Report saved: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-29_full_gate_gemini38_final/gate_gemini38_final_pass_rate_report.json

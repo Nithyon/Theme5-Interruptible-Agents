@@ -1,0 +1,6 @@
+JUDGE google/gemini-2.5-pro: {"calls": 119, "ok": 119, "unparseable": 0, "errors": 0, "retries": 0}
+evaluated: 100 | passed: 61 | pass rate: 0.61
+failure breakdown: {'wrong_tools': 18, 'wrong_arguments': 21}
+by_domain: {'ecommerce_support': 0.586, 'finance_billing': 0.88, 'housing_location': 0.346, 'travel_identity': 0.65}
+by_num_tools: {'1': 0.667, '2': 0.611, '3': 0.375}
+by_disfluency_feature: {'SELF_CORRECTION': 0.529, 'PAUSE': 0.5, 'FILLER': 0.69, 'FALSE_START': 0.667, 'HESITATION': 0.7}

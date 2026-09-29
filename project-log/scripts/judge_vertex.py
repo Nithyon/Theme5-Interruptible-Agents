@@ -62,7 +62,9 @@ class _Completions:
                     stats["unparseable"] += 1
                 return resp
             except Exception as e:
-                if attempt < 4 and ("429" in str(e) or "503" in str(e) or "RESOURCE_EXHAUSTED" in str(e)):
+                transient = ("429" in str(e) or "503" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+                             or "timed out" in str(e).lower() or "Timeout" in type(e).__name__)
+                if attempt < 4 and transient:
                     stats["retries"] += 1
                     time.sleep(2 ** attempt)
                     continue
@@ -83,7 +85,9 @@ class VertexJudge:
     def client(self):
         if self._client is None or time.time() > self._expiry:
             self._creds.refresh(google.auth.transport.requests.Request())
-            self._client = OpenAI(base_url=BASE_URL, api_key=self._creds.token)
+            # 60 s per question: the client's default (600 s) let one hung request stall a run
+            self._client = OpenAI(base_url=BASE_URL, api_key=self._creds.token,
+                                  timeout=60.0, max_retries=2)
             self._expiry = time.time() + 45 * 60      # access tokens last ~60 min
         return self._client
 
