@@ -166,6 +166,17 @@ async def with_jev():
     await g.run("search_flights", {"destination": "Boston"}, noop)
     check(time.monotonic() - t0 >= 2.3, "jev 'continuing': held for the longer window")
 
+    # 9b. combined decider: rules caught a hesitation, Jev says complete -> still hold
+    import gate as gate_mod
+    gate_mod.COMBINE_EITHER = True
+    g = CommitGate(quiet_s=0.3, hesitant_quiet_s=1.0, judge=FakeJev(turn={"complete": 0.95, "continuing": 0.05}))
+    g.on_user_transcript("book a flight to Boston, um")
+    await asyncio.sleep(0.05)
+    t0 = time.monotonic()
+    await g.run("search_flights", {"destination": "Boston"}, noop)
+    check(time.monotonic() - t0 >= 0.9, "either-mode: a rules hesitation is not overridden by Jev")
+    gate_mod.COMBINE_EITHER = False
+
     # 10. Jev decides correction vs addition, overriding the keyword rules
     ran = []
 

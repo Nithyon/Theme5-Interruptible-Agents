@@ -49,6 +49,7 @@ _DANGLING = {"to", "for", "from", "on", "in", "at", "with", "by", "of", "into", 
              "this", "that", "is", "be", "make", "set", "change", "add", "book", "track",
              "search", "convert", "update", "find", "get", "show", "around", "maybe"}
 DANGLING_ON = os.getenv("GATE_DANGLING", "0") == "1"
+COMBINE_EITHER = os.getenv("GATE_COMBINE", "") == "either"
 
 
 def ends_hesitantly(text: str) -> bool:
@@ -184,11 +185,16 @@ class CommitGate:
         return " ".join(t for _, t in self.transcript[idx:])
 
     def required_quiet(self) -> float:
-        rule = self.hesitant_quiet_s if ends_hesitantly(self.last_user_text) else self.quiet_s
+        hesitant = ends_hesitantly(self.last_user_text)
+        rule = self.hesitant_quiet_s if hesitant else self.quiet_s
         if self.jev_turn is not None and self.jev_turn_idx == len(self.transcript) - 1:
             if self.jev_turn.get("continuing", 0.0) >= JEV_CONT_P:
                 return max(rule, JEV_HOLD_S)
             if self.jev_turn.get("complete", 0.0) >= JEV_DONE_P:
+                # GATE_COMBINE=either: rules + Jev as one decider. Release fast only when
+                # both agree the user is done; a hesitation the rules caught still holds.
+                if COMBINE_EITHER and hesitant:
+                    return rule
                 return JEV_FAST_S
         return rule
 

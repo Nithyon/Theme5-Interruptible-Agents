@@ -1,0 +1,12 @@
+{"room": "eval-326c08c1", "call": {"function": "track_order", "args": {"order_id": "ABC123"}, "timestamp_start": 1790694732.028062, "timestamp_end": 1790694732.0280857}}
+{"room": "eval-0e88ee3e", "call": {"function": "track_order", "args": {"order_id": "abc123"}, "timestamp_start": 1790694791.9699497, "timestamp_end": 1790694791.9699674}}
+{"room": "eval-6de034de", "call": {"function": "search_products", "args": {"query": "wireless headphones", "max_price": 100.0}, "timestamp_start": 1790694841.6422777, "timestamp_end": 1790694841.642295}}
+{"room": "eval-e67a71e8", "call": {"function": "track_order", "args": {"order_id": "XYZ88"}, "timestamp_start": 1790694894.3713157, "timestamp_end": 1790694894.3713448}}
+{"room": "eval-00c9d7a6", "call": {"function": "search_products", "args": {"query": "desk", "max_price": 300.0}, "timestamp_start": 1790694955.4679909, "timestamp_end": 1790694955.4680092}}
+{"room": "eval-9a544967", "call": {"function": "add_to_cart", "args": {"product_id": "K2", "quantity": 2}, "timestamp_start": 1790695007.4215746, "timestamp_end": 1790695007.4215953}}
+{"room": "eval-7dbb9ec1", "call": {"function": "track_order", "args": {"order_id": "FAST99"}, "timestamp_start": 1790695063.5732293, "timestamp_end": 1790695063.573248}}
+{"room": "eval-9ddc0e54", "call": {"function": "search_products", "args": {"query": "mechanical keyboard", "max_price": 200.0}, "timestamp_start": 1790695118.825207, "timestamp_end": 1790695118.8252287}}
+{"room": "eval-2a6019ba", "call": {"function": "search_products", "args": {"query": "mechanical keyboard", "max_price": 200.0}, "timestamp_start": 1790695171.864021, "timestamp_end": 1790695171.8640409}}
+{"room": "eval-df0bc352", "call": {"function": "search_products", "args": {"query": "hiking boots", "max_price": null}, "timestamp_start": 1790695224.4016726, "timestamp_end": 1790695224.401693}}
+{"room": "t", "call": {"function": "track_order", "args": {"order_id": "A1"}, "timestamp_start": 1790695262.6969728, "timestamp_end": 1790695262.697002}}
+{"room": "t", "call": {"function": "track_order", "args": {"order_id": "B2"}, "timestamp_start": 1790695262.6971657, "timestamp_end": 1790695262.6971714}}

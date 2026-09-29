@@ -1,0 +1,10 @@
+{"room": "eval-326c08c1", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 6, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 853}}
+{"room": "eval-0e88ee3e", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 6, "user_state": 9, "jev": {"calls": 6, "ok": 6, "timeouts": 0, "errors": 0, "ms_total": 2528}}
+{"room": "eval-6de034de", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 6, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 1163}}
+{"room": "eval-e67a71e8", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 6, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 1048}}
+{"room": "eval-00c9d7a6", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 4, "user_state": 5, "jev": {"calls": 4, "ok": 2, "timeouts": 2, "errors": 0, "ms_total": 1004}}
+{"room": "eval-9a544967", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 6, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 1115}}
+{"room": "eval-7dbb9ec1", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 6, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 1253}}
+{"room": "eval-9ddc0e54", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 6, "user_state": 9, "jev": {"calls": 6, "ok": 5, "timeouts": 1, "errors": 0, "ms_total": 2221}}
+{"room": "eval-2a6019ba", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 5, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 745}}
+{"room": "eval-df0bc352", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 6, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 907}}
