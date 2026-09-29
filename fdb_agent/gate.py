@@ -82,6 +82,27 @@ def is_retraction(text: str) -> bool:
     return _has_cue(text, _RETRACTION_CUES)
 
 
+# Backchannels ("okay", "mm-hmm", "yeah", "got it") signal "I'm listening", not a new turn
+# (S-MARC, arXiv 2602.11065, models them as a class of their own, separate from turn-taking).
+# A backchannel-only utterance must not supersede or retract a held call, count as a
+# correction, or fire the "turn done" acknowledgement. Fillers ("uh", "um", "hmm") are NOT
+# backchannels: they mean more is coming. GATE_BACKCHANNEL=0 disables this.
+_BC_PHRASES = ("mm hmm", "uh huh", "got it", "i see", "thank you", "all right", "sounds good")
+_BC_TOKENS = {"ok", "okay", "mhm", "yeah", "yep", "yes", "right", "sure", "alright", "cool",
+              "great", "thanks", "perfect", "fine", "bc"}
+BACKCHANNEL_ON = os.getenv("GATE_BACKCHANNEL", "1") == "1"
+
+
+def is_backchannel(text: str) -> bool:
+    w = _words(text)
+    if not w or len(w) > 4:
+        return False
+    joined = " " + " ".join(w) + " "
+    for ph in _BC_PHRASES:
+        joined = joined.replace(" " + ph + " ", " bc ")
+    return all(t in _BC_TOKENS for t in joined.split())
+
+
 def _words(text: str) -> List[str]:
     return "".join(c if c.isalnum() or c in " '" else " " for c in text.lower()).split()
 
@@ -178,6 +199,13 @@ class CommitGate:
         # reliable "the user is still talking" signal, so it drives the quiet timer.
         now = time.monotonic()
         self.last_user_activity = now
+        if text.strip() and BACKCHANNEL_ON and is_backchannel(text):
+            # Logged (so _speech_since can see the user made a sound) but not a new turn:
+            # no hesitation update, no retraction check, no Jev call, no acknowledgement.
+            self.transcript.append((now, text))
+            self.stats["backchannel"] = self.stats.get("backchannel", 0) + 1
+            self._event("backchannel", text=text[-40:], final=final)
+            return
         if text.strip():
             self.last_user_text = text
             self.transcript.append((now, text))
@@ -217,7 +245,13 @@ class CommitGate:
             log.warning("on_turn_done failed: %s", e)
 
     def _speech_since(self, idx: int) -> str:
-        return " ".join(t for _, t in self.transcript[idx:])
+        """User speech after transcript event idx, ignoring backchannels."""
+        return " ".join(t for _, t in self.transcript[idx:]
+                        if not (BACKCHANNEL_ON and is_backchannel(t)))
+
+    def _only_backchannel_since(self, idx: int) -> bool:
+        later = self.transcript[idx:]
+        return BACKCHANNEL_ON and bool(later) and all(is_backchannel(t) for _, t in later)
 
     def _check_retraction(self) -> None:
         """Drop still-held calls the user withdrew after proposing them ("don't book
@@ -262,7 +296,8 @@ class CommitGate:
                 continue
             said = self._speech_since(old.transcript_idx)
             kind = classify_followup(said)
-            if old.speech_epoch < p.speech_epoch and kind == "none":
+            if (old.speech_epoch < p.speech_epoch and kind == "none"
+                    and not self._only_backchannel_since(old.transcript_idx)):
                 kind = "correction"           # a VAD/interrupt said the user spoke again
             source = "rules"
             if self.draft_hold_s > 0 and looks_draft(old.args) and not looks_draft(args):

@@ -315,7 +315,57 @@ async def wrapped_tools():
     ex = [e for e in g.events if e["kind"] == "proposed"]
     check(ex and ex[-1]["args"] == {"order_id": "BOB12"}, f"wrapped tool receives the joined id {ex[-1]['args'] if ex else None}")
 
+async def backchannel():
+    # 16. backchannels ("okay", "mm-hmm") are not a new turn; fillers ("uh") still are hesitation
+    from gate import is_backchannel
+    yes = ["okay", "Mm-hmm.", "uh-huh", "yeah, got it", "okay thanks", "right", "sure"]
+    no = ["uh", "um", "hmm", "no, New York", "okay, and track B2", "yes book it",
+          "okay wait", "don't book it"]
+    check(all(is_backchannel(t) for t in yes) and not any(is_backchannel(t) for t in no),
+          f"backchannel detection {[t for t in yes if not is_backchannel(t)]} {[t for t in no if is_backchannel(t)]}")
+
+    fired = []
+    jev = FakeJev(turn={"complete": 0.95, "continuing": 0.05})
+    g = CommitGate(quiet_s=0.3, judge=jev)
+    g.on_turn_done = lambda: fired.append(1)
+    g.on_user_transcript("mm-hmm", True)
+    await asyncio.sleep(0.05)
+    check(fired == [] and g.last_user_text == "" and g.stats.get("backchannel") == 1
+          and jev.stats["calls"] == 0, "backchannel: no acknowledgement, no Jev call, no turn update")
+
+    ran = []
+
+    def fake(v):
+        async def go():
+            ran.append(v)
+            return "ok"
+        return go
+    # the same call re-proposed after only a backchannel (with a VAD speech start): runs once
+    g = CommitGate(quiet_s=0.3)
+    g.on_user_transcript("track order A1", True)
+    t1 = asyncio.create_task(g.run("track_order", {"order_id": "A1"}, fake("A1-first")))
+    await asyncio.sleep(0.05)
+    g.on_user_state("speaking"); g.on_user_transcript("okay", True); g.on_user_state("listening")
+    t2 = asyncio.create_task(g.run("track_order", {"order_id": "A1"}, fake("A1-again")))
+    await asyncio.gather(t1, t2)
+    same = [e for e in g.events if e["kind"] == "same_tool_again"]
+    check(len(ran) == 1 and same and same[0]["followup"] == "none" and not same[0]["replace"],
+          f"backchannel: not treated as a correction {ran} {same}")
+    # a real correction after a backchannel still wins
+    ran.clear()
+    g = CommitGate(quiet_s=0.3)
+    g.on_user_transcript("flights to Boston", True)
+    t1 = asyncio.create_task(g.run("search_flights", {"destination": "Boston"}, fake("Boston")))
+    await asyncio.sleep(0.05)
+    g.on_user_transcript("mm-hmm", True)
+    g.on_user_transcript("no, sorry, New York", True)
+    t2 = asyncio.create_task(g.run("search_flights", {"destination": "New York"}, fake("New York")))
+    await asyncio.gather(t1, t2)
+    check(ran == ["New York"], f"backchannel then correction: correction still supersedes {ran}")
+
+
 asyncio.run(scenarios())
+asyncio.run(backchannel())
 asyncio.run(transcript_driven())
 asyncio.run(with_jev())
 asyncio.run(draft_rule())
