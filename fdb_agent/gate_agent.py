@@ -19,6 +19,7 @@ from livekit.agents import AgentSession, llm                      # noqa: E402
 from livekit.agents.llm.tool_context import FunctionTool          # noqa: E402
 from gate import CommitGate, gate_tools                           # noqa: E402
 from models import gemini_live                                    # noqa: E402
+from jev import make_judge                                        # noqa: E402
 
 MODEL = os.getenv("GEMINI_LIVE_MODEL", "gemini-3.8-live")
 PROVIDER = os.getenv("LK_PROVIDER", "gate_gemini38")
@@ -62,7 +63,8 @@ async def entrypoint(ctx: agents.JobContext):
     fnc_ctx = stock.AssistantFnc(tracker, ctx.room.name)
     gate = CommitGate(quiet_s=float(os.getenv("GATE_QUIET_S", "0.9")),
                       hesitant_quiet_s=float(os.getenv("GATE_HESITANT_QUIET_S", "1.8")),
-                      unclear_supersedes=os.getenv("GATE_UNCLEAR_SUPERSEDES", "1") == "1")
+                      unclear_supersedes=os.getenv("GATE_UNCLEAR_SUPERSEDES", "1") == "1",
+                      judge=make_judge())
     tools = gate_tools(llm.find_function_tools(fnc_ctx), gate, FunctionTool)
     session = AgentSession(llm=realtime_model(), tools=tools)
 
@@ -91,7 +93,8 @@ async def entrypoint(ctx: agents.JobContext):
             return
         reported.append(True)
         with open("/tmp/gate_stats.log", "a") as f:
-            f.write(json.dumps({"room": ctx.room.name, **gate.stats}) + "\n")
+            jev_stats = gate.judge.stats if gate.judge is not None else None
+            f.write(json.dumps({"room": ctx.room.name, **gate.stats, "jev": jev_stats}) + "\n")
         with open("/tmp/gate_events.log", "a") as f:
             f.write(json.dumps({"room": ctx.room.name, "events": gate.events}, default=str) + "\n")
 

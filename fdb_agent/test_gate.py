@@ -131,6 +131,70 @@ async def transcript_driven():
     check(any(e["kind"] == "same_tool_again" for e in g.events), "decisions are logged")
 
 
+class FakeJev:
+    """Stands in for JevJudge offline: fixed answers, optional delay/failure."""
+    def __init__(self, turn=None, followup=None, delay=0.0):
+        self.turn, self.follow, self.delay = turn, followup, delay
+        self.stats = {"calls": 0}
+
+    async def turn_state(self, text):
+        self.stats["calls"] += 1
+        await asyncio.sleep(self.delay)
+        return self.turn
+
+    async def followup(self, a, b, said):
+        self.stats["calls"] += 1
+        await asyncio.sleep(self.delay)
+        return self.follow
+
+
+async def with_jev():
+    # 9. Jev confident the user is done -> fast release; thinks they'll continue -> hold
+    async def noop():
+        return "ok"
+    g = CommitGate(quiet_s=0.6, judge=FakeJev(turn={"complete": 0.95, "continuing": 0.05}))
+    g.on_user_transcript("track order 4471 please")
+    await asyncio.sleep(0.05)
+    t0 = time.monotonic()
+    await g.run("track_order", {"order_id": "4471"}, noop)
+    check(time.monotonic() - t0 < 0.55, "jev 'complete': released faster than the rule window")
+
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(turn={"complete": 0.2, "continuing": 0.8}))
+    g.on_user_transcript("book a flight to Boston")
+    await asyncio.sleep(0.05)
+    t0 = time.monotonic()
+    await g.run("search_flights", {"destination": "Boston"}, noop)
+    check(time.monotonic() - t0 >= 2.3, "jev 'continuing': held for the longer window")
+
+    # 10. Jev decides correction vs addition, overriding the keyword rules
+    ran = []
+
+    def fake(v):
+        async def go():
+            ran.append(v)
+            return "ok"
+        return go
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(followup={"correction": 0.1, "addition": 0.85, "unrelated": 0.05}))
+    g.on_user_transcript("track order A1")
+    t1 = asyncio.create_task(g.run("track_order", {"order_id": "A1"}, fake("A1")))
+    await asyncio.sleep(0.1)
+    g.on_user_transcript("no, the other one too")          # rules would say correction
+    t2 = asyncio.create_task(g.run("track_order", {"order_id": "B2"}, fake("B2")))
+    await asyncio.gather(t1, t2)
+    check(sorted(ran) == ["A1", "B2"], f"jev 'addition' overrides the keyword rule {ran}")
+
+    # 11. Jev unavailable (None) -> rules decide
+    ran.clear()
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(turn=None, followup=None))
+    g.on_user_transcript("book Boston")
+    t1 = asyncio.create_task(g.run("search_flights", {"destination": "Boston"}, fake("Boston")))
+    await asyncio.sleep(0.1)
+    g.on_user_transcript("no sorry, New York")
+    t2 = asyncio.create_task(g.run("search_flights", {"destination": "New York"}, fake("New York")))
+    await asyncio.gather(t1, t2)
+    check(ran == ["New York"], f"jev down: rule fallback still corrects {ran}")
+
+
 async def wrapped_tools():
     # 7. through the real wrapped tools: positional and keyword calls both carry their
     # arguments into the gate, so two different orders are not treated as duplicates
@@ -145,6 +209,7 @@ async def wrapped_tools():
 
 asyncio.run(scenarios())
 asyncio.run(transcript_driven())
+asyncio.run(with_jev())
 asyncio.run(wrapped_tools())
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)

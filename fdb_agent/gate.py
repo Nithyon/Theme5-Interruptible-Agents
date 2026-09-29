@@ -27,6 +27,12 @@ QUIET_S = 0.9        # user silence needed before a held call may run
 HESITANT_QUIET_S = 1.8   # silence needed when the user's last words signal more is coming
 MAX_HOLD_S = 8.0     # never hold a call longer than this
 POLL_S = 0.05
+# With Jev: release fast when it's confident the user is done, hold longer when it thinks
+# the user is still going (a thinking pause before a correction).
+JEV_FAST_S = 0.4
+JEV_HOLD_S = 2.5
+JEV_DONE_P = 0.8
+JEV_CONT_P = 0.6
 
 # Trailing words that usually mean the user hasn't finished (a filler, or the start of
 # a self-correction), so a pause after them is a thinking pause, not the end of the turn.
@@ -100,6 +106,9 @@ class CommitGate:
     executed: Dict[str, Any] = field(default_factory=dict)
     seq: int = 0
     unclear_supersedes: bool = True       # a same-tool re-call after more speech with no cue
+    judge: Any = None                     # optional JevJudge; None = rules only
+    jev_turn: Optional[Dict[str, float]] = None   # Jev's view of the latest transcript
+    jev_turn_idx: int = -1                # which transcript event jev_turn refers to
     transcript: List[tuple] = field(default_factory=list)   # (monotonic time, text) per event
     events: List[dict] = field(default_factory=list)        # decision log for analysis
     stats: Dict[str, int] = field(default_factory=lambda: {"proposed": 0, "executed": 0,
@@ -130,12 +139,31 @@ class CommitGate:
             self.transcript.append((now, text))
             self.stats["transcripts"] += 1
             self._event("transcript", text=text[-120:], final=final)
+            if self.judge is not None:
+                idx = len(self.transcript) - 1
+                context = " ".join(t for _, t in self.transcript[-3:])
+                try:
+                    asyncio.get_running_loop().create_task(self._ask_turn(idx, context))
+                except RuntimeError:
+                    pass                          # no loop (sync caller): rules only
+
+    async def _ask_turn(self, idx: int, context: str) -> None:
+        probs = await self.judge.turn_state(context)
+        if probs is not None and idx == len(self.transcript) - 1:
+            self.jev_turn, self.jev_turn_idx = probs, idx
+            self._event("jev_turn", idx=idx, probs={k: round(v, 3) for k, v in probs.items()})
 
     def _speech_since(self, idx: int) -> str:
         return " ".join(t for _, t in self.transcript[idx:])
 
     def required_quiet(self) -> float:
-        return self.hesitant_quiet_s if ends_hesitantly(self.last_user_text) else self.quiet_s
+        rule = self.hesitant_quiet_s if ends_hesitantly(self.last_user_text) else self.quiet_s
+        if self.jev_turn is not None and self.jev_turn_idx == len(self.transcript) - 1:
+            if self.jev_turn.get("continuing", 0.0) >= JEV_CONT_P:
+                return max(rule, JEV_HOLD_S)
+            if self.jev_turn.get("complete", 0.0) >= JEV_DONE_P:
+                return JEV_FAST_S
+        return rule
 
     # ---- gating ---------------------------------------------------------------------
     async def run(self, name: str, args: Dict[str, Any],
@@ -155,9 +183,15 @@ class CommitGate:
             kind = classify_followup(said)
             if old.speech_epoch < p.speech_epoch and kind == "none":
                 kind = "correction"           # a VAD/interrupt said the user spoke again
+            source = "rules"
+            if self.judge is not None and kind != "none":
+                probs = await self.judge.followup({"tool": old.name, "args": old.args},
+                                                  {"tool": name, "args": args}, said)
+                if probs:
+                    kind, source = max(probs, key=probs.get), "jev"
             replace = kind == "correction" or (kind == "unclear" and self.unclear_supersedes)
             self._event("same_tool_again", old=old.seq, new=p.seq, said=said[-120:],
-                        followup=kind, replace=replace)
+                        followup=kind, source=source, replace=replace)
             if replace:
                 old.superseded = True
             else:
