@@ -32,6 +32,8 @@ FOLLOWUP_Q = {
                   "mind or fixed a detail (e.g. 'Boston… no, New York').",
     "addition": "The user wants both: a second, separate request of the same kind "
                 "(e.g. 'track order A1 and also B2').",
+    "retraction": "The user withdrew the earlier request (e.g. 'don't book it, just "
+                  "search…'); the earlier call must not run.",
     "unrelated": "Neither: the later call is not about the earlier one.",
 }
 

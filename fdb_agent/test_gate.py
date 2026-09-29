@@ -252,6 +252,46 @@ async def turn_done_signal():
     check(fired == [], "turn done: never fires when Jev says continuing")
 
 
+async def retraction():
+    # 14. retraction (Zou et al. 2026): a held call withdrawn with no replacement is dropped
+    from gate import is_retraction
+    check(is_retraction("hmm, no, don't book anything") and is_retraction("never mind")
+          and is_retraction("forget that") and not is_retraction("track order 4471 please"),
+          "retraction cue detection")
+    ran = []
+
+    def fake(v):
+        async def go():
+            ran.append(v)
+            return "ok"
+        return go
+    g = CommitGate(quiet_s=0.4)
+    g.on_user_transcript("book it for Priya Nair", True)
+    t1 = asyncio.create_task(g.run("book_flight", {"passenger_name": "Priya Nair"}, fake("book")))
+    await asyncio.sleep(0.1)
+    g.on_user_transcript("hmm, no, don't book anything, just search flights to Goa", True)
+    t2 = asyncio.create_task(g.run("search_flights", {"destination": "Goa", "date": "2026-12-20"}, fake("search")))
+    r1, _ = await asyncio.gather(t1, t2)
+    check(ran == ["search"] and "cancelled" in r1,
+          f"retraction: held booking dropped, the new search still runs {ran}")
+    check(g.stats.get("retracted") == 1, "retraction counted in stats")
+
+    # "don't" inside the original request (said before the call was proposed) must not cancel it
+    ran.clear()
+    g = CommitGate(quiet_s=0.2)
+    g.on_user_transcript("set my filter so pets are not allowed, don't show pet-friendly ones", True)
+    await g.run("update_search_filter", {"filter_name": "pets_allowed", "value": "false"}, fake("filter"))
+    check(ran == ["filter"], "retraction: words inside the original request don't cancel it")
+
+    # an executed call is never 'retracted' after the fact (the benchmark can't undo it)
+    ran.clear()
+    g = CommitGate(quiet_s=0.1)
+    g.on_user_transcript("track order A1", True)
+    await g.run("track_order", {"order_id": "A1"}, fake("A1"))
+    g.on_user_transcript("never mind", True)
+    check(ran == ["A1"] and not g.held, "retraction: only held calls can be dropped")
+
+
 async def wrapped_tools():
     # 7. through the real wrapped tools: positional and keyword calls both carry their
     # arguments into the gate, so two different orders are not treated as duplicates
@@ -269,6 +309,7 @@ asyncio.run(transcript_driven())
 asyncio.run(with_jev())
 asyncio.run(draft_rule())
 asyncio.run(turn_done_signal())
+asyncio.run(retraction())
 asyncio.run(wrapped_tools())
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)

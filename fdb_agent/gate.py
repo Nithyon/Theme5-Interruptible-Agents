@@ -68,6 +68,17 @@ _CORRECTION_CUES = ("no", "not", "sorry", "actually", "wait", "i mean", "instead
                     "make that", "make it", "change", "scratch that", "correction", "oops",
                     "my mistake", "wrong", "cancel")
 _ADDITION_CUES = ("and", "also", "another", "too", "as well", "plus", "both", "second")
+# Retraction (Zou et al. 2026, "When Users Change Their Mind": addition / revision /
+# retraction): the user withdraws a request without replacing it ("don't book anything",
+# "never mind", "forget that"). A held call is then dropped, not replaced.
+_RETRACTION_CUES = ("don't", "dont", "do not", "never mind", "nevermind", "forget that",
+                    "forget it", "cancel that", "hold off", "not yet", "no need", "skip that",
+                    "stop that")
+RETRACT_ON = os.getenv("GATE_RETRACT", "1") == "1"
+
+
+def is_retraction(text: str) -> bool:
+    return _has_cue(text, _RETRACTION_CUES)
 
 
 def _words(text: str) -> List[str]:
@@ -118,6 +129,7 @@ class Proposal:
     speech_epoch: int
     transcript_idx: int = 0               # how many user transcript events existed at proposal
     superseded: bool = False
+    retracted: bool = False               # withdrawn by the user, with no replacement
 
 
 @dataclass
@@ -170,6 +182,8 @@ class CommitGate:
             self.transcript.append((now, text))
             self.stats["transcripts"] += 1
             self._event("transcript", text=text[-120:], final=final)
+            if RETRACT_ON:
+                self._check_retraction()
             idx = len(self.transcript) - 1
             if self.judge is not None:
                 context = " ".join(t for _, t in self.transcript[-3:])
@@ -203,6 +217,19 @@ class CommitGate:
 
     def _speech_since(self, idx: int) -> str:
         return " ".join(t for _, t in self.transcript[idx:])
+
+    def _check_retraction(self) -> None:
+        """Drop still-held calls the user withdrew after proposing them ("don't book
+        anything", "never mind"). Only speech that arrived after a call was proposed counts,
+        so "don't include pets" said as part of the request can't cancel it."""
+        for p in self.held:
+            if p.superseded:
+                continue
+            said = self._speech_since(p.transcript_idx)
+            if said and is_retraction(said):
+                p.superseded = p.retracted = True
+                self.stats["retracted"] = self.stats.get("retracted", 0) + 1
+                self._event("retracted", seq=p.seq, said=said[-120:])
 
     def required_quiet(self) -> float:
         hesitant = ends_hesitantly(self.last_user_text)
@@ -244,7 +271,7 @@ class CommitGate:
                                                   {"tool": name, "args": args}, said)
                 if probs:
                     kind, source = max(probs, key=probs.get), "jev"
-            replace = kind == "correction" or (kind == "unclear" and self.unclear_supersedes)
+            replace = kind in ("correction", "retraction") or (kind == "unclear" and self.unclear_supersedes)
             self._event("same_tool_again", old=old.seq, new=p.seq, said=said[-120:],
                         followup=kind, source=source, replace=replace)
             if replace:
@@ -254,6 +281,12 @@ class CommitGate:
         self.held.append(p)
         try:
             while True:
+                if p.retracted:
+                    self._event("cancelled", seq=p.seq)
+                    log.info("retracted %s %s", name, args)
+                    return json.dumps({"status": "cancelled",
+                                       "note": "The user withdrew this request before it ran; "
+                                               "it was NOT performed. Do not say it was done."})
                 if p.superseded:
                     self.stats["superseded"] += 1
                     self._event("superseded", seq=p.seq)
