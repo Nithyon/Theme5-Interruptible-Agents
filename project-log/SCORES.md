@@ -6,10 +6,13 @@ Record every scored run: date, what ran, settings, result, where the logs are.
 
 | Date | Agent / config | Pass rate | Tool F1 | Arg acc. | Latency | Logs |
 |---|---|---|---|---|---|---|
+| 2026-09-29 | Baseline re-scored with **Gemini 2.5 Pro judge** (Vertex, benchmark judge prompts unchanged; 121/121 judge replies parsed, 0 fallbacks) | **62/100 (0.62)** | — | — | (same run) | `runs/2026-09-29_full_gemini3_8/gemini3_8_pass_rate_report_geminijudge.json` |
 | 2026-09-29 | **Baseline:** stock FDB agent, `gemini-3.8-live` via Vertex, all 100 recordings, exact-match (no judge) | **50/100 (0.50)** | — | — | perceived median 3.92 s | `runs/2026-09-29_full_gemini3_8/` |
 | 2026-09-29 | Smoke test: stock template, `gemini3_1`, example `ecommerce_01` (2 recordings), exact-match judge | 1/2 | — | — | first speech 20.1 s, perceived 4.56 s | `runs/2026-09-29_smoke_gemini3_1/` |
 
 Baseline breakdown (exact-match): by #tools 1→0.545, 2→0.50, 3→0.312 · disfluency: pause 0.389, filler 0.448, self-correction 0.471, hesitation 0.50, false start 0.667 · domain: finance 0.88, ecommerce 0.759, travel 0.15, housing 0.115 · failures: wrong args 32, missing tools 10, extra tools 5, missing+extra 3.
+
+Gemini-judged baseline breakdown: domain finance 0.88, ecommerce 0.759, travel 0.65 (exact 0.15), housing 0.192 (exact 0.115) · #tools 1→0.697, 2→0.611, 3→0.312 · self-correction 0.471 (unchanged from exact: these failures are real), pause 0.611, filler 0.655, hesitation 0.70, false start 0.583 · failures: wrong tools 18, wrong args 20 (exact: 32).
 
 Published reference (FDB-v3 paper, arXiv 2604.04847): GPT-Realtime about 0.60 pass@1; Gemini Live 3.1 fastest completion (~4.25 s); cascaded Whisper pipeline slowest (~10.1 s).
 
