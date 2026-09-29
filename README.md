@@ -91,16 +91,28 @@ All numbers above without a source link are **TBD** and will be filled in from a
 
 ## Reproduce
 
-`reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. It needs these environment variables set **by name only** in `~/theme5/Full-Duplex-Bench/v3/.env.local` (values are never written to this repo or asked for by any script):
+`reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. The organizers' 48 GB GPU is only used by the benchmark harness's own Parakeet ASR when it scores the agent's spoken answers — our agent and its reasoner (Gemini 3.8 Live, hosted) never touch that GPU themselves.
 
-- `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`
-- `GOOGLE_API_KEY` — **default path**, a plain Gemini API key
-- *(optional alternative)* `GOOGLE_GENAI_USE_VERTEXAI=true`, `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` — Vertex AI via Application Default Credentials, used in our own development environment because our org's Cloud policy blocks plain API keys; **not required for reproduction**, the API-key path is simpler for anyone re-running this
-- `OPENAI_API_KEY` (optionally `OPENAI_BASE_URL` for an Azure OpenAI deployment) — optional, only needed for `--use-llm` judge scoring; without it, scoring falls back to exact-match
+The exact one-command reproduction, with our submitted (final) config:
 
 ```bash
-./reproduce.sh fdb_agent/gate_agent.py gate_gemini38   # our agent
-./reproduce.sh fdb_agent/baseline_agent.py gemini3_8   # stock baseline, for comparison
+./reproduce.sh   # = ./reproduce.sh fdb_agent/gate_agent.py gate_gemini38_final
+```
+
+It needs these environment variables set **by name only** in `~/theme5/Full-Duplex-Bench/v3/.env.local` (values are never written to this repo or asked for by any script):
+
+**Required:**
+- `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`
+- `GOOGLE_API_KEY` — **default path**, a plain Gemini API key
+
+**Optional:**
+- `TYPESAFE_API_KEY` — enables Jev, the typed turn-state/follow-up classifier layered on the gate (`GATE_COMBINE=either`: hold if either the rule-based logic or Jev thinks the user is still going). **Without it, the gate falls back to rules-only automatically** — this is a tested code path (`fdb_agent/jev.py`), not a guess; `reproduce.sh` prints `Jev disabled: gate uses rules only` and continues rather than failing.
+- `OPENAI_API_KEY` (optionally `OPENAI_BASE_URL` for an Azure OpenAI deployment) — enables `--use-llm` judge scoring (the organizers' GPT-4o judge). **Without it, scoring falls back to exact-match** — still a real, reported number, just a stricter one.
+- *(optional alternative to `GOOGLE_API_KEY`)* `GOOGLE_GENAI_USE_VERTEXAI=true`, `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` — Vertex AI via Application Default Credentials, used in our own development environment because our org's Cloud policy blocks plain API keys; **not required for reproduction**, the plain-key path above is simpler for anyone re-running this and is what the organizers' own notes describe ("for Gemini we will not need the key").
+
+```bash
+./reproduce.sh fdb_agent/gate_agent.py gate_gemini38_final   # our final submitted config (default)
+./reproduce.sh fdb_agent/baseline_agent.py gemini3_8         # stock baseline, for comparison
 ```
 
 ## Extension (placeholder — not yet built)
