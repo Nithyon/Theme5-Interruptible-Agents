@@ -25,4 +25,100 @@
   🔍 ecommerce_20... FR=27.04s  TC=24.61s  TK=27.04s  filler=✗
   🔍 ecommerce_21... FR=-21.52s  TC=3.18s  TK=4.56s  filler=✗
   🔍 ecommerce_21... FR=-19.52s  TC=2.64s  TK=8.24s  filler=✓
-  🔍 ecommerce_23... 
+  🔍 ecommerce_23... FR=5.28s  TC=3.04s  TK=5.28s  filler=✗
+  🔍 ecommerce_25... FR=5.68s  TC=2.96s  TK=5.68s  filler=✗
+  🔍 ecommerce_25... FR=-7.68s  TC=2.39s  TK=5.04s  filler=✗
+  🔍 finance_01... FR=3.52s  TC=2.09s  TK=3.52s  filler=✗
+  🔍 finance_01... FR=3.28s  TC=1.74s  TK=3.28s  filler=✗
+  🔍 finance_02... FR=2.72s  TC=1.89s  TK=2.72s  filler=✗
+  🔍 finance_03... FR=3.6s  TC=2.35s  TK=3.6s  filler=✗
+  🔍 finance_03... FR=18.56s  TC=17.15s  TK=18.56s  filler=✗
+  🔍 finance_04... FR=3.6s  TC=2.1s  TK=3.6s  filler=✗
+  🔍 finance_06... FR=2.96s  TC=1.79s  TK=2.96s  filler=✗
+  🔍 finance_07... FR=3.68s  TC=2.44s  TK=3.68s  filler=✗
+  🔍 finance_07... FR=3.52s  TC=2.1s  TK=3.52s  filler=✗
+  🔍 finance_08... FR=3.52s  TC=2.09s  TK=3.52s  filler=✗
+  🔍 finance_08... FR=3.44s  TC=1.92s  TK=3.44s  filler=✗
+  🔍 finance_10... FR=4.08s  TC=2.1s  TK=4.08s  filler=✗
+  🔍 finance_11... FR=3.28s  TC=1.85s  TK=3.28s  filler=✗
+  🔍 finance_12... FR=3.6s  TC=2.17s  TK=3.6s  filler=✗
+  🔍 finance_12... FR=3.84s  TC=-7.33s  TK=3.84s  filler=✗
+  🔍 finance_14... FR=4.0s  TC=2.69s  TK=4.0s  filler=✗
+  🔍 finance_15... FR=3.44s  TC=1.97s  TK=3.44s  filler=✗
+  🔍 finance_16... FR=11.12s  TC=9.71s  TK=11.12s  filler=✗
+  🔍 finance_17... FR=3.28s  TC=1.91s  TK=3.28s  filler=✗
+  🔍 finance_18... FR=4.16s  TC=2.79s  TK=4.16s  filler=✗
+  🔍 finance_19... FR=3.44s  TC=2.08s  TK=3.44s  filler=✗
+  🔍 finance_20... FR=3.68s  TC=2.49s  TK=3.68s  filler=✗
+  🔍 finance_21... FR=3.6s  TC=2.21s  TK=3.6s  filler=✗
+  🔍 finance_22... FR=4.4s  TC=2.37s  TK=4.4s  filler=✗
+  🔍 finance_23... FR=3.44s  TC=2.14s  TK=3.44s  filler=✗
+  🔍 housing_01... FR=4.0s  TC=1.68s  TK=4.0s  filler=✗
+  🔍 housing_02... FR=4.8s  TC=2.56s  TK=4.8s  filler=✗
+  🔍 housing_03... FR=-10.16s  TC=Nones  TK=4.08s  filler=✓
+  🔍 housing_04... FR=9.44s  TC=Nones  TK=10.8s  filler=✓
+  🔍 housing_05... FR=5.52s  TC=3.68s  TK=5.52s  filler=✗
+  🔍 housing_05... FR=5.36s  TC=3.16s  TK=5.36s  filler=✗
+  🔍 housing_06... FR=3.6s  TC=1.93s  TK=3.6s  filler=✗
+  🔍 housing_08... FR=3.52s  TC=2.04s  TK=3.52s  filler=✗
+  🔍 housing_09... FR=4.88s  TC=2.53s  TK=4.88s  filler=✗
+  🔍 housing_10... FR=3.92s  TC=2.09s  TK=3.92s  filler=✗
+  🔍 housing_11... FR=4.0s  TC=1.78s  TK=4.0s  filler=✗
+  🔍 housing_13... FR=4.08s  TC=-7.54s  TK=4.72s  filler=✓
+  🔍 housing_14... FR=4.32s  TC=2.24s  TK=4.32s  filler=✗
+  🔍 housing_14... FR=5.36s  TC=2.97s  TK=5.36s  filler=✗
+  🔍 housing_15... FR=-14.16s  TC=2.26s  TK=4.72s  filler=✗
+  🔍 housing_15... FR=4.8s  TC=2.75s  TK=4.8s  filler=✗
+  🔍 housing_17... FR=3.36s  TC=Nones  TK=3.36s  filler=✗
+  🔍 housing_17... FR=3.44s  TC=Nones  TK=3.44s  filler=✗
+  🔍 housing_18... FR=5.2s  TC=2.42s  TK=5.2s  filler=✗
+  🔍 housing_19... FR=3.44s  TC=Nones  TK=3.44s  filler=✗
+  🔍 housing_20... FR=5.04s  TC=2.71s  TK=5.04s  filler=✗
+  🔍 housing_21... FR=4.08s  TC=2.45s  TK=4.08s  filler=✗
+  🔍 housing_22... FR=6.8s  TC=3.04s  TK=6.8s  filler=✗
+  🔍 housing_24... FR=7.44s  TC=3.74s  TK=7.44s  filler=✗
+  🔍 housing_24... FR=6.48s  TC=3.04s  TK=6.48s  filler=✗
+  🔍 housing_25... FR=6.48s  TC=3.01s  TK=6.48s  filler=✗
+  🔍 travel_01... FR=3.52s  TC=1.48s  TK=3.52s  filler=✗
+  🔍 travel_02... FR=3.36s  TC=2.04s  TK=3.36s  filler=✗
+  🔍 travel_03... FR=4.0s  TC=1.89s  TK=4.0s  filler=✗
+  🔍 travel_03... FR=4.08s  TC=1.98s  TK=4.08s  filler=✗
+  🔍 travel_05... FR=4.0s  TC=2.18s  TK=4.0s  filler=✗
+  🔍 travel_07... FR=3.6s  TC=2.15s  TK=3.6s  filler=✗
+  🔍 travel_07... FR=2.8s  TC=1.94s  TK=2.8s  filler=✗
+  🔍 travel_08... FR=4.0s  TC=2.13s  TK=4.0s  filler=✗
+  🔍 travel_10... FR=2.72s  TC=-0.31s  TK=13.76s  filler=✓
+  🔍 travel_11... FR=4.64s  TC=1.93s  TK=4.64s  filler=✗
+  🔍 travel_14... FR=3.76s  TC=2.04s  TK=3.76s  filler=✗
+  🔍 travel_16... FR=4.08s  TC=1.93s  TK=4.08s  filler=✗
+  🔍 travel_18... FR=6.16s  TC=3.61s  TK=6.16s  filler=✗
+  🔍 travel_19... FR=4.0s  TC=-5.03s  TK=4.0s  filler=✗
+  🔍 travel_20... FR=5.44s  TC=2.6s  TK=5.44s  filler=✗
+  🔍 travel_21... FR=6.0s  TC=2.96s  TK=6.0s  filler=✗
+  🔍 travel_21... FR=4.64s  TC=2.95s  TK=4.64s  filler=✗
+  🔍 travel_23... FR=4.96s  TC=2.69s  TK=4.96s  filler=✗
+  🔍 travel_23... FR=-20.32s  TC=3.18s  TK=5.2s  filler=✗
+  🔍 travel_24... JUDGE google/gemini-2.5-pro: {"calls": 100, "ok": 100, "unparseable": 0, "errors": 0, "retries": 0}
+FR=5.28s  TC=-13.44s  TK=5.28s  filler=✗
+
+============================================================
+✅ Analyzed: 100, Skipped (existing): 0, Failed: 0
+
+📊 LATENCY REPORT — GEMINI3_8
+========================================================
+  Turn-Take Success: 100/100 (100.0%)
+  (Latency metrics below exclude interruptions)
+
+  First Response (N=93):
+    Mean: 4.71s ± 3.05s
+    Min / Median / Max: 2.72s / 4.00s / 27.04s
+  Tool Call (N=89):
+    Mean: 2.56s ± 4.12s
+    Min / Median / Max: -13.44s / 2.29s / 24.61s
+  Task Completion (N=93):
+    Mean: 5.01s ± 3.50s
+    Min / Median / Max: 2.72s / 4.00s / 27.04s
+
+  Filler Usage: 5/93 (5%) use filler sentences
+
+  📄 Report saved: gemini3_8_latency_report.json

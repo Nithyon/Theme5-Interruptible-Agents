@@ -16,6 +16,8 @@ Gemini-judged baseline breakdown: domain finance 0.88, ecommerce 0.759, travel 0
 
 Baseline other metrics (Gemini 2.5 Pro judge, `gemini3_8_evaluation_report_geminijudge.json`): turn-take rate 1.00; tool selection acc 0.893; argument acc 0.697; **response quality 0.72**; avg response latency 4.71 s (std 3.05, min 2.72, max 27.04); **interruption rate 0.07** (agent spoke over the user in 7/100).
 
+Baseline latency (`analyze_tool_latency.py`, Gemini judge for key-info timing; interruptions excluded): **first response median 4.00 s** (mean 4.71, N=93); **tool call median 2.29 s** (mean 2.56, N=89); **task completion median 4.00 s** (mean 5.01, N=93); filler sentences 5%.
+
 Published reference (FDB-v3 paper, arXiv 2604.04847): GPT-Realtime about 0.60 pass@1; Gemini Live 3.1 fastest completion (~4.25 s); cascaded Whisper pipeline slowest (~10.1 s).
 
 ## Participant kit (no longer the official score)
