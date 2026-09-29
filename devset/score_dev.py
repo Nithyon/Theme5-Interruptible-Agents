@@ -64,7 +64,7 @@ def find_result_files(devset_dir: Path, provider: str) -> List[Path]:
 
 def scenario_id_from_folder(folder_name: str) -> str:
     # folder is "<scenario_id>_<24-hex>"; scenario ids are "s" + digits (e.g. s07, s41)
-    m = re.match(r"^(s\d+)_[0-9a-f]{24}$", folder_name)
+    m = re.match(r"^([sp]\d+)_[0-9a-f]{24}$", folder_name)   # s = ours, p = Lohit's pause set
     return m.group(1) if m else folder_name
 
 

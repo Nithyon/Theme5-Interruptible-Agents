@@ -1,0 +1,7 @@
+INFO:livekit.agents:starting worker
+🔧 API Backend running with 'instant' latency profile.
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.8.3", "rtc-version": "1.1.18", "pid": 25960, "timestamp": "2026-09-29T14:33:48.665579+00:00"}
+INFO:livekit.agents:preloading plugins
+{"message": "preloading plugins", "level": "INFO", "name": "livekit.agents", "packages": ["livekit.agents.ipc._preload", "livekit.agents.ipc._preload_freeze"], "pid": 25960, "timestamp": "2026-09-29T14:33:48.665946+00:00"}
+INFO:livekit.agents:HTTP server listening on :8081
+{"message": "HTTP server listening on :8081", "level": "INFO", "name": "livekit.agents", "pid": 25960, "timestamp": "2026-09-29T14:33:48.675277+00:00"}
