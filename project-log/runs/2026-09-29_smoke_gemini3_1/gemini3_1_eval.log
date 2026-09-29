@@ -1,0 +1,25 @@
+📖 Loading benchmark data from benchmark_data_v2.json...
+📁 Scanning fdb_v3_data_released for provider 'gemini3_1'...
+🔍 Found 2 valid result files matching benchmark scenarios.
+
+📊 PASS RATE REPORT — GEMINI3_1
+========================================================
+  Total Scenarios : 2
+  ✅ Passed       : 1
+  ❌ Failed       : 1
+  📈 Pass Rate    : 50.0%
+
+  Failure Breakdown:
+    Wrong Tools     : 1
+    Wrong Arguments : 0
+
+  By Domain:
+    ecommerce_support: 50.0%
+
+  By Difficulty:
+    easy: 50.0%
+
+  By Num Tool Calls:
+    1 tools: 50.0%
+
+  📄 Report saved: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-29_smoke_gemini3_1/gemini3_1_pass_rate_report.json

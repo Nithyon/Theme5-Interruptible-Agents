@@ -1,0 +1,92 @@
+{
+  "benchmark_name": "In-the-Wild Speech & Multi-Step Tool Calling",
+  "evaluated_at": "2026-09-29T09:48:50.745941",
+  "total_scenarios": 2,
+  "overall_pass_rate": 0.5,
+  "passed": 1,
+  "failed": 1,
+  "failure_breakdown": {
+    "wrong_tools": 1,
+    "wrong_arguments": 0
+  },
+  "by_domain": {
+    "ecommerce_support": 0.5
+  },
+  "by_difficulty": {
+    "easy": 0.5
+  },
+  "by_num_tools": {
+    "1": 0.5
+  },
+  "by_disfluency_feature": {},
+  "by_state_rollback": {
+    "with_rollback": null,
+    "without_rollback": 0.5
+  },
+  "scenario_results": [
+    {
+      "scenario_id": "ecommerce_01",
+      "domain": "ecommerce_support",
+      "difficulty": "easy",
+      "title": "Simple Order Tracking",
+      "num_tools": 1,
+      "disfluency": [],
+      "state_rollback": false,
+      "passed": false,
+      "checks": {
+        "tool_selection": {
+          "passed": false,
+          "expected": [
+            "track_order"
+          ],
+          "actual": [],
+          "missing": [
+            "track_order"
+          ],
+          "unexpected": []
+        }
+      },
+      "failure_reason": "Missing tools: ['track_order']"
+    },
+    {
+      "scenario_id": "ecommerce_01",
+      "domain": "ecommerce_support",
+      "difficulty": "easy",
+      "title": "Simple Order Tracking",
+      "num_tools": 1,
+      "disfluency": [],
+      "state_rollback": false,
+      "passed": true,
+      "checks": {
+        "tool_selection": {
+          "passed": true,
+          "expected": [
+            "track_order"
+          ],
+          "actual": [
+            "track_order"
+          ],
+          "missing": [],
+          "unexpected": []
+        },
+        "argument_accuracy": {
+          "passed": true,
+          "details": [
+            {
+              "function": "track_order",
+              "passed": true,
+              "expected_args": {
+                "order_id": "ABC123"
+              },
+              "actual_args": {
+                "order_id": "ABC123"
+              },
+              "explanation": "All arguments match"
+            }
+          ]
+        }
+      },
+      "failure_reason": ""
+    }
+  ]
+}

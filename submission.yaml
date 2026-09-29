@@ -1,0 +1,9 @@
+team: "your-team-name"
+entry_point: "agent.agent:ParticipantAgent"   # module:Class
+python: "3.12"                                 # 3.10–3.12
+requirements:                                  # extra pip packages, public PyPI only
+  - google-genai
+  - pillow
+  - numpy
+env:                                           # registered on the portal; optional at runtime
+  - SECRET_GEMINI_API_KEY

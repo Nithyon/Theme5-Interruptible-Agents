@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+generated/
+.env
+
+# local run artifacts
+out.json
+results.json
+*.out.json
+
+# virtualenvs
+.venv/
+venv/
+
+# editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# organizer-supplied theme guide — not ours to redistribute publicly.
+# Delete this line if the repo is private and you want it tracked.
+docs-source/

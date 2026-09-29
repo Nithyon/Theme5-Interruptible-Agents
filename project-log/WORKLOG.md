@@ -1,0 +1,60 @@
+# Work log
+
+Newest first. One entry per working session: what was done, results, files touched.
+
+## 2026-09-29
+- **Antigravity / Gemini (G3) analyzed Guan-Ting Lin (FDB lead author) publications** → `project-log/RESEARCH_NOTE_FDB_AUTHORS.md`. Highlights for Claude: FDB-v3's empirical proof of eager tool failure validates our `fdb_agent/gate.py` commit gate; Lin's measured 10.1s cascaded vs 4.25s native latency validates Option A (`gate_agent.py` on Gemini 3.8 Live); human hesitation timing (600–900 ms) confirms our 0.9s gate quiet threshold; provided citations and framing for the 20% architecture doc and video slides.
+- **Sonnet (S3) wrote `project-log/PLAN_VS_ACTUAL.md`**, comparing the user's plan PDF against what's actually built. Headline: built agent is `BUILD_PLAN_FDB_V3.md`'s speech-to-speech `gate_agent.py`, not the PDF's cascaded `dual_agent.py`. Flagged an unresolved conflict between the PDF's "tune on a 20-example dev set" and the project's own no-tuning-on-test-items rule.
+- **Sonnet (S4) drafted `reproduce.sh` + `BUILD_PLAN_FDB_V3.md` §7** (one-command clean-machine reproduction, not yet run — a benchmark run was in progress). Biggest gap: no Full-Duplex-Bench commit hash is pinned anywhere yet.
+- **Sonnet (S5) wrote `devset/scenarios.jsonl` (40 scenarios) + `devset/README.md`**, our own dev set for tuning the commit gate (never touches FDB-v3 test items), built only from `lk_agent_tool.py`'s tool signatures. 25/40 self-corrections, all 12 tools covered, plus a local Kokoro/Piper TTS proposal (not installed/run) for turning it into audio.
+- **Sonnet (S1) finished the read-only C: drive survey** (`project-log/SONNET_TASKS.md`). C: was down to ~8.6 MB free when this ran (filled up again since the WSL move). Biggest single item: Steam at 311 GB (`Program Files (x86)`), mostly GTA V + GTA V Enhanced + FC 26 + Phasmophobia (~310 GB combined) — the clearest cleanup target. Also flagged pip/npm/`.cache`/`.ollama`/`ms-playwright` caches (~46 GB combined, all reinstallable) and `Downloads\geospatial` (84 GB, needs the user's judgment). No files >5 GB found outside protected/inaccessible system paths. Nothing deleted or moved.
+- **Gemini via Vertex AI works.** The org policy blocks API keys on `hackathon-cinemahackathon`, so the user signed in with ADC (`setup_adc.sh`). Vertex (us-central1) serves `gemini-3.8-live`. The LiveKit plugin's hard-coded list wrongly marks it as AI-Studio-only, so `fdb_agent/models.py` removes it from that list in our process (installed package untouched). `.env.local` gained `GOOGLE_GENAI_USE_VERTEXAI`, `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` (no secrets). Smoke test on Vertex: `track_order` called, spoken answer, perceived latency 3.52 s (vs 4.56 s on gemini-3.1).
+- Full baseline (gemini-3.8-live, stock agent, Vertex) started → `runs/2026-09-29_full_gemini3_8/`.
+- Sonnet assigned S3 (compare the user's plan PDF with reality → `PLAN_VS_ACTUAL.md`) and S4 (draft `reproduce.sh`), with a "no agents while a run is in progress" rule.
+- Note for the gate: the plugin declares tools NON_BLOCKING by default for 3.8 models (`MODELS_DEFAULT_NON_BLOCKING`), so the model may keep talking while a held call waits. Check this in the gate run.
+- **Baseline run (gemini-3.8-live) aborted after 2 recordings:** Gemini Live returned `1011 … Your prepayment credits are depleted` (AI Studio prepaid billing on the key's project; the Google Cloud trial credits don't apply to it). The 2 `result_gemini3_8.json` files have no model responses and must not be scored. Launchers: `fdb_agent/baseline_agent.py` (stock agent, model swap), `project-log/scripts/run_baseline.sh`, `progress.sh`.
+- **Commit gate built:** `fdb_agent/gate.py` (hold until the user is quiet 0.9 s, supersede a held call when a newer call to the same tool follows further user speech, never execute an identical call twice; honest: only executed calls are logged) and `fdb_agent/gate_agent.py` (stock tools + prompt, tools wrapped by the gate, Gemini 3.8 Live). Offline tests `fdb_agent/test_gate.py`: 7/7 pass (schemas identical after wrapping; correction; two calls same turn; dedupe; hold while speaking).
+- **First end-to-end run works.** `.env.local` has LiveKit + Gemini keys (user typed them; LiveKit connection test OK; Gemini key in the new `AQ.` format works and sees `gemini-3.8-live`). Smoke test (`scripts/smoke_one.sh`): stock agent on `gemini3_1`, one scenario (2 recordings) → tool call `track_order`, spoken answer recorded; exact-match scoring 1/2 passed. Scoring summary script: `scripts/score_summary.sh` (prints numbers only, never expected answers). No OpenAI key yet, so the judge is exact-match.
+- Security: a LiveKit secret was pasted in chat; user told to delete that key and create a new one (not written to any file by Claude).
+- AWS GPU box for clean-machine tests: `ec2-16-106-29-14.ap-east-1.compute.amazonaws.com` (Hong Kong), Amazon Linux 2023, login `ec2-user`, NVIDIA A10G 23 GB (driver 595.91.07), 8 vCPU / 30 GB RAM (so g5.2xlarge, ~$1.87/h), 100 GB disk (85 GB free). SSH key copied to WSL `~/.ssh/nithiyon-gpu.pem` (600). The key's contents were attached in chat, so it should be rotated. g6e isn't offered in ap-east-1; G quota there is 8 vCPU.
+- WSL recovered: Ubuntu's disk moved to `D:\WSL\Ubuntu` (already done when Claude's `wsl --manage --move` ran, which then reported the target in use); C: back to 46.9 GB free. Verified: 100 recordings, torch CUDA, `agy` all intact. Parakeet ASR check passed on the GPU (4.67 GB). All key-free checks done.
+- Benchmark audio extracted (100 recordings, 905 MB). Templates `lk_agent_tool.py` and `cascaded_agent.py` import fine on livekit-agents 1.8.3 (12 tools each).
+- **WSL broke: C: drive at 0 GB free.** Ubuntu's disk (`C:\Users\saini\AppData\Local\wsl\{02ccd9f2-…}\ext4.vhdx`, 46.7 GB) can't grow, so every command fails with I/O errors, also after `wsl --shutdown`. Parakeet ASR check didn't complete. Proposed fix: move the distro to D: (`wsl --manage Ubuntu --move D:\WSL\Ubuntu`), awaiting the user's OK.
+- User added a Sonnet Claude session as assistant engineer (`participant-kit-e4`). Task board `project-log/SONNET_TASKS.md`; assigned S1 (read-only: find what fills C:).
+- Environment build finished: Python 3.10.21, torch 2.11.0+cu128 with the RTX 5070 working (GPU matmul OK), livekit-agents 1.8.3, NeMo 3.0.0, ffmpeg 6.1.1. Frozen versions copied to `project-log/runs/env-freeze.txt`.
+- Gemini CLI's "Sign in with Google" is discontinued for individuals; installed the Antigravity CLI (`agy` 1.2.13) instead, with the briefing linked as both `GEMINI.md` and `AGENTS.md` in `~/theme5`.
+- Installed Gemini CLI 0.61.0 natively in Ubuntu (`~/.npm-global`, on PATH via `~/.bashrc`; `project-log/scripts/install_gemini_cli.sh`). User wants it as a junior assistant for light work. Briefing with hard rules: `GEMINI.md` (repo root, symlinked into `~/theme5/`). Task board: `project-log/GEMINI_TASKS.md` (G1 download benchmark audio, G2 check LiveKit model ids).
+- **WSL DNS fixed.** `/etc/resolv.conf` is now WSL-generated (→ `/mnt/wsl/resolv.conf`, network DNS 10.255.255.254); old file kept as `/etc/resolv.conf.bak`. `github.com` resolves.
+- Installed ffmpeg 6.1.1 in Ubuntu (apt, as root via `wsl -u root`).
+- Started the Python environment build: `project-log/scripts/setup_fdb_env.sh` → `~/theme5/fdb-env` (uv, Python 3.10, PyTorch cu128, FDB-v3 requirements). Log: `~/theme5/setup_fdb_env.log`; versions frozen to `~/theme5/env-freeze.txt`. Used uv instead of conda to avoid the Anaconda terms-of-service prompt.
+- Researched TypeSafe Jev for this theme (web, GitHub, X). Added a "decision layer" section to `BUILD_PLAN_FDB_V3.md`: Jev as the brain of the commit gate (turn final? correction type? duplicate?), async with rules fallback. Public Jev voice-agent demos pair it with Deepgram Flux for turn-ending; a LiveKit plugin was proposed but not released.
+- DNS fix, attempt 1: `.wslconfig` got `dnsTunneling=true` and `wsl.conf` now has `generateResolvConf = true`, but `/etc/resolv.conf` couldn't be moved because it carries the immutable flag (`chattr +i`). Updated `project-log/scripts/fix_wsl_dns.sh` to clear the flag first; waiting for the user to rerun it. Plan for the rest of setup: `C:\Users\saini\.claude\plans\modular-hopping-mitten.md` (DNS → conda/ffmpeg/PyTorch cu128/deps → data + keys → one-scenario smoke test).
+- Cloned the full FDB repo into WSL at `~/theme5/Full-Duplex-Bench`. WSL can't resolve hostnames, so the clone went via a bare mirror on Windows (`D:\Theme5-FDB-mirror.git`); `origin` points back to GitHub. Environment check script: `project-log/scripts/wsl_check.sh`.
+- WSL findings: git, python 3.12.3, pip, nvidia-smi present; conda and ffmpeg missing. `/etc/wsl.conf` has `generateResolvConf = false` and `/etc/resolv.conf` is fixed to 8.8.8.8 / 1.1.1.1, which this network blocks (TCP to 1.1.1.1:53 blocked, GitHub by IP reachable). Fix: let WSL use Windows' DNS (see STATUS / chat steps).
+- Read the guide's Artificial Analysis speech-to-speech leaderboard. The FDB-v3 templates pin older models (GPT-Realtime-1.5, Gemini 3.1 Flash Live); newer ones (Gemini 3.8 Live, Grok Voice Think Fast 2.0, GPT-Realtime-2.x) score far higher on tool use. Added a model-choice section to `BUILD_PLAN_FDB_V3.md`.
+- Read the FDB-v3 code (sparse clone of `v3/` in a scratch folder): agent templates, client, run pipeline, pass-rate scorer, data schema only.
+- Found that tool calls are scored from the agent's own execution log, and the strict pass rate fails any extra call, so an early call on a value the user corrects fails the scenario.
+- Wrote `BUILD_PLAN_FDB_V3.md` (commit-gate architecture, two build options, phases, rules, costs).
+- User paused Codex. Created `project-log/` (this folder).
+
+## 2026-09-27
+- Copied the project (169 files, excluding `.venv` and caches) to Google Drive: My Drive → `Theme5-Interruptible-Agents` (account sainithinpokala@gmail.com). Secret scan found no keys.
+
+## 2026-09-26
+- Read the updated participant guide: evaluation moved to FDB-v3 via LiveKit (60/20/20 scoring, Round 2 live demo). Eval hardware: one 48 GB NVIDIA GPU or declared hosted APIs.
+- Checked this laptop: RTX 5070 Laptop (8 GB), Core Ultra 9 275HX, 31 GB RAM.
+
+## 2026-09-24 → 2026-09-25 (participant-kit agent)
+- Built `ParticipantAgent`: `agent/core.py`, `nlu.py`, `schema.py`, `media.py`, `llm.py`; tests in `tests/`.
+- Kit evaluator: weighted 83.7 (text 100, audio 55.3, visual 72.3); 45 generated scenarios all 100.
+- Fixed Codex review items: interruptions during a Gemini call (staging + immediate cancel), additive-change test checked with the scorer.
+- Gemini path: model discovery and probing, per-call deadlines, fallback on 503/429/timeouts, audio ambiguity from confidence and a second transcription. Tested with fakes only; real-key run not yet done (key rejected once, then 503s on `gemini-3.6-flash`).
+- Trace tests: 23/23.
+
+## 2026-09-23 → 2026-09-24
+- Research pass on interruptible voice agents → `RESEARCH.md` (claims checked against the kit scorer).
+- Codex/Claude handoff set up in `CLAUDE_HANDOFF.md`; user chose Claude to implement.
+
+## 2026-09-20 → 2026-09-21
+- Read the Theme 5 guide and participant kit; baseline agent 56.6 on the public scenarios.
+- Created `D:\Theme5-Interruptible-Agents`, flattened the kit so `submission.yaml` is at the root, wrote `BRIEFING.md`, initialized git (nothing committed yet).

@@ -1,0 +1,7 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.jsonl text eol=lf
+*.wav binary
+*.png binary
+*.jpg binary
