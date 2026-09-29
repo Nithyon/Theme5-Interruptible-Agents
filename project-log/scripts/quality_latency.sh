@@ -9,11 +9,11 @@ python /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/judge_vertex.py ev
   --benchmark benchmark_data_v2.json --results-dir fdb_v3_data_released --provider "$P" \
   --output "$OUT/${P}_evaluation_report_geminijudge.json" --use-llm > "$OUT/${P}_toolcalls_geminijudge.log" 2>&1
 grep '^JUDGE' "$OUT/${P}_toolcalls_geminijudge.log"
-python analyze_tool_latency.py --results-dir fdb_v3_data_released --provider "$P" > "$OUT/${P}_latency.txt" 2>&1
+python /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/judge_vertex.py analyze_tool_latency --results-dir fdb_v3_data_released --provider "$P" > "$OUT/${P}_latency.txt" 2>&1
 python - "$OUT/${P}_evaluation_report_geminijudge.json" <<'PY'
 import json, sys
 r = json.load(open(sys.argv[1]))
-s = r.get("summary") or r.get("overall") or {k: v for k, v in r.items() if not isinstance(v, (list, dict))}
-print("tool/response summary:", json.dumps(s)[:600])
+for k in ("turn_taking", "by_metric", "latency"):
+    print(k, json.dumps(r.get(k)))
 PY
 echo "--- latency (tail):"; tail -25 "$OUT/${P}_latency.txt" | grep -vE '^\s*$'

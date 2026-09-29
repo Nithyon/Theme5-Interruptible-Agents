@@ -14,6 +14,8 @@ Baseline breakdown (exact-match): by #tools 1→0.545, 2→0.50, 3→0.312 · di
 
 Gemini-judged baseline breakdown: domain finance 0.88, ecommerce 0.759, travel 0.65 (exact 0.15), housing 0.192 (exact 0.115) · #tools 1→0.697, 2→0.611, 3→0.312 · self-correction 0.471 (unchanged from exact: these failures are real), pause 0.611, filler 0.655, hesitation 0.70, false start 0.583 · failures: wrong tools 18, wrong args 20 (exact: 32).
 
+Baseline other metrics (Gemini 2.5 Pro judge, `gemini3_8_evaluation_report_geminijudge.json`): turn-take rate 1.00; tool selection acc 0.893; argument acc 0.697; **response quality 0.72**; avg response latency 4.71 s (std 3.05, min 2.72, max 27.04); **interruption rate 0.07** (agent spoke over the user in 7/100).
+
 Published reference (FDB-v3 paper, arXiv 2604.04847): GPT-Realtime about 0.60 pass@1; Gemini Live 3.1 fastest completion (~4.25 s); cascaded Whisper pipeline slowest (~10.1 s).
 
 ## Participant kit (no longer the official score)

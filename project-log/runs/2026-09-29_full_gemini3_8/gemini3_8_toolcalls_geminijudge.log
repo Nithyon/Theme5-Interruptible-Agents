@@ -1,0 +1,32 @@
+JUDGE google/gemini-2.5-pro: {"calls": 235, "ok": 235, "unparseable": 0, "errors": 0, "retries": 0}
+📖 Loading benchmark data from benchmark_data_v2.json...
+📁 Scanning fdb_v3_data_released for provider 'gemini3_8'...
+🔍 Found 100 valid result files matching benchmark scenarios.
+
+📊 EVALUATION REPORT
+========================================================
+  Scenarios evaluated : 100
+  Turn-Take Success   : 100/100 (100.0%)
+
+  By Metric (turn-taken only, N=100):
+    Tool Selection Acc : 89.3%
+    Argument Acc       : 69.7%
+    Response Qual      : 72.0%
+
+  Latency (N=100, turn-taken only):
+    Avg latency        : 4.71s ± 3.05s  (excl. interruptions)
+    Min / Max          : 2.72s / 27.04s
+    Interruptions      : 7 / 100  (7.0%)
+
+  By Domain (all samples):
+    ecommerce_support: tool_selection_acc=98.3%, argument_acc=83.9%, response_qual=79.3%
+    finance_billing: tool_selection_acc=96.0%, argument_acc=94.0%, response_qual=84.0%
+    housing_location: tool_selection_acc=67.8%, argument_acc=27.6%, response_qual=46.2%
+    travel_identity: tool_selection_acc=95.7%, argument_acc=73.3%, response_qual=80.0%
+
+  By Difficulty (all samples):
+    medium: tool_selection_acc=88.2%, argument_acc=63.2%, response_qual=67.6%
+    hard: tool_selection_acc=84.2%, argument_acc=63.9%, response_qual=66.7%
+    easy: tool_selection_acc=94.4%, argument_acc=80.6%, response_qual=80.6%
+
+  📄 Full report saved: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-29_full_gemini3_8/gemini3_8_evaluation_report_geminijudge.json

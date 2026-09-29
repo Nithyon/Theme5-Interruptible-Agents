@@ -93,6 +93,8 @@ def main():
     sys.argv = [target + ".py"] + sys.argv[2:]
     sys.path.insert(0, os.getcwd())
     judge = VertexJudge()
+    import openai                         # scripts that build OpenAI() themselves
+    openai.OpenAI = lambda *a, **k: judge  # (analyze_tool_latency.py) get the judge too
     for name in ("evaluate_tool_calls", "evaluate_pass_rate"):
         try:
             mod = importlib.import_module(name)

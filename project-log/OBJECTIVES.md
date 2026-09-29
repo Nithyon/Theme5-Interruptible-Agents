@@ -15,8 +15,8 @@ Evidence sources: baseline run `runs/2026-09-29_full_gemini3_8/` (strict + Gemin
 | A5 | Pauses | pass rate, PAUSE slice | **0.61** judged (0.39 strict); dev pause set 3/12 | ≥ 0.70 | rules + Jev combined hold (catches 68% of pauses vs 60% rules / 64% Jev), dangling words | in final run |
 | A6 | Extra / stale calls | failure kind "wrong/unexpected tools" | **18** judged failures; dev stale calls A2 5/30 → C 4/30 | ≤ 10 | gate supersede + duplicate block + draft hold | in final run |
 | A7 | Argument accuracy | failure kind "wrong arguments" | **20** judged (32 strict; 12 were wording only) | ≤ 12 | prompt: values exactly as said, currencies as codes, digits; IDs spelled back exactly | in final run |
-| A8 | Spoken-answer quality | `evaluate_tool_calls.py --use-llm` response accuracy | **not measured yet** | measure; ≥ baseline | watchdog "speak the result" (Lohit's pack) only if silent answers show up | TODO: measure on baseline + final |
-| A9 | Latency | `analyze_tool_latency.py`: first response, tool-call, task completion | first reply median **3.92 s** (baseline); dev: A2 4.16 s, C 4.24 s | first reply ≤ 4.5 s; report tool-call latency | Jev fast release (0.4 s) on clearly finished turns | TODO: run latency analysis |
+| A8 | Spoken-answer quality | `evaluate_tool_calls.py --use-llm` response accuracy | baseline **0.72** (Gemini judge) | ≥ 0.72 | watchdog "speak the result" (Lohit's pack) only if silent answers show up | TODO: measure on baseline + final |
+| A9 | Latency | `analyze_tool_latency.py`: first response, tool-call, task completion | first reply median **3.92 s**, avg response latency **4.71 s**, interruption rate **0.07** (baseline); dev: A2 4.16 s, C 4.24 s | first reply ≤ 4.5 s; report tool-call latency | Jev fast release (0.4 s) on clearly finished turns | TODO: run latency analysis |
 | A10 | No empty/failed conversations | results with status ≠ completed or no response | 0 in baseline after billing fix | 0 | retry on Gemini connection drop | watch in final run |
 
 ## G. The guide's three capabilities ("What you build": stay responsive / work async / recover cleanly)
