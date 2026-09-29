@@ -1,71 +1,99 @@
-# Theme 5: Interruptible Agents
+# Theme 05: Interruptible Real-Time Agents — FDB-v3 submission
 
-Build a real-time voice-native agent that thinks fast **and** slow: respond to a live conversational stream within duplex latency limits, delegate real work (searches, bookings, manual lookups) to slow asynchronous tools, and survive the user changing their mind mid-execution.
+## What it is
 
-This kit is what grades you — same harness, same scorer, same tool conventions — minus the hidden scenarios.
+A LiveKit voice agent for **Full-Duplex-Bench v3** (the organizers' scored benchmark) that fixes the benchmark's single biggest failure mode — tools firing on a value the user is still in the middle of correcting. A **commit gate** sits between the realtime model and its 12 tool functions: it holds every proposed call until the user's turn has actually settled, drops a held call the moment a newer one supersedes it, and never executes the same call twice.
 
-**New here? Start with [WALKTHROUGH.md](WALKTHROUGH.md)** — problem, goal, what to implement, how to score yourself, what the hidden set looks like, what to submit.
+## Architecture
 
-## The challenge
-
-The harness streams user events (text chunks, raw audio clips, video frames, interruptions) into your agent at speaking speed. Your agent streams actions back: quick spoken responses, async tool calls, cancellations, and grounded final answers with state snapshots. You are scored on **task completion**, **interruption recovery**, **latency**, and **safety** (no duplicate state-modifying actions, no filler spam). Rubric: [docs/SCORING.md](docs/SCORING.md).
-
-## Quickstart (Python 3.10+, zero dependencies)
-
-```bash
-# watch the minimal reference agent handle an interruption, live
-python run_local.py --scenario scenarios/pub_02_text_interrupt.json
-
-# run the public set at 8x; the reference agent scores ~57/100 — closing the gaps is the challenge
-python run_local.py --all --time-scale 8 --quiet
-
-# fill in ParticipantAgent in agent/agent.py, then run yours
-python run_local.py --all --agent agent.agent:ParticipantAgent
-
-# generate practice scenarios, including tools you have never seen
-python -m harness.scenario_gen --template search_interrupt --n 10 --seed 1 --out generated/
-python -m harness.scenario_gen --template unseen_tool --n 5 --seed 3 --out generated/
+```mermaid
+flowchart LR
+    A["FDB-v3 recording<br/>input.wav"] --> B["LiveKit room"]
+    B --> C["Gemini 3.8 Live<br/>(realtime model)"]
+    C -- "proposed tool call" --> D["Commit Gate<br/>(fdb_agent/gate.py)"]
+    D -- "held / superseded<br/>(never executed)" --> C
+    D -- "released, executed once" --> E["12 stock tools<br/>(4 domains)"]
+    E --> F["/tmp/agent_tool_calls.log"]
+    C --> G["Spoken answer (TTS)"]
 ```
 
-Your agent may use anything — hosted LLM APIs, open models, planners; Gemini and Gemma are encouraged (see [docs/SUBMISSION.md](docs/SUBMISSION.md) for how to declare models and dependencies). **Read [docs/PROTOCOL.md §5](docs/PROTOCOL.md) before wiring an LLM client** — a blocking call freezes the harness.
+The gate (`fdb_agent/gate.py`, wired in `fdb_agent/gate_agent.py`):
 
-## Files
+- Holds a proposed call until the user has been quiet for **0.9 s** — or **1.8 s** if their last words trail off on a filler/hesitation/correction cue ("um", "wait", "actually", "no", "I mean", "or", "scratch that", …).
+- **Supersedes** a held call the instant a newer call to the *same tool* arrives after the user speaks again — that's a correction, not a second request; the superseded call is told so and never runs.
+- **Never executes an identical call twice** — canonicalized args (case/whitespace-insensitive) are checked against everything already executed; a repeat returns the cached result instead of re-calling the tool.
+- Caps any hold at **8 s**, so a genuinely long pause can't stall the conversation forever.
+- **Only executed calls are logged.** Held or superseded calls never touch `/tmp/agent_tool_calls.log` — nothing is hidden from the scorer, execution is just deferred until it's safe.
 
-| path | what |
-|---|---|
-| `agent/agent.py` | `ParticipantAgent` (yours) + `BaselineAgent`, a minimal reference that handles only the two simplest scenarios |
-| `harness/runner.py` | streaming harness: replays events, runs tools async, records the trace |
-| `harness/mock_env.py` | the 5 public tools with deterministic delays and failure injection |
-| `harness/scorer.py` | **the official scorer** — byte-identical to the one grading the hidden sets |
-| `harness/scenario_gen.py` | seeded generator for unlimited practice scenarios |
-| `harness/protocol.py` | event/action definitions and validation |
-| `scenarios/*.json` | 9 public scenarios (6 text, 2 audio, 1 visual) with ground truth |
-| `audio/`, `frames/` | the raw MP3 / PNG media for the audio and visual scenarios — no transcripts or captions are given |
-| `docs/` | [PROTOCOL](docs/PROTOCOL.md) · [TOOLS](docs/TOOLS.md) · [SCORING](docs/SCORING.md) · [SUBMISSION](docs/SUBMISSION.md) |
-| `run_local.py` | run scenarios, print scores, dump traces |
-| `eval_submission.py` | the official submission evaluator — dry-run your package before you submit |
+## Why this design
 
-## Public vs. hidden
+Full-Duplex-Bench v3's own scoring is unforgiving of early commitment: a single wrong or extra tool call fails the entire scenario's strict Pass@1, even if the corrected call follows immediately after (`evaluate_pass_rate.py`'s multiset + precision check — verified by reading the benchmark's own code, not assumed). The paper's own published numbers (arXiv 2604.04847, verified against the paper directly) confirm this is a universal problem, not one model's quirk:
 
-We hide compositions, not rules.
+| System | Pass@1 | Notes |
+|---|---|---|
+| GPT-Realtime | 0.600 | Best overall, but only 58.8% on self-correction scenarios specifically |
+| Gemini Live 3.1 | 0.540 | Task completion 4.25 s |
+| Gemini Live 2.5 | 0.490 | |
+| Cascaded (Whisper → GPT-4o → TTS) | 0.450 | Task completion 10.12 s (slowest in the paper); our reading: extra hops, and the text step loses hesitation cues in the audio |
+| Grok | 0.430 | |
+| Ultravox v0.7 | 0.410 | |
 
-- **Guarantee 1:** every event type, payload field, action type, and scoring rule used in hidden scenarios appears in this kit. Hidden scenarios are harder *combinations*, never new *mechanics*.
-- **Guarantee 2:** hidden tools follow the schema conventions in [docs/TOOLS.md](docs/TOOLS.md), and every scenario hands your agent its tool list up front via the `tool_manifest` event. Handling an unseen tool from its schema is a scored skill; `pub_09` and the `unseen_tool` generator template let you practice it.
-- **Guarantee 3:** the scorer here is the scorer that grades you. All hidden scenarios are published after the event.
+Self-correction is explicitly named in the paper as one of the two most consistent failure modes across *every* system tested — that's the gap this gate targets. (Our 0.9s/1.8s hold windows are a tuned starting point refined against our own synthetic dev set, `devset/scenarios.jsonl` — not a number taken from the paper; the paper does not publish a specific hesitation-pause duration, and we don't claim it does.)
 
-Hidden set: ~60 scenarios, ~50% text / 30% audio / 20% visual, ~10 hidden tools. Multimodal scenarios carry **1.5× weight**.
+## Results
 
-## Evaluation
+| System | Pass@1 (exact-match) | Pass@1 (`--use-llm` GPT-4o judge) | Latency | Source |
+|---|---|---|---|---|
+| Paper: GPT-Realtime | — | 0.600 | — | arXiv 2604.04847 |
+| Paper: Gemini Live 3.1 | — | 0.540 | 4.25 s task completion | arXiv 2604.04847 |
+| Paper: Cascaded (Whisper/GPT-4o/TTS) | — | 0.450 | 10.12 s task completion | arXiv 2604.04847 |
+| **Ours: stock agent, no gate** (`baseline_agent.py`, `gemini-3.8-live`, all 100) | **0.50 (50/100)** | TBD (no judge key yet) | 3.92 s median perceived (first reply); task completion TBD | `project-log/SCORES.md`, `runs/2026-09-29_full_gemini3_8/` |
+| **Ours: with commit gate** (`gate_agent.py`) | **TBD — run in progress** | TBD | TBD | `project-log/runs/` (link added once frozen) |
 
-1. **Public scenarios** (this kit): unlimited local runs — this is the only feedback you get during the event.
-2. **Final submission**: one package per team by the deadline, evaluated afterwards on the hidden set — 3 repetitions per scenario, median. Submissions that ace the public set but collapse on re-skinned hidden scenarios are reviewed manually.
+> The paper's pass rates were scored with the GPT-4o judge; our exact-match numbers are stricter, so they are **not** directly comparable until our runs are re-scored with the judge. Latency: the paper reports task-completion time; "perceived" is time from the user's speech end to the agent's first reply.
 
-## Rules
+Baseline failure breakdown (exact-match, from `project-log/SCORES.md`): by disfluency — pause 0.389, filler 0.448, self-correction 0.471, hesitation 0.50, false start 0.667; by domain — finance 0.88, e-commerce 0.759, travel 0.15, housing 0.115; failure causes — 32 wrong-argument, 10 missing-tool, 5 extra-tool, 3 missing+extra.
 
-- Any architecture: rule-based, LLM-orchestrated, hybrid.
-- Do not hardcode scenario IDs, timestamps, or expected strings; hidden scenarios include re-skinned public ones.
-- Your agent sees only the event stream and tool results. `ground_truth` is not served to your agent; reading it is disqualifying.
-- Official runs use `time_scale = 1.0`, a 120 s wall-clock cap per scenario, and a separate 300 s cap for your optional `setup()`.
-- Response quality is additionally graded by an LLM (capped ×0.9–1.1 multiplier, see [docs/SCORING.md](docs/SCORING.md)); the prompt and model are not published.
+All numbers above without a source link are **TBD** and will be filled in from a `runs/` folder once frozen — no number here is reported without a log behind it.
 
-Protocol clarifications are announced to all teams at once.
+## Reproduce
+
+`reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. It needs these environment variables set **by name only** in `~/theme5/Full-Duplex-Bench/v3/.env.local` (values are never written to this repo or asked for by any script):
+
+- `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`
+- `GOOGLE_API_KEY` — **default path**, a plain Gemini API key
+- *(optional alternative)* `GOOGLE_GENAI_USE_VERTEXAI=true`, `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` — Vertex AI via Application Default Credentials, used in our own development environment because our org's Cloud policy blocks plain API keys; **not required for reproduction**, the API-key path is simpler for anyone re-running this
+- `OPENAI_API_KEY` (optionally `OPENAI_BASE_URL` for an Azure OpenAI deployment) — optional, only needed for `--use-llm` judge scoring; without it, scoring falls back to exact-match
+
+```bash
+./reproduce.sh fdb_agent/gate_agent.py gate_gemini38   # our agent
+./reproduce.sh fdb_agent/baseline_agent.py gemini3_8   # stock baseline, for comparison
+```
+
+## Extension (placeholder — not yet built)
+
+**Audio-only "slow/failing tool recovery" use case.** The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_notes.md`) confirmed FDB-v3 has no video input in Round 1 and named exactly this scenario as something they want showcased: *"There will be instances where the tasks will fail... there will be instances where the latency will be variable... if you can showcase [that], that will be very good... you should be able to recover — retry, close the session, move to human in the loop."* The plan is to reuse the same coordinator (talker/reasoner/commit gate) behind a second adapter, feeding it slow or failing mock tool calls instead of LiveKit audio, and show: a retried read-only call, a state-changing call that is never blindly retried, and a clean handoff when recovery isn't possible. **Not implemented yet** — this section is a placeholder until it is.
+
+## Honest limitations
+
+- **Single reported run so far.** The results table above is one baseline pass; the gate run and a second full run (for mean + variance, per `BUILD_PLAN_FDB_V3.md`'s own plan) are still pending.
+- **Exact-match scoring only, for now.** No OpenAI/Azure key is wired in yet, so `--use-llm` numbers are TBD; exact-match can penalize a correct answer in a different valid format.
+- **Cloud-dependent.** The reasoner is a hosted realtime model (Gemini 3.8 Live); there's no fully local fallback in the current build, though `BUILD_PLAN_FDB_V3.md` scopes one as a stretch goal if the deadline moves.
+- **Tuned only on our own synthetic dev set** (`devset/scenarios.jsonl`, 40 scenarios written from scratch against the tool signatures) — never on FDB-v3's own 100 test recordings, per the organizers' disqualification rule. This means our gate's timing constants are our best guess refined on synthetic data, not on the actual test distribution.
+- **Extension is not yet built** (see above) — currently a stated plan, not working code.
+- **`book_flight` argument scope.** The stock tool only takes `passenger_name`, no `flight_id` — an open question for how the judge treats any expected `flight_id` reference (`project-log/STATUS.md`).
+
+## Declared models / APIs
+
+- **Reasoner:** Gemini 3.8 Live (Google), via a plain API key by default, or Vertex AI with ADC in our own dev environment
+- **Voice infrastructure:** LiveKit Cloud (real-time audio room, required by the benchmark's own harness)
+- **Judge (optional):** GPT-4o, via OpenAI API or an Azure OpenAI deployment — declared, not yet wired in
+- **Scoring ASR:** NVIDIA Parakeet-TDT-0.6B-v2 — run by the benchmark's own scorer, not by our agent
+
+## AI usage
+
+This project was built with AI coding assistance: Claude (Sonnet, this session and others, as lead engineering assistant) and Gemini CLI/Antigravity (as a junior assistant for light, well-scoped research tasks — see `project-log/GEMINI_TASKS.md`). The organizers' AI-usage declaration form is filled out accordingly (see `project-log/STATUS.md`'s checklist).
+
+## History
+
+This repository began as the Samsung PRISM participant kit (a local text/audio/visual interruption-handling harness, scored ~57–84 on its own evaluator — see `project-log/SCORES.md`'s "Participant kit" table). On 2026-09-26 the official scoring guide moved to Full-Duplex-Bench v3, retiring that harness as the scored benchmark; this README now describes the FDB-v3 submission. The original kit's code, docs (`docs/PROTOCOL.md`, `docs/SCORING.md`, etc.) and scenarios are kept in the repository as the reusable base for the extension work above, but are no longer the graded harness.
