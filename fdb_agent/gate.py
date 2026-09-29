@@ -40,6 +40,35 @@ def ends_hesitantly(text: str) -> bool:
     return bool(words) and (words[-1] in _HESITANT_TAILS or tail in _HESITANT_TAILS)
 
 
+# Words in what the user said *after* a call was proposed that decide whether a newer call
+# to the same tool replaces the held one (a correction) or joins it (a second request).
+_CORRECTION_CUES = ("no", "not", "sorry", "actually", "wait", "i mean", "instead", "rather",
+                    "make that", "make it", "change", "scratch that", "correction", "oops",
+                    "my mistake", "wrong", "cancel")
+_ADDITION_CUES = ("and", "also", "another", "too", "as well", "plus", "both", "second")
+
+
+def _words(text: str) -> List[str]:
+    return "".join(c if c.isalnum() or c in " '" else " " for c in text.lower()).split()
+
+
+def _has_cue(text: str, cues) -> bool:
+    w = _words(text)
+    joined = " " + " ".join(w) + " "
+    return any((" " + c + " ") in joined for c in cues)
+
+
+def classify_followup(text: str) -> str:
+    """'correction' | 'addition' | 'none' for user speech that arrived between two calls."""
+    if not _words(text):
+        return "none"
+    if _has_cue(text, _CORRECTION_CUES):
+        return "correction"
+    if _has_cue(text, _ADDITION_CUES):
+        return "addition"
+    return "unclear"
+
+
 def _canon(args: Dict[str, Any]) -> str:
     def norm(v):
         return v.strip().lower() if isinstance(v, str) else v
@@ -54,6 +83,7 @@ class Proposal:
     args: Dict[str, Any]
     created: float
     speech_epoch: int
+    transcript_idx: int = 0               # how many user transcript events existed at proposal
     superseded: bool = False
 
 
@@ -69,8 +99,16 @@ class CommitGate:
     held: List[Proposal] = field(default_factory=list)
     executed: Dict[str, Any] = field(default_factory=dict)
     seq: int = 0
+    unclear_supersedes: bool = True       # a same-tool re-call after more speech with no cue
+    transcript: List[tuple] = field(default_factory=list)   # (monotonic time, text) per event
+    events: List[dict] = field(default_factory=list)        # decision log for analysis
     stats: Dict[str, int] = field(default_factory=lambda: {"proposed": 0, "executed": 0,
-                                                            "superseded": 0, "duplicate": 0})
+                                                            "superseded": 0, "duplicate": 0,
+                                                            "kept_both": 0, "transcripts": 0,
+                                                            "user_state": 0})
+
+    def _event(self, kind: str, **kw) -> None:
+        self.events.append({"t": round(time.monotonic(), 3), "kind": kind, **kw})
 
     # ---- signals from the session -------------------------------------------------
     def on_user_state(self, state: str) -> None:
@@ -79,11 +117,22 @@ class CommitGate:
             self.speech_epoch += 1
         self.user_speaking = state == "speaking"
         self.last_user_activity = now
+        self.stats["user_state"] += 1
+        self._event("user_state", state=state)
 
-    def on_user_transcript(self, text: str = "") -> None:
-        self.last_user_activity = time.monotonic()
+    def on_user_transcript(self, text: str = "", final: Optional[bool] = None) -> None:
+        # With a realtime model (no local VAD) the user's live transcript is the only
+        # reliable "the user is still talking" signal, so it drives the quiet timer.
+        now = time.monotonic()
+        self.last_user_activity = now
         if text.strip():
             self.last_user_text = text
+            self.transcript.append((now, text))
+            self.stats["transcripts"] += 1
+            self._event("transcript", text=text[-120:], final=final)
+
+    def _speech_since(self, idx: int) -> str:
+        return " ".join(t for _, t in self.transcript[idx:])
 
     def required_quiet(self) -> float:
         return self.hesitant_quiet_s if ends_hesitantly(self.last_user_text) else self.quiet_s
@@ -93,17 +142,32 @@ class CommitGate:
                   execute: Callable[[], Awaitable[Any]]) -> Any:
         self.seq += 1
         self.stats["proposed"] += 1
-        p = Proposal(self.seq, name, dict(args), time.monotonic(), self.speech_epoch)
-        # A newer proposal for the same tool, made after the user spoke again,
-        # replaces an older held one: that is a correction, not a second request.
+        p = Proposal(self.seq, name, dict(args), time.monotonic(), self.speech_epoch,
+                     len(self.transcript))
+        self._event("proposed", seq=p.seq, name=name, args=args)
+        # A newer proposal for the same tool replaces an older held one when the user said
+        # more in between and it sounds like a correction ("no, sorry, New York"); it joins
+        # it when it sounds like a second request ("and also order B2").
         for old in self.held:
-            if old.name == name and not old.superseded and old.speech_epoch < p.speech_epoch:
+            if old.name != name or old.superseded:
+                continue
+            said = self._speech_since(old.transcript_idx)
+            kind = classify_followup(said)
+            if old.speech_epoch < p.speech_epoch and kind == "none":
+                kind = "correction"           # a VAD/interrupt said the user spoke again
+            replace = kind == "correction" or (kind == "unclear" and self.unclear_supersedes)
+            self._event("same_tool_again", old=old.seq, new=p.seq, said=said[-120:],
+                        followup=kind, replace=replace)
+            if replace:
                 old.superseded = True
+            else:
+                self.stats["kept_both"] += 1
         self.held.append(p)
         try:
             while True:
                 if p.superseded:
                     self.stats["superseded"] += 1
+                    self._event("superseded", seq=p.seq)
                     log.info("superseded %s %s", name, args)
                     return json.dumps({"status": "superseded",
                                        "note": "The user corrected this request; the updated "
@@ -119,8 +183,11 @@ class CommitGate:
         key = name + "|" + _canon(args)
         if key in self.executed:
             self.stats["duplicate"] += 1
+            self._event("duplicate", seq=p.seq)
             log.info("duplicate %s %s: returning earlier result", name, args)
             return self.executed[key]
+        self._event("execute", seq=p.seq, held_s=round(time.monotonic() - p.created, 3),
+                    quiet=self.required_quiet())
         result = await execute()
         self.executed[key] = result
         self.stats["executed"] += 1

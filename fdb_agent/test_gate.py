@@ -100,6 +100,37 @@ async def scenarios():
     await g.run("search_flights", {"destination": "New York"}, fake("search_flights", {}))
     check(0.15 <= time.monotonic() - t0 < 0.6, "finished sentence: normal window")
 
+async def transcript_driven():
+    # 8. no VAD/user-state events at all (Gemini realtime): transcript text alone decides
+    ran = []
+
+    def fake(args):
+        async def go():
+            ran.append(args)
+            return "ok"
+        return go
+
+    g = CommitGate(quiet_s=0.3)
+    g.on_user_transcript("book a flight to Boston")
+    t1 = asyncio.create_task(g.run("search_flights", {"destination": "Boston"}, fake("Boston")))
+    await asyncio.sleep(0.1)
+    g.on_user_transcript("no sorry, New York")
+    t2 = asyncio.create_task(g.run("search_flights", {"destination": "New York"}, fake("New York")))
+    await asyncio.gather(t1, t2)
+    check(ran == ["New York"], f"transcript correction: only the corrected call runs {ran}")
+
+    ran.clear()
+    g = CommitGate(quiet_s=0.3)
+    g.on_user_transcript("track order A1")
+    t1 = asyncio.create_task(g.run("track_order", {"order_id": "A1"}, fake("A1")))
+    await asyncio.sleep(0.1)
+    g.on_user_transcript("and also order B2")
+    t2 = asyncio.create_task(g.run("track_order", {"order_id": "B2"}, fake("B2")))
+    await asyncio.gather(t1, t2)
+    check(sorted(ran) == ["A1", "B2"], f"transcript addition: both calls run {ran}")
+    check(any(e["kind"] == "same_tool_again" for e in g.events), "decisions are logged")
+
+
 async def wrapped_tools():
     # 7. through the real wrapped tools: positional and keyword calls both carry their
     # arguments into the gate, so two different orders are not treated as duplicates
@@ -113,6 +144,7 @@ async def wrapped_tools():
           f"wrapped tool: positional+keyword args reach the gate {g.stats}")
 
 asyncio.run(scenarios())
+asyncio.run(transcript_driven())
 asyncio.run(wrapped_tools())
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)

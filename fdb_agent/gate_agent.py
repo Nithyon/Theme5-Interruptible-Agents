@@ -25,11 +25,32 @@ PROVIDER = os.getenv("LK_PROVIDER", "gate_gemini38")
 
 
 def realtime_model():
-    if PROVIDER.lower().startswith("gate_gemini"):
+    if "gate_gemini" in PROVIDER.lower():
         return gemini_live(MODEL)
     return stock.get_realtime_model()
 
 
+
+
+# Generic behaviour rules added to the stock instructions (GATE_PROMPT=1). They address
+# failure modes, not particular requests: asking follow-ups the user can't answer,
+# acting on a value the user then corrected, and claiming success before a result.
+EXTRA_RULES = (
+    " RULES FOR THIS CALL: The user cannot answer follow-up questions. If a detail is not"
+    " stated, call the tool with the user's own words as the value (for example 'home',"
+    " 'my office', 'the gym'); never ask for more details. When the user corrects"
+    " themselves, only the last value they state counts: call the tool once with the"
+    " corrected values and never with the earlier ones. If the user asks for several"
+    " things, call a tool for each of them. Never say an action is done until its tool"
+    " result has come back; while waiting, you may say you're checking."
+)
+
+
+class GatedVoiceAgent(stock.VoiceAgent):
+    def __init__(self) -> None:
+        super().__init__()
+        if os.getenv("GATE_PROMPT", "1") == "1":
+            self._instructions = self.instructions + EXTRA_RULES
 
 
 server = stock.AgentServer()
@@ -40,7 +61,8 @@ async def entrypoint(ctx: agents.JobContext):
     tracker = stock.LatencyTracker()
     fnc_ctx = stock.AssistantFnc(tracker, ctx.room.name)
     gate = CommitGate(quiet_s=float(os.getenv("GATE_QUIET_S", "0.9")),
-                      hesitant_quiet_s=float(os.getenv("GATE_HESITANT_QUIET_S", "1.8")))
+                      hesitant_quiet_s=float(os.getenv("GATE_HESITANT_QUIET_S", "1.8")),
+                      unclear_supersedes=os.getenv("GATE_UNCLEAR_SUPERSEDES", "1") == "1")
     tools = gate_tools(llm.find_function_tools(fnc_ctx), gate, FunctionTool)
     session = AgentSession(llm=realtime_model(), tools=tools)
 
@@ -50,7 +72,7 @@ async def entrypoint(ctx: agents.JobContext):
 
     @session.on("user_input_transcribed")
     def _user_text(ev):
-        gate.on_user_transcript(getattr(ev, "transcript", "") or "")
+        gate.on_user_transcript(getattr(ev, "transcript", "") or "", getattr(ev, "is_final", None))
         if not tracker.query_received:
             tracker.user_done_at = time.time()
             tracker.query_received = True
@@ -62,12 +84,26 @@ async def entrypoint(ctx: agents.JobContext):
             tracker.log_breakdown(tool_name="Search Tool", room_name=ctx.room.name)
             tracker.reset()
 
-    async def _report():
+    reported = []
+
+    def _report():
+        if reported:
+            return
+        reported.append(True)
         with open("/tmp/gate_stats.log", "a") as f:
             f.write(json.dumps({"room": ctx.room.name, **gate.stats}) + "\n")
-    ctx.add_shutdown_callback(_report)
+        with open("/tmp/gate_events.log", "a") as f:
+            f.write(json.dumps({"room": ctx.room.name, "events": gate.events}, default=str) + "\n")
 
-    await session.start(room=ctx.room, agent=stock.VoiceAgent())
+    async def _report_async():
+        _report()
+    ctx.add_shutdown_callback(_report_async)
+
+    @session.on("close")
+    def _closed(ev):
+        _report()
+
+    await session.start(room=ctx.room, agent=GatedVoiceAgent())
 
 
 if __name__ == "__main__":
