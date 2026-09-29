@@ -18,6 +18,7 @@ import inspect
 import json
 import logging
 import os
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Awaitable, Callable, Dict, List, Optional
@@ -324,11 +325,13 @@ class CommitGate:
         return result
 
 
-# Identifiers spelled out loud ("D… L… five five five") come back as "D-L-5-5-5", "k-2",
-# "v777". Tool schemas give compact uppercase examples (order_id "e.g. 'BOB12'"), and the
-# baseline run (stock prompt) shows the same hyphen/lowercase pattern, so this is a speech
-# artefact, not a prompt effect. Canonicalize *_id / *_number values before execution.
+# Identifiers spelled out loud ("D… L… five five five") come back as "D-L-5-5-5" or "B-7":
+# a separator between SINGLE characters. That is a speech artefact (the baseline run with
+# the stock prompt shows it too), so only those separators are removed. Genuine
+# multi-character parts ("PO-999") and letter case are left untouched: the benchmark's own
+# exact match lowercases anyway, and real systems may have meaningful hyphens or case.
 ID_NORMALIZE_ON = os.getenv("GATE_ID_NORMALIZE", "1") == "1"
+_SPELLED = re.compile(r"^[A-Za-z0-9](?:[\s\-.]+[A-Za-z0-9])+$")
 
 
 def _is_identifier(param: str) -> bool:
@@ -336,7 +339,23 @@ def _is_identifier(param: str) -> bool:
 
 
 def normalize_identifier(v: str) -> str:
-    return "".join(ch for ch in v if ch.isalnum()).upper()
+    """Join a spelled-out id ("D-L-5-5-5", "B-7", "k 2") into "DL555" / "B7" / "k2".
+    Mixed forms keep their multi-character parts: "D-L-55555" -> "DL55555" only joins the
+    single-character run at the start; anything else is returned unchanged."""
+    s = v.strip()
+    if _SPELLED.match(s):
+        return re.sub(r"[\s\-.]+", "", s)
+    parts = re.split(r"([\s\-.]+)", s)
+    out, i = [], 0
+    while i < len(parts):
+        tok = parts[i]
+        if i + 2 < len(parts) and len(tok) == 1 and tok.isalnum() and len(parts[i + 2]) >= 1:
+            out.append(tok)                   # single char followed by a separator: join
+            i += 2
+            continue
+        out.append(tok)
+        i += 1
+    return "".join(out)
 
 
 def _is_plain(v: Any) -> bool:

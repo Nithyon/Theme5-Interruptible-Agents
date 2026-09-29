@@ -305,14 +305,15 @@ async def wrapped_tools():
           f"wrapped tool: positional+keyword args reach the gate {g.stats}")
     # 15. spelled-out identifiers are canonicalized before the tool runs
     from gate import normalize_identifier
-    check(normalize_identifier("B-7") == "B7" and normalize_identifier("d-l-5-5-5") == "DL555"
-          and normalize_identifier("v 777") == "V777" and normalize_identifier("ORD120") == "ORD120",
-          "identifier canonicalization")
+    cases = {"B-7": "B7", "d-l-5-5-5": "dl555", "D-L-55555": "DL55555", "k 2": "k2",
+             "v777": "v777", "PO-999": "PO-999", "ORD-120": "ORD-120", "BOB12": "BOB12"}
+    got = {k: normalize_identifier(k) for k in cases}
+    check(got == cases, f"identifier: only spelled-out separators are removed, case and real hyphens kept {got}")
     g = CommitGate(quiet_s=0.05)
     tr = {t.info.name: t for t in gate_tools(orig, g, FunctionTool)}["track_order"]
-    await tr("bob-12")
+    await tr("B-O-B-1-2")
     ex = [e for e in g.events if e["kind"] == "proposed"]
-    check(ex and ex[-1]["args"] == {"order_id": "BOB12"}, f"wrapped tool receives the canonical id {ex[-1]['args'] if ex else None}")
+    check(ex and ex[-1]["args"] == {"order_id": "BOB12"}, f"wrapped tool receives the joined id {ex[-1]['args'] if ex else None}")
 
 asyncio.run(scenarios())
 asyncio.run(transcript_driven())
