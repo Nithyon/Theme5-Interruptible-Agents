@@ -100,6 +100,19 @@ async def scenarios():
     await g.run("search_flights", {"destination": "New York"}, fake("search_flights", {}))
     check(0.15 <= time.monotonic() - t0 < 0.6, "finished sentence: normal window")
 
+async def wrapped_tools():
+    # 7. through the real wrapped tools: positional and keyword calls both carry their
+    # arguments into the gate, so two different orders are not treated as duplicates
+    g = CommitGate(quiet_s=0.05)
+    tools = {t.info.name: t for t in gate_tools(orig, g, FunctionTool)}
+    tr = tools["track_order"]
+    await tr("A1")
+    await tr(order_id="B2")
+    await tr("A1")
+    check(g.stats["executed"] == 2 and g.stats["duplicate"] == 1,
+          f"wrapped tool: positional+keyword args reach the gate {g.stats}")
+
 asyncio.run(scenarios())
+asyncio.run(wrapped_tools())
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)

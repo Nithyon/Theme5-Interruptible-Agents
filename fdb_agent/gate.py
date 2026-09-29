@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import asyncio
 import functools
+import inspect
 import json
 import logging
 import time
@@ -126,6 +127,11 @@ class CommitGate:
         return result
 
 
+def _is_plain(v: Any) -> bool:
+    """True for JSON-like tool arguments; False for injected objects (e.g. RunContext)."""
+    return v is None or isinstance(v, (str, int, float, bool, list, dict))
+
+
 def gate_tools(tools: list, gate: CommitGate, function_tool_cls) -> list:
     """Wrap bound LiveKit FunctionTools so each call goes through the gate.
     The wrapper keeps the original signature and docstring, so the tool schema the
@@ -133,11 +139,16 @@ def gate_tools(tools: list, gate: CommitGate, function_tool_cls) -> list:
     gated = []
     for t in tools:
         name = t.info.name
+        sig = getattr(t, "__signature__", None) or inspect.signature(t)
 
-        async def wrapper(*a, __t=t, __name=name, **kw):
-            return await gate.run(__name, kw, lambda: __t(*a, **kw))
+        async def wrapper(*a, __t=t, __name=name, __sig=sig, **kw):
+            # LiveKit may pass tool arguments positionally, so bind them to parameter
+            # names; otherwise every call to a tool would look identical to the gate.
+            bound = __sig.bind_partial(*a, **kw).arguments
+            args = {k: v for k, v in bound.items() if _is_plain(v)}
+            return await gate.run(__name, args, lambda: __t(*a, **kw))
 
         functools.update_wrapper(wrapper, t)
-        wrapper.__signature__ = getattr(t, "__signature__", None) or wrapper.__signature__
+        wrapper.__signature__ = sig
         gated.append(function_tool_cls(wrapper, t.info))
     return gated
