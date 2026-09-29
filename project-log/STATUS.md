@@ -27,7 +27,7 @@ _Last updated: 2026-09-29. Update this file whenever the state or the next step 
 ## Blocked on the user
 - [ ] Free LiveKit Cloud account → `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET` in `v3/.env.local` (typed by the user, not pasted in chat)
 - [ ] OpenAI API key (needed for the gpt-4o judge regardless of agent model)
-- [ ] TypeSafe API key (`TYPESAFE_API_KEY`) for the Jev decision layer, when we get to the commit gate
+- [~] TypeSafe API key for Jev: **deferred** (Jev cut for the 30 Sep deadline; only if the deadline moves, see `IMPROVEMENT_PLAN.md` Tier 2)
 - [x] WSL2 Ubuntu installed (already there; Python 3.12.3, GPU visible: RTX 5070, driver 592.07, 922 GB free)
 - [x] DNS inside WSL fixed (2026-09-29)
 - [x] ffmpeg installed in WSL
@@ -45,6 +45,7 @@ _Last updated: 2026-09-29. Update this file whenever the state or the next step 
 - [ ] Submission route: organizers re-run on "declared hosted APIs" with their own credentials (guide §5), so decide Vertex vs an API-key provider; declare Jev/TypeSafe if used.
 - [ ] Submission deadline
 - [ ] Team name for `submission.yaml` (kit only)
+- [ ] AI-usage declaration form filled (organizer briefing, 2026-09-29: stressed twice — see `project-log/meetings/2026-09-29_organizer_briefing_notes.md`)
 
 ## Next steps (in order)
 1. Set up FDB-v3 in WSL2 (Python 3.10 conda env, ffmpeg, NeMo ASR, benchmark audio).
