@@ -1,0 +1,176 @@
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-8caa0d96:
+  - Reasoning (Model -> Tool): 0.50s
+  - Tool Execution (API):    0.44s
+  - Synthesis (Tool -> Spoken): 0.77s
+  - TOTAL SEARCH LATENCY:      1.71s
+
+LATENCY_TRACK_JSON: {"room": "eval-8caa0d96", "tool": "Search Tool", "reasoning": 0.496, "execution": 0.437, "synthesis": 0.774, "total": 1.707, "agent_start_at": 1790687202.2979634}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-5f99b273:
+  - Reasoning (Model -> Tool): 0.45s
+  - Tool Execution (API):    0.69s
+  - Synthesis (Tool -> Spoken): 0.79s
+  - TOTAL SEARCH LATENCY:      1.94s
+
+LATENCY_TRACK_JSON: {"room": "eval-5f99b273", "tool": "Search Tool", "reasoning": 0.449, "execution": 0.695, "synthesis": 0.795, "total": 1.939, "agent_start_at": 1790687225.6359093}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-fda363e8:
+  - Reasoning (Model -> Tool): 0.95s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.86s
+  - TOTAL SEARCH LATENCY:      1.81s
+
+LATENCY_TRACK_JSON: {"room": "eval-fda363e8", "tool": "Search Tool", "reasoning": 0.951, "execution": 0.0, "synthesis": 0.861, "total": 1.812, "agent_start_at": 1790687303.8790145}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-5d196428:
+  - Reasoning (Model -> Tool): 0.97s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.80s
+  - TOTAL SEARCH LATENCY:      1.77s
+
+LATENCY_TRACK_JSON: {"room": "eval-5d196428", "tool": "Search Tool", "reasoning": 0.968, "execution": 0.0, "synthesis": 0.804, "total": 1.772, "agent_start_at": 1790687328.911125}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-7d558df7:
+  - Reasoning (Model -> Tool): 0.49s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.79s
+  - TOTAL SEARCH LATENCY:      1.28s
+
+LATENCY_TRACK_JSON: {"room": "eval-7d558df7", "tool": "Search Tool", "reasoning": 0.487, "execution": 0.0, "synthesis": 0.791, "total": 1.278, "agent_start_at": 1790687352.665587}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-9a9854f6:
+  - Reasoning (Model -> Tool): 0.56s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.78s
+  - TOTAL SEARCH LATENCY:      1.34s
+
+LATENCY_TRACK_JSON: {"room": "eval-9a9854f6", "tool": "Search Tool", "reasoning": 0.56, "execution": 0.0, "synthesis": 0.785, "total": 1.345, "agent_start_at": 1790687376.5103278}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-3638aa6a:
+  - Reasoning (Model -> Tool): 0.54s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.85s
+  - TOTAL SEARCH LATENCY:      1.39s
+
+LATENCY_TRACK_JSON: {"room": "eval-3638aa6a", "tool": "Search Tool", "reasoning": 0.54, "execution": 0.0, "synthesis": 0.849, "total": 1.388, "agent_start_at": 1790687404.8538554}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-582d3d4b:
+  - Reasoning (Model -> Tool): 0.95s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.79s
+  - TOTAL SEARCH LATENCY:      1.75s
+
+LATENCY_TRACK_JSON: {"room": "eval-582d3d4b", "tool": "Search Tool", "reasoning": 0.954, "execution": 0.0, "synthesis": 0.794, "total": 1.748, "agent_start_at": 1790687421.0706644}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-fc6c8912:
+  - Reasoning (Model -> Tool): 0.55s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.83s
+  - TOTAL SEARCH LATENCY:      1.38s
+
+LATENCY_TRACK_JSON: {"room": "eval-fc6c8912", "tool": "Search Tool", "reasoning": 0.549, "execution": 0.0, "synthesis": 0.831, "total": 1.381, "agent_start_at": 1790687444.31986}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-e2d046ec:
+  - Reasoning (Model -> Tool): 0.47s
+  - Tool Execution (API):    0.71s
+  - Synthesis (Tool -> Spoken): 0.89s
+  - TOTAL SEARCH LATENCY:      2.06s
+
+LATENCY_TRACK_JSON: {"room": "eval-e2d046ec", "tool": "Search Tool", "reasoning": 0.467, "execution": 0.707, "synthesis": 0.886, "total": 2.059, "agent_start_at": 1790687471.3181422}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-9b71ddbc:
+  - Reasoning (Model -> Tool): 0.84s
+  - Tool Execution (API):    0.25s
+  - Synthesis (Tool -> Spoken): 0.98s
+  - TOTAL SEARCH LATENCY:      2.06s
+
+LATENCY_TRACK_JSON: {"room": "eval-9b71ddbc", "tool": "Search Tool", "reasoning": 0.837, "execution": 0.248, "synthesis": 0.975, "total": 2.06, "agent_start_at": 1790687501.2876196}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-d7cde7bf:
+  - Reasoning (Model -> Tool): 0.96s
+  - Tool Execution (API):    0.17s
+  - Synthesis (Tool -> Spoken): 0.78s
+  - TOTAL SEARCH LATENCY:      1.92s
+
+LATENCY_TRACK_JSON: {"room": "eval-d7cde7bf", "tool": "Search Tool", "reasoning": 0.962, "execution": 0.17, "synthesis": 0.784, "total": 1.915, "agent_start_at": 1790687571.5326502}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-0b0f744f:
+  - Reasoning (Model -> Tool): 0.44s
+  - Tool Execution (API):    0.08s
+  - Synthesis (Tool -> Spoken): 0.70s
+  - TOTAL SEARCH LATENCY:      1.22s
+
+LATENCY_TRACK_JSON: {"room": "eval-0b0f744f", "tool": "Search Tool", "reasoning": 0.444, "execution": 0.076, "synthesis": 0.703, "total": 1.223, "agent_start_at": 1790687580.8306925}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-bcf68b83:
+  - Reasoning (Model -> Tool): 0.45s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.83s
+  - TOTAL SEARCH LATENCY:      1.28s
+
+LATENCY_TRACK_JSON: {"room": "eval-bcf68b83", "tool": "Search Tool", "reasoning": 0.453, "execution": 0.0, "synthesis": 0.831, "total": 1.284, "agent_start_at": 1790687616.0656877}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-01839a39:
+  - Reasoning (Model -> Tool): 0.98s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.82s
+  - TOTAL SEARCH LATENCY:      1.80s
+
+LATENCY_TRACK_JSON: {"room": "eval-01839a39", "tool": "Search Tool", "reasoning": 0.984, "execution": 0.0, "synthesis": 0.819, "total": 1.803, "agent_start_at": 1790687628.298655}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-f25c71e2:
+  - Reasoning (Model -> Tool): 0.44s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.76s
+  - TOTAL SEARCH LATENCY:      1.20s
+
+LATENCY_TRACK_JSON: {"room": "eval-f25c71e2", "tool": "Search Tool", "reasoning": 0.442, "execution": 0.0, "synthesis": 0.759, "total": 1.201, "agent_start_at": 1790687638.1879013}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-9b939c0d:
+  - Reasoning (Model -> Tool): 0.47s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.87s
+  - TOTAL SEARCH LATENCY:      1.34s
+
+LATENCY_TRACK_JSON: {"room": "eval-9b939c0d", "tool": "Search Tool", "reasoning": 0.466, "execution": 0.0, "synthesis": 0.871, "total": 1.337, "agent_start_at": 1790687680.5878055}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-d3891caf:
+  - Reasoning (Model -> Tool): 3.97s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.82s
+  - TOTAL SEARCH LATENCY:      4.78s
+
+LATENCY_TRACK_JSON: {"room": "eval-d3891caf", "tool": "Search Tool", "reasoning": 3.967, "execution": 0.0, "synthesis": 0.816, "total": 4.783, "agent_start_at": 1790687732.7842941}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-2af64603:
+  - Reasoning (Model -> Tool): 0.94s
+  - Tool Execution (API):    0.68s
+  - Synthesis (Tool -> Spoken): 2.54s
+  - TOTAL SEARCH LATENCY:      4.17s
+
+LATENCY_TRACK_JSON: {"room": "eval-2af64603", "tool": "Search Tool", "reasoning": 0.944, "execution": 0.685, "synthesis": 2.536, "total": 4.166, "agent_start_at": 1790687744.7989824}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-51e3243b:
+  - Reasoning (Model -> Tool): 3.73s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 0.82s
+  - TOTAL SEARCH LATENCY:      4.55s
+
+LATENCY_TRACK_JSON: {"room": "eval-51e3243b", "tool": "Search Tool", "reasoning": 3.728, "execution": 0.0, "synthesis": 0.82, "total": 4.548, "agent_start_at": 1790687758.2654517}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-f6211d4d:
+  - Reasoning (Model -> Tool): 4.87s
+  - Tool Execution (API):    0.40s
+  - Synthesis (Tool -> Spoken): 0.85s
+  - TOTAL SEARCH LATENCY:      6.12s
+
+LATENCY_TRACK_JSON: {"room": "eval-f6211d4d", "tool": "Search Tool", "reasoning": 4.873, "execution": 0.399, "synthesis": 0.852, "total": 6.124, "agent_start_at": 1790687797.7414093}
+
+⏱️ LATENCY BREAKDOWN (Search Tool) for room eval-e795108f:
+  - Reasoning (Model -> Tool): 0.96s
+  - Tool Execution (API):    0.00s
+  - Synthesis (Tool -> Spoken): 2.15s
+  - TOTAL SEARCH LATENCY:      3.11s
+
+LATENCY_TRACK_JSON: {"room": "eval-e795108f", "tool": "Search Tool", "reasoning": 0.961, "execution": 0.0, "synthesis": 2.152, "total": 3.113, "agent_start_at": 1790687833.6731963}
