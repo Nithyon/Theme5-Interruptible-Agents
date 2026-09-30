@@ -137,7 +137,7 @@ Baseline failure breakdown (exact-match, `SCORES.md`): by disfluency — pause 0
 | Versions | Python packages pinned in `project-log/runs/env-freeze.txt`; Full-Duplex-Bench pinned to the commit in `reproduce.sh` (`FDB_COMMIT`). |
 | Time | About 2 hours for the 100 recordings (they play in real time), plus judge scoring. |
 | Output | A new folder `project-log/runs/<date>_repro_<provider>/` with `agent.log`, `inference.log`, the tool-call log, gate decision log, `run.txt` (exact settings) and `score.txt`. Compare with our logs in `project-log/runs/2026-09-29_full_gate_gemini38_final/`. |
-| Expect | Run-to-run variation of a few scenarios: the voice model is not deterministic (our two same-day runs of the stock agent's failures differed by a few items). Our judged numbers used Gemini 2.5 Pro as a stand-in judge; a GPT-4o judge may score slightly differently. |
+| Expect | Run-to-run variation of a few scenarios: the voice model is not deterministic. Our judged numbers used Gemini 2.5 Pro as a stand-in judge; a GPT-4o judge may score slightly differently. |
 | Do not | Run two agents on the same LiveKit project at once (they take each other's rooms). |
 
 
