@@ -8,6 +8,8 @@ Gemini 3.8 Live does the talking; a small layer in front of the tools, the **Com
 *Layout after Figure 1 of the Full-Duplex-Bench v3 paper ([arXiv 2604.04847](https://arxiv.org/abs/2604.04847)); the middle layer is ours.
 To change the figure, edit and run `python docs/figures/make_overview.py`.*
 
+**Demo video:** [watch on YouTube](https://youtu.be/zBp5oEh5yhY)
+
 **Presentation:** [slides as PDF](presentation/TEAM%20REIGN%20-%20SAMSUNG%20PRISM%20HACKATHON.pdf) (opens in the browser) ·
 [PowerPoint file](presentation/TEAM%20REIGN%20-%20SAMSUNG%20PRISM%20HACKATHON.pptx) (download)
 
@@ -346,7 +348,7 @@ More: [`extension/README.md`](extension/README.md) and [`extension/DESIGN.md`](e
 | `reproduce_extension.sh` | Optional: tests, local fallback suite and end-to-end runs of the extension |
 | `fdb_agent/` | The benchmark agent (`gate_agent.py`), the harness (`gate.py`), the stock agent (`baseline_agent.py`) and tests |
 | `extension/` | Extension agent, recovery layer, in-car and home tool packs, local fallback, their tests |
-| `presentation/` | The slides, as PDF and PowerPoint |
+| `presentation/` | The slides, as PDF and PowerPoint, and the demo video link (`DEMO_VIDEO.md`) |
 | `docs/figures/` | The overview figure and the script that draws it |
 | `project-log/ARCHITECTURE.md` | One-page architecture of both agents |
 | `project-log/runs/` | Logs, decision logs, per-recording results and score reports for every run |
