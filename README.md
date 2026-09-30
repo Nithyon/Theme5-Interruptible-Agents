@@ -68,9 +68,9 @@ SETUP_ONLY=1 ./reproduce.sh                              # setup and key check o
 ./reproduce.sh fdb_agent/baseline_agent.py gemini3_8    # the stock agent, for comparison
 ```
 
-Run one agent at a time per LiveKit project. No GPU is needed by our code. The install steps (tools,
-benchmark, Python environment) were checked in a clean folder on our machine; the script has not been run end
-to end on a second machine.
+Run one agent at a time per LiveKit project. No GPU is needed by our code. The whole setup (tools,
+benchmark at the pinned commit, Python environment, the 100 recordings) was checked in a clean folder on our
+machine on 30 September, up to the key step; the 2-hour run itself has not been repeated from a clean folder.
 
 Other things to run (no keys needed):
 
