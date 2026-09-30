@@ -23,18 +23,16 @@ Deck: https://claude.ai/artifact/23ov3X1v58BEcUFnk44Psu (private until shared fr
 
 **6. What the failures taught us (35 s).** In ten recordings the user changed their mind seconds after the action had already run. No waiting rule fixes that; the answer is undo. In three of our hundred recordings the agent heard nothing at all; we traced it to load on the machine and wrote a check that finds such recordings. Most important: we counted how often the harness changed what ran. In the 29 September run it replaced one action and blocked one duplicate, two recordings out of a hundred, because the voice model proposes an action only after it believes you have finished. The hold costs about nine tenths of a second each time. So our gains cannot come from replacing actions; what else differs is our prompt rules and the ID rule, which we have not tested separately.
 
-**7. Extension (40 s).** The benchmark's tools answer instantly and never fail. Real tools do not. Our extension is a recovery layer shown on two scenarios, an in-car assistant and a Bixby-style home assistant. A correction gives one action. A slow tool gets "still checking" instead of silence. A failing tool is retried quietly. The washer never starts twice. A change of mind after it started cancels the first job and starts the new one. A dead service ends in a hand-off to a human. The device tools are mocks; this is not a Bixby or SmartThings integration. [Say whether the live demo was recorded.]
+**7. Extension (40 s).** The benchmark's tools answer instantly and never fail. Real tools do not. Our extension is a recovery layer shown on two scenarios, an in-car assistant and a Bixby-style home assistant. A correction gives one action. A slow tool gets "still checking" instead of silence. A failing tool is retried quietly. The washer never starts twice. A change of mind after it started cancels the first job and starts the new one. A dead service ends in a hand-off to a human. The device tools are mocks; this is not a Bixby or SmartThings integration. We tested these behaviours with automated tests that drive the recovery layer, not yet in a live spoken conversation.
 
 **8. Reproduce and next (30 s).** One command, pinned versions, Gemini only. Every run's logs are in the repository, down to each recording. Not done: the harness and the recovery layer are in two separate agents; no GPT-4o judge; the script has not run on a clean machine; the local Gemma fallback is about thirty percent correct, so not usable. Next: undo in the main agent, real plugins (they exist for every domain in the benchmark), and a stronger model only on the hard turns. Thank you.
 
-## Video running order (3 to 5 minutes)
-1. Slides 1 to 4 as voiceover (about 2 minutes), or skip to the demos and use slides 5 to 8 at the end.
-2. Demo 1, live: the correction, the second request, the withdrawal; then show the decision log.
-3. Demo 2, live: the home assistant's six lines; then show the recovery log.
-4. Slides 5, 6 and 8 as the close.
+## Video running order (decided 2026-09-30: slides with voiceover, no live demo)
+1. Slides 1 to 8 in order, reading the narration above (about 4 minutes).
+2. Optional, about 40 seconds between slides 7 and 8, to show something running: the recovery tests (`python extension/test_recovery_home.py`, `python extension/test_recovery.py`) and one decision log from a real benchmark recording (`project-log/runs/<run>/gate_events.log`). Say plainly that these are automated tests and saved logs, not a live conversation.
+3. `DEMO_SCRIPT_5MIN.md` holds the live-demo version in case it is wanted later.
 
 ## To fill before presenting
 - Slide 1: team name and members.
 - Slide 5: final judged and strict scores, one line on the result, and update the side panels if the submitted run is the 30 September one.
-- Slide 7: whether the live demo was recorded.
 - Slide 6 footer and slide 3 Listener status if the Smart Turn run is the one submitted.
