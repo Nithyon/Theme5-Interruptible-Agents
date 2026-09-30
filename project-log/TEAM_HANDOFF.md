@@ -2,6 +2,8 @@
 
 Deadline: **23:59 IST, 30 Sep 2026.** Aim to submit the form by **22:30 IST**.
 
+Names used in this document vs. the code: Commit Harness = `fdb_agent/gate.py` (`CommitGate`, settings `GATE_*`); Reflex = the rule-based decider in `gate.py`; Reasoner = `fdb_agent/jev.py` (TypeSafe Jev); Listener = `fdb_agent/smart_turn.py` (Smart Turn v3.2).
+
 **The organizers' briefing checklist (every point, with status and owner) is at the end of this file: "Everything the organizers said (briefing, 2026-09-29) — point by point".** The results table may be updated tonight, check `SCORES.md`.
 
 ## Who edits what
@@ -16,7 +18,7 @@ Do not edit `SCORES.md`, `fdb_agent/` or run folders. If a number looks wrong, t
 
 ## Where every number comes from
 - `project-log/SCORES.md` is the source of truth (overall, per-slice, latency, failure counts).
-- Raw evidence: `project-log/runs/2026-09-29_full_gemini3_8/` (baseline), `runs/2026-09-29_full_gate_gemini38_final/` (final pipeline; `score.txt` strict, `score_geminijudge.txt` judged), `runs/2026-09-29_decision_eval.json` (rules vs Jev decisions), `runs/2026-09-29_dev_*` (62-item practice set).
+- Raw evidence: `project-log/runs/2026-09-29_full_gemini3_8/` (baseline), `runs/2026-09-29_full_gate_gemini38_final/` (final pipeline; `score.txt` strict, `score_geminijudge.txt` judged), `runs/2026-09-29_decision_eval.json` (Reflex vs Reasoner decisions), `runs/2026-09-29_dev_*` (62-item practice set).
 - Headline numbers: judged 61/100 (pipeline) vs 62/100 (baseline); strict 46 vs 50; first reply median 6.4 s vs 4.00 s.
 - Paper numbers (arXiv 2604.04847) are verified in `RESEARCH_NOTE_FDB_AUTHORS.md`.
 - If a number is not in SCORES.md, WORKLOG.md or a run folder, do not use it.
@@ -26,16 +28,16 @@ Do not edit `SCORES.md`, `fdb_agent/` or run folders. If a number looks wrong, t
 - Do not claim any latency improvement or any latency figure that is not in SCORES.md (the pipeline's first reply is slower).
 - The judge was **Gemini 2.5 Pro as a stand-in for GPT-4o**, not GPT-4o. Never call the numbers "GPT-4o-judged".
 - Do not compare our numbers with the paper's as like-for-like.
-- Do not say plugins / MCP connectors or a local Gemma model are implemented: both are designed, not built (README "Scalability and what comes next"). Do not say Smart Turn is validated.
+- Do not say plugins / MCP connectors or a local Gemma model are implemented: both are designed, not built (README "Scalability and what comes next"). Do not say the Listener (Smart Turn v3.2) is validated.
 - Do not call the home scenario a Bixby or SmartThings integration: it is a Bixby-style mock scenario, offline-tested (28 tests), on the same recovery layer.
-- Smart Turn is built behind a switch (`GATE_SMART_TURN=1`) with offline tests only; it is NOT validated on real voices and NOT in the benchmark config. Do not claim it improved any score. Escalation to a thinking model and a local fallback are planned only.
-- Retraction, backchannel and identifier-joining rules were added after the final run and are unit-tested only; do not attribute any benchmark result to them. `GATE_LEAN` exists as a switch, is being evaluated on the practice set (run E), and is not in the submitted config.
-- Do not attribute the housing gain to the gate alone (a prompt change was made at the same time, no ablation).
+- The Listener (Smart Turn v3.2) is built behind a switch (`GATE_SMART_TURN=1`) with offline tests only; it is NOT validated on real voices and NOT in the benchmark config. Do not claim it improved any score. Escalation to a thinking model and a local fallback are planned only.
+- Retraction, backchannel and identifier-joining handling were added after the final run and are unit-tested only; do not attribute any benchmark result to them. `GATE_LEAN` exists as a switch, is being evaluated on the practice set (run E), and is not in the submitted config.
+- Do not attribute the housing gain to the Commit Harness alone (a prompt change was made at the same time, no ablation).
 - Do not say we tuned on or looked at the 100 benchmark recordings. Tuning used our own 62-item practice set only.
 - Do not claim the extension ran live unless someone has actually run it and recorded it (check WORKLOG). It uses mock tools.
 - Do not claim `reproduce.sh` was verified on a clean machine (it was not, as of the last WORKLOG entry).
 - Do not cite "human hesitation pauses of 600-900 ms": it is not in the paper.
-- Do not say Smart Turn works on Indian-English accents (not checked).
+- Do not say the Listener (Smart Turn v3.2) works on Indian-English accents (not checked).
 
 ## Submission checklist
 - [ ] GitHub repo link works, README renders, no secrets or `.env` files committed
@@ -71,7 +73,7 @@ Source of truth: `project-log/meetings/2026-09-29_organizer_briefing_transcript.
 
 ### Logs included
 
-- All run logs are in `project-log/runs/`: agent log (`agent.log`), inference log (`inference.log`), every tool call (`agent_tool_calls.log`), the gate decision log (`gate_events.log`, `gate_stats.log`), strict and Gemini-judged score reports (`score.txt`, `score_geminijudge.txt`, the `*_pass_rate_report*.json` files), and the settings used per run (`run.txt`). Practice-set runs are in `runs/2026-09-29_dev_*` and `runs/2026-09-30_dev_*`.
+- All run logs are in `project-log/runs/`: agent log (`agent.log`), inference log (`inference.log`), every tool call (`agent_tool_calls.log`), the Commit Harness decision log (`gate_events.log`, `gate_stats.log`), strict and Gemini-judged score reports (`score.txt`, `score_geminijudge.txt`, the `*_pass_rate_report*.json` files), and the settings used per run (`run.txt`). Practice-set runs are in `runs/2026-09-29_dev_*` and `runs/2026-09-30_dev_*`.
 - Per-recording result JSON files are being added under each run folder's `per_recording/`.
 - The agent's recorded audio is too big for git. It goes to Drive as zip files from `D:\Theme5-Interruptible-Agents\logs-audio\`. The user uploads them and the README must link the Drive folder.
 - **TODO (user): upload the audio zips to Google Drive and give the README polisher the folder link. Drive link: NOT YET CREATED.**
@@ -117,7 +119,7 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 32 | The slide deck was communicated earlier. Later: "one PPT slide". Our plan is max 8 slides. | "The uh slide deck is something that we have already communicated" and "one slide uh one PPT slide, and the demo" | NOT DONE: outline only (`SLIDES_OUTLINE.md`). The "one PPT slide" wording is unclear in transcript (singular vs deck); confirm limits in the participant guide. | deck maker, user |
 | 33 | 60% of the score is the benchmark score. | "60% of the uh score, you know, dedicated to the benchmark score" | DONE (informational). Numbers in `SCORES.md`; may be updated tonight. | none |
 | 34 | The weights may change if many teams struggle on the benchmark. | "we might uh change the numbers" | N/A: not final; do not rely on it. | none |
-| 35 | 20% for extending the "dual-mind" idea (one mind talks, one thinks) to other use cases. | "where one mind is talking and one mind is thinking" | PARTLY: talker plus gate design is the dual-mind; extension not run live. | video, deck maker |
+| 35 | 20% for extending the "dual-mind" idea (one mind talks, one thinks) to other use cases. | "where one mind is talking and one mind is thinking" | PARTLY: talker plus Commit Harness design is the dual-mind; extension not run live. | video, deck maker |
 | 36 | The remaining 20% is documentation and architecture. | "documentation and architecture will fetch you, uh you know, other 20%" | PARTLY: README done; deck, video open. | deck maker, video |
 | 37 | Shortlisted teams may get extra use cases or multimodal inputs in round two. | "certain extra multimodal handling inputs so that we can judge you better" | N/A: Round 2. | none |
 | 38 | Artificial Analysis is a reference, not a target to beat. | "I would not say that you have to beat these numbers" | DONE: `project-log/INDUSTRY_BENCHMARKS.md`. Not required in README. | none |
@@ -153,12 +155,12 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 68 | The benchmark backing comes first; use cases are the cherry on the cake. A bad integration does not help. | "you are backed by a solid system" | PARTLY: extension is offline-tested only. | video |
 | 69 | A good demo needs the real full-duplex challenges. The sentence is cut off. | "you should also have—because these are real challenges" | unclear in transcript. | video |
 | 70 | An average benchmark score with good use cases still gives a fair chance. | "it gives you a fair chance" | N/A: relevant to us (61 vs 62 judged); no action. | none |
-| 71 | Questions about voice-to-voice vs cascaded; tool-call complexity hurts in live models. | "when the complexity of these tool calls will increase" | N/A: supports our commit-gate framing; no claim needed. | none |
-| 72 | No restriction on the approach: text model, voice-to-voice or rule-based. One sentence is garbled. | "You can use a text-based model. You can use a voice-to-voice model." and "Uh I not to use any kind of uh static rule-based system" | DONE: voice-to-voice (Gemini Live) plus rule-based gate. The rule-based sentence is unclear in transcript; a later sentence says rule-based is allowed. | none |
-| 73 | Two objectives: keep the conversation fluent and get the task done, even if it is delayed, neglected or cancelled. | "even if your task is delaying, or it is being neglected, or it is being canceled" | PARTLY: gate retraction and the extension's rollback exist, unit-tested and offline only; not scored on the benchmark. | none |
+| 71 | Questions about voice-to-voice vs cascaded; tool-call complexity hurts in live models. | "when the complexity of these tool calls will increase" | N/A: supports our Commit Harness framing; no claim needed. | none |
+| 72 | No restriction on the approach: text model, voice-to-voice or rule-based. One sentence is garbled. | "You can use a text-based model. You can use a voice-to-voice model." and "Uh I not to use any kind of uh static rule-based system" | DONE: voice-to-voice (Gemini Live) plus a Commit Harness with a rule-based Reflex layer. The rule-based sentence is unclear in transcript; a later sentence says rule-based is allowed. | none |
+| 73 | Two objectives: keep the conversation fluent and get the task done, even if it is delayed, neglected or cancelled. | "even if your task is delaying, or it is being neglected, or it is being canceled" | PARTLY: Commit Harness retraction and the extension's rollback exist, unit-tested and offline only; not scored on the benchmark. | none |
 | 74 | Text responses are acceptable if voice is hard; state your assumptions. Do not quit; low scores still get a fair look. | "state those assumptions" | DONE: assumptions are stated (identifier canonicalization, judge stand-in). We output speech. | none |
 | 75 | Input is a wave file; output is a wave or text file. | "accepting a wave file and it is giving out a wave file or a text file" | N/A. | none |
-| 76 | Align performance with the benchmark; voice-to-voice tool calling can be a bottleneck. | "that becomes a bottleneck when you are, you know, scoring against these kind of benchmarks" | DONE: gate design addresses this. | none |
+| 76 | Align performance with the benchmark; voice-to-voice tool calling can be a bottleneck. | "that becomes a bottleneck when you are, you know, scoring against these kind of benchmarks" | DONE: Commit Harness design addresses this. | none |
 | 77 | Theme 5 is unchanged; only the evaluation changed. | "Theme 5 has not changed." | DONE. | none |
 | 78 | The benchmark has 100 scenarios (flight booking, e-commerce, passports). "Passports" is as transcribed. | "100 scenarios relating to flight booking, e-commerce" | N/A. Our slices are finance, e-commerce, travel, housing per `SCORES.md`; "passports" is unclear in transcript. | none |
 | 79 | Goal: do highly logical tasks while keeping the conversation fluent. | "maintaining the uh spirit of the conversation" | DONE (informational). | none |
