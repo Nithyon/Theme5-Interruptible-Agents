@@ -166,6 +166,17 @@ async def with_jev():
     await g.run("search_flights", {"destination": "Boston"}, noop)
     check(time.monotonic() - t0 >= 2.3, "jev 'continuing': held for the longer window")
 
+    # 9a. lean mode: Jev 'continuing' never lengthens the hold beyond the rule window
+    import gate as _g
+    _g.LEAN = True
+    g = CommitGate(quiet_s=0.3, judge=FakeJev(turn={"complete": 0.2, "continuing": 0.8}))
+    g.on_user_transcript("book a flight to Boston")
+    await asyncio.sleep(0.05)
+    t0 = time.monotonic()
+    await g.run("search_flights", {"destination": "Boston"}, noop)
+    _g.LEAN = False
+    check(time.monotonic() - t0 < 0.8, "lean: jev 'continuing' keeps the rule window, no 2.5 s hold")
+
     # 9b. combined decider: rules caught a hesitation, Jev says complete -> still hold
     import gate as gate_mod
     gate_mod.COMBINE_EITHER = True

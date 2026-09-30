@@ -51,6 +51,9 @@ _DANGLING = {"to", "for", "from", "on", "in", "at", "with", "by", "of", "into", 
              "search", "convert", "update", "find", "get", "show", "around", "maybe"}
 DANGLING_ON = os.getenv("GATE_DANGLING", "0") == "1"
 COMBINE_EITHER = os.getenv("GATE_COMBINE", "") == "either"
+# GATE_LEAN=1: "Jev as decider" — Jev may shorten a hold or classify a follow-up, but never
+# lengthens a hold beyond what the rules ask for.
+LEAN = os.getenv("GATE_LEAN", "0") == "1"
 
 
 def ends_hesitantly(text: str) -> bool:
@@ -271,7 +274,7 @@ class CommitGate:
         rule = self.hesitant_quiet_s if hesitant else self.quiet_s
         if self.jev_turn is not None and self.jev_turn_idx == len(self.transcript) - 1:
             if self.jev_turn.get("continuing", 0.0) >= JEV_CONT_P:
-                return max(rule, JEV_HOLD_S)
+                return rule if LEAN else max(rule, JEV_HOLD_S)
             if self.jev_turn.get("complete", 0.0) >= JEV_DONE_P:
                 # GATE_COMBINE=either: rules + Jev as one decider. Release fast only when
                 # both agree the user is done; a hesitation the rules caught still holds.
