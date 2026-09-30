@@ -31,7 +31,11 @@ To change the figure, edit and run `python docs/figures/make_overview.py`.*
 | Stock agent (Gemini 3.8 Live, no harness) | 62 | 50 | 3.9 s |
 | **Ours, submitted configuration** | **67** | **55** | 5.3 s |
 
-- Judge: Gemini 2.5 Pro with the benchmark's own judge prompts, as a stand-in for GPT-4o. One run each.
+- **Judge: Gemini 2.5 Pro, not GPT-4o.** We did not use OpenAI anywhere. The benchmark's scorer is written for a
+  GPT-4o judge; we had no GPT-4o access, so `project-log/scripts/judge_vertex.py` sends the benchmark's own judge
+  prompts, unchanged, to Gemini 2.5 Pro on Google Cloud (Vertex AI). The stock agent and ours were judged the same
+  way. `./reproduce.sh` does not run this script: it uses GPT-4o if you give it an `OPENAI_API_KEY`, and otherwise
+  gives only the strict score (see [What score to expect](#what-score-to-expect)). One run each.
 - On 30 September we ran two configurations and submit the better one; both runs' logs are in the repo.
 - No silent recordings in the submitted run. Run folder: `project-log/runs/2026-09-30_full_gate_gemini38_v2b/`.
 
@@ -118,7 +122,7 @@ in that Ubuntu window. Cloning into your Linux home folder (`~`) is faster than 
 | `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET` | yes | Same project: **Settings → API keys → Create key**. |
 | `GOOGLE_API_KEY` | yes | [Google AI Studio → Get API key](https://aistudio.google.com/apikey). |
 | `TYPESAFE_API_KEY` | no | Turns on the Reasoner. Without it the word patterns (Reflex) decide alone. |
-| `OPENAI_API_KEY` | no | Turns on the organizers' GPT-4o judge. Without it scoring is exact-match only (the "strict" number). |
+| `OPENAI_API_KEY` | no | Turns on the benchmark's GPT-4o judge (our own judged numbers used Gemini 2.5 Pro instead; see the Result section). Without it scoring is exact-match only (the "strict" number). |
 
 Use a LiveKit project that nothing else is using while you run: two agents on one project take each other's rooms and ruin both runs.
 
