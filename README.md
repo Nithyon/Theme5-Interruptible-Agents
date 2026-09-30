@@ -13,6 +13,7 @@ To change the figure, edit and run `python docs/figures/make_overview.py`.*
 - [Result](#result-100-real-recordings)
 - [How it works](#how-it-works)
 - [Smart Turn (Listener)](#smart-turn-listener)
+- [Datasets](#datasets)
 - [Setup and reproduce](#setup-and-reproduce)
 - [Troubleshooting](#troubleshooting)
 - [Things you can run without keys](#things-you-can-run-without-keys)
@@ -60,6 +61,24 @@ and gives the probability that the user has finished. In the harness it sits nex
 So we submit with it off. To try it: `GATE_SMART_TURN=1 ./reproduce.sh`. Background: `project-log/RESEARCH_SMART_TURN.md`.
 Recordings and other files for the runs are in the team's
 [Google Drive folder](https://drive.google.com/drive/folders/1wFiVit_etrPbMFMhhFRsLO72S9UnPqnm?usp=sharing).
+
+## Datasets
+
+Everything we ran, what it is, and what we used it for. Only the first one is the scored benchmark. We never tuned on it.
+
+| Dataset | What it is | What we used | Used for | Evidence |
+|---|---|---|---|---|
+| **Full-Duplex-Bench v3** ([arXiv 2604.04847](https://arxiv.org/abs/2604.04847), [GitHub](https://github.com/DanielLin94144/Full-Duplex-Bench)) | The scored benchmark: real people asking for actions out loud, with fillers, pauses, hesitations, self-corrections and false starts, across travel, finance, housing and e-commerce (12 tools) | All 100 recordings, with the benchmark's expected tool calls | Every benchmark score in this README (stock agent and ours) | `project-log/runs/2026-09-30_full_gate_gemini38_v2b/` and the other `*_full_*` runs |
+| **Our practice set** (`devset/`) | Requests we wrote for the same 12 tools, spoken by a synthetic voice ([Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)) and padded with 20 s of silence to match the benchmark's recording length | 62 scenarios: 50 of ours plus 12 pause scenarios from a teammate | Tuning the harness (runs A to E) and scoring its decisions one by one | `project-log/runs/2026-09-29_dev_*`, `2026-09-29_decision_eval.json` |
+| **Full-Duplex-Bench v1**, CANDOR subsets ([arXiv 2503.04721](https://arxiv.org/abs/2503.04721)) | Clips of real conversation, labelled at pauses and at turn ends | 216 pause-handling clips and 119 turn-taking clips (fetched with `project-log/scripts/fdbv1_fetch.sh`) | Testing Smart Turn on its own | `project-log/runs/2026-09-30_smart_turn_fdbv1/` |
+| **SLURP**, test split (Bastianelli et al., EMNLP 2020; audio CC BY-NC 4.0) | Real people giving home-assistant commands | 11 light-control recordings, picked by a fixed rule | The home assistant on real speech, with the lights tool failing on its first try | `project-log/runs/2026-09-30_ext_home_slurp_fail1/` |
+| | | The same 11 recordings with a silence of 1.6 to 3.1 s inserted inside each request | The home assistant when the speaker stops mid-sentence: 8 of 11 ended with the asked lights action, but 6 of 11 also had a wrong action (this agent has no Commit Harness) | `project-log/runs/2026-09-30_ext_home_slurp_pauses_fail0/` |
+| | | 111 requests as typed text: 51 light requests and 60 that none of our tools can serve | The local fallback suite | `extension/fallback_eval_slurp.jsonl` |
+| **Our extension clips** (`extension/e2e/`) | In-car and home requests we wrote, spoken by the same synthetic voice | One recorded conversation per pack | The extension agent end to end | `project-log/runs/2026-09-30_ext_car_e2e/`, `2026-09-30_ext_home_e2e/` |
+| **Our fallback command sets** (`extension/`) | Typed commands we wrote | 40 car and home commands (`fallback_eval.jsonl`) and 37 interruptions (`fallback_eval_interrupt.jsonl`) | The local fallback suite | [`project-log/FALLBACK_TEST_SUMMARY.md`](project-log/FALLBACK_TEST_SUMMARY.md) |
+
+The benchmark recordings are downloaded by `./reproduce.sh`. The SLURP and Full-Duplex-Bench v1 audio are not stored in
+this repository: `extension/e2e/make_clip_slurp.py`, `make_clip_slurp_pauses.py` and `fdbv1_fetch.sh` rebuild them from the originals.
 
 ## Setup and reproduce
 
