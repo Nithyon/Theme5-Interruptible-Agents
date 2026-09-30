@@ -1,46 +1,60 @@
-# AI usage — factual reference for the organizers' declaration form
+# AI disclosure
 
-This is a factual list of which AI tools did what, for the user to transcribe into the organizers' actual AI-usage declaration form (referenced in `project-log/meetings/2026-09-29_organizer_briefing_notes.md`, fact 14 — *"there are no restriction on what AI you can use... whenever you are using an AI, please make sure that you are filling it out"*). **This file is not the form itself** — the user fills that in separately.
+Team Reign · Theme 05, Interruptible Real-Time Agents · updated 1 October 2026
 
-## The short, honest version (updated 2026-09-30)
+## In short
 
-AI assistants wrote almost all of the code, tests, scripts and documentation in this repository and ran the experiments. The team set the direction, made the decisions, supplied the accounts, and is responsible for every claim. Specifically:
+AI coding assistants wrote almost all of the code, tests, scripts and documents in this repository and ran most of
+the experiments. The team chose the approach, made every decision about what to build, run and submit, supplied the
+accounts and keys, reviewed the results, and is responsible for every claim. We did not use AI to read, tune on or
+generate the benchmark's expected answers.
 
-| Who | What they did |
-|---|---|
-| Team lead (the user) | Chose the approach and priorities; decided what to build, which runs to make and which to submit (for example "the Reasoner may only shorten a hold", including Smart Turn in a test run, the names used in the documents); created the accounts and typed every key (no key was given to an AI tool to handle); approved or stopped actions; records the demo and fills in the forms. |
-| Lohit | The upgrade pack: the dangling-word rule, the merged prompt rules and 12 pause-focused practice scenarios (built with an AI assistant, as noted below). |
-| Aryan | The local fallback, working with an AI coding assistant (Claude Code) on his own laptop: found why Gemma 4 returned no tool call (its thinking mode used up the whole reply limit) and fixed it; re-measured three local models; ran the fallback test suite (our 40 commands and 111 real SLURP requests) on his laptop and reviewed the misses, including which ones are scoring artefacts. |
+## Who did what
 
-**How AI output was checked.** Code was checked by automated tests and by benchmark and practice runs, which were themselves written and run by AI; humans reviewed results and decisions, not every line of code. Research claims were checked against the original pages where we cite them, and unverified ones are marked as such. Several AI mistakes were caught and corrected during the work and are recorded in `WORKLOG.md` (unsupported quotes in a research note, a miscounted test total, a wrong statement that a side measurement had not disturbed a benchmark run, and an early over-optimistic reading of Smart Turn).
+| Person | Decisions and work | AI used |
+|---|---|---|
+| Saini (team lead) | Chose the approach and priorities: the Commit Harness, the recovery layer, the in-car EV use case, the SLURP and pause tests; decided which runs to make and which configuration to submit; created the accounts and typed every key; approved or stopped every action | Claude Code (Claude Opus, with Claude Sonnet sub-agents), plus Gemini CLI / Antigravity for small tasks |
+| Lohit | The upgrade pack for the harness (dangling-word rule, merged prompt rules, 12 pause practice scenarios); `reproduce_extension.sh`; the README setup guide and overview figure; the presentation files; an independent re-run of `reproduce.sh` on his laptop | An AI assistant for the upgrade pack (tool not recorded); Claude Code for the later work |
+| Aryan | The offline Gemma fallback: found why Gemma 4 returned no tool call (its thinking mode used up the reply limit) and fixed it; measured Gemma 4 26B and e4b on his laptop on our commands, real SLURP requests and the interruption set; audited the test summary against the raw result files | Claude Code |
 
-**What AI was not used for.** No AI tool was used to read, tune on or generate the FDB-v3 test recordings' expected answers. Practice data is our own; its audio is synthetic speech and is labelled as such. The demo video is recorded by a person.
-
-## AI tools used to build the submission (process/tooling)
+## AI tools used to build the submission
 
 | Tool | What it did |
 |---|---|
-| **Claude (Opus, "lead" session)** | Primary design and implementation: `fdb_agent/gate.py` (commit gate), `jev.py` (Jev integration), `gate_agent.py`/`baseline_agent.py`, `models.py`; ran and managed the actual benchmark and dev-set runs; found and fixed the positional-args gate bug and the supersede/`speech_epoch` bug; applied the housing prompt fix (`GATE_PROMPT=2`, merged with Lohit's rules). |
-| **Claude (Sonnet, this session and others, "assistant engineer")** | Documentation (`README.md`, `BUILD_PLAN_FDB_V3.md`, `PLAN_VS_ACTUAL.md`, `INDUSTRY_BENCHMARKS.md`, this file, `VIDEO_SCRIPT.md`, `SLIDES_OUTLINE.md`); scripts (`devset/make_audio.py`, `run_dev.sh`, `score_dev.py`, `reproduce.sh` draft); the extension's offline core (`extension/recovery.py`, `mock_tools.py`, `test_recovery.py`, `ext_agent.py` draft); research (organizer-briefing analysis, FDB-v3 paper lineage/author research, industry-benchmark survey); the C: drive cleanup survey (unrelated to the submission itself). |
-| **Claude (Opus, lead session, 2026-09-30)** | Today's additions: retraction, identifier and backchannel handling, the lean switch, the Smart Turn integration, the demo launch scripts, the scoring and health-check scripts, the architecture review and the documents `JUDGE_QA.md`, `USE_CASES_SAMSUNG.md`, `PLAN_PLUGINS_MCP.md`; delegated sub-tasks to Sonnet sub-agents (home tool pack, plugin test path, local-fallback module, research notes, document updates). |
-| **Claude (second session started by the team lead, 2026-09-30)** | Ran the Smart Turn check on older public recordings and the two final benchmark runs (with and without Smart Turn). |
-| **Claude Code (Aryan's session, 2026-09-30)** | The `"think": False` fix in `extension/local_fallback.py`, the local-model re-measurement and its write-up in `extension/README.md`, and the fallback-suite run and miss analysis on Aryan's laptop. |
-| **Gemini CLI / Antigravity ("junior assistant")** | Light, well-scoped tasks per `project-log/GEMINI_TASKS.md`: downloading and verifying the FDB-v3 benchmark audio, checking which realtime model ids the installed LiveKit plugins accept, and an initial research note on the FDB-v3 authors' publications (later independently verified by the Claude sessions against the actual papers). |
-| **Lohit's upgrade pack** | Built by a teammate, with the help of an AI assistant (tool unspecified to this session) — contributed the dangling-word hold-extension rule (`GATE_DANGLING`), the merged prompt rules (`GATE_PROMPT=2`'s `EXTRA_RULES_V2`), and 12 pause-focused dev-set scenarios (`p01`–`p12`), reviewed and integrated by the Claude sessions. |
+| **Claude Code, lead session (Claude Opus)** | Design and implementation of the benchmark agent and the Commit Harness (`fdb_agent/`), the recovery layer and in-car / home agents (`extension/`), the test suites, `reproduce.sh`, the benchmark, SLURP and pause runs, the scoring and judge scripts, and most documents, including this one |
+| **Claude Sonnet sub-agents** (started by the lead session) | Delegated parts: documentation drafts, the home tool pack, the plugin (MCP) test path, the local-fallback module, research notes |
+| **Claude Code, teammates' sessions** | Aryan's fallback fix, measurements and audit; Lohit's `reproduce_extension.sh`, README sections and reproduction run |
+| **Claude (artifacts)** | Drafted the slide deck and the architecture page as web pages; the team reviewed them and exported the deck |
+| **Gemini CLI / Antigravity** | Small scoped tasks: downloading and checking the benchmark audio, checking model ids, a first research note later verified against the papers |
 
-## AI models running inside the submitted product itself
+## AI models inside the product and its evaluation
 
 | Model | Role |
 |---|---|
-| **Gemini 3.8 Live** (Google) | The realtime reasoner/talker inside `gate_agent.py` — listens, decides which tool to call, and speaks the response. Reached via Vertex AI + ADC in our own development environment, or a plain `GOOGLE_API_KEY` as the default reproduction path (see `README.md`'s Reproduce section). |
-| **TypeSafe Jev** | An optional typed decision-layer classifier inside the commit gate (`fdb_agent/jev.py`) — judges whether a turn sounds finished, and whether a repeated tool call is a correction or an addition. Every call has a hard timeout and falls back to rule-based logic on any failure, so a failure never blocks a turn. It adds one network call per user turn. |
-| **Gemini 2.5 Pro** | Used as our own **development-time** judge (via Vertex) to re-score baseline runs during tuning — a stand-in for the GPT-4o judge used in the FDB-v3 paper, with the benchmark's own judge prompts unchanged. All judged numbers we report come from this stand-in and are labelled as such; they are not presented as equivalent to a GPT-4o-judged score. (The organizer briefing did not name a judge model.) |
-| **NVIDIA Parakeet-TDT-0.6B-v2** | The ASR the benchmark's own scoring pipeline runs on our agent's spoken output — this is the benchmark harness's model, not something our agent invokes itself. |
-| **Smart Turn v3.2** (Pipecat, open source) | Optional acoustic end-of-turn model inside the agent (`fdb_agent/smart_turn.py`), runs locally on CPU. Used in one of the two final benchmark runs; whether it is part of the submitted configuration is stated in the README. |
-| **FunctionGemma** (Google, through Ollama) | Local model tried as an offline fallback in the extension only; measured at about 30% fully correct on our own 40 commands, not used in the benchmark agent. |
-| **Kokoro-82M** | Local text-to-speech used only to synthesize our own practice/dev-set audio (`devset/make_audio.py`) — never used on, or mixed with, the real FDB-v3 benchmark recordings. |
+| **Gemini 3.8 Live** (Google) | The voice model in every agent: listens, speaks, proposes tool calls |
+| **TypeSafe Jev** | Optional classifier inside the harness: is the user finished, is a repeat a correction; falls back to rules on any failure |
+| **Gemini 2.5 Pro** (Google) | Our judge for every "judged" score, using the benchmark's own judge prompts unchanged, **as a stand-in for the benchmark's GPT-4o judge**; we had no OpenAI access and used no OpenAI model anywhere |
+| **NVIDIA Parakeet-TDT-0.6B-v2** | Speech recognition inside the benchmark's own scoring pipeline (the benchmark's model, not ours) |
+| **Smart Turn v3.2** (Pipecat) | Optional end-of-turn model; tested, switched off in the submitted run |
+| **Gemma 4 26B and e4b, FunctionGemma** (Google, via Ollama); **Qwen3 30B** (comparison only) | Offline fallback candidates, tested on typed commands; not part of the benchmark agent |
+| **Kokoro-82M** | Text-to-speech for our own practice and demo audio only, never mixed with benchmark recordings |
 
-## Notes for filling in the actual form
+## Data
 
-- Every AI tool listed above touched **our own code, our own practice data, or our own documentation** — none were used to read, tune on, or generate FDB-v3's own expected answers. We read only pass/fail results and our own agent's outputs from benchmark runs. (We treated tuning on the test set as off limits; the briefing transcript does not state a disqualification rule in those words.)
-- If the form asks for specific model versions/dates: Gemini 3.8 Live and Gemini 2.5 Pro version details are in `project-log/runs/env-freeze.txt` and `project-log/STATUS.md`; TypeSafe Jev's SDK version (`typesafe-sdk` 0.7.2) is noted in `project-log/DECISIONS.md`.
+- **Full-Duplex-Bench v3**: the scored benchmark. We looked only at pass/fail results and our own agent's outputs,
+  never used its expected answers to change the agent, and ran two configurations on 30 September and submitted the
+  better one (both runs' logs are in the repository).
+- **SLURP** (Bastianelli et al., EMNLP 2020): real users' home-assistant requests, used to test the extension and the
+  fallback. Recordings were picked by a fixed rule, not by hand. The pauses in the pause test were inserted by us.
+- **Our own requests** (practice set, fallback commands, interruption set): written by us with AI help and labelled
+  as ours wherever they are used.
+
+## How AI output was checked
+
+Code was checked by automated tests and by benchmark and practice runs. Every published number was recounted from the
+raw result files, and a teammate audited the fallback results independently. AI mistakes that were caught and
+corrected are recorded in `project-log/WORKLOG.md`, for example a miscounted test total, a wrong claim that a side
+measurement had not disturbed a benchmark run, and an early over-optimistic reading of Smart Turn. Humans reviewed
+results and decisions, not every line of code.
+
+More detail: `project-log/AI_USAGE.md` (the earlier, longer version of this file).
