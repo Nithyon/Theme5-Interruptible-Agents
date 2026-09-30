@@ -180,29 +180,9 @@ Results land in `project-log/runs/<date>_repro_gate_gemini38_v2/`:
 | `gate_events.log`, `gate_stats.log` | The harness's decisions: every hold, replace, withdraw. |
 | `gate_gemini38_v2_pass_rate_report.json` | The full scoring report. |
 
-#### What score to expect
-
-The first line of `score.txt` says which score you got:
-
-- `judge: exact-match (no OpenAI key)`: the **strict** score, counting only exactly right tool calls. Compare it
-  with our **55**.
-- `judge: GPT-4o`: the **judged** score, where an LLM accepts calls that are right in meaning (for example
-  "BOB 12" for "BOB12"). Compare it with our **67**. Ours was judged by Gemini 2.5 Pro with the benchmark's own
-  judge prompts, standing in for GPT-4o, so a GPT-4o score may differ by a few recordings.
-
-| Run | Strict | Judged |
-|---|---|---|
-| Stock agent (Gemini 3.8 Live, no harness) | 50 | 62 |
-| Our submitted run (`2026-09-30_full_gate_gemini38_v2b`) | 55 | 67 |
-| A teammate's reproduction with `./reproduce.sh` on a second laptop | 53 | not judged |
-
-**Expect a couple of recordings either way.** The voice model does not answer identically on every run, and a
-recording can go silent (the agent never hears it) when the machine or network is busy. The teammate's run had one
-silent recording (`finance_19`); our submitted run had none. A strict score around 53 to 55, above the stock agent's
-50, reproduces our result. To count silent recordings in your run, look for empty transcripts in the
-`result_*.json` files under the benchmark's `fdb_v3_data_released/` folder.
-
-Our run's logs are in `project-log/runs/2026-09-30_full_gate_gemini38_v2b/`.
+Compare with our submitted run: **55 strict** (exact-match) and **67 judged**. Without an OpenAI key you only get
+the strict score, so compare against 55. The voice model is not deterministic, so expect a few recordings either
+way. Our run's logs are in `project-log/runs/2026-09-30_full_gate_gemini38_v2b/`.
 
 ### Options
 
