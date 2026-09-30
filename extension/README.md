@@ -139,6 +139,25 @@ Offline unit tests: `~/theme5/fdb-env/bin/python extension/test_local_fallback.p
 
 **Accuracy (2026-09-30):** measured twice on our 40 test commands (CPU, while the benchmark was running): 11/40 and 13/40 fully correct (27.5% and 32.5%), 0 of 18 in-car commands correct in both runs, 15 to 18 of 40 with no answer. Not usable as built. Both runs were made while a benchmark run was using the machine, against this section's own advice, so repeat on a quiet machine before relying on the numbers. Known causes: runaway generation (fixed by `max_tokens=64`), replies lost in Ollama's parsing of the model's call format (open), wrong argument values from the untuned model (open), server stalls (cause not identified).
 
+**Re-run on a second, idle machine (2026-09-30 evening).** Same 40 commands and `eval_fallback.py`, with `--timeout 30`. The machine was a laptop with an Intel Arc iGPU and no NVIDIA GPU, running Ollama 0.32.14.
+
+| Model | Correct tool | Exact tool + args | Self-corrections exact | No answer | Median latency |
+|---|---|---|---|---|---|
+| `functiongemma` (270M, the original choice) | 24/40 | 15/40 | 1/6 | 11 | 0.8 s |
+| `qwen3:30b-a3b-instruct-2507-q4_K_M` | 38/40 | 36/40 | 6/6 | 2 (30 s timeouts) | 2.2 s |
+| **`gemma4:26b-a4b-it-qat`** | **40/40** | **38/40** | **6/6** | **0** | **5.4 s** |
+
+- **Gemma 4 26B needed a fix first.** Its first run returned nothing on 38 of 40 commands. The cause: Gemma 4 "thinks" by default and spent the whole 64-token budget on it, so no tool call came out. `local_fallback.py` now sends `think: False` (the fix is in the diff); functiongemma's numbers are unchanged by it. The broken run is kept as `..._thinking_on_BROKEN.json`.
+- **What the misses are.** Gemma's two misses are free-text `issue` wording ("the car won't start" vs "car won't start"). Qwen's two wording misses dropped "the" from a place name. Its two timeouts may have been caused by another model loading on the same GPU during the run.
+- **Gemma 4 26B is a large model** (15 GB). It needs a strong laptop or a GPU and takes about 5.4 s per command here. That makes it a fallback for a PC or a car computer, not for a phone or an appliance.
+- **Safety rule unchanged.** State-changing tools still come back with `needs_confirmation: True` and are never executed offline.
+- **Not part of the benchmark.** This is still not in the benchmark pipeline. It is measured on typed commands, not audio, and one run per model.
+- **Result files:** `project-log/runs/2026-09-30_local_fallback_eval_*_laptop.json`.
+
+Offline tests on the same laptop (Python 3.12):
+- `test_recovery.py` 35/35, `test_recovery_home.py` 28/28, `test_local_fallback.py` 11/11 and `test_mcp_plugin.py` 19/19.
+- The MCP test needs `mcp<2`; mcp 2.x renamed FastMCP and the import fails.
+
 ## End-to-end runs on audio (2026-09-30)
 
 Run end to end on audio on 2026-09-30: a recorded request clip (our own lines, synthetic voice) was streamed through LiveKit to the extension agent the way the benchmark streams its recordings, and the agent's spoken replies and the recovery log were saved. **In-car EV assistant (the headline scenario), `project-log/runs/2026-09-30_ext_car_e2e/`:** a corrected reroute (one call), a traffic check, a charger lookup that failed twice and succeeded on the third try, a booking, a repeated booking that was not re-executed, a change of time that cancelled the first booking before making the new one, and two failed roadside requests ending in a hand-off with a reference. The home pack was run the same way (`runs/2026-09-30_ext_home_e2e*/`). Each folder has `conversation.wav` (the whole exchange), the recovery log and the agent log. Limits: one run per scenario, no live human speaker, and the spoken progress notice for slow tools is switched off because the model read its instruction aloud (see `WORKLOG.md`).

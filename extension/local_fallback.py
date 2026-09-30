@@ -144,16 +144,18 @@ class LocalFallback:
     def _payload(self, text: str, tools: List[dict]) -> dict:
         options = {"temperature": self.temperature, "num_thread": self.num_thread,
                    "num_predict": self.max_tokens}
+        # think=False: thinking models (e.g. gemma4) otherwise spend the whole num_predict budget
+        # on hidden reasoning and return no tool call at all (seen 2026-09-30: 38/40 empty).
         if self.mode == "tools":
             messages = [{"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": text}]
             return {"model": self.model, "messages": messages, "stream": False, "options": options,
-                    "tools": [{"type": "function", "function": t} for t in tools]}
+                    "think": False, "tools": [{"type": "function", "function": t} for t in tools]}
         listing = json.dumps(tools, separators=(",", ":"))
         sys_msg = (SYSTEM_PROMPT + " Available tools (JSON schemas): " + listing +
                    ' Reply with ONLY one JSON object: {"tool": "<name>", "args": {...}} '
                    'or {"tool": null} if no tool applies.')
-        return {"model": self.model, "stream": False, "format": "json", "options": options,
+        return {"model": self.model, "stream": False, "format": "json", "options": options, "think": False,
                 "messages": [{"role": "system", "content": sys_msg},
                              {"role": "user", "content": text}]}
 

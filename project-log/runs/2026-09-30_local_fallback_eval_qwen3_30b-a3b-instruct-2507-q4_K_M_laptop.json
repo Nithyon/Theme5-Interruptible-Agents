@@ -1,0 +1,734 @@
+{
+  "summary": {
+    "model": "qwen3:30b-a3b-instruct-2507-q4_K_M",
+    "mode": "tools",
+    "n": 40,
+    "timeout_s": 30.0,
+    "errors_or_timeouts": 2,
+    "tool_selection_acc_pct": 95.0,
+    "exact_args_acc_pct": 90.0,
+    "self_correction_n": 6,
+    "self_correction_exact_acc_pct": 100.0,
+    "no_tool_precision_pct": 100.0,
+    "no_tool_recall_pct": 100.0,
+    "latency_mean_s": 4.203,
+    "latency_median_s": 2.159,
+    "latency_p95_s": 16.379
+  },
+  "results": [
+    {
+      "pack": "car",
+      "text": "Navigate to the airport",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the airport"
+      },
+      "got": {
+        "tool": "reroute_navigation",
+        "args": {
+          "destination": "the airport"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 16.379
+    },
+    {
+      "pack": "car",
+      "text": "Take me to 45 Oak Street",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "45 Oak Street"
+      },
+      "got": {
+        "tool": "reroute_navigation",
+        "args": {
+          "destination": "45 Oak Street"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.376
+    },
+    {
+      "pack": "car",
+      "text": "Change the destination to the central station",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the central station"
+      },
+      "got": {
+        "tool": "reroute_navigation",
+        "args": {
+          "destination": "central station"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "self_correct": false,
+      "latency_s": 2.098
+    },
+    {
+      "pack": "car",
+      "text": "Reroute to the mall, no, the train station",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the train station"
+      },
+      "got": {
+        "tool": "reroute_navigation",
+        "args": {
+          "destination": "the train station"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": true,
+      "latency_s": 2.58
+    },
+    {
+      "pack": "car",
+      "text": "Navigate to the office",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the office"
+      },
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "self_correct": false,
+      "latency_s": 30.0
+    },
+    {
+      "pack": "car",
+      "text": "Check the traffic on my current route",
+      "expect_tool": "check_traffic",
+      "expect_args": {},
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "self_correct": false,
+      "latency_s": 30.0
+    },
+    {
+      "pack": "car",
+      "text": "How is the traffic ahead right now",
+      "expect_tool": "check_traffic",
+      "expect_args": {},
+      "got": {
+        "tool": "check_traffic",
+        "args": {}
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 13.179
+    },
+    {
+      "pack": "car",
+      "text": "Is there heavy traffic on the route",
+      "expect_tool": "check_traffic",
+      "expect_args": {},
+      "got": {
+        "tool": "check_traffic",
+        "args": {}
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.525
+    },
+    {
+      "pack": "car",
+      "text": "Check traffic please",
+      "expect_tool": "check_traffic",
+      "expect_args": {},
+      "got": {
+        "tool": "check_traffic",
+        "args": {}
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.697
+    },
+    {
+      "pack": "car",
+      "text": "Find a charging station near downtown with a CCS connector",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "downtown",
+        "connector_type": "CCS"
+      },
+      "got": {
+        "tool": "find_charging_station",
+        "args": {
+          "near": "downtown",
+          "connector_type": "CCS"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.989
+    },
+    {
+      "pack": "car",
+      "text": "I need an EV charger near the airport, NACS",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "the airport",
+        "connector_type": "NACS"
+      },
+      "got": {
+        "tool": "find_charging_station",
+        "args": {
+          "near": "airport",
+          "connector_type": "NACS"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "self_correct": false,
+      "latency_s": 2.153
+    },
+    {
+      "pack": "car",
+      "text": "Look for a charging station near the mall, CCS",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "the mall",
+        "connector_type": "CCS"
+      },
+      "got": {
+        "tool": "find_charging_station",
+        "args": {
+          "near": "the mall",
+          "connector_type": "CCS"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.229
+    },
+    {
+      "pack": "car",
+      "text": "Find a charger near downtown, CCS, no, NACS",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "downtown",
+        "connector_type": "NACS"
+      },
+      "got": {
+        "tool": "find_charging_station",
+        "args": {
+          "near": "downtown",
+          "connector_type": "NACS"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": true,
+      "latency_s": 2.251
+    },
+    {
+      "pack": "car",
+      "text": "Book charging station CHG-001 at 18:00",
+      "expect_tool": "book_charging_slot",
+      "expect_args": {
+        "station_id": "CHG-001",
+        "time_slot": "18:00"
+      },
+      "got": {
+        "tool": "book_charging_slot",
+        "args": {
+          "station_id": "CHG-001",
+          "time_slot": "18:00"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.61
+    },
+    {
+      "pack": "car",
+      "text": "Reserve a slot at CHG-042 for 09:30",
+      "expect_tool": "book_charging_slot",
+      "expect_args": {
+        "station_id": "CHG-042",
+        "time_slot": "09:30"
+      },
+      "got": {
+        "tool": "book_charging_slot",
+        "args": {
+          "station_id": "CHG-042",
+          "time_slot": "09:30"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.967
+    },
+    {
+      "pack": "car",
+      "text": "Book CHG-007 at 18:00, no, 19:00",
+      "expect_tool": "book_charging_slot",
+      "expect_args": {
+        "station_id": "CHG-007",
+        "time_slot": "19:00"
+      },
+      "got": {
+        "tool": "book_charging_slot",
+        "args": {
+          "station_id": "CHG-007",
+          "time_slot": "19:00"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": true,
+      "latency_s": 3.164
+    },
+    {
+      "pack": "car",
+      "text": "Call roadside assistance, I have a flat tire",
+      "expect_tool": "call_roadside_assistance",
+      "expect_args": {
+        "issue": "flat tire"
+      },
+      "got": {
+        "tool": "call_roadside_assistance",
+        "args": {
+          "issue": "flat tire"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.303
+    },
+    {
+      "pack": "car",
+      "text": "Get roadside help, the car won't start",
+      "expect_tool": "call_roadside_assistance",
+      "expect_args": {
+        "issue": "won't start"
+      },
+      "got": {
+        "tool": "call_roadside_assistance",
+        "args": {
+          "issue": "won't start"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.839
+    },
+    {
+      "pack": "car",
+      "text": "Good morning, how are you today?",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.42
+    },
+    {
+      "pack": "car",
+      "text": "Tell me a joke about cars",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.78
+    },
+    {
+      "pack": "home",
+      "text": "Set the bedroom AC to 23",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "bedroom",
+        "celsius": 23
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "room": "bedroom",
+          "celsius": 23
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 5.993
+    },
+    {
+      "pack": "home",
+      "text": "Make the living room AC 21 degrees",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "living room",
+        "celsius": 21
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "room": "living room",
+          "celsius": 21
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.277
+    },
+    {
+      "pack": "home",
+      "text": "Set the kitchen AC to 24, no, 22",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "kitchen",
+        "celsius": 22
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "room": "kitchen",
+          "celsius": 22
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": true,
+      "latency_s": 2.545
+    },
+    {
+      "pack": "home",
+      "text": "Set the bedroom AC to 26, sorry, 25",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "bedroom",
+        "celsius": 25
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "room": "bedroom",
+          "celsius": 25
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": true,
+      "latency_s": 2.165
+    },
+    {
+      "pack": "home",
+      "text": "Set the study AC to 20",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "study",
+        "celsius": 20
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "room": "study",
+          "celsius": 20
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.024
+    },
+    {
+      "pack": "home",
+      "text": "Turn off the living room lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "living room",
+        "state": "off"
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "living room",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.2
+    },
+    {
+      "pack": "home",
+      "text": "Turn on the bedroom lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "bedroom",
+        "state": "on"
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "bedroom",
+          "state": "on"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.133
+    },
+    {
+      "pack": "home",
+      "text": "Set the kitchen lights on at 40 percent brightness",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "kitchen",
+        "state": "on",
+        "brightness": 40
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "kitchen",
+          "state": "on",
+          "brightness": 40
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.734
+    },
+    {
+      "pack": "home",
+      "text": "Turn on the hallway lights, no, off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "hallway",
+        "state": "off"
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "hallway",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": true,
+      "latency_s": 2.328
+    },
+    {
+      "pack": "home",
+      "text": "Start the washer on the cotton cycle",
+      "expect_tool": "start_washer",
+      "expect_args": {
+        "cycle": "cotton"
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": "cotton"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.962
+    },
+    {
+      "pack": "home",
+      "text": "Run the eco cycle on the washer in 30 minutes",
+      "expect_tool": "start_washer",
+      "expect_args": {
+        "cycle": "eco",
+        "delay_minutes": 30
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": "eco",
+          "delay_minutes": 30
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 2.491
+    },
+    {
+      "pack": "home",
+      "text": "Start the washer on eco",
+      "expect_tool": "start_washer",
+      "expect_args": {
+        "cycle": "eco"
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": "eco"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.889
+    },
+    {
+      "pack": "home",
+      "text": "How much energy did we use today?",
+      "expect_tool": "check_energy_usage",
+      "expect_args": {
+        "period": "today"
+      },
+      "got": {
+        "tool": "check_energy_usage",
+        "args": {
+          "period": "today"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.918
+    },
+    {
+      "pack": "home",
+      "text": "Check my energy usage this week",
+      "expect_tool": "check_energy_usage",
+      "expect_args": {
+        "period": "this week"
+      },
+      "got": {
+        "tool": "check_energy_usage",
+        "args": {
+          "period": "this week"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.953
+    },
+    {
+      "pack": "home",
+      "text": "Find my phone",
+      "expect_tool": "find_phone",
+      "expect_args": {},
+      "got": {
+        "tool": "find_phone",
+        "args": {}
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.001
+    },
+    {
+      "pack": "home",
+      "text": "Where is my phone? Ring it",
+      "expect_tool": "find_phone",
+      "expect_args": {},
+      "got": {
+        "tool": "find_phone",
+        "args": {}
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.344
+    },
+    {
+      "pack": "home",
+      "text": "Call the service centre, the washer is leaking",
+      "expect_tool": "call_service_center",
+      "expect_args": {
+        "issue": "washer leaking"
+      },
+      "got": {
+        "tool": "call_service_center",
+        "args": {
+          "issue": "washer leaking"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.753
+    },
+    {
+      "pack": "home",
+      "text": "Contact the service center, the fridge is making noise",
+      "expect_tool": "call_service_center",
+      "expect_args": {
+        "issue": "fridge making noise"
+      },
+      "got": {
+        "tool": "call_service_center",
+        "args": {
+          "issue": "fridge making noise"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.865
+    },
+    {
+      "pack": "home",
+      "text": "Thanks, that is all for now",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.768
+    },
+    {
+      "pack": "home",
+      "text": "What is the capital of France?",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "self_correct": false,
+      "latency_s": 1.235
+    }
+  ]
+}
