@@ -24,7 +24,8 @@ The theme is an agent that stays responsive while tools run, acts only on what t
 | `confirm` | read back before running | no | yes, if irreversible |
 | `progress_line` | what to say while waiting | "Searching your Drive…" | "Adding that to your calendar…" |
 
-3. **Path of a plugin call:** model proposes → Commit Harness (Propose → Settle → Commit: hold until the turn settles, supersede on correction, withdraw on retraction, no duplicates) → recovery layer (timeout, retry with backoff for reads, idempotency, rollback with `undo`, human handoff) → MCP server.
+3. **Target path of a plugin call (design; today no agent has both layers):** model proposes → Commit Harness (Propose → Settle → Commit: hold until the turn settles, supersede on correction, withdraw on retraction, no duplicates) → recovery layer (timeout, retry with backoff for reads, idempotency, rollback with `undo`, human handoff) → MCP server.
+   What exists today: the extension agent has the recovery layer only, and its own `supersede` replaces a call that is still pending; the offline plugin tests exercise recovery layer → plugin server. Putting the Commit Harness in front is not built.
 4. **Unknown tools are treated as writes with no retry and a read-back**, so a newly added plugin is safe by default.
 5. **Tool-result safety:** text returned by a plugin is data. It is summarized to the user and never treated as an instruction to call further tools.
 

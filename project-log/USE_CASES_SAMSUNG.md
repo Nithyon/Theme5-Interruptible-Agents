@@ -22,14 +22,16 @@ Each row: what the user says, what goes wrong today in a plain voice model, whic
 
 | # | Product | What the user says | Failure without us | Our part | Evidence |
 |---|---|---|---|---|---|
-| 1 | Bespoke washer / SmartThings | "Start the washer on cotton… actually eco." | Two cycles started, or the wrong one | Commit Harness supersedes a held call; if cotton already started, rollback: cancel, then start eco | Home pack, 28/28 offline tests; benchmark self-correction 0.529 vs 0.471 stock |
-| 2 | Air conditioner | "Set the living room to 24… no, 22." | AC set to 24, then 22 (two commands, a beep each) | Hold until the turn settles, run only 22 | Practice set: stale calls 4 of 17 (run E, partial) vs 5 of 17 (run D) on the same items |
+| 1 | Bespoke washer / SmartThings | "Start the washer on cotton… actually eco." | Two cycles started, or the wrong one | Recovery layer replaces a call that is still pending; if cotton already started, rollback: cancel, then start eco | Home pack, 28/28 offline tests (recovery layer) |
+| 2 | Air conditioner | "Set the living room to 24… no, 22." | AC set to 24, then 22 (two commands, a beep each) | Extension agent: the pending 24 call is replaced (home pack test). Benchmark agent: Commit Harness holds until the turn settles | Home pack offline test; on benchmark-style tools, self-correction 0.529 vs 0.471 stock, and practice-set stale calls 4 of 17 (run E, partial) vs 5 of 17 (run D) |
 | 3 | Family Hub fridge / shopping | "Order milk and eggs… and bread." | Second request replaces the first, or duplicates | Addition keeps both; identical call never runs twice | Gate tests (addition, dedupe); benchmark 3-request turns 0.375 vs 0.312 |
 | 4 | TV (shared screen) | Someone says "mm-hmm" or "okay" while the assistant talks | Treated as a new command or a correction | Backchannel is not a turn | Offline tests only; not measured on the benchmark |
 | 5 | Phone (Bixby) | "Book the 6 pm slot." then "never mind" | The booking goes through anyway | Retraction withdraws a held call and tells the model it did not run | Offline tests (5); only works while the call is still held |
 | 6 | Any device, slow cloud service | "How much energy did I use today?" | Silence for several seconds | Progress line while waiting; must-speak watchdog | Offline tests; live run pending |
 | 7 | Any device, service down | "Call the service centre, the washer is leaking." | Endless retry or silent failure | Two failures, then human handoff with a reference | Offline tests (car and home packs) |
 | 8 | In-car (HARMAN) | "Book the Tesla charger… actually Ionity." | Two bookings | Rollback with compensation; never auto-retry a timed-out booking | Car pack, 35/35 offline tests |
+
+**Which agent each row's evidence comes from.** Rows 3, 4 and 5 are Commit Harness behaviours, tested or measured on the benchmark agent with the benchmark's tools, not on device tools. Rows 1, 6, 7 and 8 are recovery-layer behaviours tested on the mock device tools. No single agent has both layers yet, so no row has been shown end to end on a device scenario with spoken input.
 
 ## What our numbers do and do not support
 

@@ -10,14 +10,40 @@ A LiveKit voice agent for **Full-Duplex-Bench v3** (the organizers' scored bench
 
 ```mermaid
 flowchart LR
-    A["FDB-v3 recording<br/>input.wav"] --> B["LiveKit room"]
-    B --> C["Gemini 3.8 Live<br/>(realtime model)"]
-    C -- "Propose: tool call" --> D["Commit Harness<br/>Settle: wait for the turn to end<br/>(fdb_agent/gate.py)"]
-    D -- "held / superseded<br/>(never executed)" --> C
-    D -- "Commit: released, executed once" --> E["12 stock tools<br/>(4 domains)"]
-    E --> F["/tmp/agent_tool_calls.log"]
-    C --> G["Spoken answer (TTS)"]
+    subgraph BENCH["Benchmark agent: fdb_agent/gate_agent.py (scored on FDB-v3)"]
+        A["FDB-v3 recording<br/>input.wav"] --> B["LiveKit room"]
+        B --> C["Gemini 3.8 Live<br/>the talker"]
+        C -- "Propose: tool call" --> D["Commit Harness<br/>Settle: wait for the turn to end<br/>fdb_agent/gate.py"]
+        R1["Reflex<br/>word patterns"] --> D
+        R2["Reasoner<br/>TypeSafe Jev, optional"] --> D
+        R3["Listener<br/>Smart Turn, optional"] --> D
+        D -- "held / superseded / withdrawn<br/>never executed" --> C
+        D -- "Commit: executed once" --> E["12 stock tools<br/>4 domains"]
+        E --> F["/tmp/agent_tool_calls.log"]
+        C --> G["Spoken answer"]
+    end
+    subgraph EXT["Extension agent: extension/ext_agent.py (demo, not scored)"]
+        C2["Gemini 3.8 Live"] -- "tool call" --> T["Recovery layer<br/>extension/recovery.py"]
+        T --> P1["In-car mock tools"]
+        T --> P2["Home mock tools"]
+    end
+    X1["Plugin bridge<br/>tested offline, not attached"] -.-> T
+    X2["Local Gemma fallback<br/>measured, not attached"] -.-> T
 ```
+
+**What is connected to what (checked against the code on 2026-09-30).**
+
+| Piece | Connected to | State |
+|---|---|---|
+| Commit Harness, Reflex | benchmark agent | used in every benchmark run |
+| Reasoner (TypeSafe Jev) | benchmark agent | used when its key is set; Reflex decides alone otherwise |
+| Listener (Smart Turn) | benchmark agent, behind `GATE_SMART_TURN=1` | runs in a live room (smoke test); effect on the score not yet known |
+| Instant acknowledgement and must-speak watchdog (`fdb_agent/responsive.py`) | benchmark agent, off by default | offline tests only, never tried live |
+| Recovery layer with the in-car and home tool packs | extension agent | offline tests; the agent starts, no spoken conversation held yet |
+| Plugin bridge (`extension/mcp_bridge.py`) | nothing yet | tested offline against a mock plugin server through the recovery layer |
+| Local Gemma fallback (`extension/local_fallback.py`) | nothing yet | measured, not usable yet |
+
+The two agents share the model wrapper (`fdb_agent/models.py`) and nothing else. **The Commit Harness and the recovery layer are not combined in one agent**: the benchmark agent has no failure recovery, and the extension agent does not hold calls until the turn settles (its recovery layer supersedes a call only while that call is still pending). Putting the harness in front of the recovery layer is the intended design and is not built.
 
 The Commit Harness (`fdb_agent/gate.py`, wired in `fdb_agent/gate_agent.py`):
 
@@ -190,7 +216,7 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 
 | Capability | How it scales | Status |
 |---|---|---|
-| New tools / plugins (e.g. MCP-style connectors such as Drive, calendar) | Every tool call passes through the same Commit Harness (hold until the turn settles, supersede, retract, dedupe) and, in the extension, the same recovery layer (timeout, retry with backoff, idempotency, rollback with compensation, human handoff). Adding a tool needs no change to either. A local mock plugin server (three home tools, standard MCP protocol) is driven through the recovery layer in 19 offline checks (`extension/test_mcp_plugin.py`). It is not attached to the live voice agent, and no real plugin (Drive, calendar) is wired. | Built and tested offline |
+| New tools / plugins (e.g. MCP-style connectors such as Drive, calendar) | In the benchmark agent every tool call passes through the Commit Harness (hold until the turn settles, supersede, retract, dedupe); in the extension agent every tool call passes through the recovery layer (timeout, retry with backoff, idempotency, rollback with compensation, human handoff). The two layers are not yet combined in one agent. Adding a tool needs no change to the layer it sits behind. A local mock plugin server (three home tools, standard MCP protocol) is driven through the recovery layer in 19 offline checks (`extension/test_mcp_plugin.py`). It is not attached to the live voice agent, and no real plugin (Drive, calendar) is wired. | Built and tested offline |
 | New scenarios by swapping tool packs | The extension runs an in-car pack and a Bixby-style home pack (mock SmartThings-like devices) on one agent and one recovery layer via `EXT_PACK=car\|home`. 35 (car) + 28 (home) offline tests pass. Live run status: see `project-log/VIDEO_SCRIPT.md` and `project-log/WORKLOG.md`; we do not claim it ran live here. | Built and tested offline |
 | Decider ladder, cheapest first: Reflex (free, instant) -> Reasoner (small typed classifier, 0.8 s timeout, Reflex fallback) -> stronger thinking model on hard turns | Reflex + Reasoner: built and benchmarked (in the reported configuration). Escalation to a stronger model on hard turns: designed, not built. Lineage only: supervisor pattern and Hybrid LLM, as in "Design lineage" above. | Reflex + Reasoner: Built and benchmarked. Escalation: Designed, not built |
 | Listener: acoustic end-of-turn (Smart Turn v3.2, BSD-2, 8 MB, CPU), `GATE_SMART_TURN=1` | Offline tests with a fake judge pass; the model loads and returns verdicts. Not run in a live room, not validated on real voices, not in the benchmark configuration. | Built, not validated |
