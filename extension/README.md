@@ -208,3 +208,21 @@ Gemma 4 spent its whole reply limit on hidden thinking and returned no tool call
 The earlier statement "about 30% correct, not usable" holds for FunctionGemma only. Gemma 4 26B is a large model, suited to
 a PC or a car computer, not a phone. The fallback is still not attached to the voice agent and is not part of the benchmark
 score. Result files: `project-log/runs/2026-09-30_local_fallback_eval_*_laptop*.json`.
+
+## Fallback test suite (`fallback_suite.py`)
+
+One command, two small text sets, several runs, and a record of the machine:
+
+```bash
+python extension/fallback_suite.py --model gemma4:26b-a4b-it-qat --runs 3 --timeout 30
+```
+
+| Set | File | What it checks |
+|---|---|---|
+| own | `fallback_eval.jsonl` (40) | Commands we wrote for the car and home tools, 6 with a self-correction |
+| slurp | `fallback_eval_slurp.jsonl` (111) | Real user requests from the SLURP test set (Bastianelli et al., EMNLP 2020, text CC BY 4.0): 51 light-control requests (right tool, right on/off) and 60 requests none of our tools can serve (the model must not act) |
+
+- Needs a running Ollama with the model pulled (`ollama pull <model>`). Nothing else to download: both sets are in the repo (18 KB).
+- Output folder `project-log/runs/<date>_fallback_suite_<model>/`: `machine.json` (CPU, RAM, Ollama version, tokens per second), one result file per set and run with every command and the model's answer, `summary.md` with a table.
+- Time: about 5 s per command on a CPU-only laptop, so about 13 minutes per run of both sets. `--runs 1` for a single pass, `--sets slurp` for one set, `--limit 10` for a quick check.
+- The mapping from SLURP intent to our tool is ours (`make_fallback_slurp.py`); room and brightness are not scored because most requests name no room. Typed text, no audio.

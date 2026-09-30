@@ -1,0 +1,111 @@
+{"pack": "home", "text": "turn my lights down to a lower level of brightness", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 5201, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "lower the lights please", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 3280, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "alexa please turn down the lights in the house", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 5047, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "lower lights in kitchen", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 2016, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "i want dimmer lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 964, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "change the lights to dim", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 468, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "lower the overhead lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 4896, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "please dim the lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 1778, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "adjust the lights to a lower setting please", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 5988, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "color of light should be dimmed bright", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 2128, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "decrease brightness of lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 6015, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "can you lower the lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 665, "slurp_intent": "iot_hue_lightdim"}
+{"pack": "home", "text": "turn off bedroom light at nine thirty pm", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 6074, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off the porch light", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2578, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "shut the lights off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2711, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn the lights off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 730, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "olly turn the lights off in the bedroom", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 19, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "please turn lights off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 914, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off the bathroom light please", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 3785, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off the shed light", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2441, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "make the lights off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 3098, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "could you turn the light off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 999, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "please turn the lights off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 5584, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off the dining room", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 1784, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "discontinue use of lights", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2775, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off the lights in the bathroom", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 427, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn lights off", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 4346, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "shut off lights", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2774, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn the light off in the living room", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 5156, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off the lamps", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 1554, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "put the lights off now", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2298, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "switch off the lights", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 369, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "please turn off the lights in patio", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 3570, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "turn off kitchen light", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 2230, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "switch off the master's bedroom", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 1786, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "hey olly turn off the light please", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 6041, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "no lights in the kitchen", "expect_tool": "set_lights", "expect_args": {"state": "off"}, "slurp_id": 3378, "slurp_intent": "iot_hue_lightoff"}
+{"pack": "home", "text": "light up the lights in the kitchen", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 286, "slurp_intent": "iot_hue_lighton"}
+{"pack": "home", "text": "and the darkness has fallen", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 14, "slurp_intent": "iot_hue_lighton"}
+{"pack": "home", "text": "turn up the brightness", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 2591, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "light colour for study room", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 2264, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "can you make the room brighter", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 5014, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "raise the light", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 2082, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "brighter", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 3595, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "brighten of lights in living room", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 5574, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "brighten the lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 1756, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "make it brighter in here", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 6174, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "please turn up the screen brightness all the way", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 1072, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "can you raise the lights for me please", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 3008, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "set lights brightness higher", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 80, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "can you turn up the lights", "expect_tool": "set_lights", "expect_args": {"state": "on"}, "slurp_id": 1993, "slurp_intent": "iot_hue_lightup"}
+{"pack": "home", "text": "event reminder mona tuesday", "expect_tool": null, "expect_args": {}, "slurp_id": 9054, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "put meeting with pawel for tomorrow ten am", "expect_tool": null, "expect_args": {}, "slurp_id": 6744, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "make new schedule for tomorrow meeting", "expect_tool": null, "expect_args": {}, "slurp_id": 7499, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "schedule a meeting with the accounting department on two thirty pm on friday", "expect_tool": null, "expect_args": {}, "slurp_id": 6878, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "just let me know the important meetings with my boss over the week", "expect_tool": null, "expect_args": {}, "slurp_id": 8978, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "please alert me", "expect_tool": null, "expect_args": {}, "slurp_id": 8413, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "i am unavailable from four to six in the evening tomorrow mark my calendar", "expect_tool": null, "expect_args": {}, "slurp_id": 7292, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "set a reminder for two days prior of the event", "expect_tool": null, "expect_args": {}, "slurp_id": 7971, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "tell me something to remind this week", "expect_tool": null, "expect_args": {}, "slurp_id": 8968, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "remind me to send email to boss after one hour", "expect_tool": null, "expect_args": {}, "slurp_id": 7258, "slurp_intent": "calendar_set"}
+{"pack": "home", "text": "did i get new emails from sarah", "expect_tool": null, "expect_args": {}, "slurp_id": 16317, "slurp_intent": "email_query"}
+{"pack": "home", "text": "what new emails do i have", "expect_tool": null, "expect_args": {}, "slurp_id": 15933, "slurp_intent": "email_query"}
+{"pack": "home", "text": "do i have any new email", "expect_tool": null, "expect_args": {}, "slurp_id": 16712, "slurp_intent": "email_query"}
+{"pack": "home", "text": "display list of recent emails", "expect_tool": null, "expect_args": {}, "slurp_id": 17116, "slurp_intent": "email_query"}
+{"pack": "home", "text": "has amy sent me any new emails", "expect_tool": null, "expect_args": {}, "slurp_id": 16096, "slurp_intent": "email_query"}
+{"pack": "home", "text": "tell me if i have any new messages in my inbox", "expect_tool": null, "expect_args": {}, "slurp_id": 16010, "slurp_intent": "email_query"}
+{"pack": "home", "text": "show all emails sent to me from my boss", "expect_tool": null, "expect_args": {}, "slurp_id": 16413, "slurp_intent": "email_query"}
+{"pack": "home", "text": "do i have emails from this sender", "expect_tool": null, "expect_args": {}, "slurp_id": 16914, "slurp_intent": "email_query"}
+{"pack": "home", "text": "show latest email", "expect_tool": null, "expect_args": {}, "slurp_id": 16930, "slurp_intent": "email_query"}
+{"pack": "home", "text": "show all emails regarding the breach", "expect_tool": null, "expect_args": {}, "slurp_id": 16772, "slurp_intent": "email_query"}
+{"pack": "home", "text": "what is the exchange rate of us dollar to pound sterling", "expect_tool": null, "expect_args": {}, "slurp_id": 281, "slurp_intent": "news_query"}
+{"pack": "home", "text": "find me info on cars", "expect_tool": null, "expect_args": {}, "slurp_id": 3822, "slurp_intent": "news_query"}
+{"pack": "home", "text": "get me the popular news from bbc", "expect_tool": null, "expect_args": {}, "slurp_id": 5297, "slurp_intent": "news_query"}
+{"pack": "home", "text": "set notification from world news", "expect_tool": null, "expect_args": {}, "slurp_id": 1593, "slurp_intent": "news_query"}
+{"pack": "home", "text": "i want to hear the last news from cnn", "expect_tool": null, "expect_args": {}, "slurp_id": 712, "slurp_intent": "news_query"}
+{"pack": "home", "text": "i want to know everything that breaks about the dam breaking in california", "expect_tool": null, "expect_args": {}, "slurp_id": 4119, "slurp_intent": "news_query"}
+{"pack": "home", "text": "show me news about the environment", "expect_tool": null, "expect_args": {}, "slurp_id": 2639, "slurp_intent": "news_query"}
+{"pack": "home", "text": "tell me about the new foreign policy of trump", "expect_tool": null, "expect_args": {}, "slurp_id": 1301, "slurp_intent": "news_query"}
+{"pack": "home", "text": "here's the truth about meals on wheels in someone's budget", "expect_tool": null, "expect_args": {}, "slurp_id": 5127, "slurp_intent": "news_query"}
+{"pack": "home", "text": "what's happening around the world", "expect_tool": null, "expect_args": {}, "slurp_id": 2384, "slurp_intent": "news_query"}
+{"pack": "home", "text": "i would like to hear some rap music", "expect_tool": null, "expect_args": {}, "slurp_id": 4058, "slurp_intent": "play_music"}
+{"pack": "home", "text": "play something from keane's hopes and fears album", "expect_tool": null, "expect_args": {}, "slurp_id": 3117, "slurp_intent": "play_music"}
+{"pack": "home", "text": "start playlist", "expect_tool": null, "expect_args": {}, "slurp_id": 614, "slurp_intent": "play_music"}
+{"pack": "home", "text": "turn on favorite songs", "expect_tool": null, "expect_args": {}, "slurp_id": 6027, "slurp_intent": "play_music"}
+{"pack": "home", "text": "play me an upbeat song through your speakers", "expect_tool": null, "expect_args": {}, "slurp_id": 9656, "slurp_intent": "play_music"}
+{"pack": "home", "text": "play me a song by van halen", "expect_tool": null, "expect_args": {}, "slurp_id": 4692, "slurp_intent": "play_music"}
+{"pack": "home", "text": "start playlist and play music", "expect_tool": null, "expect_args": {}, "slurp_id": 1811, "slurp_intent": "play_music"}
+{"pack": "home", "text": "play atmosphere next", "expect_tool": null, "expect_args": {}, "slurp_id": 2931, "slurp_intent": "play_music"}
+{"pack": "home", "text": "please play me songs from the eighties", "expect_tool": null, "expect_args": {}, "slurp_id": 5062, "slurp_intent": "play_music"}
+{"pack": "home", "text": "play some christian music", "expect_tool": null, "expect_args": {}, "slurp_id": 891, "slurp_intent": "play_music"}
+{"pack": "home", "text": "can many seashells did sally sell by the seashore", "expect_tool": null, "expect_args": {}, "slurp_id": 14355, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "what are the coordinates of the equator", "expect_tool": null, "expect_args": {}, "slurp_id": 14015, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "could you please confirm if leonardo is married", "expect_tool": null, "expect_args": {}, "slurp_id": 13607, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "search the locality", "expect_tool": null, "expect_args": {}, "slurp_id": 14163, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "what is the population of russia", "expect_tool": null, "expect_args": {}, "slurp_id": 14653, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "where was president madison born", "expect_tool": null, "expect_args": {}, "slurp_id": 14912, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "what is robin williams birthday", "expect_tool": null, "expect_args": {}, "slurp_id": 13077, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "who won the presidential election this year", "expect_tool": null, "expect_args": {}, "slurp_id": 4968, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "how many legs does a dog have", "expect_tool": null, "expect_args": {}, "slurp_id": 13513, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "how far is california from georgia", "expect_tool": null, "expect_args": {}, "slurp_id": 13774, "slurp_intent": "qa_factoid"}
+{"pack": "home", "text": "is there snow in the forecast", "expect_tool": null, "expect_args": {}, "slurp_id": 3507, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "hey what will the weather be like to today in los angeles california", "expect_tool": null, "expect_args": {}, "slurp_id": 6103, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "is it raining tonight", "expect_tool": null, "expect_args": {}, "slurp_id": 2678, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "give me the weather forecast for this week", "expect_tool": null, "expect_args": {}, "slurp_id": 4486, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "ask for the weather today evening", "expect_tool": null, "expect_args": {}, "slurp_id": 5650, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "is it going to rain on monday", "expect_tool": null, "expect_args": {}, "slurp_id": 4764, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "how is the weather like today", "expect_tool": null, "expect_args": {}, "slurp_id": 216, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "will it be a sticky night", "expect_tool": null, "expect_args": {}, "slurp_id": 6023, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "what is the minimum temperature of london", "expect_tool": null, "expect_args": {}, "slurp_id": 1722, "slurp_intent": "weather_query"}
+{"pack": "home", "text": "i occasionally pay attention", "expect_tool": null, "expect_args": {}, "slurp_id": 1401, "slurp_intent": "weather_query"}
