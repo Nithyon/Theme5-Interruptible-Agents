@@ -17,6 +17,7 @@ To change the figure, edit and run `python docs/figures/make_overview.py`.*
 - [Troubleshooting](#troubleshooting)
 - [Things you can run without keys](#things-you-can-run-without-keys)
 - [Extension: in-car EV assistant](#extension-in-car-ev-assistant)
+  - [Reproduce the extension](#reproduce-the-extension)
 - [Where things are](#where-things-are)
 
 ## Result (100 real recordings)
@@ -185,8 +186,7 @@ yet been repeated from a clean folder.
 ## Things you can run without keys
 
 ```bash
-python extension/test_recovery.py && python extension/test_recovery_home.py   # recovery layer, 35 + 28 checks
-python extension/fallback_suite.py --model gemma4:26b-a4b-it-qat --runs 1      # local fallback; needs Ollama
+./reproduce_extension.sh      # offline tests of the extension: recovery layer, MCP plugin, local fallback (~1 min)
 ```
 
 The harness tests need the benchmark's tool definitions, so run them from the benchmark folder after setup:
@@ -199,19 +199,102 @@ python <path-to-this-repo>/fdb_agent/test_gate.py
 
 ## Extension: in-car EV assistant
 
-A recovery layer (`extension/recovery.py`) for slow and failing tools, run end to end on recorded audio:
-a corrected reroute runs once, a failing charger lookup is retried quietly, a repeated booking is not made
-twice, changing the time cancels the first booking before making the new one, and two failed roadside
-requests end in a hand-off to a human. Mock tools, synthetic request voice, one run.
+A use case beyond the benchmark, not part of its score: what the agent does when tools are slow or fail.
+It has its own agent (`extension/ext_agent.py`) and a recovery layer (`extension/recovery.py`): a time limit per
+attempt, a quiet retry, no repeat of an identical request, undo (cancel the old action, then do the new one), and a
+hand-off to a human after repeated failures. The same layer runs two tool packs: an in-car EV assistant and a
+Bixby-style home assistant. All tools are mocks: there is no real car, SmartThings or Bixby integration.
+
+### What we ran
+
+**In-car, end to end on recorded audio.** A corrected reroute runs once, a failing charger lookup is retried quietly,
+a repeated booking is not made twice, changing the time cancels the first booking before making the new one, and two
+failed roadside requests end in a hand-off to a human. Mock tools, synthetic request voice, one run.
 Evidence: `project-log/runs/2026-09-30_ext_car_e2e/` (conversation audio, recovery log).
 
-On real speech: 11 recordings from the SLURP test set (light-control requests, headset microphone, picked by a fixed
-rule, not by ear) were played to the home assistant with the lights tool made to fail on its first attempt. 10 of 11
-requests ended in a lights action and all 8 injected failures were recovered by a retry. One request asked for a light
-colour and was declined (no such tool); one asked for a time and was switched off at once, with the agent saying it
-cannot schedule. One run. Evidence: `project-log/runs/2026-09-30_ext_home_slurp_fail1/`.
+**Home assistant, on real speech.** 11 recordings from the SLURP test set (light-control requests, headset
+microphone, picked by a fixed rule, not by ear) were played to the home assistant with the lights tool made to fail
+on its first attempt. 10 of 11 requests ended in a lights action and all 8 injected failures were recovered by a
+retry. One request asked for a light colour and was declined (no such tool); one asked for a time and was switched
+off at once, with the agent saying it cannot schedule. One run.
+Evidence: `project-log/runs/2026-09-30_ext_home_slurp_fail1/`.
 
-To talk to it yourself (uses the same `.env.local`), start it and connect from the
+**Local fallback: Gemma 4 offline, on typed commands.** If the cloud model is unreachable, a local model on
+[Ollama](https://ollama.com) could choose the action instead. We tested two sizes on three sets of typed commands:
+40 of our own, 111 real SLURP requests (51 light requests and 60 that none of our tools can serve), and
+37 interruptions (corrections, changed actions, "never mind", hesitations). Measured on a laptop with an Intel Core
+Ultra 7 258V, 32 GB RAM and no discrete GPU:
+
+| | Gemma 4 26B (15.9 GB) | Gemma 4 e4b (3.1 GB) |
+|---|---|---|
+| Runs | 1 per set | 3 per set, same answers each time |
+| Our commands: right tool and values | 34/36 | 34/36 |
+| Our commands: correctly did nothing | 4/4 | 4/4 |
+| SLURP light requests right | **45/51** | **18/51** (declined 31) |
+| SLURP requests no tool can serve: correctly did nothing | 60/60 | 60/60 |
+| Interruptions: right tool and values | 28/29 | 29/29 |
+| Interruptions: cancelled, correctly did nothing | **8/8** | **6/8** |
+| Median time per command | about 6 s | about 2 s |
+
+The 26B is the one to use: e4b is three times faster, but it declined most real light requests and carried out two
+cancelled actions ("Turn off the living room lights, wait, no, leave them as they are" turned them off). The 26B needs
+about 16 GB of memory, so it suits a PC or a car computer, not a phone. These are typed sentences, not speech, and
+the fallback is not yet connected to the voice agent. Every miss is listed in
+[`project-log/FALLBACK_TEST_SUMMARY.md`](project-log/FALLBACK_TEST_SUMMARY.md).
+
+### Reproduce the extension
+
+`./reproduce_extension.sh` checks the extension on its own. It is separate from `./reproduce.sh` and is not part of
+the benchmark score. Each mode checks what it needs before it starts and stops with a clear message if something is missing.
+
+| Command | Needs | What it does | Time |
+|---|---|---|---|
+| `./reproduce_extension.sh` (same as `tests`) | Python and [`uv`](https://docs.astral.sh/uv/); no keys, no GPU | Offline tests of the recovery layer for both packs (timeouts, retries, duplicate blocking, cancel and undo, hand-off), the MCP plugin and the local fallback | about 1 min |
+| `./reproduce_extension.sh fallback` | Ollama running and the model pulled: `ollama pull gemma4:26b-a4b-it-qat` (about 16 GB); no keys | The local fallback suite on all three command sets | about 20 min per run on a 32 GB laptop (188 commands, about 6 s each) |
+| `./reproduce_extension.sh e2e car` | The setup and keys of `./reproduce.sh` (run `SETUP_ONLY=1 ./reproduce.sh` first) | Starts the extension agent, streams a recorded request clip into a LiveKit room with the benchmark's own runner, saves the agent's spoken reply and its recovery log | about 2 min |
+| `./reproduce_extension.sh e2e home`, `e2e slurp`, `e2e slurp_pauses` | Same as above | The home assistant on our own clip, on real SLURP recordings (the lights tool fails on its first try, to show the retry), or on SLURP recordings with pauses inside the request | about 2 min each |
+| `./reproduce_extension.sh all` | – | `tests`, then `fallback` if Ollama is running, then `e2e car` if the benchmark setup exists; skipped parts say why | – |
+
+`./reproduce_extension.sh --help` prints the same summary. Extra arguments after `fallback` go to
+`extension/fallback_suite.py`:
+
+```bash
+./reproduce_extension.sh fallback --limit 5                               # first 5 commands of each set, a quick check
+./reproduce_extension.sh fallback --sets interrupt                        # only the interruption commands
+FALLBACK_MODEL=gemma4:e4b-it-qat FALLBACK_RUNS=3 ./reproduce_extension.sh fallback   # the small model, 3 runs
+```
+
+Settings (all optional):
+
+| Variable | Default | Effect |
+|---|---|---|
+| `FALLBACK_MODEL` | `gemma4:26b-a4b-it-qat` | Model for the fallback suite |
+| `FALLBACK_RUNS` | `1` | How many times each command set is run |
+| `OLLAMA_URL` | `http://127.0.0.1:11434` | Ollama server address |
+| `EXT_ENV_DIR` | `~/theme5/ext-env` | Where the small test environment is created |
+| `FDB_DIR`, `ENV_DIR` | same as `./reproduce.sh` | Where the benchmark and its Python environment live (used by `e2e`) |
+
+Where results go:
+
+| Mode | Folder | Contents |
+|---|---|---|
+| `fallback` | `project-log/runs/<date>_fallback_suite_<model>/` | `summary.md` (the results table), one file per set and run with every command, the expected answer and the model's answer, and `machine.json` (CPU, RAM, model size, tokens per second) |
+| `e2e` | `project-log/runs/<date>_repro_ext_<pack>/` | `agent_reply.wav` (what the agent said), `ext_recovery_events.log` (every retry, duplicate, undo and hand-off), `result.json` (transcript of the reply), `agent.log`, `inference.log`, `run.txt` |
+
+Good to know:
+
+- Keys are never asked for or printed. `e2e` only checks that the variable names exist in the benchmark's
+  `.env.local`, the same way `./reproduce.sh` does.
+- It never downloads a model by itself; it prints the `ollama pull` command instead.
+- `fallback` refuses to overwrite an existing results folder; move it aside to run again on the same day.
+  `e2e` writes into the same day's folder again and replaces its files.
+- It does not touch the benchmark's logs (`/tmp/agent_tool_calls.log` and the harness logs). Still, don't run `e2e`
+  while a benchmark run is using the same LiveKit project.
+- `e2e` uses Gemini Live, so it needs the same keys as the benchmark.
+
+### Talk to it yourself
+
+The extension agent uses the same `.env.local`. Start it and connect from the
 [LiveKit Agents Playground](https://agents-playground.livekit.io) with the same LiveKit project:
 
 ```bash
@@ -228,11 +311,13 @@ More: [`extension/README.md`](extension/README.md) and [`extension/DESIGN.md`](e
 | Path | What |
 |---|---|
 | `reproduce.sh` | One-command setup, run and scoring |
+| `reproduce_extension.sh` | Optional: tests, local fallback suite and end-to-end runs of the extension |
 | `fdb_agent/` | The benchmark agent (`gate_agent.py`), the harness (`gate.py`), the stock agent (`baseline_agent.py`) and tests |
-| `extension/` | Recovery layer, in-car and home scenarios, their tests |
+| `extension/` | Extension agent, recovery layer, in-car and home tool packs, local fallback, their tests |
 | `docs/figures/` | The overview figure and the script that draws it |
 | `project-log/ARCHITECTURE.md` | One-page architecture of both agents |
 | `project-log/runs/` | Logs, decision logs, per-recording results and score reports for every run |
 | `project-log/SCORES.md` | Every score and where it came from |
+| `project-log/FALLBACK_TEST_SUMMARY.md` | Local fallback results and every miss |
 | `README_FULL.md` | Full write-up: design, all results, limitations, related work |
 | `project-log/AI_USAGE.md` | AI assistants wrote most of the code and documents; the team made the decisions |
