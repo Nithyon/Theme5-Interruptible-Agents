@@ -170,6 +170,19 @@ way. Our run's logs are in `project-log/runs/2026-09-30_full_gate_gemini38_v2b/`
 The install steps were checked in a clean folder on 30 September, up to the key step; the full 2-hour run has not
 yet been repeated from a clean folder.
 
+### Optional: the extension
+
+`./reproduce_extension.sh` checks the use-case extension separately. It is not part of the benchmark score.
+
+| Command | Needs | What it does |
+|---|---|---|
+| `./reproduce_extension.sh tests` | Python 3.10+ and `uv`; no keys | Offline tests of the recovery layer (in-car and home), the MCP plugin and the local fallback |
+| `./reproduce_extension.sh fallback` | Ollama running, `gemma4:26b-a4b-it-qat` pulled (about 16 GB); no keys | The local fallback suite on our 40 commands, 111 SLURP requests and 37 interruptions. `FALLBACK_MODEL` picks another model; extra arguments such as `--limit 5` are passed on |
+| `./reproduce_extension.sh e2e car` | The setup and keys of `./reproduce.sh` (run `SETUP_ONLY=1 ./reproduce.sh` first) | The extension agent end to end on a recorded clip through LiveKit. Also available: `home`, `slurp`, `slurp_pauses` |
+| `./reproduce_extension.sh all` | – | All of the above, skipping any part whose requirements are missing |
+
+It never asks for or prints keys, and it will not overwrite an existing results folder.
+
 ## Troubleshooting
 
 | Problem | What to do |
