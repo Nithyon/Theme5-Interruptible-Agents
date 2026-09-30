@@ -41,15 +41,44 @@ Evidence: `project-log/runs/2026-09-30_ext_car_e2e/` (conversation audio, recove
 
 ## Reproduce
 
+On Linux (or WSL on Windows), with `git` installed:
+
 ```bash
+git clone https://github.com/Nithyon/Theme5-Interruptible-Agents.git
+cd Theme5-Interruptible-Agents
 ./reproduce.sh
 ```
 
-Needs a LiveKit Cloud project and Gemini access. On the first run the script asks for the keys in the
-terminal (typed without echo) and saves them to `.env.local` in the benchmark folder; no keys are in this repo.
-Optional: a TypeSafe key (without it the patterns decide alone) and a judge key (without it scoring is
-exact-match). About 2 hours for 100 recordings. Package versions are pinned in
-`project-log/runs/env-freeze.txt`. Not yet run on a clean machine.
+What happens:
+
+1. **Setup (about 10 minutes).** Installs `uv`, fetches the benchmark at a pinned commit, builds the Python
+   environment from `project-log/runs/env-freeze.txt`, downloads the 100 recordings (736 MB).
+2. **Keys.** The script asks for any missing key in the terminal and saves it to `.env.local` in the
+   benchmark folder. Secrets are not shown as you type and are never printed or logged; no keys are in this repo.
+   - Required: `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET` (a LiveKit Cloud project), `GOOGLE_API_KEY` (Gemini).
+   - Optional, Enter to skip: `TYPESAFE_API_KEY` (without it the word patterns decide alone),
+     `OPENAI_API_KEY` (GPT-4o judge; without it scoring is exact-match only).
+3. **Run and score (about 2 hours).** Starts our agent with the submitted settings, plays the 100 recordings,
+   scores them. Results land in `project-log/runs/<date>_repro_gate_gemini38_v2/` (`score.txt`, logs).
+
+Useful variants:
+
+```bash
+SETUP_ONLY=1 ./reproduce.sh                              # setup and key check only, no run
+./reproduce.sh fdb_agent/baseline_agent.py gemini3_8    # the stock agent, for comparison
+```
+
+Run one agent at a time per LiveKit project. No GPU is needed by our code. The install steps (tools,
+benchmark, Python environment) were checked in a clean folder on our machine; the script has not been run end
+to end on a second machine.
+
+Other things to run (no keys needed):
+
+```bash
+python extension/test_recovery.py && python extension/test_recovery_home.py   # recovery layer, 35 + 28 checks
+python fdb_agent/test_gate.py                                                  # the harness
+python extension/fallback_suite.py --model gemma4:26b-a4b-it-qat --runs 1      # local fallback; needs Ollama
+```
 
 ## Where things are
 
