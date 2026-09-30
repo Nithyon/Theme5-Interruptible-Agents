@@ -1,0 +1,1756 @@
+{
+  "summary": {
+    "n": 111,
+    "right_tool": 20,
+    "fully_correct": 18,
+    "should_act_n": 51,
+    "stayed_out_correctly": 60,
+    "should_not_act_n": 60,
+    "acted_when_it_should_not": 0,
+    "self_corrections_correct": 0,
+    "self_corrections_n": 0,
+    "no_answer": 0,
+    "latency_median_s": 1.68,
+    "latency_p95_s": 2.4
+  },
+  "results": [
+    {
+      "pack": "home",
+      "text": "turn my lights down to a lower level of brightness",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 5201,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.491
+    },
+    {
+      "pack": "home",
+      "text": "lower the lights please",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 3280,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.338
+    },
+    {
+      "pack": "home",
+      "text": "alexa please turn down the lights in the house",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 5047,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "house",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 1.845
+    },
+    {
+      "pack": "home",
+      "text": "lower lights in kitchen",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 2016,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 50,
+          "room": "kitchen",
+          "state": "on"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.891
+    },
+    {
+      "pack": "home",
+      "text": "i want dimmer lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 964,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.539
+    },
+    {
+      "pack": "home",
+      "text": "change the lights to dim",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 468,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.273
+    },
+    {
+      "pack": "home",
+      "text": "lower the overhead lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 4896,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.117
+    },
+    {
+      "pack": "home",
+      "text": "please dim the lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 1778,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.607
+    },
+    {
+      "pack": "home",
+      "text": "adjust the lights to a lower setting please",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 5988,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.415
+    },
+    {
+      "pack": "home",
+      "text": "color of light should be dimmed bright",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 2128,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.156
+    },
+    {
+      "pack": "home",
+      "text": "decrease brightness of lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 6015,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.178
+    },
+    {
+      "pack": "home",
+      "text": "can you lower the lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 665,
+      "slurp_intent": "iot_hue_lightdim",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.128
+    },
+    {
+      "pack": "home",
+      "text": "turn off bedroom light at nine thirty pm",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 6074,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 2.618
+    },
+    {
+      "pack": "home",
+      "text": "turn off the porch light",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2578,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "porch",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.753
+    },
+    {
+      "pack": "home",
+      "text": "shut the lights off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2711,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "all",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.674
+    },
+    {
+      "pack": "home",
+      "text": "turn the lights off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 730,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.836
+    },
+    {
+      "pack": "home",
+      "text": "olly turn the lights off in the bedroom",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 19,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "bedroom",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.868
+    },
+    {
+      "pack": "home",
+      "text": "please turn lights off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 914,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.275
+    },
+    {
+      "pack": "home",
+      "text": "turn off the bathroom light please",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 3785,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "bathroom",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.497
+    },
+    {
+      "pack": "home",
+      "text": "turn off the shed light",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2441,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "shed",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.524
+    },
+    {
+      "pack": "home",
+      "text": "make the lights off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 3098,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.249
+    },
+    {
+      "pack": "home",
+      "text": "could you turn the light off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 999,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.235
+    },
+    {
+      "pack": "home",
+      "text": "please turn the lights off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 5584,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.223
+    },
+    {
+      "pack": "home",
+      "text": "turn off the dining room",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 1784,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "dining room",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.543
+    },
+    {
+      "pack": "home",
+      "text": "discontinue use of lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2775,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "all",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.508
+    },
+    {
+      "pack": "home",
+      "text": "turn off the lights in the bathroom",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 427,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "bathroom",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.71
+    },
+    {
+      "pack": "home",
+      "text": "turn lights off",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 4346,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "all",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.54
+    },
+    {
+      "pack": "home",
+      "text": "shut off lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2774,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.838
+    },
+    {
+      "pack": "home",
+      "text": "turn the light off in the living room",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 5156,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "living room",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.678
+    },
+    {
+      "pack": "home",
+      "text": "turn off the lamps",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 1554,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "all",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.572
+    },
+    {
+      "pack": "home",
+      "text": "put the lights off now",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2298,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "all",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.613
+    },
+    {
+      "pack": "home",
+      "text": "switch off the lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 369,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.867
+    },
+    {
+      "pack": "home",
+      "text": "please turn off the lights in patio",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 3570,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "patio",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.591
+    },
+    {
+      "pack": "home",
+      "text": "turn off kitchen light",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 2230,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "kitchen",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.571
+    },
+    {
+      "pack": "home",
+      "text": "switch off the master's bedroom",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 1786,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "master's bedroom",
+          "state": "off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.076
+    },
+    {
+      "pack": "home",
+      "text": "hey olly turn off the light please",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 6041,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.521
+    },
+    {
+      "pack": "home",
+      "text": "no lights in the kitchen",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "off"
+      },
+      "slurp_id": 3378,
+      "slurp_intent": "iot_hue_lightoff",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "kitchen",
+          "state": "on"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 1.673
+    },
+    {
+      "pack": "home",
+      "text": "light up the lights in the kitchen",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 286,
+      "slurp_intent": "iot_hue_lighton",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "room": "kitchen",
+          "state": "on"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.681
+    },
+    {
+      "pack": "home",
+      "text": "and the darkness has fallen",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 14,
+      "slurp_intent": "iot_hue_lighton",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 2.294
+    },
+    {
+      "pack": "home",
+      "text": "turn up the brightness",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 2591,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.366
+    },
+    {
+      "pack": "home",
+      "text": "light colour for study room",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 2264,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 2.438
+    },
+    {
+      "pack": "home",
+      "text": "can you make the room brighter",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 5014,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.587
+    },
+    {
+      "pack": "home",
+      "text": "raise the light",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 2082,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.34
+    },
+    {
+      "pack": "home",
+      "text": "brighter",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 3595,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.097
+    },
+    {
+      "pack": "home",
+      "text": "brighten of lights in living room",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 5574,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 100,
+          "room": "living room",
+          "state": "on"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.985
+    },
+    {
+      "pack": "home",
+      "text": "brighten the lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 1756,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.097
+    },
+    {
+      "pack": "home",
+      "text": "make it brighter in here",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 6174,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.91
+    },
+    {
+      "pack": "home",
+      "text": "please turn up the screen brightness all the way",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 1072,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 2.335
+    },
+    {
+      "pack": "home",
+      "text": "can you raise the lights for me please",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 3008,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.371
+    },
+    {
+      "pack": "home",
+      "text": "set lights brightness higher",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 80,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.739
+    },
+    {
+      "pack": "home",
+      "text": "can you turn up the lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "state": "on"
+      },
+      "slurp_id": 1993,
+      "slurp_intent": "iot_hue_lightup",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.325
+    },
+    {
+      "pack": "home",
+      "text": "event reminder mona tuesday",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 9054,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.633
+    },
+    {
+      "pack": "home",
+      "text": "put meeting with pawel for tomorrow ten am",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 6744,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.715
+    },
+    {
+      "pack": "home",
+      "text": "make new schedule for tomorrow meeting",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 7499,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.914
+    },
+    {
+      "pack": "home",
+      "text": "schedule a meeting with the accounting department on two thirty pm on friday",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 6878,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.701
+    },
+    {
+      "pack": "home",
+      "text": "just let me know the important meetings with my boss over the week",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 8978,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.145
+    },
+    {
+      "pack": "home",
+      "text": "please alert me",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 8413,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.491
+    },
+    {
+      "pack": "home",
+      "text": "i am unavailable from four to six in the evening tomorrow mark my calendar",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 7292,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.399
+    },
+    {
+      "pack": "home",
+      "text": "set a reminder for two days prior of the event",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 7971,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.732
+    },
+    {
+      "pack": "home",
+      "text": "tell me something to remind this week",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 8968,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.046
+    },
+    {
+      "pack": "home",
+      "text": "remind me to send email to boss after one hour",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 7258,
+      "slurp_intent": "calendar_set",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.713
+    },
+    {
+      "pack": "home",
+      "text": "did i get new emails from sarah",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16317,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.331
+    },
+    {
+      "pack": "home",
+      "text": "what new emails do i have",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 15933,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.523
+    },
+    {
+      "pack": "home",
+      "text": "do i have any new email",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16712,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.588
+    },
+    {
+      "pack": "home",
+      "text": "display list of recent emails",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 17116,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.669
+    },
+    {
+      "pack": "home",
+      "text": "has amy sent me any new emails",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16096,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.212
+    },
+    {
+      "pack": "home",
+      "text": "tell me if i have any new messages in my inbox",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16010,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.851
+    },
+    {
+      "pack": "home",
+      "text": "show all emails sent to me from my boss",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16413,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.908
+    },
+    {
+      "pack": "home",
+      "text": "do i have emails from this sender",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16914,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.641
+    },
+    {
+      "pack": "home",
+      "text": "show latest email",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16930,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.397
+    },
+    {
+      "pack": "home",
+      "text": "show all emails regarding the breach",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 16772,
+      "slurp_intent": "email_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.739
+    },
+    {
+      "pack": "home",
+      "text": "what is the exchange rate of us dollar to pound sterling",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 281,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.312
+    },
+    {
+      "pack": "home",
+      "text": "find me info on cars",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 3822,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.204
+    },
+    {
+      "pack": "home",
+      "text": "get me the popular news from bbc",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 5297,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.383
+    },
+    {
+      "pack": "home",
+      "text": "set notification from world news",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 1593,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.931
+    },
+    {
+      "pack": "home",
+      "text": "i want to hear the last news from cnn",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 712,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.285
+    },
+    {
+      "pack": "home",
+      "text": "i want to know everything that breaks about the dam breaking in california",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 4119,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.737
+    },
+    {
+      "pack": "home",
+      "text": "show me news about the environment",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 2639,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.076
+    },
+    {
+      "pack": "home",
+      "text": "tell me about the new foreign policy of trump",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 1301,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.049
+    },
+    {
+      "pack": "home",
+      "text": "here's the truth about meals on wheels in someone's budget",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 5127,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 3.747
+    },
+    {
+      "pack": "home",
+      "text": "what's happening around the world",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 2384,
+      "slurp_intent": "news_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.359
+    },
+    {
+      "pack": "home",
+      "text": "i would like to hear some rap music",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 4058,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.262
+    },
+    {
+      "pack": "home",
+      "text": "play something from keane's hopes and fears album",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 3117,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.66
+    },
+    {
+      "pack": "home",
+      "text": "start playlist",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 614,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.749
+    },
+    {
+      "pack": "home",
+      "text": "turn on favorite songs",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 6027,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.815
+    },
+    {
+      "pack": "home",
+      "text": "play me an upbeat song through your speakers",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 9656,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.054
+    },
+    {
+      "pack": "home",
+      "text": "play me a song by van halen",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 4692,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.565
+    },
+    {
+      "pack": "home",
+      "text": "start playlist and play music",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 1811,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.988
+    },
+    {
+      "pack": "home",
+      "text": "play atmosphere next",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 2931,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.177
+    },
+    {
+      "pack": "home",
+      "text": "please play me songs from the eighties",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 5062,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.42
+    },
+    {
+      "pack": "home",
+      "text": "play some christian music",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 891,
+      "slurp_intent": "play_music",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.53
+    },
+    {
+      "pack": "home",
+      "text": "can many seashells did sally sell by the seashore",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 14355,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.365
+    },
+    {
+      "pack": "home",
+      "text": "what are the coordinates of the equator",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 14015,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.225
+    },
+    {
+      "pack": "home",
+      "text": "could you please confirm if leonardo is married",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 13607,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.39
+    },
+    {
+      "pack": "home",
+      "text": "search the locality",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 14163,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.997
+    },
+    {
+      "pack": "home",
+      "text": "what is the population of russia",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 14653,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.163
+    },
+    {
+      "pack": "home",
+      "text": "where was president madison born",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 14912,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.733
+    },
+    {
+      "pack": "home",
+      "text": "what is robin williams birthday",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 13077,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.698
+    },
+    {
+      "pack": "home",
+      "text": "who won the presidential election this year",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 4968,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.684
+    },
+    {
+      "pack": "home",
+      "text": "how many legs does a dog have",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 13513,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.037
+    },
+    {
+      "pack": "home",
+      "text": "how far is california from georgia",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 13774,
+      "slurp_intent": "qa_factoid",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.554
+    },
+    {
+      "pack": "home",
+      "text": "is there snow in the forecast",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 3507,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.214
+    },
+    {
+      "pack": "home",
+      "text": "hey what will the weather be like to today in los angeles california",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 6103,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.922
+    },
+    {
+      "pack": "home",
+      "text": "is it raining tonight",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 2678,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.14
+    },
+    {
+      "pack": "home",
+      "text": "give me the weather forecast for this week",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 4486,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.911
+    },
+    {
+      "pack": "home",
+      "text": "ask for the weather today evening",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 5650,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.688
+    },
+    {
+      "pack": "home",
+      "text": "is it going to rain on monday",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 4764,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.164
+    },
+    {
+      "pack": "home",
+      "text": "how is the weather like today",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 216,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.771
+    },
+    {
+      "pack": "home",
+      "text": "will it be a sticky night",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 6023,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.796
+    },
+    {
+      "pack": "home",
+      "text": "what is the minimum temperature of london",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 1722,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 1.863
+    },
+    {
+      "pack": "home",
+      "text": "i occasionally pay attention",
+      "expect_tool": null,
+      "expect_args": {},
+      "slurp_id": 1401,
+      "slurp_intent": "weather_query",
+      "got": {
+        "tool": null
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.622
+    }
+  ]
+}
