@@ -21,7 +21,9 @@
 #   FDB_DIR / ENV_DIR can be set to install somewhere other than ~/theme5.
 #   For the stock baseline instead: ./reproduce.sh fdb_agent/baseline_agent.py gemini3_8
 #
-# Requires beforehand (typed by you, never by this script), in FDB_V3_DIR/.env.local:
+# Keys: on the first run in a terminal the script asks for any that are missing and saves
+# them to FDB_V3_DIR/.env.local (secrets are not echoed, printed or logged; NO_PROMPT=1
+# turns the questions off). You can also create that file yourself beforehand:
 #   Required: LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, GOOGLE_API_KEY (a plain
 #     Gemini API key — the default path; set GOOGLE_GENAI_USE_VERTEXAI=true instead only if
 #     you need Vertex AI + ADC, e.g. `gcloud auth application-default login` already run).
@@ -159,10 +161,61 @@ PY
   [ "$n" -eq 100 ] || die "expected 100 input.wav files, found $n"
 }
 
+# --- 6a. ask for missing keys at the terminal and save them to .env.local ---------------
+# Only when a person is at the terminal (never in CI or a pipe; NO_PROMPT=1 turns it off).
+# Secrets are read without echo, are never printed or logged, and the file is made
+# readable by its owner only. Keys already in the file are left as they are.
+ask_key() {
+  local envfile="$1" name="$2" optional="${3:-}" val=""
+  if [ "$name" = "LIVEKIT_URL" ]; then
+    read -r -p "  $name (looks like wss://<project>.livekit.cloud): " val
+  else
+    read -r -s -p "  $name${optional:+ (optional, press Enter to skip)}: " val; echo
+  fi
+  val="${val#"${val%%[![:space:]]*}"}"; val="${val%"${val##*[![:space:]]}"}"
+  if [ -z "$val" ]; then
+    [ -n "$optional" ] && { log "$name skipped"; return 0; }
+    die "$name is required; run ./reproduce.sh again when you have it"
+  fi
+  case "$val" in
+    *[[:space:]\'\"\$\`\\]*) die "$name contains a space, quote, \$ or backslash; add it to $envfile by hand" ;;
+  esac
+  grep -v "^${name}=" "$envfile" > "$envfile.tmp" || true
+  mv "$envfile.tmp" "$envfile"; chmod 600 "$envfile"
+  printf '%s=%s\n' "$name" "$val" >> "$envfile"
+  log "$name saved (${#val} characters, value not shown)"
+}
+
+prompt_for_keys() {
+  local envfile="$FDB_V3_DIR/.env.local" v need=() first_time=0
+  { [ -t 0 ] && [ -t 1 ] && [ "${NO_PROMPT:-0}" != "1" ]; } || return 0
+  [ -f "$envfile" ] || first_time=1
+  for v in LIVEKIT_URL LIVEKIT_API_KEY LIVEKIT_API_SECRET; do
+    grep -qs "^${v}=.\+" "$envfile" || need+=("$v")
+  done
+  if ! grep -qs '^GOOGLE_API_KEY=.\+' "$envfile" && ! grep -qs '^GOOGLE_GENAI_USE_VERTEXAI=true' "$envfile"; then
+    need+=("GOOGLE_API_KEY")
+  fi
+  [ "${#need[@]}" -gt 0 ] || return 0
+
+  echo
+  log "keys needed: ${need[*]}"
+  log "type or paste each one and press Enter; secrets are not shown as you type"
+  log "they are saved only to $envfile (owner-readable), never printed or logged"
+  ( umask 077; touch "$envfile" ); chmod 600 "$envfile"
+  for v in "${need[@]}"; do ask_key "$envfile" "$v"; done
+  if [ "$first_time" -eq 1 ]; then
+    log "optional keys (Enter to skip): TypeSafe adds the Reasoner, OpenAI adds the GPT-4o judge"
+    ask_key "$envfile" TYPESAFE_API_KEY optional
+    ask_key "$envfile" OPENAI_API_KEY optional
+  fi
+  echo
+}
+
 # --- 6. check required env vars by NAME ONLY -------------------------------------------
 check_env_vars() {
   local envfile="$FDB_V3_DIR/.env.local"
-  [ -f "$envfile" ] || die "missing $envfile — create it yourself with the required keys (see README_FULL.md, Reproduce)"
+  [ -f "$envfile" ] || die "missing $envfile — run ./reproduce.sh in a terminal to be asked for the keys, or create the file yourself (see README_FULL.md, Reproduce)"
 
   local missing=()
   for v in LIVEKIT_URL LIVEKIT_API_KEY LIVEKIT_API_SECRET; do
@@ -243,6 +296,7 @@ main() {
   clone_fdb
   build_env
   fetch_data
+  prompt_for_keys
   check_env_vars
   if [ "${SETUP_ONLY:-0}" = "1" ]; then
     log "SETUP_ONLY=1: setup verified (clone, env, data, variables); not starting the run"
