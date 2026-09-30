@@ -227,6 +227,7 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 ## Honest limitations
 
 - **The pipeline does not beat the stock baseline overall** (61 vs 62 judged, 46 vs 50 strict); it wins housing, self-correction and 3-tool requests and loses e-commerce and pause. Its first reply is slower (6.4 s vs 4.00 s median).
+- **Silent recordings in the reported pipeline run.** In 3 of its 100 recordings (`ecommerce_18`, `housing_02`, `housing_04`) our agent produced no speech and no tool call: the result files have an empty agent transcript. They count as failures in the reported 61 (judged) and 46 (strict). The stock-agent run has none. We found this on 2026-09-30 with `project-log/scripts/silent_rooms.sh`; the cause for that run is not established. In a later partial run the same symptom appeared in 3 of 34 recordings during minutes when other CPU-heavy jobs were running on the same laptop, and the run's log showed the agent's load warnings rising at the same time, so machine load is the leading explanation. A run should be made on an otherwise idle machine and checked with that script.
 - **Single full run per configuration.** No second run for variance; run-to-run noise on 100 items is not measured, so 61 vs 62 is not a distinguishable difference.
 - **Judge is a stand-in.** All judged numbers use Gemini 2.5 Pro, not the organizers' GPT-4o judge.
 - **Late changes are not fixable by holding** (10 of 10 failed); only undo/rollback addresses them, and that exists in the extension, not in the benchmark agent.

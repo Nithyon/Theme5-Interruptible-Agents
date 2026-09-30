@@ -19,6 +19,7 @@ Format: each entry is a short decision record (Context, Decision, Consequence: t
 **Answer:** gains and losses cancelled out, and 10 failures are of a kind no hold can fix.
 - Losses: shopping 0.586 vs 0.759, pauses 0.50 vs 0.611.
 - The 10 cases: the user changed their mind 1.4 to 10.7 s after the first call had already run. Those need undo, which is what the extension's rollback does.
+- Three of the pipeline's 100 recordings were silent (the agent never heard the user: empty transcript, no call), against none in the stock run. They are counted as failures. Cause not established; machine load is the leading explanation (see README, Honest limitations).
 - A second full run with today's changes is in progress; its result will be reported as it comes out.
 
 ## 4. Why TypeSafe Jev (the Reasoner)?
