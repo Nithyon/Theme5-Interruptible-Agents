@@ -126,6 +126,8 @@ Baseline failure breakdown (exact-match, `SCORES.md`): by disfluency — pause 0
 
 ## Reproduce
 
+Pinned package versions (the requirements file) are in `project-log/runs/env-freeze.txt`; `reproduce.sh` installs from it. The agent's recorded audio for the baseline and final runs (too large for git) is in the team Drive folder: https://drive.google.com/drive/folders/1wFiVit_etrPbMFMhhFRsLO72S9UnPqnm (per-recording result files are in each run folder's `per_recording/`).
+
 `reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. The organizers' 48 GB GPU is only used by the benchmark harness's own Parakeet ASR when it scores the agent's spoken answers — our agent and its reasoner (Gemini 3.8 Live, hosted) never touch that GPU themselves.
 
 
@@ -189,7 +191,7 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 
 ## AI usage
 
-This project was built with AI coding assistance: Claude (Sonnet, this session and others, as lead engineering assistant) and Gemini CLI/Antigravity (as a junior assistant for light, well-scoped research tasks — see `project-log/GEMINI_TASKS.md`). The organizers' AI-usage declaration form is filled out accordingly (see `project-log/STATUS.md`'s checklist).
+This project was built with AI coding assistance: Claude (Sonnet, this session and others, as lead engineering assistant) and Gemini CLI/Antigravity (as a junior assistant for light, well-scoped research tasks — see `project-log/GEMINI_TASKS.md`). The organizers' AI-usage declaration form is to be submitted with the content of `project-log/AI_USAGE.md`.
 
 ## History
 
