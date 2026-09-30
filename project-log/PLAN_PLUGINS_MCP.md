@@ -1,5 +1,7 @@
 # Plan: plugins (MCP tools) behind the Commit Harness
 
+**Decision (team lead, 2026-09-30): future scope.** For this submission the plugin path is reported as "runs and is tested offline (19 checks) against a mock plugin server; not attached to the live voice agent; no real plugin wired". Attaching it to the live agent and adding a real plugin (see the table of real plugins by domain below) come after the hackathon.
+
 Status: **plugin server and recovery path run and are tested offline (19 checks in `extension/test_mcp_plugin.py`, real stdio MCP subprocess); not yet attached to the live voice agent, and the LiveKit wrapping in `mcp_bridge.py` is not run.** Written 2026-09-30. Names: Commit Harness = `fdb_agent/gate.py`; recovery layer = `extension/recovery.py`.
 
 ## Why it fits the theme

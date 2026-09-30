@@ -56,4 +56,4 @@ Format: each entry is a short decision record (Context, Decision, Consequence: t
 **Answer:** one command, `./reproduce.sh`, with pinned package versions and a pinned benchmark commit. It has been run on our development machine only. A clean-folder test found and fixed one install error; the fix has not been re-tested yet.
 
 ## 11. What is not done?
-Plugins (MCP): a local mock plugin runs through the recovery layer in 19 offline checks; not attached to the live voice agent, no real plugin wired. Escalation to a stronger model on hard turns: designed, not built. Local fallback: measured at 27.5% and 32.5% fully correct in two runs, not usable yet. Listener: not validated.
+Plugins (MCP): a local mock plugin runs through the recovery layer in 19 offline checks; not attached to the live voice agent, no real plugin wired (future scope; real plugins exist for each benchmark domain, see `PLAN_PLUGINS_MCP.md`). Escalation to a stronger model on hard turns: designed, not built. Local fallback: measured at 27.5% and 32.5% fully correct in two runs, not usable yet. Listener: not validated.
