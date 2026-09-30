@@ -33,3 +33,16 @@ It's the only benchmark in this table that combines **all three** of: (1) real h
 - **Everything else in the table** (v1/v1.5/v2, VoiceBench, FD-Bench): research benchmarks with no submission/entry process at all — cite them for context in the README's "results in context" section, don't attempt to run them.
 
 **Bottom line for the README/slide:** FDB-v3 is the only one we can and do run our own agent against. The rest are useful purely as citations — for positioning ("no other public benchmark combines real disfluent speech + chained tool calls + full duplex") and for justifying the reasoner model choice — not as additional scored entries.
+
+## Artificial Analysis speech-to-speech figures for our model (checked on the page, 2026-09-30)
+
+| | Gemini 3.8 Live (what we run) | Gemini 3.8 Live Extended Thinking (High) |
+|---|---|---|
+| Speech to Speech Index | 76.0 | 82.6 |
+| Speech Reasoning | 92% | 98% |
+| Conversational Dynamics | 96.1% | 91.9% |
+| Agentic Performance | 30.1% | 68.6% |
+| Time to First Audio | 1.18 s | 1.35 s |
+| Cost per Hour of Input Audio | $0.84 | $3.50 |
+
+Source: https://artificialanalysis.ai/speech-to-speech (read through a page fetch). The page labels the tool-task score "Agentic Performance"; earlier notes in this project called it "Tau3 Voice". We did not run this benchmark or any τ-bench variant ourselves. Use: it motivates sending only hard turns to a stronger model (the fast model is better at conversation, the thinking variant at multi-step tasks, at about four times the price). That escalation step is designed, not built.
