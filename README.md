@@ -45,7 +45,8 @@ Evidence: `project-log/runs/2026-09-30_ext_car_e2e/` (conversation audio, recove
 ./reproduce.sh
 ```
 
-Needs a LiveKit Cloud project and Gemini access, set by name in `.env.local` (no keys are in this repo).
+Needs a LiveKit Cloud project and Gemini access. On the first run the script asks for the keys in the
+terminal (typed without echo) and saves them to `.env.local` in the benchmark folder; no keys are in this repo.
 Optional: a TypeSafe key (without it the patterns decide alone) and a judge key (without it scoring is
 exact-match). About 2 hours for 100 recordings. Package versions are pinned in
 `project-log/runs/env-freeze.txt`. Not yet run on a clean machine.
