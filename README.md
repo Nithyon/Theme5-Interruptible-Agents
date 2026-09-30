@@ -35,7 +35,7 @@ To change the figure, edit and run `python docs/figures/make_overview.py`.*
   GPT-4o judge; we had no GPT-4o access, so `project-log/scripts/judge_vertex.py` sends the benchmark's own judge
   prompts, unchanged, to Gemini 2.5 Pro on Google Cloud (Vertex AI). The stock agent and ours were judged the same
   way. `./reproduce.sh` does not run this script: it uses GPT-4o if you give it an `OPENAI_API_KEY`, and otherwise
-  gives only the strict score (see [What score to expect](#what-score-to-expect)). One run each.
+  gives only the strict score (see [Step 5](#step-5-read-the-result)). One run each.
 - On 30 September we ran two configurations and submit the better one; both runs' logs are in the repo.
 - No silent recordings in the submitted run. Run folder: `project-log/runs/2026-09-30_full_gate_gemini38_v2b/`.
 
