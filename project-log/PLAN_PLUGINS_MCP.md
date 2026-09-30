@@ -83,3 +83,22 @@ Show the plan slide and say: "designed, not built." Do not show the sketch files
 - Proves (if the beats run): correction, undo and failure handling apply unchanged to a tool the agent did not define, across a process boundary.
 - Does not prove: behaviour with a real third-party plugin, real OAuth, or real network latency; the plugin is our own mock.
 - Does not prove that model tool-selection stays accurate with many plugin tools loaded.
+
+## Where real plugins exist, by domain (web check 2026-09-30)
+
+"Checked" = read on the primary page. "Summary" = from a search summary only; open the source before quoting it on a slide.
+
+| Domain (FDB-v3 tools it mirrors) | Real MCP plugin | What our layers add for it | Needs | Source status |
+|---|---|---|---|---|
+| Shopping (`search_products`, `add_to_cart`, `track_order`) | Shopify's official MCP servers for storefront shopping (catalog search, cart, orders). The earlier catalog and cart tools on `https://{shop}/api/mcp` "were removed" and replaced, so current tool names must be looked up. | "Add two… no, three": commit only the corrected quantity; an identical add never runs twice | A store and credentials | Checked (shopify.dev migration page): servers exist, tool names changed |
+| Finance (`modify_autopay`, `get_exchange_rate`) | Stripe's official remote MCP server (payments, invoices, refunds); PayPal MCP servers | Money actions are writes: read back before running, never auto-retry after a timeout, no duplicate refund | An account and keys | Summary |
+| Housing / location (search filters, places) | Google Maps "Maps Grounding Lite", announced as a managed MCP server (Dec 2025); community Maps servers | Slow lookups: say "one moment", retry once, report a failure honestly | An API key | Summary |
+| Travel (`search_flights`, `book_flight`) | Community flight and hotel search/booking MCP servers | Search is a read; booking is a write with undo (cancel, then rebook) | Keys, varying quality | Summary |
+| Samsung home (our home pack) | Community SmartThings MCP servers (devices, scenes, rules) using a SmartThings personal access token; Home Assistant MCP servers | Corrections, undo for started appliances, handoff when a device or the cloud is down | The user's own token and real devices | Summary; none found published by Samsung |
+| No account needed | The MCP project's reference "time" server; any keyless public service; our mock home plugin | Shows a plugin we did not write working unchanged behind the recovery layer | Nothing | Package name to confirm on PyPI before installing |
+
+Independent support for the design: a voice-agent vendor write-up states that voice agents retry in noisy conditions and that without idempotency keys this produces duplicate refunds, tickets or bookings (summary; caller.digital, 2026).
+
+For tonight's demo only the last row is practical; the other rows are the scalability story (one row per benchmark domain), not something we ran.
+
+Sources: https://shopify.dev/apps/build/storefront-mcp/servers/storefront · https://www.verdent.ai/guides/stripe-mcp-server · https://glama.ai/mcp/servers/integrations/paypal · https://glama.ai/mcp/servers/bjornhovd/Samsung-SmartThings-MCP · https://smarthomescene.com/guides/home-assistant-mcp-server-complete-guide/ · https://apitracker.io/mcp-server/google-maps · https://caller.digital/blog/mcp-voice-ai-agents-production-india-2026 · https://kb.livekit.io/articles/2746379221-using-mcp-with-livekit-agents
