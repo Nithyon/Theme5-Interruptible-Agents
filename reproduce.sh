@@ -54,6 +54,13 @@ export GATE_DANGLING="${GATE_DANGLING:-1}"
 export GATE_PROMPT="${GATE_PROMPT:-2}"
 export GATE_QUIET_S="${GATE_QUIET_S:-0.9}"
 export GATE_HESITANT_QUIET_S="${GATE_HESITANT_QUIET_S:-1.8}"
+# Switches added after the reported run (2026-09-29_full_gate_gemini38_final). Pinned off so
+# this script reproduces the reported configuration exactly; set to 1 to try the newer gate.
+export GATE_RETRACT="${GATE_RETRACT:-0}"
+export GATE_ID_NORMALIZE="${GATE_ID_NORMALIZE:-0}"
+export GATE_BACKCHANNEL="${GATE_BACKCHANNEL:-0}"
+export GATE_LEAN="${GATE_LEAN:-0}"
+export GATE_SMART_TURN="${GATE_SMART_TURN:-0}"
 
 log() { echo "[reproduce] $*"; }
 die() { echo "[reproduce] ERROR: $*" >&2; exit 1; }
@@ -198,7 +205,7 @@ run_and_score() {
   cd "$FDB_V3_DIR"
   echo "start $(date)" > "$out/run.txt"
   echo "agent=$AGENT_SCRIPT provider=$PROVIDER" >> "$out/run.txt"
-  echo "gate settings: GATE_COMBINE=$GATE_COMBINE GATE_JEV=$GATE_JEV GATE_DRAFT_HOLD_S=$GATE_DRAFT_HOLD_S GATE_DANGLING=$GATE_DANGLING GATE_PROMPT=$GATE_PROMPT GATE_QUIET_S=$GATE_QUIET_S GATE_HESITANT_QUIET_S=$GATE_HESITANT_QUIET_S (ignored unless AGENT_SCRIPT is gate_agent.py)" >> "$out/run.txt"
+  echo "gate settings: GATE_COMBINE=$GATE_COMBINE GATE_JEV=$GATE_JEV GATE_DRAFT_HOLD_S=$GATE_DRAFT_HOLD_S GATE_DANGLING=$GATE_DANGLING GATE_PROMPT=$GATE_PROMPT GATE_QUIET_S=$GATE_QUIET_S GATE_HESITANT_QUIET_S=$GATE_HESITANT_QUIET_S GATE_RETRACT=$GATE_RETRACT GATE_ID_NORMALIZE=$GATE_ID_NORMALIZE GATE_BACKCHANNEL=$GATE_BACKCHANNEL GATE_LEAN=$GATE_LEAN GATE_SMART_TURN=$GATE_SMART_TURN (ignored unless AGENT_SCRIPT is gate_agent.py)" >> "$out/run.txt"
   log "starting agent: LK_PROVIDER=$PROVIDER python $AGENT_SCRIPT start"
   LK_PROVIDER="$PROVIDER" python "$AGENT_SCRIPT" start > "$out/agent.log" 2>&1 &
   local agent_pid=$!

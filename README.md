@@ -126,12 +126,27 @@ Baseline failure breakdown (exact-match, `SCORES.md`): by disfluency — pause 0
 
 ## Reproduce
 
+**What you need to re-run our result (checklist for the organizers):**
+
+| Need | Detail |
+|---|---|
+| Machine | Linux (we used Ubuntu under WSL2 on a laptop). Our agent runs no local model; the only local model is the benchmark harness's own speech recognizer, which uses a GPU if one is present. Fits well inside the 48 GB environment. |
+| Network | Outbound internet to LiveKit Cloud, Google Gemini, and (optional) TypeSafe and the judge endpoint. |
+| Accounts / keys (set by name in `.env.local`, never in this repo) | **Required:** a LiveKit Cloud project (`LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`) and Gemini access (`GOOGLE_API_KEY`, or Vertex AI credentials). **Optional:** `TYPESAFE_API_KEY` (Jev; rules-only fallback without it) and `OPENAI_API_KEY` (GPT-4o judge; exact-match scoring without it). |
+| Command | `./reproduce.sh` (final pipeline) or `./reproduce.sh fdb_agent/baseline_agent.py gemini3_8` (stock baseline). |
+| Versions | Python packages pinned in `project-log/runs/env-freeze.txt`; Full-Duplex-Bench pinned to the commit in `reproduce.sh` (`FDB_COMMIT`). |
+| Time | About 2 hours for the 100 recordings (they play in real time), plus judge scoring. |
+| Output | A new folder `project-log/runs/<date>_repro_<provider>/` with `agent.log`, `inference.log`, the tool-call log, gate decision log, `run.txt` (exact settings) and `score.txt`. Compare with our logs in `project-log/runs/2026-09-29_full_gate_gemini38_final/`. |
+| Expect | Run-to-run variation of a few scenarios: the voice model is not deterministic (our two same-day runs of the stock agent's failures differed by a few items). Our judged numbers used Gemini 2.5 Pro as a stand-in judge; a GPT-4o judge may score slightly differently. |
+| Do not | Run two agents on the same LiveKit project at once (they take each other's rooms). |
+
+
 Pinned package versions (the requirements file) are in `project-log/runs/env-freeze.txt`; `reproduce.sh` installs from it. The agent's recorded audio for the baseline and final runs (too large for git) is in the team Drive folder: https://drive.google.com/drive/folders/1wFiVit_etrPbMFMhhFRsLO72S9UnPqnm (per-recording result files are in each run folder's `per_recording/`).
 
 `reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. The organizers' 48 GB GPU is only used by the benchmark harness's own Parakeet ASR when it scores the agent's spoken answers — our agent and its reasoner (Gemini 3.8 Live, hosted) never touch that GPU themselves.
 
 
-> **Config note.** The reported 61/100 (judged) and 46/100 (strict) were produced with the settings in `run.txt` of `runs/2026-09-29_full_gate_gemini38_final/`, which predate the retraction, identifier-canonicalization and backchannel switches. Those now default to on; to reproduce the reported configuration exactly, also set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0`. `reproduce.sh` itself has not yet been run end to end on a clean machine.
+> **Config note.** The reported 61/100 (judged) and 46/100 (strict) were produced with the settings in `run.txt` of `runs/2026-09-29_full_gate_gemini38_final/`, which predate the retraction, identifier-canonicalization and backchannel switches. Those now default to on; to reproduce the reported configuration exactly, also set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0` — `reproduce.sh` pins these (and `GATE_LEAN=0`, `GATE_SMART_TURN=0`) so it matches the reported run. `reproduce.sh` itself has not yet been run end to end on a clean machine.
 
 The exact one-command reproduction, with our submitted (final) config:
 
