@@ -29,7 +29,7 @@ Each row: what the user says, what goes wrong today in a plain voice model, whic
 | 5 | Phone (Bixby) | "Book the 6 pm slot." then "never mind" | The booking goes through anyway | Retraction withdraws a held call and tells the model it did not run | Offline tests (5); only works while the call is still held |
 | 6 | Any device, slow cloud service | "How much energy did I use today?" | Silence for several seconds | Progress line while waiting; must-speak watchdog | Offline tests; live run pending |
 | 7 | Any device, service down | "Call the service centre, the washer is leaking." | Endless retry or silent failure | Two failures, then human handoff with a reference | Offline tests (car and home packs) |
-| 8 | In-car (HARMAN) | "Book the Tesla charger… actually Ionity." | Two bookings | Rollback with compensation; never auto-retry a timed-out booking | Car pack, 36/36 offline tests |
+| 8 | In-car (HARMAN) | "Book the Tesla charger… actually Ionity." | Two bookings | Rollback with compensation; never auto-retry a timed-out booking | Car pack, 35/35 offline tests |
 
 ## What our numbers do and do not support
 

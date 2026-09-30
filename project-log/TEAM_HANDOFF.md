@@ -50,7 +50,7 @@ Do not edit `SCORES.md`, `fdb_agent/` or run folders. If a number looks wrong, t
 ## Known open items (be honest about them)
 - No GPT-4o scoring, no second run for variance, no clean-machine run of `reproduce.sh`.
 - Extension live run and video take depend on someone running `extension/ext_agent.py`.
-- The extension now has two packs (in-car, 36 offline tests; Bixby-style home, 28 offline tests), chosen by `EXT_PACK=car|home`. README has a "Scalability and what comes next" section with a status label per row; deck and video fold it in. Launch commands for the demos are at the top of `VIDEO_SCRIPT.md` (not yet rehearsed live).
+- The extension now has two packs (in-car, 35 offline tests; Bixby-style home, 28 offline tests), chosen by `EXT_PACK=car|home`. README has a "Scalability and what comes next" section with a status label per row; deck and video fold it in. Launch commands for the demos are at the top of `VIDEO_SCRIPT.md` (not yet rehearsed live).
 
 
 ## Everything the organizers said (briefing, 2026-09-29) — point by point
@@ -94,7 +94,7 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 7 | Round 2 may raise the compute estimate. | "we will uh increase this estimate uh for the later rounds" | N/A: Round 2 only. | none |
 | 8 | Core goal: stay responsive throughout the conversation. | "you have to stay responsive throughout the conversation" | PARTLY: the pipeline's first reply median is 6.4 s vs 4.00 s for the stock agent (`SCORES.md`). An instant acknowledgement was proposed (OBJECTIVES G1) but is not built. Do not claim a latency win. | none (report honestly) |
 | 9 | All tasks must actually get done. | "You have to make sure that all your tasks are done." | PARTLY: judged 61/100, strict 46/100 (baseline 62 and 50). | none |
-| 10 | Tasks will fail; you must manage that. | "There will be instances where the tasks will fail. You will have to manage that." | PARTLY: the extension has timeout, retry, idempotency and human handoff (36/36 offline tests in `extension/test_recovery.py`; 28 more for the home pack) but has not been run live. The benchmark agent has no failure recovery layer. | video (live run) |
+| 10 | Tasks will fail; you must manage that. | "There will be instances where the tasks will fail. You will have to manage that." | PARTLY: the extension has timeout, retry, idempotency and human handoff (35/35 offline tests in `extension/test_recovery.py`; 28 more for the home pack) but has not been run live. The benchmark agent has no failure recovery layer. | video (live run) |
 | 11 | Latency will vary; showing you handle it "will be very good". | "There will be instances where the latency will be variable." | PARTLY: extension narrates slow tools ("still checking") in offline tests only; not shown live. | video |
 | 12 | Tool failures: recover cleanly by retry, closing the session, or human in the loop. | "you can retry, you can close the session, you can move it to human in the loop" | PARTLY: retry and human handoff exist in `extension/recovery.py`, offline tests only. | video |
 | 13 | You may need a LiveKit account for the evaluation script. | "you might have to create a LiveKit account for it" | DONE: LiveKit Cloud used (README, "Declared models / APIs"). Organizers will need their own LiveKit credentials; README lists the variable names. | none |
@@ -104,7 +104,7 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 17 | Code must be runnable; README and requirements file updated. | "make sure that your code are runnable and uh the README and the requirements file" | PARTLY: README done. There is no `requirements.txt`; `project-log/runs/env-freeze.txt` is the frozen environment. Clean-machine run not done. | README polisher, lead |
 | 18 | They may contact you if they cannot run the code. | "we will still reach out to you if uh if we are not able to" | N/A for us, but make sure the form has a contact we read. | user |
 | 19 | Provide good documentation. | "I would recommend that you provide a good documentation around it" | DONE: `README.md`. Needs final polish. | README polisher |
-| 20 | A use-case extension is added as a new part. | "we are adding one part for use case extension" | PARTLY: in-car extension (`extension/`) passes 36/36 offline tests (in-car) plus 28 (home pack); `ext_agent.py` never run live; mock tools only. | video, user |
+| 20 | A use-case extension is added as a new part. | "we are adding one part for use case extension" | PARTLY: in-car extension (`extension/`) passes 35/35 offline tests (in-car) plus 28 (home pack); `ext_agent.py` never run live; mock tools only. | video, user |
 | 21 | Scores are on the v3 variant only. | "we will be evaluating your scores over the v3 variant only" | DONE: only v3 was run. | none |
 | 22 | You may look at the older variants (v1, v1.5, v2) for understanding and metrics. | "get some understanding and the other metrics from uh the older variants as well" | N/A: optional; not done. | none |
 | 23 | Use cases beyond the benchmark are welcome in the submission. | "if you have certain use cases that, you know, go beyond this benchmark, feel free to include them" | PARTLY: extension exists but is unproven live. | video |
