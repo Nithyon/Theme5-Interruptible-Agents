@@ -28,7 +28,7 @@ Do not edit `SCORES.md`, `fdb_agent/` or run folders. If a number looks wrong, t
 - Do not claim any latency improvement or any latency figure that is not in SCORES.md (the pipeline's first reply is slower).
 - The judge was **Gemini 2.5 Pro as a stand-in for GPT-4o**, not GPT-4o. Never call the numbers "GPT-4o-judged".
 - Do not compare our numbers with the paper's as like-for-like.
-- Do not say plugins / MCP connectors or a local Gemma model are implemented: both are designed, not built (README "Scalability and what comes next"). Do not say the Listener (Smart Turn v3.2) is validated.
+- Plugins: a local mock plugin server runs through the recovery layer in 19 offline checks. Do not say a real plugin (Drive, calendar) is connected or that it runs in the live voice agent. Local Gemma fallback: installed, module and offline tests exist. Do not quote any accuracy for it (not measured). See README "Scalability and what comes next". Do not say the Listener (Smart Turn v3.2) is validated.
 - Do not call the home scenario a Bixby or SmartThings integration: it is a Bixby-style mock scenario, offline-tested (28 tests), on the same recovery layer.
 - The Listener (Smart Turn v3.2) is built behind a switch (`GATE_SMART_TURN=1`) with offline tests only; it is NOT validated on real voices and NOT in the benchmark config. Do not claim it improved any score. Escalation to a thinking model and a local fallback are planned only.
 - Retraction, backchannel and identifier-joining handling were added after the final run and are unit-tested only; do not attribute any benchmark result to them. `GATE_LEAN` exists as a switch, is being evaluated on the practice set (run E), and is not in the submitted config.
