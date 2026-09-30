@@ -47,6 +47,7 @@ Deck outline for the Theme 05 submission. Every number below is from `project-lo
 ## 6. Failure analysis: late changes
 - Of 14 same-tool repeats in the pipeline run: 4 legitimate parallel pairs kept (all passed), **10 late changes** (user resumed 1.4-10.7 s after the first call), **all 10 failed**
 - No hold window fixes these: a hold long enough would stall every normal turn, and nobody can foresee a correction not yet spoken
+- **How often the harness changed what ran: 2 of 100 recordings** (148 calls proposed, 146 executed unchanged, 1 replaced, 1 duplicate blocked). The voice model proposes only after it judges the turn finished. The hold costs about 0.9 s per call. Gains on slide 5 are therefore not from replacing calls; prompt rules and the ID rule are the other differences, not tested separately
 - Conclusion: the remedy is undo / rollback after execution, not a longer hold -> the extension
 - **Speaker notes:** This is the honest limit of a hold-based design and the bridge to the extension. The rollback exists in the extension, not in the benchmark agent.
 - **Figure:** simple timeline: call at t=0, correction at t=+1.4 ... +10.7 s, call already executed

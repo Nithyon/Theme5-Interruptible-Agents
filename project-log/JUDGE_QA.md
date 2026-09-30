@@ -9,10 +9,11 @@ Format: each entry is a short decision record (Context, Decision, Consequence: t
 - Consequence: we depend on a hosted model; nothing of ours runs on a GPU.
 
 ## 2. Why a harness around the model instead of training a model?
-**Answer:** the failures we targeted are about *when* to act, not *what* to say, and a small layer can fix that without training data.
+**Answer:** the failure we targeted is about *when* to act, not *what* to say, so we tried a small layer instead of training. The measurement says it rarely matters on this benchmark (see the last bullet).
 - Context: the paper names self-correction as the most consistent failure; the model calls a tool at the first pause, before "no, sorry, New York".
 - Decision: hold each proposed call until the turn settles, replace it on a correction, withdraw it on "never mind", never run it twice.
-- Evidence: self-corrections 0.529 vs 0.471 stock; 3-request turns 0.375 vs 0.312; housing 0.346 vs 0.192.
+- Our agent's scores on the target slices (29 September): self-corrections 0.529 vs 0.471 stock; 3-request turns 0.375 vs 0.312; housing 0.346 vs 0.192. These are differences of one to four recordings.
+- What the decision log shows: of 148 proposed calls in that run, 146 executed unchanged; the harness replaced one and blocked one duplicate (2 of 100 recordings). Gemini Live proposes a call only after it judges the turn finished, so there is rarely anything left to replace. The gains therefore do not come from replacing calls; our prompt rules also differ from the stock agent and were not tested separately.
 - Consequence: slower first reply (median 6.4 s vs 4.0 s), and overall 61 vs 62: we did not beat the stock agent overall.
 
 ## 3. Why did the overall score not improve?
