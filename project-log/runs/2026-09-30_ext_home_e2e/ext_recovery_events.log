@@ -1,37 +1,54 @@
-{"seq": 1, "kind": "proposed", "call_id": "c1", "tool": "set_ac_temperature", "detail": "{\"celsius\": 22.0, \"room\": \"living room\"}", "ts": 10860.614}
-{"seq": 2, "kind": "started", "call_id": "c1", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 10860.614}
-{"seq": 3, "kind": "succeeded", "call_id": "c1", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 10860.666}
-{"seq": 4, "kind": "proposed", "call_id": "c2", "tool": "check_energy_usage", "detail": "{\"period\": \"today\"}", "ts": 10873.861}
-{"seq": 5, "kind": "started", "call_id": "c2", "tool": "check_energy_usage", "detail": "attempt 1", "ts": 10873.861}
-{"seq": 6, "kind": "succeeded", "call_id": "c2", "tool": "check_energy_usage", "detail": "attempt 1", "ts": 10879.395}
-{"seq": 7, "kind": "proposed", "call_id": "c3", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 10907.193}
-{"seq": 8, "kind": "started", "call_id": "c3", "tool": "start_washer", "detail": "attempt 1", "ts": 10907.193}
-{"seq": 9, "kind": "succeeded", "call_id": "c3", "tool": "start_washer", "detail": "attempt 1", "ts": 10907.244}
-{"seq": 10, "kind": "proposed", "call_id": "c4", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 10919.464}
-{"seq": 11, "kind": "duplicate", "call_id": "c4", "tool": "start_washer", "detail": "returning cached result, not re-executed", "ts": 10919.464}
-{"seq": 12, "kind": "proposed", "call_id": "c5", "tool": "cancel_washer", "detail": "{\"job_id\": \"wash-0001\"}", "ts": 10932.046}
-{"seq": 13, "kind": "started", "call_id": "c5", "tool": "cancel_washer", "detail": "attempt 1", "ts": 10932.046}
-{"seq": 14, "kind": "succeeded", "call_id": "c5", "tool": "cancel_washer", "detail": "attempt 1", "ts": 10932.098}
-{"seq": 15, "kind": "proposed", "call_id": "c6", "tool": "start_washer", "detail": "{\"cycle\": \"eco\", \"delay_minutes\": 0}", "ts": 10932.098}
-{"seq": 16, "kind": "started", "call_id": "c6", "tool": "start_washer", "detail": "attempt 1", "ts": 10932.098}
-{"seq": 17, "kind": "succeeded", "call_id": "c6", "tool": "start_washer", "detail": "attempt 1", "ts": 10932.149}
-{"seq": 18, "kind": "rollback", "call_id": "c7", "tool": "start_washer", "detail": "compensated start_washer (key=start_washer|{\"cycle\": \"cotton\", \"delay_minutes\": 0}) via cancel_washer, then executed start_washer", "ts": 10932.149}
-{"seq": 19, "kind": "proposed", "call_id": "c8", "tool": "call_service_center", "detail": "{\"issue\": \"washer is leaking\"}", "ts": 10947.843}
-{"seq": 20, "kind": "started", "call_id": "c8", "tool": "call_service_center", "detail": "attempt 1", "ts": 10947.843}
-{"seq": 21, "kind": "failed", "call_id": "c8", "tool": "call_service_center", "detail": "attempt 1: service centre line unreachable for: washer is leaking", "ts": 10947.894}
-{"seq": 22, "kind": "retry", "call_id": "c8", "tool": "call_service_center", "detail": "backing off 0.50s", "ts": 10947.894}
-{"seq": 23, "kind": "started", "call_id": "c8", "tool": "call_service_center", "detail": "attempt 2", "ts": 10948.395}
-{"seq": 24, "kind": "failed", "call_id": "c8", "tool": "call_service_center", "detail": "attempt 2: service centre line unreachable for: washer is leaking", "ts": 10948.446}
-{"seq": 25, "kind": "retry", "call_id": "c8", "tool": "call_service_center", "detail": "backing off 1.00s", "ts": 10948.446}
-{"seq": 26, "kind": "started", "call_id": "c8", "tool": "call_service_center", "detail": "attempt 3", "ts": 10949.448}
-{"seq": 27, "kind": "failed", "call_id": "c8", "tool": "call_service_center", "detail": "attempt 3: service centre line unreachable for: washer is leaking", "ts": 10949.499}
-{"seq": 28, "kind": "proposed", "call_id": "c9", "tool": "call_service_center", "detail": "{\"issue\": \"washer is leaking\"}", "ts": 10967.156}
-{"seq": 29, "kind": "started", "call_id": "c9", "tool": "call_service_center", "detail": "attempt 1", "ts": 10967.156}
-{"seq": 30, "kind": "failed", "call_id": "c9", "tool": "call_service_center", "detail": "attempt 1: service centre line unreachable for: washer is leaking", "ts": 10967.207}
-{"seq": 31, "kind": "retry", "call_id": "c9", "tool": "call_service_center", "detail": "backing off 0.50s", "ts": 10967.207}
-{"seq": 32, "kind": "started", "call_id": "c9", "tool": "call_service_center", "detail": "attempt 2", "ts": 10967.708}
-{"seq": 33, "kind": "failed", "call_id": "c9", "tool": "call_service_center", "detail": "attempt 2: service centre line unreachable for: washer is leaking", "ts": 10967.758}
-{"seq": 34, "kind": "retry", "call_id": "c9", "tool": "call_service_center", "detail": "backing off 1.00s", "ts": 10967.759}
-{"seq": 35, "kind": "started", "call_id": "c9", "tool": "call_service_center", "detail": "attempt 3", "ts": 10968.759}
-{"seq": 36, "kind": "failed", "call_id": "c9", "tool": "call_service_center", "detail": "attempt 3: service centre line unreachable for: washer is leaking", "ts": 10968.81}
-{"seq": 37, "kind": "handoff", "call_id": "c9", "tool": "call_service_center", "detail": "ref=HANDOFF-0001 after 2 consecutive failures", "ts": 10968.81}
+{"seq": 1, "kind": "proposed", "call_id": "c1", "tool": "set_ac_temperature", "detail": "{\"celsius\": 22.0, \"room\": \"living room\"}", "ts": 11706.655}
+{"seq": 2, "kind": "started", "call_id": "c1", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 11706.655}
+{"seq": 3, "kind": "succeeded", "call_id": "c1", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 11706.707}
+{"seq": 4, "kind": "proposed", "call_id": "c2", "tool": "check_energy_usage", "detail": "{\"period\": \"today\"}", "ts": 11719.686}
+{"seq": 5, "kind": "started", "call_id": "c2", "tool": "check_energy_usage", "detail": "attempt 1", "ts": 11719.686}
+{"seq": 6, "kind": "succeeded", "call_id": "c2", "tool": "check_energy_usage", "detail": "attempt 1", "ts": 11725.221}
+{"seq": 7, "kind": "proposed", "call_id": "c3", "tool": "find_phone", "detail": "{}", "ts": 11737.239}
+{"seq": 8, "kind": "started", "call_id": "c3", "tool": "find_phone", "detail": "attempt 1", "ts": 11737.239}
+{"seq": 9, "kind": "failed", "call_id": "c3", "tool": "find_phone", "detail": "attempt 1: phone did not answer the ring request", "ts": 11737.291}
+{"seq": 10, "kind": "retry", "call_id": "c3", "tool": "find_phone", "detail": "backing off 0.50s", "ts": 11737.291}
+{"seq": 11, "kind": "started", "call_id": "c3", "tool": "find_phone", "detail": "attempt 2", "ts": 11737.792}
+{"seq": 12, "kind": "failed", "call_id": "c3", "tool": "find_phone", "detail": "attempt 2: phone did not answer the ring request", "ts": 11737.843}
+{"seq": 13, "kind": "retry", "call_id": "c3", "tool": "find_phone", "detail": "backing off 1.00s", "ts": 11737.843}
+{"seq": 14, "kind": "started", "call_id": "c3", "tool": "find_phone", "detail": "attempt 3", "ts": 11738.843}
+{"seq": 15, "kind": "succeeded", "call_id": "c3", "tool": "find_phone", "detail": "attempt 3", "ts": 11738.894}
+{"seq": 16, "kind": "proposed", "call_id": "c4", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 11753.035}
+{"seq": 17, "kind": "started", "call_id": "c4", "tool": "start_washer", "detail": "attempt 1", "ts": 11753.035}
+{"seq": 18, "kind": "succeeded", "call_id": "c4", "tool": "start_washer", "detail": "attempt 1", "ts": 11753.087}
+{"seq": 19, "kind": "proposed", "call_id": "c5", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 11765.334}
+{"seq": 20, "kind": "duplicate", "call_id": "c5", "tool": "start_washer", "detail": "returning cached result, not re-executed", "ts": 11765.335}
+{"seq": 21, "kind": "proposed", "call_id": "c6", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 11765.851}
+{"seq": 22, "kind": "duplicate", "call_id": "c6", "tool": "start_washer", "detail": "returning cached result, not re-executed", "ts": 11765.851}
+{"seq": 23, "kind": "proposed", "call_id": "c7", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 11766.448}
+{"seq": 24, "kind": "duplicate", "call_id": "c7", "tool": "start_washer", "detail": "returning cached result, not re-executed", "ts": 11766.448}
+{"seq": 25, "kind": "proposed", "call_id": "c8", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 11767.056}
+{"seq": 26, "kind": "duplicate", "call_id": "c8", "tool": "start_washer", "detail": "returning cached result, not re-executed", "ts": 11767.056}
+{"seq": 27, "kind": "proposed", "call_id": "c9", "tool": "start_washer", "detail": "{\"cycle\": \"cotton\", \"delay_minutes\": 0}", "ts": 11767.548}
+{"seq": 28, "kind": "duplicate", "call_id": "c9", "tool": "start_washer", "detail": "returning cached result, not re-executed", "ts": 11767.548}
+{"seq": 29, "kind": "proposed", "call_id": "c10", "tool": "cancel_washer", "detail": "{\"job_id\": \"wash-0001\"}", "ts": 11777.836}
+{"seq": 30, "kind": "started", "call_id": "c10", "tool": "cancel_washer", "detail": "attempt 1", "ts": 11777.836}
+{"seq": 31, "kind": "succeeded", "call_id": "c10", "tool": "cancel_washer", "detail": "attempt 1", "ts": 11777.888}
+{"seq": 32, "kind": "proposed", "call_id": "c11", "tool": "start_washer", "detail": "{\"cycle\": \"eco\", \"delay_minutes\": 0}", "ts": 11777.888}
+{"seq": 33, "kind": "started", "call_id": "c11", "tool": "start_washer", "detail": "attempt 1", "ts": 11777.888}
+{"seq": 34, "kind": "succeeded", "call_id": "c11", "tool": "start_washer", "detail": "attempt 1", "ts": 11777.939}
+{"seq": 35, "kind": "rollback", "call_id": "c12", "tool": "start_washer", "detail": "compensated start_washer (key=start_washer|{\"cycle\": \"cotton\", \"delay_minutes\": 0}) via cancel_washer, then executed start_washer", "ts": 11777.939}
+{"seq": 36, "kind": "proposed", "call_id": "c13", "tool": "call_service_center", "detail": "{\"issue\": \"washer leaking\"}", "ts": 11793.738}
+{"seq": 37, "kind": "started", "call_id": "c13", "tool": "call_service_center", "detail": "attempt 1", "ts": 11793.739}
+{"seq": 38, "kind": "failed", "call_id": "c13", "tool": "call_service_center", "detail": "attempt 1: service centre line unreachable for: washer leaking", "ts": 11793.79}
+{"seq": 39, "kind": "retry", "call_id": "c13", "tool": "call_service_center", "detail": "backing off 0.50s", "ts": 11793.79}
+{"seq": 40, "kind": "started", "call_id": "c13", "tool": "call_service_center", "detail": "attempt 2", "ts": 11794.291}
+{"seq": 41, "kind": "failed", "call_id": "c13", "tool": "call_service_center", "detail": "attempt 2: service centre line unreachable for: washer leaking", "ts": 11794.342}
+{"seq": 42, "kind": "retry", "call_id": "c13", "tool": "call_service_center", "detail": "backing off 1.00s", "ts": 11794.342}
+{"seq": 43, "kind": "started", "call_id": "c13", "tool": "call_service_center", "detail": "attempt 3", "ts": 11795.343}
+{"seq": 44, "kind": "failed", "call_id": "c13", "tool": "call_service_center", "detail": "attempt 3: service centre line unreachable for: washer leaking", "ts": 11795.393}
+{"seq": 45, "kind": "proposed", "call_id": "c14", "tool": "call_service_center", "detail": "{\"issue\": \"washer leaking\"}", "ts": 11813.006}
+{"seq": 46, "kind": "started", "call_id": "c14", "tool": "call_service_center", "detail": "attempt 1", "ts": 11813.006}
+{"seq": 47, "kind": "failed", "call_id": "c14", "tool": "call_service_center", "detail": "attempt 1: service centre line unreachable for: washer leaking", "ts": 11813.058}
+{"seq": 48, "kind": "retry", "call_id": "c14", "tool": "call_service_center", "detail": "backing off 0.50s", "ts": 11813.058}
+{"seq": 49, "kind": "started", "call_id": "c14", "tool": "call_service_center", "detail": "attempt 2", "ts": 11813.56}
+{"seq": 50, "kind": "failed", "call_id": "c14", "tool": "call_service_center", "detail": "attempt 2: service centre line unreachable for: washer leaking", "ts": 11813.613}
+{"seq": 51, "kind": "retry", "call_id": "c14", "tool": "call_service_center", "detail": "backing off 1.00s", "ts": 11813.613}
+{"seq": 52, "kind": "started", "call_id": "c14", "tool": "call_service_center", "detail": "attempt 3", "ts": 11814.613}
+{"seq": 53, "kind": "failed", "call_id": "c14", "tool": "call_service_center", "detail": "attempt 3: service centre line unreachable for: washer leaking", "ts": 11814.665}
+{"seq": 54, "kind": "handoff", "call_id": "c14", "tool": "call_service_center", "detail": "ref=HANDOFF-0001 after 2 consecutive failures", "ts": 11814.665}

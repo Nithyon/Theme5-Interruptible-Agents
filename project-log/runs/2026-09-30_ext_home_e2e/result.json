@@ -4,10 +4,10 @@
   "category": "home",
   "title": "extension end-to-end: home assistant, 8 spoken lines",
   "provider": "ext_home_e2e",
-  "evaluated_at": "2026-09-30T14:15:58.859451",
-  "inference_time_s": 135.65,
-  "room_name": "eval-23b94a33",
-  "stream_start_time": 1790777761.9127023,
+  "evaluated_at": "2026-09-30T14:30:04.871669",
+  "inference_time_s": 135.53,
+  "room_name": "eval-097ffb1a",
+  "stream_start_time": 1790778607.8656263,
   "input_transcript": "Set the living room AC to twenty-four. No, twenty-two. How much energy have I used today? Find my phone. Start the washer on cotton. Start it again. Actually, make it eco. The washer is leaking. Call the service center. Please try the service center again.",
   "input_asr_chunks": [
     {
@@ -330,512 +330,407 @@
   "latency": {
     "input_duration_s": 124.5,
     "output_duration_s": 124.5,
-    "first_speech_s": 6.9
+    "first_speech_s": 7.2
   },
-  "user_done_unix": 1790777765.3527024,
-  "transcript": "I've set the living room AC to 22 degrees. Still checking your energy usage, one moment. Say exactly this to the user and nothing else. Still checking your energy usage, one moment. You've used 11.9 kilowatt hours of energy today. The washer is running on the cotton cycle. The job ID is WASH0001. The washer has been restarted on the cotton cycle with job ID WASH0001. Done. I've canceled the previous wash and started the EcoCycle instead. The EcoCycle has started, and your new job ID is WASH-0002. I'm sorry, I couldn't reach the service center right now. Please try again later. I've passed this to a human agent. Your reference number is handoff001. I've passed this to a human agent. Your reference number is handoff001.",
+  "user_done_unix": 1790778611.3056264,
+  "transcript": "I've set the living room AC to 22 degrees. You've used 11.9 kilowatt hours of energy today. I've located your phone on the living room sofa. The washer has started on the cotton cycle with Job ID WASH 0001. The washer has started again on the cotton cycle with job ID WASH0001. I've canceled the previous wash and started the eco cycle, job ID WASH 0002. I'm sorry, I couldn't reach the service center. The call attempt failed. I've passed your request to a human agent. Your reference number is handoff0001.",
   "asr_chunks": [
     {
       "text": "I've",
       "timestamp": [
-        6.640000000000001,
-        7.04
+        7.04,
+        7.44
       ]
     },
     {
       "text": "set",
       "timestamp": [
-        7.04,
-        7.28
+        7.44,
+        7.6000000000000005
       ]
     },
     {
       "text": "the",
       "timestamp": [
-        7.28,
-        7.36
+        7.6000000000000005,
+        7.68
       ]
     },
     {
       "text": "living",
       "timestamp": [
-        7.36,
-        7.68
+        7.68,
+        8.0
       ]
     },
     {
       "text": "room",
       "timestamp": [
-        7.68,
-        7.92
+        8.0,
+        8.24
       ]
     },
     {
       "text": "AC",
       "timestamp": [
-        7.92,
-        8.32
+        8.24,
+        8.64
       ]
     },
     {
       "text": "to",
       "timestamp": [
-        8.32,
-        8.48
+        8.64,
+        8.8
       ]
     },
     {
       "text": "22",
       "timestamp": [
-        8.48,
-        9.040000000000001
+        8.8,
+        9.28
       ]
     },
     {
       "text": "degrees.",
       "timestamp": [
-        9.040000000000001,
+        9.28,
         10.24
-      ]
-    },
-    {
-      "text": "Still",
-      "timestamp": [
-        21.44,
-        21.76
-      ]
-    },
-    {
-      "text": "checking",
-      "timestamp": [
-        21.76,
-        22.16
-      ]
-    },
-    {
-      "text": "your",
-      "timestamp": [
-        22.16,
-        22.32
-      ]
-    },
-    {
-      "text": "energy",
-      "timestamp": [
-        22.32,
-        22.72
-      ]
-    },
-    {
-      "text": "usage,",
-      "timestamp": [
-        22.72,
-        23.12
-      ]
-    },
-    {
-      "text": "one",
-      "timestamp": [
-        23.28,
-        23.52
-      ]
-    },
-    {
-      "text": "moment.",
-      "timestamp": [
-        23.52,
-        24.48
-      ]
-    },
-    {
-      "text": "Say",
-      "timestamp": [
-        25.12,
-        25.44
-      ]
-    },
-    {
-      "text": "exactly",
-      "timestamp": [
-        25.44,
-        25.92
-      ]
-    },
-    {
-      "text": "this",
-      "timestamp": [
-        25.92,
-        26.16
-      ]
-    },
-    {
-      "text": "to",
-      "timestamp": [
-        26.16,
-        26.32
-      ]
-    },
-    {
-      "text": "the",
-      "timestamp": [
-        26.32,
-        26.400000000000002
-      ]
-    },
-    {
-      "text": "user",
-      "timestamp": [
-        26.400000000000002,
-        26.8
-      ]
-    },
-    {
-      "text": "and",
-      "timestamp": [
-        26.8,
-        27.04
-      ]
-    },
-    {
-      "text": "nothing",
-      "timestamp": [
-        27.04,
-        27.28
-      ]
-    },
-    {
-      "text": "else.",
-      "timestamp": [
-        27.28,
-        27.52
-      ]
-    },
-    {
-      "text": "Still",
-      "timestamp": [
-        27.84,
-        28.16
-      ]
-    },
-    {
-      "text": "checking",
-      "timestamp": [
-        28.16,
-        28.48
-      ]
-    },
-    {
-      "text": "your",
-      "timestamp": [
-        28.48,
-        28.64
-      ]
-    },
-    {
-      "text": "energy",
-      "timestamp": [
-        28.64,
-        29.04
-      ]
-    },
-    {
-      "text": "usage,",
-      "timestamp": [
-        29.04,
-        29.44
-      ]
-    },
-    {
-      "text": "one",
-      "timestamp": [
-        29.6,
-        29.84
-      ]
-    },
-    {
-      "text": "moment.",
-      "timestamp": [
-        29.84,
-        30.72
       ]
     },
     {
       "text": "You've",
       "timestamp": [
-        31.04,
-        31.44
+        25.68,
+        26.080000000000002
       ]
     },
     {
       "text": "used",
       "timestamp": [
-        31.44,
-        31.68
+        26.080000000000002,
+        26.32
       ]
     },
     {
       "text": "11.9",
       "timestamp": [
-        31.68,
-        32.8
+        26.32,
+        27.36
       ]
     },
     {
       "text": "kilowatt",
       "timestamp": [
-        32.8,
-        33.28
+        27.36,
+        27.84
       ]
     },
     {
       "text": "hours",
       "timestamp": [
-        33.36,
-        33.68
+        27.92,
+        28.240000000000002
       ]
     },
     {
       "text": "of",
       "timestamp": [
-        33.68,
-        33.84
+        28.240000000000002,
+        28.400000000000002
       ]
     },
     {
       "text": "energy",
       "timestamp": [
-        33.84,
-        34.56
+        28.400000000000002,
+        29.04
       ]
     },
     {
       "text": "today.",
       "timestamp": [
-        34.56,
-        34.88
-      ]
-    },
-    {
-      "text": "The",
-      "timestamp": [
-        53.28,
-        53.52
-      ]
-    },
-    {
-      "text": "washer",
-      "timestamp": [
-        53.52,
-        53.92
-      ]
-    },
-    {
-      "text": "is",
-      "timestamp": [
-        53.92,
-        54.08
-      ]
-    },
-    {
-      "text": "running",
-      "timestamp": [
-        54.08,
-        54.32
-      ]
-    },
-    {
-      "text": "on",
-      "timestamp": [
-        54.32,
-        54.4
-      ]
-    },
-    {
-      "text": "the",
-      "timestamp": [
-        54.4,
-        54.480000000000004
-      ]
-    },
-    {
-      "text": "cotton",
-      "timestamp": [
-        54.480000000000004,
-        54.96
-      ]
-    },
-    {
-      "text": "cycle.",
-      "timestamp": [
-        54.96,
-        55.36
-      ]
-    },
-    {
-      "text": "The",
-      "timestamp": [
-        55.52,
-        55.68
-      ]
-    },
-    {
-      "text": "job",
-      "timestamp": [
-        55.68,
-        56.0
-      ]
-    },
-    {
-      "text": "ID",
-      "timestamp": [
-        56.0,
-        56.32
-      ]
-    },
-    {
-      "text": "is",
-      "timestamp": [
-        56.32,
-        56.56
-      ]
-    },
-    {
-      "text": "WASH0001.",
-      "timestamp": [
-        56.56,
-        58.800000000000004
-      ]
-    },
-    {
-      "text": "The",
-      "timestamp": [
-        65.44,
-        65.68
-      ]
-    },
-    {
-      "text": "washer",
-      "timestamp": [
-        65.68,
-        66.16
-      ]
-    },
-    {
-      "text": "has",
-      "timestamp": [
-        66.16,
-        66.32000000000001
-      ]
-    },
-    {
-      "text": "been",
-      "timestamp": [
-        66.32000000000001,
-        66.48
-      ]
-    },
-    {
-      "text": "restarted",
-      "timestamp": [
-        66.48,
-        67.04
-      ]
-    },
-    {
-      "text": "on",
-      "timestamp": [
-        67.04,
-        67.12
-      ]
-    },
-    {
-      "text": "the",
-      "timestamp": [
-        67.12,
-        67.28
-      ]
-    },
-    {
-      "text": "cotton",
-      "timestamp": [
-        67.28,
-        67.76
-      ]
-    },
-    {
-      "text": "cycle",
-      "timestamp": [
-        67.76,
-        68.08
-      ]
-    },
-    {
-      "text": "with",
-      "timestamp": [
-        68.08,
-        68.24
-      ]
-    },
-    {
-      "text": "job",
-      "timestamp": [
-        68.24,
-        68.56
-      ]
-    },
-    {
-      "text": "ID",
-      "timestamp": [
-        68.56,
-        69.04
-      ]
-    },
-    {
-      "text": "WASH0001.",
-      "timestamp": [
-        69.04,
-        71.44
-      ]
-    },
-    {
-      "text": "Done.",
-      "timestamp": [
-        78.08,
-        78.48
+        29.04,
+        29.36
       ]
     },
     {
       "text": "I've",
       "timestamp": [
-        78.64,
-        78.88
+        39.2,
+        39.52
       ]
     },
     {
-      "text": "canceled",
+      "text": "located",
       "timestamp": [
-        78.88,
-        79.36
+        39.52,
+        40.0
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        40.0,
+        40.24
+      ]
+    },
+    {
+      "text": "phone",
+      "timestamp": [
+        40.24,
+        40.56
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        40.56,
+        40.72
       ]
     },
     {
       "text": "the",
       "timestamp": [
-        79.36,
-        79.52
+        40.72,
+        40.88
+      ]
+    },
+    {
+      "text": "living",
+      "timestamp": [
+        40.88,
+        41.2
+      ]
+    },
+    {
+      "text": "room",
+      "timestamp": [
+        41.2,
+        41.44
+      ]
+    },
+    {
+      "text": "sofa.",
+      "timestamp": [
+        41.44,
+        42.32
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        53.44,
+        53.68
+      ]
+    },
+    {
+      "text": "washer",
+      "timestamp": [
+        53.68,
+        54.24
+      ]
+    },
+    {
+      "text": "has",
+      "timestamp": [
+        54.24,
+        54.4
+      ]
+    },
+    {
+      "text": "started",
+      "timestamp": [
+        54.4,
+        54.72
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        54.72,
+        54.88
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        54.88,
+        55.04
+      ]
+    },
+    {
+      "text": "cotton",
+      "timestamp": [
+        55.04,
+        55.52
+      ]
+    },
+    {
+      "text": "cycle",
+      "timestamp": [
+        55.52,
+        55.84
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        55.84,
+        56.0
+      ]
+    },
+    {
+      "text": "Job",
+      "timestamp": [
+        56.0,
+        56.4
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        56.4,
+        56.72
+      ]
+    },
+    {
+      "text": "WASH",
+      "timestamp": [
+        56.88,
+        57.84
+      ]
+    },
+    {
+      "text": "0001.",
+      "timestamp": [
+        58.0,
+        59.36
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        67.92,
+        68.16
+      ]
+    },
+    {
+      "text": "washer",
+      "timestamp": [
+        68.16,
+        68.64
+      ]
+    },
+    {
+      "text": "has",
+      "timestamp": [
+        68.64,
+        68.8
+      ]
+    },
+    {
+      "text": "started",
+      "timestamp": [
+        68.8,
+        69.12
+      ]
+    },
+    {
+      "text": "again",
+      "timestamp": [
+        69.12,
+        69.36
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        69.36,
+        69.52
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        69.52,
+        69.68
+      ]
+    },
+    {
+      "text": "cotton",
+      "timestamp": [
+        69.68,
+        70.08
+      ]
+    },
+    {
+      "text": "cycle",
+      "timestamp": [
+        70.08,
+        70.48
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        70.48,
+        70.64
+      ]
+    },
+    {
+      "text": "job",
+      "timestamp": [
+        70.64,
+        70.96000000000001
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        70.96000000000001,
+        71.28
+      ]
+    },
+    {
+      "text": "WASH0001.",
+      "timestamp": [
+        71.44,
+        73.84
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        78.32000000000001,
+        78.64
+      ]
+    },
+    {
+      "text": "canceled",
+      "timestamp": [
+        78.64,
+        79.2
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        79.2,
+        79.36
       ]
     },
     {
       "text": "previous",
       "timestamp": [
-        79.52,
-        79.84
+        79.36,
+        79.76
       ]
     },
     {
       "text": "wash",
       "timestamp": [
-        79.84,
+        79.76,
         80.24
       ]
     },
@@ -861,365 +756,225 @@
       ]
     },
     {
-      "text": "EcoCycle",
+      "text": "eco",
       "timestamp": [
         80.88,
-        81.76
+        81.2
       ]
     },
     {
-      "text": "instead.",
+      "text": "cycle,",
       "timestamp": [
-        81.76,
-        82.56
-      ]
-    },
-    {
-      "text": "The",
-      "timestamp": [
-        82.88,
-        83.12
-      ]
-    },
-    {
-      "text": "EcoCycle",
-      "timestamp": [
-        83.12,
-        84.0
-      ]
-    },
-    {
-      "text": "has",
-      "timestamp": [
-        84.0,
-        84.16
-      ]
-    },
-    {
-      "text": "started,",
-      "timestamp": [
-        84.16,
-        84.48
-      ]
-    },
-    {
-      "text": "and",
-      "timestamp": [
-        84.64,
-        84.8
-      ]
-    },
-    {
-      "text": "your",
-      "timestamp": [
-        84.8,
-        84.96000000000001
-      ]
-    },
-    {
-      "text": "new",
-      "timestamp": [
-        84.96000000000001,
-        85.12
+        81.36,
+        81.68
       ]
     },
     {
       "text": "job",
       "timestamp": [
-        85.12,
-        85.44
+        81.84,
+        82.16
       ]
     },
     {
       "text": "ID",
       "timestamp": [
-        85.44,
-        85.76
+        82.16,
+        82.48
       ]
     },
     {
-      "text": "is",
+      "text": "WASH",
       "timestamp": [
-        85.76,
-        86.08
+        82.64,
+        83.68
       ]
     },
     {
-      "text": "WASH-0002.",
+      "text": "0002.",
       "timestamp": [
-        86.08,
-        88.56
+        83.76,
+        85.2
       ]
     },
     {
       "text": "I'm",
       "timestamp": [
-        95.52,
-        95.84
+        95.60000000000001,
+        96.0
       ]
     },
     {
       "text": "sorry,",
       "timestamp": [
-        95.84,
-        96.24000000000001
+        96.0,
+        96.32000000000001
       ]
     },
     {
       "text": "I",
       "timestamp": [
-        96.4,
-        96.56
+        96.56,
+        96.64
       ]
     },
     {
       "text": "couldn't",
       "timestamp": [
-        96.56,
-        96.88
+        96.64,
+        96.96000000000001
       ]
     },
     {
       "text": "reach",
       "timestamp": [
-        96.88,
-        97.12
+        96.96000000000001,
+        97.28
       ]
     },
     {
       "text": "the",
       "timestamp": [
-        97.12,
-        97.2
+        97.28,
+        97.36
       ]
     },
     {
       "text": "service",
       "timestamp": [
-        97.2,
-        97.60000000000001
+        97.36,
+        97.76
       ]
     },
     {
-      "text": "center",
+      "text": "center.",
       "timestamp": [
-        97.60000000000001,
-        98.0
+        97.76,
+        98.08
       ]
     },
     {
-      "text": "right",
+      "text": "The",
       "timestamp": [
-        98.0,
-        98.16
+        98.32000000000001,
+        98.56
       ]
     },
     {
-      "text": "now.",
-      "timestamp": [
-        98.16,
-        98.32000000000001
-      ]
-    },
-    {
-      "text": "Please",
+      "text": "call",
       "timestamp": [
         98.56,
-        98.96000000000001
+        98.8
       ]
     },
     {
-      "text": "try",
+      "text": "attempt",
       "timestamp": [
-        98.96000000000001,
-        99.28
+        98.8,
+        99.36
       ]
     },
     {
-      "text": "again",
+      "text": "failed.",
       "timestamp": [
-        99.28,
-        99.60000000000001
-      ]
-    },
-    {
-      "text": "later.",
-      "timestamp": [
-        99.60000000000001,
+        99.36,
         100.24000000000001
       ]
     },
     {
       "text": "I've",
       "timestamp": [
-        114.72,
-        115.12
+        114.96000000000001,
+        115.36
       ]
     },
     {
       "text": "passed",
       "timestamp": [
-        115.12,
-        115.44
+        115.36,
+        115.68
       ]
     },
     {
-      "text": "this",
+      "text": "your",
       "timestamp": [
-        115.44,
-        115.60000000000001
-      ]
-    },
-    {
-      "text": "to",
-      "timestamp": [
-        115.60000000000001,
-        115.76
-      ]
-    },
-    {
-      "text": "a",
-      "timestamp": [
-        115.76,
+        115.68,
         115.84
       ]
     },
     {
-      "text": "human",
+      "text": "request",
       "timestamp": [
         115.84,
-        116.24000000000001
-      ]
-    },
-    {
-      "text": "agent.",
-      "timestamp": [
-        116.24000000000001,
-        116.56
-      ]
-    },
-    {
-      "text": "Your",
-      "timestamp": [
-        116.72,
-        116.88
-      ]
-    },
-    {
-      "text": "reference",
-      "timestamp": [
-        116.88,
-        117.28
-      ]
-    },
-    {
-      "text": "number",
-      "timestamp": [
-        117.28,
-        117.52
-      ]
-    },
-    {
-      "text": "is",
-      "timestamp": [
-        117.52,
-        117.76
-      ]
-    },
-    {
-      "text": "handoff001.",
-      "timestamp": [
-        117.76,
-        119.28
-      ]
-    },
-    {
-      "text": "I've",
-      "timestamp": [
-        120.16,
-        120.4
-      ]
-    },
-    {
-      "text": "passed",
-      "timestamp": [
-        120.4,
-        120.72
-      ]
-    },
-    {
-      "text": "this",
-      "timestamp": [
-        120.72,
-        120.88
+        116.16
       ]
     },
     {
       "text": "to",
       "timestamp": [
-        120.88,
-        121.04
+        116.16,
+        116.32000000000001
       ]
     },
     {
       "text": "a",
       "timestamp": [
-        121.04,
-        121.12
+        116.32000000000001,
+        116.4
       ]
     },
     {
       "text": "human",
       "timestamp": [
-        121.12,
-        121.44
+        116.4,
+        116.8
       ]
     },
     {
       "text": "agent.",
       "timestamp": [
-        121.44,
-        121.76
+        116.8,
+        117.04
       ]
     },
     {
       "text": "Your",
       "timestamp": [
-        121.92,
-        122.08
+        117.28,
+        117.44
       ]
     },
     {
       "text": "reference",
       "timestamp": [
-        122.08,
-        122.56
+        117.44,
+        117.92
       ]
     },
     {
       "text": "number",
       "timestamp": [
-        122.56,
-        122.8
+        117.92,
+        118.16
       ]
     },
     {
       "text": "is",
       "timestamp": [
-        122.8,
-        122.96000000000001
+        118.16,
+        118.4
       ]
     },
     {
-      "text": "handoff001.",
+      "text": "handoff0001.",
       "timestamp": [
-        122.96000000000001,
-        124.32000000000001
+        118.4,
+        120.4
       ]
     }
   ],
-  "perceived_total_latency": 3.2,
-  "audio_agent_speech_start": 6.640000000000001,
+  "perceived_total_latency": 3.6,
+  "audio_agent_speech_start": 7.04,
   "actual_tool_calls": [],
   "status": "completed"
 }

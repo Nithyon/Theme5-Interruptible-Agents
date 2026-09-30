@@ -1,5 +1,7 @@
 # Team handoff (submission day, 30 Sep 2026)
 
+> **Update, 30 September evening.** `README.md` is now a one-page summary. The full write-up, which these notes call "the README" (Results, Reproduce, Scalability, Honest limitations), is `README_FULL.md`. Submitted run: 67/100 judged, 55/100 strict (stock agent 62 and 50). Headline extension scenario: the in-car EV assistant, run end to end on recorded audio. Scripts: `PRESENTATION_SCRIPT.md` (slides) and `DEMO_SCRIPT_5MIN.md`.
+
 Deadline: **23:59 IST, 30 Sep 2026.** Aim to submit the form by **22:30 IST**.
 
 Names used in this document vs. the code: Commit Harness = `fdb_agent/gate.py` (`CommitGate`, settings `GATE_*`); Reflex = the rule-based decider in `gate.py`; Reasoner = `fdb_agent/jev.py` (TypeSafe Jev); Listener = `fdb_agent/smart_turn.py` (Smart Turn v3.2).

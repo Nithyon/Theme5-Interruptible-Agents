@@ -162,7 +162,7 @@ PY
 # --- 6. check required env vars by NAME ONLY -------------------------------------------
 check_env_vars() {
   local envfile="$FDB_V3_DIR/.env.local"
-  [ -f "$envfile" ] || die "missing $envfile — create it yourself with the required keys (see README: Reproducing our score)"
+  [ -f "$envfile" ] || die "missing $envfile — create it yourself with the required keys (see README_FULL.md, Reproduce)"
 
   local missing=()
   for v in LIVEKIT_URL LIVEKIT_API_KEY LIVEKIT_API_SECRET; do
