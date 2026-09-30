@@ -20,7 +20,9 @@ python3 - <<'PY'
 import json, os
 D = os.path.expanduser("~/theme5/Full-Duplex-Bench/v3/fdb_v3_data_released")
 print("== silent recordings (agent transcript empty AND no tool call), per run:")
-for prov in ("gemini3_8", "gate_gemini38_final", "gate_gemini38_v2", "gate_gemini38_v3st"):
+provs = sorted({n[len("result_"):-len(".json")] for f in os.listdir(D) if os.path.isdir(os.path.join(D, f))
+                for n in os.listdir(os.path.join(D, f)) if n.startswith("result_") and n.endswith(".json")})
+for prov in [p for p in provs if p in ("gemini3_8", "gate_gemini38_final") or p.startswith("gate_gemini38_v")]:
     tot = sil = 0; names = []
     for f in sorted(os.listdir(D)):
         p = os.path.join(D, f, f"result_{prov}.json")
