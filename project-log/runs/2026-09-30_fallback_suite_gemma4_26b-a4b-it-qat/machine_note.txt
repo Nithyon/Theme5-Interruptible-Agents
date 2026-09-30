@@ -1,0 +1,8 @@
+Laptop used for this run (30 Sep 2026, 22:07-22:30 IST):
+- CPU: Intel(R) Core(TM) Ultra 7 258V, 8 cores
+- RAM: 32 GB (32.4 GB reported)
+- GPU: no discrete or NVIDIA GPU. "on_gpu_gb" in machine.json is the integrated graphics
+  (Intel Corporation Core Ultra 200V Series Processors Arc Graphics 130V/140V GPU (rev 04)), which shares system RAM.
+- Ollama 0.32.14, model gemma4:26b-a4b-it-qat (Q4_0, 25.2B parameters), Linux (CachyOS).
+- Run with --runs 1: the quick check measured about 9 s per command, so 3 runs would not have
+  finished before 23:15 IST. The machine was otherwise idle during the run.
