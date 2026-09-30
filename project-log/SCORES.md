@@ -163,3 +163,12 @@ then the kitchen; after "turn my lights down" it also rang the phone, which nobo
   first attempt (that does not cause wrong actions, but the conditions are not identical).
 - Evidence: `project-log/runs/2026-09-30_ext_home_slurp_pauses_fail0/` (recovery log, per-request score, agent audio);
   clip builder `extension/e2e/make_clip_slurp_pauses.py`.
+
+### Independent re-run on a second machine (30 September, lead's laptop)
+
+`python extension/eval_fallback.py --model gemma4:26b-a4b-it-qat --timeout 60`, our 40 commands, one run, Windows,
+Ollama 0.32.6, Intel Core Ultra 9 275HX, 31.4 GB RAM, NVIDIA RTX 5070 Laptop GPU with 8 GB (the model ran about 69%
+on the CPU, 31% on the GPU). Right tool 38/40, fully correct 36/40, self-corrections 6/6, 2 rejected answers (one
+used a tool name that does not exist, "roadside_assistance"), median 3.0 s. Aryan's laptop: 40/40, 38/40, 6/6, 0,
+5.4 s. The result file is named `_desktop` but the machine is a laptop:
+`project-log/runs/2026-09-30_local_fallback_eval_gemma4_26b-a4b-it-qat_desktop.json`.
