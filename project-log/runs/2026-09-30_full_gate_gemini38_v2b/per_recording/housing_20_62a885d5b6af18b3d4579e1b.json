@@ -1,0 +1,601 @@
+{
+  "pid": "62a885d5b6af18b3d4579e1b",
+  "example_id": "housing_20",
+  "category": "housing_location",
+  "title": "Conditional Search Logic",
+  "provider": "gate_gemini38_v2b",
+  "evaluated_at": "2026-09-30T13:41:28.319911",
+  "inference_time_s": 54.84,
+  "room_name": "eval-fea16f04",
+  "stream_start_time": 1790775691.6061788,
+  "input_transcript": "Uh you know so here's what I'm thinking. Search for places in Austin under 2,000. Then check the commute to my office. If it's under 15 minutes, that's perfect. But if it's longer then raise my budget to 2,500 so uh I can look at places closer to work.",
+  "input_asr_chunks": [
+    {
+      "text": "Uh",
+      "timestamp": [
+        0.48,
+        0.88
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        1.52,
+        1.68
+      ]
+    },
+    {
+      "text": "know",
+      "timestamp": [
+        1.68,
+        2.0
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        2.32,
+        2.56
+      ]
+    },
+    {
+      "text": "here's",
+      "timestamp": [
+        2.56,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "what",
+      "timestamp": [
+        2.8000000000000003,
+        2.96
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        2.96,
+        3.12
+      ]
+    },
+    {
+      "text": "thinking.",
+      "timestamp": [
+        3.12,
+        3.44
+      ]
+    },
+    {
+      "text": "Search",
+      "timestamp": [
+        3.68,
+        4.0
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        4.0,
+        4.16
+      ]
+    },
+    {
+      "text": "places",
+      "timestamp": [
+        4.16,
+        4.4
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        4.4,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "Austin",
+      "timestamp": [
+        4.5600000000000005,
+        5.04
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        5.04,
+        5.28
+      ]
+    },
+    {
+      "text": "2,000.",
+      "timestamp": [
+        5.28,
+        6.16
+      ]
+    },
+    {
+      "text": "Then",
+      "timestamp": [
+        6.48,
+        6.72
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        6.8,
+        7.12
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.12,
+        7.28
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        7.28,
+        7.6000000000000005
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.6000000000000005,
+        7.68
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        7.68,
+        7.84
+      ]
+    },
+    {
+      "text": "office.",
+      "timestamp": [
+        7.84,
+        8.16
+      ]
+    },
+    {
+      "text": "If",
+      "timestamp": [
+        8.4,
+        8.56
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        8.56,
+        8.72
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        8.72,
+        8.96
+      ]
+    },
+    {
+      "text": "15",
+      "timestamp": [
+        8.96,
+        9.36
+      ]
+    },
+    {
+      "text": "minutes,",
+      "timestamp": [
+        9.36,
+        9.6
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        9.76,
+        10.08
+      ]
+    },
+    {
+      "text": "perfect.",
+      "timestamp": [
+        10.08,
+        10.48
+      ]
+    },
+    {
+      "text": "But",
+      "timestamp": [
+        10.8,
+        10.96
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        11.120000000000001,
+        11.28
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        11.28,
+        11.44
+      ]
+    },
+    {
+      "text": "longer",
+      "timestamp": [
+        11.44,
+        11.68
+      ]
+    },
+    {
+      "text": "then",
+      "timestamp": [
+        11.76,
+        12.0
+      ]
+    },
+    {
+      "text": "raise",
+      "timestamp": [
+        12.0,
+        12.24
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        12.24,
+        12.32
+      ]
+    },
+    {
+      "text": "budget",
+      "timestamp": [
+        12.32,
+        12.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.64,
+        12.8
+      ]
+    },
+    {
+      "text": "2,500",
+      "timestamp": [
+        12.8,
+        13.76
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        14.08,
+        14.32
+      ]
+    },
+    {
+      "text": "uh",
+      "timestamp": [
+        14.48,
+        14.64
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.88,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        15.120000000000001,
+        15.36
+      ]
+    },
+    {
+      "text": "look",
+      "timestamp": [
+        15.36,
+        15.52
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        15.52,
+        15.76
+      ]
+    },
+    {
+      "text": "places",
+      "timestamp": [
+        15.76,
+        16.16
+      ]
+    },
+    {
+      "text": "closer",
+      "timestamp": [
+        16.16,
+        16.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        16.64,
+        16.96
+      ]
+    },
+    {
+      "text": "work.",
+      "timestamp": [
+        16.96,
+        17.28
+      ]
+    }
+  ],
+  "user_speech_end_rel": 17.28,
+  "latency": {
+    "input_duration_s": 47.46,
+    "output_duration_s": 47.46,
+    "first_speech_s": 28.95
+  },
+  "user_done_unix": 1790775708.8861787,
+  "search_latency_breakdown": {
+    "room": "eval-fea16f04",
+    "tool": "Search Tool",
+    "reasoning": 6.395,
+    "execution": 0.519,
+    "synthesis": 1.33,
+    "total": 8.244,
+    "agent_start_at": 1790775719.2528927
+  },
+  "absolute_total_latency": 10.367,
+  "transcript": "The commute from the first apartment to your office is 25 minutes, so I've updated your search to a budget of 2,500 for places closer to work.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        28.72,
+        29.04
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        29.04,
+        29.44
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        29.44,
+        29.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        29.6,
+        29.84
+      ]
+    },
+    {
+      "text": "first",
+      "timestamp": [
+        29.84,
+        30.080000000000002
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        30.080000000000002,
+        30.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        30.64,
+        30.72
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        30.72,
+        30.88
+      ]
+    },
+    {
+      "text": "office",
+      "timestamp": [
+        30.88,
+        31.28
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        31.28,
+        31.52
+      ]
+    },
+    {
+      "text": "25",
+      "timestamp": [
+        31.52,
+        32.08
+      ]
+    },
+    {
+      "text": "minutes,",
+      "timestamp": [
+        32.08,
+        32.56
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        32.88,
+        33.04
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        33.04,
+        33.28
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        33.28,
+        33.68
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        33.68,
+        33.84
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        33.84,
+        34.160000000000004
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        34.160000000000004,
+        34.32
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        34.32,
+        34.4
+      ]
+    },
+    {
+      "text": "budget",
+      "timestamp": [
+        34.4,
+        34.72
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        34.72,
+        34.88
+      ]
+    },
+    {
+      "text": "2,500",
+      "timestamp": [
+        34.88,
+        36.0
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        36.0,
+        36.24
+      ]
+    },
+    {
+      "text": "places",
+      "timestamp": [
+        36.24,
+        36.72
+      ]
+    },
+    {
+      "text": "closer",
+      "timestamp": [
+        36.72,
+        37.28
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        37.28,
+        37.6
+      ]
+    },
+    {
+      "text": "work.",
+      "timestamp": [
+        37.6,
+        37.92
+      ]
+    }
+  ],
+  "perceived_total_latency": 11.44,
+  "audio_agent_speech_start": 28.72,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Austin",
+        "bedrooms": 1,
+        "max_price": 2000.0
+      },
+      "timestamp_start": 21.58,
+      "timestamp_end": 21.79
+    },
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "APT1",
+        "destination_address": "my office",
+        "mode": "driving"
+      },
+      "timestamp_start": 23.8,
+      "timestamp_end": 24.14
+    },
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Austin",
+        "bedrooms": 1,
+        "max_price": 2500.0
+      },
+      "timestamp_start": 25.8,
+      "timestamp_end": 26.32
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,8 @@
+judge: exact-match (no OpenAI key)
+evaluated: 100 | passed: 55 | pass rate: 0.55
+failure breakdown: {'wrong_tools': 10, 'wrong_arguments': 35}
+by_difficulty: {'medium': 0.559, 'hard': 0.433, 'easy': 0.639}
+by_num_tools: {'1': 0.591, '2': 0.611, '3': 0.312}
+by_disfluency_feature: {'SELF_CORRECTION': 0.471, 'PAUSE': 0.444, 'FILLER': 0.483, 'FALSE_START': 0.667, 'HESITATION': 0.5}
+by_state_rollback: {'with_rollback': 0.471, 'without_rollback': 0.566}
+by_domain: {'ecommerce_support': 0.828, 'finance_billing': 0.88, 'housing_location': 0.192, 'travel_identity': 0.2}

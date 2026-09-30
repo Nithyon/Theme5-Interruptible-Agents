@@ -1,0 +1,4 @@
+start Wed Sep 30 12:31:44 UTC 2026
+config V2 (final config + lean gate + backchannel + retraction + ID rule; Smart Turn off), full fresh run on a second LiveKit project in parallel with v3st: GATE_COMBINE=either GATE_JEV=1 GATE_DRAFT_HOLD_S=2.5 GATE_DANGLING=1 GATE_PROMPT=2 quiet 0.9/1.8 GATE_LEAN=1 GATE_BACKCHANNEL=1 GATE_RETRACT=1 GATE_ID_NORMALIZE=1 GATE_SMART_TURN=0
+inference exit 0 at Wed Sep 30 14:06:11 UTC 2026
+done Wed Sep 30 14:06:15 UTC 2026

@@ -1,0 +1,200 @@
+{
+  "pid": "6998abd731d2ec50d067d5bd",
+  "example_id": "finance_02",
+  "category": "finance_billing",
+  "title": "Check Card Benefits",
+  "provider": "gate_gemini38_v2",
+  "evaluated_at": "2026-09-30T12:07:20.417474",
+  "inference_time_s": 46.53,
+  "room_name": "eval-f790fff9",
+  "stream_start_time": 1790770044.376801,
+  "input_transcript": "Um, so could you tell me what kind of benefits come with the platinum card? Um, I want to know if it's worth switching to.",
+  "input_asr_chunks": [
+    {
+      "text": "Um,",
+      "timestamp": [
+        0.88,
+        1.12
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        1.28,
+        1.52
+      ]
+    },
+    {
+      "text": "could",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        1.84,
+        2.0
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        2.0,
+        2.24
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        2.24,
+        2.4
+      ]
+    },
+    {
+      "text": "what",
+      "timestamp": [
+        2.4,
+        2.64
+      ]
+    },
+    {
+      "text": "kind",
+      "timestamp": [
+        2.64,
+        2.88
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        2.88,
+        3.12
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        3.12,
+        4.16
+      ]
+    },
+    {
+      "text": "come",
+      "timestamp": [
+        4.16,
+        4.48
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        4.8,
+        5.12
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        5.12,
+        5.28
+      ]
+    },
+    {
+      "text": "platinum",
+      "timestamp": [
+        5.28,
+        5.92
+      ]
+    },
+    {
+      "text": "card?",
+      "timestamp": [
+        5.92,
+        6.24
+      ]
+    },
+    {
+      "text": "Um,",
+      "timestamp": [
+        6.4,
+        6.640000000000001
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        6.8,
+        6.96
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        6.96,
+        7.12
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.12,
+        7.36
+      ]
+    },
+    {
+      "text": "know",
+      "timestamp": [
+        7.36,
+        7.5200000000000005
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        7.5200000000000005,
+        7.76
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        7.76,
+        8.08
+      ]
+    },
+    {
+      "text": "worth",
+      "timestamp": [
+        8.08,
+        8.4
+      ]
+    },
+    {
+      "text": "switching",
+      "timestamp": [
+        8.4,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "to.",
+      "timestamp": [
+        9.040000000000001,
+        9.28
+      ]
+    }
+  ],
+  "user_speech_end_rel": 9.28,
+  "latency": {
+    "input_duration_s": 39.429,
+    "output_duration_s": 39.429,
+    "first_speech_s": 39.429
+  },
+  "user_done_unix": 1790770053.656801,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

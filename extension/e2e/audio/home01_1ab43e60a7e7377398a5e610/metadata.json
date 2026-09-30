@@ -1,0 +1,16 @@
+{
+  "id": "home01",
+  "title": "extension end-to-end: home assistant, 8 spoken lines",
+  "domain": "home",
+  "expected_tool_calls": [],
+  "lines": [
+    "Set the living room AC to 24, no, 22.",
+    "How much energy have I used today?",
+    "Find my phone.",
+    "Start the washer on cotton.",
+    "Start it again.",
+    "Actually, make it eco.",
+    "The washer is leaking, call the service centre.",
+    "Please try the service centre again."
+  ]
+}

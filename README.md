@@ -58,9 +58,9 @@ Added on 2026-09-30, after the final benchmark run (all in `fdb_agent/gate.py`, 
 - **Retraction handling** (`GATE_RETRACT`, default on). Follows the change-of-mind taxonomy of Zou et al. 2026 (arXiv 2604.00892): a user can *add* to, *revise*, or *retract* a request. Cues such as "never mind", "forget that", "don't book anything" drop a held call with no replacement; the Reasoner (TypeSafe Jev) follow-up classifier gained a `retraction` label.
 - **Conservative identifier canonicalization** (`GATE_ID_NORMALIZE`, default on). Applies to arguments named `*_id` / `*_number`. It joins only spelled-out *single characters* ("B-O-B-1-2" -> "BOB12"); it keeps letter case and real multi-character hyphens ("PO-999" stays "PO-999"). **This is a documented assumption**: we treat a separator between single characters as a speech-to-text artefact (the stock-prompt baseline shows it too), not as part of the identifier. If a real system used such separators meaningfully, this rule would be wrong for it.
 - **Backchannel handling** (`GATE_BACKCHANNEL`, default on). "okay", "mm-hmm", "uh-huh", "got it" mean "I'm listening", not a new turn: no supersede, no retraction check, no Reasoner call, no "turn done" acknowledgement, and they do not count as a correction if the same tool is proposed again. Fillers ("uh", "um", "hmm") are deliberately *not* backchannels; they still signal hesitation. Motivated by S-MARC (arXiv 2602.11065), which models backchannel as its own class separate from turn-taking.
-- **`GATE_LEAN` switch** (default off). The Reasoner may shorten a hold or classify a follow-up, never lengthen it (never beyond the Reflex window). **It is a switch under practice-set evaluation and is not in the submitted configuration.**
+- **`GATE_LEAN` switch** (default off in the code, **on in the submitted configuration**). The Reasoner may shorten a hold or classify a follow-up, never lengthen it (never beyond the Reflex window).
 
-**Status of these four.** The full-benchmark numbers in the Results section were measured *before* retraction, identifier canonicalization and backchannel handling existed, so none of those three is reflected in them; they are unit-tested but have **not** been scored on the practice set or the benchmark. Their defaults are on, so a fresh `reproduce.sh` run today includes them; set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0` to run the configuration that produced the reported numbers.
+**Status of these four.** All four are on in the submitted configuration (run of 30 September, 67/100 judged). The run of 29 September (61/100) was made before they existed. They were not tested one at a time, so we do not know how much each contributes.
 
 ### Design lineage / related work
 
@@ -119,7 +119,7 @@ This is why the shipped Commit Harness uses `GATE_COMBINE=either`: hold if *eith
 
 ## Results
 
-Honest headline: **the full pipeline does not beat the stock baseline overall.** Judged pass rate is 61/100 for the pipeline against 62/100 for the stock agent (strict exact-match: 46/100 against 50/100). It gains in some slices and loses in others.
+**Headline (30 September 2026).** Our submitted configuration passes **67/100 with the judge and 55/100 strict**, against **62/100 and 50/100** for the stock agent. On 29 September an earlier configuration scored 61/100 and 46/100, below the stock agent. Each number is a single run; the stock run was made on 29 September and ours on 30 September. **Disclosure:** on 30 September we ran two configurations on the benchmark (Smart Turn off and on) and submit the better one; both runs' logs are in the repository.
 
 | System | Strict exact-match | Gemini 2.5 Pro judge (stand-in for GPT-4o) | Latency (first reply, median) | Source |
 |---|---|---|---|---|
@@ -127,11 +127,15 @@ Honest headline: **the full pipeline does not beat the stock baseline overall.**
 | Paper: Gemini Live 3.1 | — | 0.540 | 4.25 s task completion | arXiv 2604.04847 |
 | Paper: Cascaded (Whisper/GPT-4o/TTS) | — | 0.450 | 10.12 s task completion | arXiv 2604.04847 |
 | **Ours: stock agent, no Commit Harness** (`baseline_agent.py`, `gemini-3.8-live`, all 100) | 50/100 | **62/100** | 3.92 s perceived (strict run); 4.00 s (`analyze_tool_latency.py`) | `project-log/SCORES.md`, `runs/2026-09-29_full_gemini3_8/` |
-| **Ours: full pipeline** (`gate_agent.py`, Reflex + Reasoner as one decider, draft-call hold, dangling-word trigger, prompt v2) | 46/100 | **61/100** | 6.4 s | `project-log/SCORES.md`, `runs/2026-09-29_full_gate_gemini38_final/` |
+| Ours, 29 September: earlier pipeline (`gate_agent.py`, Reflex + Reasoner as one decider, draft-call hold, dangling-word trigger, prompt v2) | 46/100 | **61/100** | 6.4 s | `project-log/SCORES.md`, `runs/2026-09-29_full_gate_gemini38_final/` |
+| **Ours, 30 September: submitted configuration** (29 September settings plus identifier rule, retraction, backchannel handling, lean setting; Smart Turn off) | **55/100** | **67/100** | 5.28 s perceived (median, from the result files) | `runs/2026-09-30_full_gate_gemini38_v2b/` |
+| Ours, 30 September: same with Smart Turn on (not submitted; one silent recording and a per-recording loading stall, see limitations) | 50/100 | 64/100 | not quoted (fewer usable recordings) | `runs/2026-09-30_full_gate_gemini38_v3st/` |
+
+**Submitted run by slice (judged), against the stock agent:** shopping 24/29 vs 22/29; finance 22/25 vs 22/25; housing 7/26 vs 5/26; travel 14/20 vs 13/20; one request per turn 47/66 vs 46/66; two requests 13/18 vs 11/18; three requests 7/16 vs 5/16; self-corrections 7/17 vs 8/17 (one worse). The judge returned a usable verdict for every item (131 calls, 0 errors). No silent recordings (0 of 100). It is still slower than the stock agent (5.28 s vs 3.92 s perceived latency, median).
 
 **Judge caveat.** The organizers score with a GPT-4o judge. We had no OpenAI key, so our judged numbers use Gemini 2.5 Pro with the benchmark's own judge prompts unchanged (119/119 judge replies parsed for the pipeline, 121/121 for the baseline, no fallbacks). They are a stand-in and are **not** claimed to equal a GPT-4o-judged score. The paper's pass rates were scored with GPT-4o. Latency: the paper reports task-completion time; "perceived" / "first reply" is the time from the user's speech end to the agent's first reply.
 
-**Where the pipeline gains and loses (judged, from `SCORES.md`):**
+**Where the 29 September pipeline gained and lost (judged, from `SCORES.md`):**
 
 | Slice | Pipeline | Baseline |
 |---|---|---|
@@ -174,7 +178,7 @@ Pinned package versions (the requirements file) are in `project-log/runs/env-fre
 `reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. The organizers' 48 GB GPU is only used by the benchmark harness's own Parakeet ASR when it scores the agent's spoken answers — our agent and its voice model (Gemini 3.8 Live, hosted) never touch that GPU themselves.
 
 
-> **Config note.** The reported 61/100 (judged) and 46/100 (strict) were produced with the settings in `run.txt` of `runs/2026-09-29_full_gate_gemini38_final/`, which predate the retraction, identifier-canonicalization and backchannel switches. Those now default to on; to reproduce the reported configuration exactly, also set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0` — `reproduce.sh` pins these (and `GATE_LEAN=0`, `GATE_SMART_TURN=0`) so it matches the reported run. `reproduce.sh` itself has not yet been run end to end on a clean machine.
+> **Config note.** `reproduce.sh` runs the submitted configuration: the settings in `run.txt` of `runs/2026-09-30_full_gate_gemini38_v2b/` (`GATE_COMBINE=either GATE_JEV=1 GATE_DRAFT_HOLD_S=2.5 GATE_DANGLING=1 GATE_PROMPT=2`, quiet 0.9/1.8 s, `GATE_LEAN=1 GATE_BACKCHANNEL=1 GATE_RETRACT=1 GATE_ID_NORMALIZE=1 GATE_SMART_TURN=0`). That run used `fdb_agent/gate_agent_b.py`, which is `gate_agent.py` with a different local port and log folder so that two runs could share one laptop; `reproduce.sh` uses `gate_agent.py`. To run the 29 September configuration instead, set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0 GATE_LEAN=0`. `reproduce.sh` has not yet been run end to end on a clean machine.
 
 The exact one-command reproduction, with our submitted (final) config:
 

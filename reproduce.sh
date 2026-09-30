@@ -14,7 +14,7 @@
 #
 # Usage:
 #   ./reproduce.sh [agent_script] [provider]
-#   Defaults to our submitted config: fdb_agent/gate_agent.py, provider gate_gemini38_final,
+#   Defaults to our submitted config: fdb_agent/gate_agent.py, provider gate_gemini38_v2,
 #   with GATE_COMBINE=either (rules + Jev as one decider) and the rest of the final gate
 #   settings exported below — this matches project-log/scripts/full_run_final.sh exactly.
 #   SETUP_ONLY=1 ./reproduce.sh  does steps 1-6 only (checks the machine, starts no run).
@@ -46,7 +46,7 @@ ENV_FREEZE="$REPO_ROOT/project-log/runs/env-freeze.txt"
 DATA_GDRIVE_ID="1SO_4MTazWQ_jvCx0dtmpQ-t40bdd07yz"   # from v3/README.md, per GEMINI_TASKS.md G1
 
 AGENT_SCRIPT="${1:-$REPO_ROOT/fdb_agent/gate_agent.py}"
-PROVIDER="${2:-gate_gemini38_final}"
+PROVIDER="${2:-gate_gemini38_v2}"
 
 # Final gate settings — matches project-log/scripts/full_run_final.sh exactly. Only takes
 # effect for gate_agent.py; harmless (unused) when running baseline_agent.py instead.
@@ -57,12 +57,13 @@ export GATE_DANGLING="${GATE_DANGLING:-1}"
 export GATE_PROMPT="${GATE_PROMPT:-2}"
 export GATE_QUIET_S="${GATE_QUIET_S:-0.9}"
 export GATE_HESITANT_QUIET_S="${GATE_HESITANT_QUIET_S:-1.8}"
-# Switches added after the reported run (2026-09-29_full_gate_gemini38_final). Pinned off so
-# this script reproduces the reported configuration exactly; set to 1 to try the newer gate.
-export GATE_RETRACT="${GATE_RETRACT:-0}"
-export GATE_ID_NORMALIZE="${GATE_ID_NORMALIZE:-0}"
-export GATE_BACKCHANNEL="${GATE_BACKCHANNEL:-0}"
-export GATE_LEAN="${GATE_LEAN:-0}"
+# Settings of the submitted run (project-log/runs/2026-09-30_full_gate_gemini38_v2b: judged 67/100,
+# strict 55/100): retraction, identifier rule, backchannel handling and the lean setting ON,
+# Smart Turn OFF. Set any of them to 0 (or GATE_SMART_TURN=1) to try another configuration.
+export GATE_RETRACT="${GATE_RETRACT:-1}"
+export GATE_ID_NORMALIZE="${GATE_ID_NORMALIZE:-1}"
+export GATE_BACKCHANNEL="${GATE_BACKCHANNEL:-1}"
+export GATE_LEAN="${GATE_LEAN:-1}"
 export GATE_SMART_TURN="${GATE_SMART_TURN:-0}"
 
 log() { echo "[reproduce] $*"; }

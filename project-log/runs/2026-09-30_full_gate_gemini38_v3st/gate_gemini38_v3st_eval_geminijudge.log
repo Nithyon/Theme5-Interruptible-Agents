@@ -1,0 +1,44 @@
+JUDGE google/gemini-2.5-pro: {"calls": 126, "ok": 126, "unparseable": 0, "errors": 0, "retries": 3}
+📖 Loading benchmark data from benchmark_data_v2.json...
+📁 Scanning fdb_v3_data_released for provider 'gate_gemini38_v3st'...
+🔍 Found 100 valid result files matching benchmark scenarios.
+
+📊 PASS RATE REPORT — GATE_GEMINI38_V3ST
+========================================================
+  Total Scenarios : 100
+  ✅ Passed       : 64
+  ❌ Failed       : 36
+  📈 Pass Rate    : 64.0%
+
+  Failure Breakdown:
+    Wrong Tools     : 13
+    Wrong Arguments : 23
+
+  By Domain:
+    ecommerce_support: 86.2%
+    finance_billing: 80.0%
+    housing_location: 26.9%
+    travel_identity: 60.0%
+
+  By Difficulty:
+    medium: 61.8%
+    hard: 43.3%
+    easy: 83.3%
+
+  By Num Tool Calls:
+    1 tools: 71.2%
+    2 tools: 55.6%
+    3 tools: 43.8%
+
+  By Disfluency Feature:
+    SELF_CORRECTION: 47.1%
+    PAUSE: 66.7%
+    FILLER: 65.5%
+    FALSE_START: 66.7%
+    HESITATION: 70.0%
+
+  State Rollback:
+    With rollback:    47.1%
+    Without rollback: 67.5%
+
+  📄 Report saved: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-30_full_gate_gemini38_v3st/gate_gemini38_v3st_pass_rate_report_geminijudge.json

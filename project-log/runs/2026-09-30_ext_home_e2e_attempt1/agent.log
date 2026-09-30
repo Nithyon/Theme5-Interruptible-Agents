@@ -1,0 +1,181 @@
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v2 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v2 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.texttospeech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.texttospeech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+INFO:livekit.agents:starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.8.3", "rtc-version": "1.1.18", "pid": 29755, "timestamp": "2026-09-30T14:09:57.937063+00:00"}
+INFO:livekit.agents:plugin registered
+{"message": "plugin registered", "level": "INFO", "name": "livekit.agents", "plugin": "livekit.plugins.google", "version": "1.8.3", "pid": 29755, "timestamp": "2026-09-30T14:09:57.937405+00:00"}
+INFO:livekit.agents:preloading plugins
+{"message": "preloading plugins", "level": "INFO", "name": "livekit.agents", "packages": ["livekit.plugins.google", "livekit.agents.ipc._preload", "livekit.agents.ipc._preload_freeze"], "pid": 29755, "timestamp": "2026-09-30T14:09:57.937610+00:00"}
+INFO:livekit.agents:HTTP server listening on :8081
+{"message": "HTTP server listening on :8081", "level": "INFO", "name": "livekit.agents", "pid": 29755, "timestamp": "2026-09-30T14:09:57.942768+00:00"}
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v2 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v2 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.texttospeech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.texttospeech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29816, "timestamp": "2026-09-30T14:09:59.477765+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29818, "timestamp": "2026-09-30T14:09:59.480682+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29820, "timestamp": "2026-09-30T14:09:59.483251+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29822, "timestamp": "2026-09-30T14:09:59.485591+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29818, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.512336+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29816, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.512809+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29820, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.515086+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29822, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.520511+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29836, "timestamp": "2026-09-30T14:09:59.521629+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29840, "timestamp": "2026-09-30T14:09:59.523978+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29842, "timestamp": "2026-09-30T14:09:59.526207+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29844, "timestamp": "2026-09-30T14:09:59.528311+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29840, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.550864+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29836, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.552352+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29842, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.554461+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29855, "timestamp": "2026-09-30T14:09:59.557989+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29844, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.558393+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29860, "timestamp": "2026-09-30T14:09:59.560431+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29862, "timestamp": "2026-09-30T14:09:59.562720+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29864, "timestamp": "2026-09-30T14:09:59.565696+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29860, "elapsed_time": 0.02, "timestamp": "2026-09-30T14:09:59.585637+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29855, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.586913+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29862, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.590060+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29875, "timestamp": "2026-09-30T14:09:59.592508+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29877, "timestamp": "2026-09-30T14:09:59.594688+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29864, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.595896+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29882, "timestamp": "2026-09-30T14:09:59.597883+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29884, "timestamp": "2026-09-30T14:09:59.600715+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29875, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.621803+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29877, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.622346+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29882, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.626575+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29895, "timestamp": "2026-09-30T14:09:59.630216+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29898, "timestamp": "2026-09-30T14:09:59.633334+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29884, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.634151+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29902, "timestamp": "2026-09-30T14:09:59.636087+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29904, "timestamp": "2026-09-30T14:09:59.638359+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29898, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.659894+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29895, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.661367+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29912, "timestamp": "2026-09-30T14:09:59.667775+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29902, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.668180+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29917, "timestamp": "2026-09-30T14:09:59.670224+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29904, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.671663+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29920, "timestamp": "2026-09-30T14:09:59.674211+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 29924, "timestamp": "2026-09-30T14:09:59.679282+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29917, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.700476+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29920, "elapsed_time": 0.03, "timestamp": "2026-09-30T14:09:59.702111+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29912, "elapsed_time": 0.04, "timestamp": "2026-09-30T14:09:59.705556+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 29924, "elapsed_time": 0.04, "timestamp": "2026-09-30T14:09:59.719141+00:00"}
+INFO:livekit.agents:registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "agent_name": "", "deployment": "", "id": "AW_bMY34iEpyKW4", "url": "wss://samsung-jxdakoa3.livekit.cloud", "region": "India South", "protocol": 17, "pid": 29755, "timestamp": "2026-09-30T14:09:59.934071+00:00"}
+INFO:livekit.agents:received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_vYYtDVyj7hUZ", "dispatch_id": "AD_8TPS7kUfgbhu", "room": "eval-a20c3b56", "room_id": "RM_F5nko3Tf9w9j", "agent_name": "", "resuming": false, "enable_recording": true, "pid": 29755, "timestamp": "2026-09-30T14:10:34.184041+00:00"}
+INFO:google_genai._api_client:The user provided project/location will take precedence over the Vertex AI API key from the environment variable.
+{"message": "The user provided project/location will take precedence over the Vertex AI API key from the environment variable.", "level": "INFO", "name": "google_genai._api_client", "pid": 29818, "job_id": "AJ_vYYtDVyj7hUZ", "room": "eval-a20c3b56", "room_id": "RM_F5nko3Tf9w9j", "timestamp": "2026-09-30T14:10:34.235069+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 30167, "timestamp": "2026-09-30T14:10:34.244625+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 30167, "elapsed_time": 0.04, "timestamp": "2026-09-30T14:10:34.289079+00:00"}
+Nvidia Decoder is supported.
+WARNING:livekit.agents:event loop blocked for 298ms at "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py", line 1796, in _execute_child; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client
+{"message": "event loop blocked for 298ms at \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 1796, in _execute_child; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client", "level": "WARNING", "name": "livekit.agents", "duration": 0.2979, "threshold": 0.1, "gc_time": 0.0015, "cpu_time": 0.057, "task": "gemini-realtime-session", "stack": "# loop thread sampled 108ms into the stall\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py\", line 17, in async_fn_logs\n    return await fn(*args, **kwargs)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1057, in connect\n    creds, _ = google.auth.default(  # type: ignore\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_default.py\", line 716, in default\n    credentials, project_id = checker()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_default.py\", line 710, in <lambda>\n    lambda: _get_gcloud_sdk_credentials(quota_project_id=quota_project_id),\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_default.py\", line 321, in _get_gcloud_sdk_credentials\n    project_id = _cloud_sdk.get_project_id()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_cloud_sdk.py\", line 103, in get_project_id\n    project = _run_subprocess_ignore_stderr(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_cloud_sdk.py\", line 85, in _run_subprocess_ignore_stderr\n    output = subprocess.check_output(command, stderr=devnull)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 421, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 503, in run\n    with Popen(*popenargs, **kwargs) as process:\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 971, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 1796, in _execute_child\n    self.pid = _posixsubprocess.fork_exec(", "pid": 29818, "job_id": "AJ_vYYtDVyj7hUZ", "room": "eval-a20c3b56", "room_id": "RM_F5nko3Tf9w9j", "timestamp": "2026-09-30T14:10:34.573536+00:00"}
+INFO:livekit.agents:RoomIO linked to participant
+{"message": "RoomIO linked to participant", "level": "INFO", "name": "livekit.agents", "lk.pii.participant_identity": "wav-file-user", "lk.pii.room_name": "eval-a20c3b56", "pid": 29818, "job_id": "AJ_vYYtDVyj7hUZ", "room": "eval-a20c3b56", "room_id": "RM_F5nko3Tf9w9j", "timestamp": "2026-09-30T14:10:34.886863+00:00"}
+ERROR:livekit.agents:exception occurred while executing tool
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/generation.py", line 1000, in _traceable_fnc_tool
+    val = await function_callable()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py", line 476, in execute
+    return await first_update_fut
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py", line 359, in _execute_tool
+    output = await tool(*fnc_args, **fnc_kwargs)
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py", line 237, in start_washer
+    result = await self.runner.rollback_and_run(
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/recovery.py", line 265, in rollback_and_run
+    self.on_rollback(prior.tool, compensate_tool, tool, new_result)
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py", line 319, in <lambda>
+    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: _speak(
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py", line 313, in _speak
+    asyncio.create_task(session.say(text))
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_session.py", line 1553, in say
+    handle = activity.say(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_activity.py", line 1707, in say
+    raise RuntimeError(
+RuntimeError: trying to generate speech from text without a TTS model or a RealtimeSession that supports say(); add a TTS model to AgentSession to enable say()
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/generation.py", line 1000, in _traceable_fnc_tool
+    val = await function_callable()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py", line 476, in execute
+    return await first_update_fut
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py", line 359, in _execute_tool
+    output = await tool(*fnc_args, **fnc_kwargs)
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py", line 237, in start_washer
+    result = await self.runner.rollback_and_run(
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/recovery.py", line 265, in rollback_and_run
+    self.on_rollback(prior.tool, compensate_tool, tool, new_result)
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py", line 319, in <lambda>
+    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: _speak(
+  File "/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py", line 313, in _speak
+    asyncio.create_task(session.say(text))
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_session.py", line 1553, in say
+    handle = activity.say(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_activity.py", line 1707, in say
+    raise RuntimeError(
+RuntimeError: trying to generate speech from text without a TTS model or a RealtimeSession that supports say(); add a TTS model to AgentSession to enable say()
+{"message": "exception occurred while executing tool\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/generation.py\", line 1000, in _traceable_fnc_tool\n    val = await function_callable()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py\", line 476, in execute\n    return await first_update_fut\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py\", line 359, in _execute_tool\n    output = await tool(*fnc_args, **fnc_kwargs)\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py\", line 237, in start_washer\n    result = await self.runner.rollback_and_run(\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/recovery.py\", line 265, in rollback_and_run\n    self.on_rollback(prior.tool, compensate_tool, tool, new_result)\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py\", line 319, in <lambda>\n    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: _speak(\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py\", line 313, in _speak\n    asyncio.create_task(session.say(text))\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_session.py\", line 1553, in say\n    handle = activity.say(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_activity.py\", line 1707, in say\n    raise RuntimeError(\nRuntimeError: trying to generate speech from text without a TTS model or a RealtimeSession that supports say(); add a TTS model to AgentSession to enable say()", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/generation.py\", line 1000, in _traceable_fnc_tool\n    val = await function_callable()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py\", line 476, in execute\n    return await first_update_fut\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/tool_executor.py\", line 359, in _execute_tool\n    output = await tool(*fnc_args, **fnc_kwargs)\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py\", line 237, in start_washer\n    result = await self.runner.rollback_and_run(\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/recovery.py\", line 265, in rollback_and_run\n    self.on_rollback(prior.tool, compensate_tool, tool, new_result)\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py\", line 319, in <lambda>\n    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: _speak(\n  File \"/mnt/d/Theme5-Interruptible-Agents/extension/ext_agent.py\", line 313, in _speak\n    asyncio.create_task(session.say(text))\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_session.py\", line 1553, in say\n    handle = activity.say(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_activity.py\", line 1707, in say\n    raise RuntimeError(\nRuntimeError: trying to generate speech from text without a TTS model or a RealtimeSession that supports say(); add a TTS model to AgentSession to enable say()", "function": "start_washer", "speech_id": "speech_6ebf7e33904e", "pid": 29818, "job_id": "AJ_vYYtDVyj7hUZ", "room": "eval-a20c3b56", "room_id": "RM_F5nko3Tf9w9j", "timestamp": "2026-09-30T14:11:52.941394+00:00"}
+INFO:livekit.agents:closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)
+{"message": "closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)", "level": "INFO", "name": "livekit.agents", "room": "eval-a20c3b56", "participant": "wav-file-user", "reason": "CLIENT_INITIATED", "pid": 29818, "job_id": "AJ_vYYtDVyj7hUZ", "room_id": "RM_F5nko3Tf9w9j", "timestamp": "2026-09-30T14:12:27.474561+00:00"}
+INFO:livekit.agents:draining worker
+{"message": "draining worker", "level": "INFO", "name": "livekit.agents", "id": "AW_bMY34iEpyKW4", "timeout": 3600, "pid": 29755, "timestamp": "2026-09-30T14:12:36.882992+00:00"}

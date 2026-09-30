@@ -1,0 +1,1288 @@
+{
+  "pid": "fb51fc72b37ac99613ab5182",
+  "example_id": "car01",
+  "category": "car",
+  "title": "extension end-to-end: in-car EV assistant, 8 spoken lines",
+  "provider": "ext_car_e2e",
+  "evaluated_at": "2026-09-30T14:21:08.631249",
+  "inference_time_s": 149.92,
+  "room_name": "eval-7ae79d9f",
+  "stream_start_time": 1790778071.4519355,
+  "input_transcript": "Reroute to the mall, no, sorry, the airport. Check the traffic on my route. Find me a charging station near downtown, CCS connector. Book that station for six PM Book it again. Actually, make it seven PM instead. Call Roadside Assistance. I have a flat tire. Please try roadside assistance again.",
+  "input_asr_chunks": [
+    {
+      "text": "Reroute",
+      "timestamp": [
+        0.16,
+        0.56
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.64,
+        0.72
+      ]
+    },
+    {
+      "text": "mall,",
+      "timestamp": [
+        0.72,
+        0.96
+      ]
+    },
+    {
+      "text": "no,",
+      "timestamp": [
+        1.04,
+        1.12
+      ]
+    },
+    {
+      "text": "sorry,",
+      "timestamp": [
+        1.36,
+        1.68
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        1.76,
+        1.92
+      ]
+    },
+    {
+      "text": "airport.",
+      "timestamp": [
+        1.92,
+        2.72
+      ]
+    },
+    {
+      "text": "Check",
+      "timestamp": [
+        12.96,
+        13.36
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        13.36,
+        13.52
+      ]
+    },
+    {
+      "text": "traffic",
+      "timestamp": [
+        13.52,
+        13.92
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        13.92,
+        14.08
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        14.08,
+        14.24
+      ]
+    },
+    {
+      "text": "route.",
+      "timestamp": [
+        14.24,
+        15.040000000000001
+      ]
+    },
+    {
+      "text": "Find",
+      "timestamp": [
+        32.160000000000004,
+        32.480000000000004
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        32.480000000000004,
+        32.64
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        32.64,
+        32.72
+      ]
+    },
+    {
+      "text": "charging",
+      "timestamp": [
+        32.72,
+        33.2
+      ]
+    },
+    {
+      "text": "station",
+      "timestamp": [
+        33.2,
+        33.52
+      ]
+    },
+    {
+      "text": "near",
+      "timestamp": [
+        33.52,
+        33.76
+      ]
+    },
+    {
+      "text": "downtown,",
+      "timestamp": [
+        33.76,
+        34.32
+      ]
+    },
+    {
+      "text": "CCS",
+      "timestamp": [
+        34.56,
+        35.28
+      ]
+    },
+    {
+      "text": "connector.",
+      "timestamp": [
+        35.28,
+        36.160000000000004
+      ]
+    },
+    {
+      "text": "Book",
+      "timestamp": [
+        51.52,
+        51.92
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        51.92,
+        52.160000000000004
+      ]
+    },
+    {
+      "text": "station",
+      "timestamp": [
+        52.160000000000004,
+        52.480000000000004
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        52.480000000000004,
+        52.72
+      ]
+    },
+    {
+      "text": "six",
+      "timestamp": [
+        52.72,
+        53.04
+      ]
+    },
+    {
+      "text": "PM",
+      "timestamp": [
+        53.04,
+        53.28
+      ]
+    },
+    {
+      "text": "Book",
+      "timestamp": [
+        66.16,
+        66.72
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        66.72,
+        67.04
+      ]
+    },
+    {
+      "text": "again.",
+      "timestamp": [
+        67.04,
+        67.36
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        77.92,
+        78.32000000000001
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        78.4,
+        78.56
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        78.56,
+        78.8
+      ]
+    },
+    {
+      "text": "seven",
+      "timestamp": [
+        78.8,
+        79.2
+      ]
+    },
+    {
+      "text": "PM",
+      "timestamp": [
+        79.2,
+        79.60000000000001
+      ]
+    },
+    {
+      "text": "instead.",
+      "timestamp": [
+        79.76,
+        80.64
+      ]
+    },
+    {
+      "text": "Call",
+      "timestamp": [
+        94.8,
+        95.12
+      ]
+    },
+    {
+      "text": "Roadside",
+      "timestamp": [
+        95.12,
+        95.76
+      ]
+    },
+    {
+      "text": "Assistance.",
+      "timestamp": [
+        95.76,
+        96.24000000000001
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        96.4,
+        96.48
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        96.48,
+        96.64
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        96.64,
+        96.72
+      ]
+    },
+    {
+      "text": "flat",
+      "timestamp": [
+        96.72,
+        97.12
+      ]
+    },
+    {
+      "text": "tire.",
+      "timestamp": [
+        97.12,
+        97.68
+      ]
+    },
+    {
+      "text": "Please",
+      "timestamp": [
+        115.2,
+        115.60000000000001
+      ]
+    },
+    {
+      "text": "try",
+      "timestamp": [
+        115.60000000000001,
+        115.84
+      ]
+    },
+    {
+      "text": "roadside",
+      "timestamp": [
+        115.84,
+        116.4
+      ]
+    },
+    {
+      "text": "assistance",
+      "timestamp": [
+        116.4,
+        117.2
+      ]
+    },
+    {
+      "text": "again.",
+      "timestamp": [
+        117.2,
+        117.52
+      ]
+    }
+  ],
+  "user_speech_end_rel": 2.72,
+  "latency": {
+    "input_duration_s": 138.325,
+    "output_duration_s": 138.325,
+    "first_speech_s": 5.75
+  },
+  "user_done_unix": 1790778074.1719356,
+  "transcript": "I've rerouted your trip. Your new ETA at the airport is 29 minutes. The tool is still running. Say one short sentence telling the user you are still checking and will have the answer in a moment. I am checking the current traffic conditions for you now. The traffic on your route is currently moving along smoothly. The tool is still running in one short sentence. I found a CCS charging station, IDCHG809, just 0.7 kilometers away. Your slot is booked. The confirmation ID is book-0001. Your slot is booked. The confirmation ID is book-0001. I've canceled your previous booking and confirmed your new slot. The confirmation ID is book-0002. I couldn't reach dispatch directly, so I've transferred your request to an agent. Your human request reference is RA-4738.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        5.6000000000000005,
+        6.0
+      ]
+    },
+    {
+      "text": "rerouted",
+      "timestamp": [
+        6.0,
+        6.640000000000001
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        6.640000000000001,
+        6.8
+      ]
+    },
+    {
+      "text": "trip.",
+      "timestamp": [
+        6.8,
+        7.12
+      ]
+    },
+    {
+      "text": "Your",
+      "timestamp": [
+        7.28,
+        7.5200000000000005
+      ]
+    },
+    {
+      "text": "new",
+      "timestamp": [
+        7.5200000000000005,
+        7.76
+      ]
+    },
+    {
+      "text": "ETA",
+      "timestamp": [
+        7.76,
+        8.24
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        8.24,
+        8.4
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.4,
+        8.48
+      ]
+    },
+    {
+      "text": "airport",
+      "timestamp": [
+        8.48,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        9.040000000000001,
+        9.200000000000001
+      ]
+    },
+    {
+      "text": "29",
+      "timestamp": [
+        9.200000000000001,
+        9.92
+      ]
+    },
+    {
+      "text": "minutes.",
+      "timestamp": [
+        9.92,
+        10.8
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        19.92,
+        20.080000000000002
+      ]
+    },
+    {
+      "text": "tool",
+      "timestamp": [
+        20.080000000000002,
+        20.48
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        20.48,
+        20.64
+      ]
+    },
+    {
+      "text": "still",
+      "timestamp": [
+        20.64,
+        20.88
+      ]
+    },
+    {
+      "text": "running.",
+      "timestamp": [
+        20.88,
+        21.2
+      ]
+    },
+    {
+      "text": "Say",
+      "timestamp": [
+        21.44,
+        21.76
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        21.76,
+        22.0
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        22.0,
+        22.32
+      ]
+    },
+    {
+      "text": "sentence",
+      "timestamp": [
+        22.32,
+        22.8
+      ]
+    },
+    {
+      "text": "telling",
+      "timestamp": [
+        22.88,
+        23.12
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        23.12,
+        23.28
+      ]
+    },
+    {
+      "text": "user",
+      "timestamp": [
+        23.28,
+        23.68
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        23.68,
+        23.76
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        23.76,
+        24.0
+      ]
+    },
+    {
+      "text": "still",
+      "timestamp": [
+        24.0,
+        24.16
+      ]
+    },
+    {
+      "text": "checking",
+      "timestamp": [
+        24.16,
+        24.64
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        24.64,
+        24.8
+      ]
+    },
+    {
+      "text": "will",
+      "timestamp": [
+        24.8,
+        24.88
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        24.96,
+        25.12
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        25.12,
+        25.2
+      ]
+    },
+    {
+      "text": "answer",
+      "timestamp": [
+        25.2,
+        25.52
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        25.52,
+        25.68
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        25.68,
+        25.76
+      ]
+    },
+    {
+      "text": "moment.",
+      "timestamp": [
+        25.76,
+        26.16
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        26.48,
+        26.64
+      ]
+    },
+    {
+      "text": "am",
+      "timestamp": [
+        26.64,
+        26.88
+      ]
+    },
+    {
+      "text": "checking",
+      "timestamp": [
+        26.88,
+        27.28
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        27.28,
+        27.44
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        27.44,
+        27.76
+      ]
+    },
+    {
+      "text": "traffic",
+      "timestamp": [
+        27.76,
+        28.16
+      ]
+    },
+    {
+      "text": "conditions",
+      "timestamp": [
+        28.16,
+        28.64
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        28.64,
+        28.88
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        28.88,
+        29.04
+      ]
+    },
+    {
+      "text": "now.",
+      "timestamp": [
+        29.04,
+        29.36
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        29.68,
+        29.84
+      ]
+    },
+    {
+      "text": "traffic",
+      "timestamp": [
+        29.84,
+        30.32
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        30.32,
+        30.48
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        30.48,
+        30.64
+      ]
+    },
+    {
+      "text": "route",
+      "timestamp": [
+        30.64,
+        30.96
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        30.96,
+        31.2
+      ]
+    },
+    {
+      "text": "currently",
+      "timestamp": [
+        31.2,
+        31.68
+      ]
+    },
+    {
+      "text": "moving",
+      "timestamp": [
+        31.68,
+        32.0
+      ]
+    },
+    {
+      "text": "along",
+      "timestamp": [
+        32.0,
+        32.32
+      ]
+    },
+    {
+      "text": "smoothly.",
+      "timestamp": [
+        32.32,
+        33.28
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        33.6,
+        33.76
+      ]
+    },
+    {
+      "text": "tool",
+      "timestamp": [
+        33.76,
+        34.08
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        34.08,
+        34.24
+      ]
+    },
+    {
+      "text": "still",
+      "timestamp": [
+        34.24,
+        34.480000000000004
+      ]
+    },
+    {
+      "text": "running",
+      "timestamp": [
+        34.480000000000004,
+        34.72
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        34.88,
+        35.12
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        35.12,
+        35.28
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        35.28,
+        35.6
+      ]
+    },
+    {
+      "text": "sentence.",
+      "timestamp": [
+        35.6,
+        36.160000000000004
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        42.800000000000004,
+        43.04
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        43.04,
+        43.36
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        43.36,
+        43.6
+      ]
+    },
+    {
+      "text": "CCS",
+      "timestamp": [
+        43.6,
+        44.160000000000004
+      ]
+    },
+    {
+      "text": "charging",
+      "timestamp": [
+        44.160000000000004,
+        44.64
+      ]
+    },
+    {
+      "text": "station,",
+      "timestamp": [
+        44.64,
+        45.04
+      ]
+    },
+    {
+      "text": "IDCHG809,",
+      "timestamp": [
+        45.2,
+        47.2
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        47.44,
+        47.68
+      ]
+    },
+    {
+      "text": "0.7",
+      "timestamp": [
+        47.68,
+        48.64
+      ]
+    },
+    {
+      "text": "kilometers",
+      "timestamp": [
+        48.64,
+        49.44
+      ]
+    },
+    {
+      "text": "away.",
+      "timestamp": [
+        49.44,
+        50.08
+      ]
+    },
+    {
+      "text": "Your",
+      "timestamp": [
+        59.68,
+        60.0
+      ]
+    },
+    {
+      "text": "slot",
+      "timestamp": [
+        60.0,
+        60.480000000000004
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        60.480000000000004,
+        60.64
+      ]
+    },
+    {
+      "text": "booked.",
+      "timestamp": [
+        60.64,
+        61.04
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        61.2,
+        61.36
+      ]
+    },
+    {
+      "text": "confirmation",
+      "timestamp": [
+        61.36,
+        62.0
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        62.0,
+        62.4
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        62.4,
+        62.64
+      ]
+    },
+    {
+      "text": "book-0001.",
+      "timestamp": [
+        62.64,
+        65.2
+      ]
+    },
+    {
+      "text": "Your",
+      "timestamp": [
+        74.4,
+        74.72
+      ]
+    },
+    {
+      "text": "slot",
+      "timestamp": [
+        74.72,
+        75.12
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        75.12,
+        75.36
+      ]
+    },
+    {
+      "text": "booked.",
+      "timestamp": [
+        75.36,
+        75.76
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        75.92,
+        76.08
+      ]
+    },
+    {
+      "text": "confirmation",
+      "timestamp": [
+        76.08,
+        76.72
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        76.72,
+        77.04
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        77.04,
+        77.28
+      ]
+    },
+    {
+      "text": "book-0001.",
+      "timestamp": [
+        77.28,
+        79.68
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        87.84,
+        88.24
+      ]
+    },
+    {
+      "text": "canceled",
+      "timestamp": [
+        88.24,
+        88.8
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        88.8,
+        88.96000000000001
+      ]
+    },
+    {
+      "text": "previous",
+      "timestamp": [
+        88.96000000000001,
+        89.36
+      ]
+    },
+    {
+      "text": "booking",
+      "timestamp": [
+        89.36,
+        89.84
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        89.84,
+        90.08
+      ]
+    },
+    {
+      "text": "confirmed",
+      "timestamp": [
+        90.08,
+        90.64
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        90.64,
+        90.8
+      ]
+    },
+    {
+      "text": "new",
+      "timestamp": [
+        90.8,
+        90.96000000000001
+      ]
+    },
+    {
+      "text": "slot.",
+      "timestamp": [
+        90.96000000000001,
+        91.36
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        91.60000000000001,
+        91.76
+      ]
+    },
+    {
+      "text": "confirmation",
+      "timestamp": [
+        91.76,
+        92.4
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        92.4,
+        92.72
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        92.72,
+        92.96000000000001
+      ]
+    },
+    {
+      "text": "book-0002.",
+      "timestamp": [
+        92.96000000000001,
+        95.36
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        107.36,
+        107.60000000000001
+      ]
+    },
+    {
+      "text": "couldn't",
+      "timestamp": [
+        107.60000000000001,
+        108.0
+      ]
+    },
+    {
+      "text": "reach",
+      "timestamp": [
+        108.0,
+        108.32000000000001
+      ]
+    },
+    {
+      "text": "dispatch",
+      "timestamp": [
+        108.32000000000001,
+        108.96000000000001
+      ]
+    },
+    {
+      "text": "directly,",
+      "timestamp": [
+        108.96000000000001,
+        109.44
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        109.60000000000001,
+        109.76
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        109.76,
+        110.0
+      ]
+    },
+    {
+      "text": "transferred",
+      "timestamp": [
+        110.0,
+        110.56
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        110.56,
+        110.72
+      ]
+    },
+    {
+      "text": "request",
+      "timestamp": [
+        110.72,
+        111.12
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        111.12,
+        111.28
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        111.28,
+        111.52
+      ]
+    },
+    {
+      "text": "agent.",
+      "timestamp": [
+        111.52,
+        111.92
+      ]
+    },
+    {
+      "text": "Your",
+      "timestamp": [
+        112.24000000000001,
+        112.48
+      ]
+    },
+    {
+      "text": "human",
+      "timestamp": [
+        112.48,
+        112.88
+      ]
+    },
+    {
+      "text": "request",
+      "timestamp": [
+        112.88,
+        113.36
+      ]
+    },
+    {
+      "text": "reference",
+      "timestamp": [
+        113.36,
+        113.92
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        113.92,
+        114.24000000000001
+      ]
+    },
+    {
+      "text": "RA-4738.",
+      "timestamp": [
+        114.24000000000001,
+        116.56
+      ]
+    }
+  ],
+  "perceived_total_latency": 2.88,
+  "audio_agent_speech_start": 5.6000000000000005,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

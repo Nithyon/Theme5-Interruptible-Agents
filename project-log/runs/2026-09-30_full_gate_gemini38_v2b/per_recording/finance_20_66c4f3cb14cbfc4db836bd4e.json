@@ -1,0 +1,616 @@
+{
+  "pid": "66c4f3cb14cbfc4db836bd4e",
+  "example_id": "finance_20",
+  "category": "finance_billing",
+  "title": "Conditional Autopay Based on Exchange Rate",
+  "provider": "gate_gemini38_v2b",
+  "evaluated_at": "2026-09-30T13:18:38.482208",
+  "inference_time_s": 60.04,
+  "room_name": "eval-38221024",
+  "stream_start_time": 1790774321.4193203,
+  "input_transcript": "Well, here's my situation. I want to check what 1,000 US dollars is in Euros right now. If the exchange rate looks good to me, then go ahead and change my mortgage auto pay to pull from checking. But if the rate isn't great, just leave everything as is and keep it on the savings.",
+  "input_asr_chunks": [
+    {
+      "text": "Well,",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "here's",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "situation.",
+      "timestamp": [
+        1.84,
+        2.4
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        2.64,
+        2.88
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        3.12,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        3.2800000000000002,
+        3.44
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        3.44,
+        3.84
+      ]
+    },
+    {
+      "text": "what",
+      "timestamp": [
+        3.84,
+        4.16
+      ]
+    },
+    {
+      "text": "1,000",
+      "timestamp": [
+        4.16,
+        4.8
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        4.8,
+        5.2
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        5.2,
+        6.0
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        6.0,
+        6.32
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        6.32,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "Euros",
+      "timestamp": [
+        6.5600000000000005,
+        7.2
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        7.2,
+        7.44
+      ]
+    },
+    {
+      "text": "now.",
+      "timestamp": [
+        7.44,
+        7.76
+      ]
+    },
+    {
+      "text": "If",
+      "timestamp": [
+        8.08,
+        8.24
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.24,
+        8.48
+      ]
+    },
+    {
+      "text": "exchange",
+      "timestamp": [
+        8.48,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        9.040000000000001,
+        9.44
+      ]
+    },
+    {
+      "text": "looks",
+      "timestamp": [
+        9.44,
+        9.84
+      ]
+    },
+    {
+      "text": "good",
+      "timestamp": [
+        9.84,
+        10.08
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        10.08,
+        10.32
+      ]
+    },
+    {
+      "text": "me,",
+      "timestamp": [
+        10.32,
+        10.48
+      ]
+    },
+    {
+      "text": "then",
+      "timestamp": [
+        10.8,
+        11.120000000000001
+      ]
+    },
+    {
+      "text": "go",
+      "timestamp": [
+        11.120000000000001,
+        11.36
+      ]
+    },
+    {
+      "text": "ahead",
+      "timestamp": [
+        11.36,
+        11.68
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.68,
+        11.84
+      ]
+    },
+    {
+      "text": "change",
+      "timestamp": [
+        11.84,
+        12.16
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        12.16,
+        12.4
+      ]
+    },
+    {
+      "text": "mortgage",
+      "timestamp": [
+        12.4,
+        12.96
+      ]
+    },
+    {
+      "text": "auto",
+      "timestamp": [
+        12.96,
+        13.36
+      ]
+    },
+    {
+      "text": "pay",
+      "timestamp": [
+        13.44,
+        13.76
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        13.76,
+        13.92
+      ]
+    },
+    {
+      "text": "pull",
+      "timestamp": [
+        13.92,
+        14.24
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        14.24,
+        14.4
+      ]
+    },
+    {
+      "text": "checking.",
+      "timestamp": [
+        14.4,
+        14.96
+      ]
+    },
+    {
+      "text": "But",
+      "timestamp": [
+        15.200000000000001,
+        15.36
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        15.36,
+        15.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        15.44,
+        15.6
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        15.6,
+        15.92
+      ]
+    },
+    {
+      "text": "isn't",
+      "timestamp": [
+        15.92,
+        16.56
+      ]
+    },
+    {
+      "text": "great,",
+      "timestamp": [
+        16.56,
+        16.8
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        17.44,
+        17.68
+      ]
+    },
+    {
+      "text": "leave",
+      "timestamp": [
+        17.68,
+        18.240000000000002
+      ]
+    },
+    {
+      "text": "everything",
+      "timestamp": [
+        18.240000000000002,
+        18.56
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        18.56,
+        18.8
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        18.8,
+        19.12
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        19.12,
+        19.28
+      ]
+    },
+    {
+      "text": "keep",
+      "timestamp": [
+        19.6,
+        19.84
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        19.84,
+        20.080000000000002
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        20.080000000000002,
+        20.400000000000002
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        20.400000000000002,
+        20.72
+      ]
+    },
+    {
+      "text": "savings.",
+      "timestamp": [
+        20.72,
+        21.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 21.68,
+  "latency": {
+    "input_duration_s": 52.576,
+    "output_duration_s": 52.576,
+    "first_speech_s": 27.55
+  },
+  "user_done_unix": 1790774343.0993204,
+  "search_latency_breakdown": {
+    "room": "eval-38221024",
+    "tool": "Search Tool",
+    "reasoning": 1.041,
+    "execution": 0.0,
+    "synthesis": 1.067,
+    "total": 2.108,
+    "agent_start_at": 1790774347.7186875
+  },
+  "absolute_total_latency": 4.619,
+  "transcript": "The current conversion for a thousand US dollars is nine hundred Euros. Since the rate wasn't specified, I haven't made any changes to your mortgage autopay.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        27.44,
+        27.6
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        27.6,
+        28.080000000000002
+      ]
+    },
+    {
+      "text": "conversion",
+      "timestamp": [
+        28.080000000000002,
+        28.72
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        28.72,
+        28.88
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        28.88,
+        29.04
+      ]
+    },
+    {
+      "text": "thousand",
+      "timestamp": [
+        29.04,
+        29.36
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        29.44,
+        29.84
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        29.84,
+        30.32
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        30.32,
+        30.560000000000002
+      ]
+    },
+    {
+      "text": "nine",
+      "timestamp": [
+        30.560000000000002,
+        30.96
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        30.96,
+        31.2
+      ]
+    },
+    {
+      "text": "Euros.",
+      "timestamp": [
+        31.2,
+        31.76
+      ]
+    },
+    {
+      "text": "Since",
+      "timestamp": [
+        32.08,
+        32.4
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        32.4,
+        32.480000000000004
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        32.480000000000004,
+        32.8
+      ]
+    },
+    {
+      "text": "wasn't",
+      "timestamp": [
+        32.8,
+        33.2
+      ]
+    },
+    {
+      "text": "specified,",
+      "timestamp": [
+        33.2,
+        33.68
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        33.92,
+        34.0
+      ]
+    },
+    {
+      "text": "haven't",
+      "timestamp": [
+        34.0,
+        34.32
+      ]
+    },
+    {
+      "text": "made",
+      "timestamp": [
+        34.32,
+        34.480000000000004
+      ]
+    },
+    {
+      "text": "any",
+      "timestamp": [
+        34.480000000000004,
+        34.72
+      ]
+    },
+    {
+      "text": "changes",
+      "timestamp": [
+        34.72,
+        35.12
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        35.12,
+        35.2
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        35.2,
+        35.36
+      ]
+    },
+    {
+      "text": "mortgage",
+      "timestamp": [
+        35.36,
+        35.76
+      ]
+    },
+    {
+      "text": "autopay.",
+      "timestamp": [
+        35.76,
+        36.480000000000004
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.76,
+  "audio_agent_speech_start": 27.44,
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 1000.0,
+        "from_currency": "USD",
+        "to_currency": "EUR"
+      },
+      "timestamp_start": 25.23,
+      "timestamp_end": 25.23
+    }
+  ],
+  "status": "completed"
+}

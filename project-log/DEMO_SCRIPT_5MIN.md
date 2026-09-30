@@ -21,7 +21,7 @@ Open before recording: the deck (slides 1, 2, 5, 6, 8) and one Ubuntu terminal.
 | 3:25–3:40 | | Speak | **"Actually, make it eco."** (it should cancel cotton, start eco, and say both) |
 | 3:40–3:55 | | Speak | **"The washer is leaking, call the service centre."** (two failed tries, then a hand-off with a reference) |
 | 3:55–4:10 | Terminal | Press Ctrl+C, then run `bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/demo_show_recovery.sh` | "The recovery log shows the retries, the cancel before the new start, and the hand-off. The devices are mocks. This is not a Bixby or SmartThings integration." |
-| 4:10–4:35 | Slide 5 | | "Results on 100 recordings. The stock agent passes 62 with the judge. Our pipeline on the 29th passed 61. With our final settings it passes [__] judged and [__] strict, with [__] silent recordings. Same judge for both, one run each." |
+| 4:10–4:35 | Slide 5 | | "Results on 100 recordings. The stock agent passes 62 with the judge. Our pipeline on the 29th passed 61. With the settings we submit it passes 67 judged and 55 strict, with no silent recordings. Same judge for both, one run each." |
 | 4:35–4:50 | Slide 6 | | "What we learned: ten failures were changes of mind after the action had already run, which only undo can fix. Three recordings were silent because of machine load. And the harness rarely needed to step in, so our gain comes from the rules around it." |
 | 4:50–5:00 | Slide 8 | | "One command reproduces the run, and every log is in the repository. Next: undo in the main agent, a check of each value before it runs, and real plugins. Thank you." |
 

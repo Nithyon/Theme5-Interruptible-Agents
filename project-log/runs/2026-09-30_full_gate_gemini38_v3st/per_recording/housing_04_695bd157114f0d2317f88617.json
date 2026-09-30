@@ -1,0 +1,322 @@
+{
+  "pid": "695bd157114f0d2317f88617",
+  "example_id": "housing_04",
+  "category": "housing_location",
+  "title": "Apartment Search with Pause",
+  "provider": "gate_gemini38_v3st",
+  "evaluated_at": "2026-09-30T13:09:25.358896",
+  "inference_time_s": 56.6,
+  "room_name": "eval-5fa31d29",
+  "stream_start_time": 1790773768.3626137,
+  "input_transcript": "Well, um uh, you know, I'm looking for an apartment in Denver that has one bedroom. I'm living alone, um, so I don't need anything too big.",
+  "input_asr_chunks": [
+    {
+      "text": "Well,",
+      "timestamp": [
+        0.56,
+        0.8
+      ]
+    },
+    {
+      "text": "um",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "uh,",
+      "timestamp": [
+        3.92,
+        4.16
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        4.32,
+        4.64
+      ]
+    },
+    {
+      "text": "know,",
+      "timestamp": [
+        4.64,
+        4.96
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        6.16,
+        6.48
+      ]
+    },
+    {
+      "text": "looking",
+      "timestamp": [
+        6.48,
+        6.8
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.8,
+        6.96
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        6.96,
+        7.12
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        7.12,
+        7.5200000000000005
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        7.5200000000000005,
+        7.68
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        7.68,
+        8.56
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        9.44,
+        9.76
+      ]
+    },
+    {
+      "text": "has",
+      "timestamp": [
+        9.76,
+        10.08
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        10.08,
+        10.32
+      ]
+    },
+    {
+      "text": "bedroom.",
+      "timestamp": [
+        10.32,
+        11.28
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        12.48,
+        12.8
+      ]
+    },
+    {
+      "text": "living",
+      "timestamp": [
+        12.8,
+        13.44
+      ]
+    },
+    {
+      "text": "alone,",
+      "timestamp": [
+        13.44,
+        14.08
+      ]
+    },
+    {
+      "text": "um,",
+      "timestamp": [
+        15.44,
+        15.68
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        16.32,
+        16.56
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        16.56,
+        16.64
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        16.64,
+        16.88
+      ]
+    },
+    {
+      "text": "need",
+      "timestamp": [
+        16.88,
+        17.12
+      ]
+    },
+    {
+      "text": "anything",
+      "timestamp": [
+        17.12,
+        17.76
+      ]
+    },
+    {
+      "text": "too",
+      "timestamp": [
+        17.76,
+        18.080000000000002
+      ]
+    },
+    {
+      "text": "big.",
+      "timestamp": [
+        18.080000000000002,
+        18.400000000000002
+      ]
+    }
+  ],
+  "user_speech_end_rel": 1.84,
+  "latency": {
+    "input_duration_s": 49.32,
+    "output_duration_s": 49.32,
+    "first_speech_s": 12.7
+  },
+  "user_done_unix": 1790773770.2026136,
+  "search_latency_breakdown": {
+    "room": "eval-5fa31d29",
+    "tool": "Search Tool",
+    "reasoning": 2.085,
+    "execution": 0.445,
+    "synthesis": 1.16,
+    "total": 3.69,
+    "agent_start_at": 1790773782.215014
+  },
+  "absolute_total_latency": 12.012,
+  "transcript": "I found a one-bedroom apartment available in Denver for $4,900 per month.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        19.84,
+        20.080000000000002
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        20.080000000000002,
+        20.400000000000002
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        20.400000000000002,
+        20.56
+      ]
+    },
+    {
+      "text": "one-bedroom",
+      "timestamp": [
+        20.56,
+        21.28
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        21.28,
+        21.68
+      ]
+    },
+    {
+      "text": "available",
+      "timestamp": [
+        21.68,
+        22.080000000000002
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        22.080000000000002,
+        22.240000000000002
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        22.240000000000002,
+        22.72
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        22.72,
+        22.88
+      ]
+    },
+    {
+      "text": "$4,900",
+      "timestamp": [
+        22.88,
+        24.16
+      ]
+    },
+    {
+      "text": "per",
+      "timestamp": [
+        24.48,
+        24.72
+      ]
+    },
+    {
+      "text": "month.",
+      "timestamp": [
+        24.72,
+        25.28
+      ]
+    }
+  ],
+  "perceived_total_latency": 18.0,
+  "audio_agent_speech_start": 19.84,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Denver",
+        "bedrooms": 1,
+        "max_price": 5000.0
+      },
+      "timestamp_start": 12.25,
+      "timestamp_end": 12.69
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,300 @@
+{
+  "pid": "5e3c1fbece3a7b000a6fd95a",
+  "example_id": "travel_02",
+  "category": "travel_identity",
+  "title": "Update Passport Number",
+  "provider": "gate_gemini38_v2b",
+  "evaluated_at": "2026-09-30T13:48:23.820849",
+  "inference_time_s": 51.84,
+  "room_name": "eval-dffb0598",
+  "stream_start_time": 1790776107.1404357,
+  "input_transcript": "Uh, yeah, so my new passport number is P eight eight nine nine zero zero one one. Could you update that in the system for me, please?",
+  "input_asr_chunks": [
+    {
+      "text": "Uh,",
+      "timestamp": [
+        1.44,
+        1.76
+      ]
+    },
+    {
+      "text": "yeah,",
+      "timestamp": [
+        1.84,
+        2.08
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        2.24,
+        2.4
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        2.48,
+        2.64
+      ]
+    },
+    {
+      "text": "new",
+      "timestamp": [
+        2.64,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        2.8000000000000003,
+        3.52
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        3.52,
+        3.84
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        3.84,
+        4.16
+      ]
+    },
+    {
+      "text": "P",
+      "timestamp": [
+        4.16,
+        4.48
+      ]
+    },
+    {
+      "text": "eight",
+      "timestamp": [
+        4.64,
+        4.96
+      ]
+    },
+    {
+      "text": "eight",
+      "timestamp": [
+        5.12,
+        5.36
+      ]
+    },
+    {
+      "text": "nine",
+      "timestamp": [
+        5.5200000000000005,
+        5.92
+      ]
+    },
+    {
+      "text": "nine",
+      "timestamp": [
+        6.24,
+        6.640000000000001
+      ]
+    },
+    {
+      "text": "zero",
+      "timestamp": [
+        6.8,
+        7.2
+      ]
+    },
+    {
+      "text": "zero",
+      "timestamp": [
+        7.28,
+        7.68
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        7.84,
+        8.08
+      ]
+    },
+    {
+      "text": "one.",
+      "timestamp": [
+        8.24,
+        8.48
+      ]
+    },
+    {
+      "text": "Could",
+      "timestamp": [
+        9.44,
+        9.68
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        9.68,
+        9.84
+      ]
+    },
+    {
+      "text": "update",
+      "timestamp": [
+        9.84,
+        10.4
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        10.4,
+        10.72
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        10.72,
+        11.040000000000001
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        11.040000000000001,
+        11.36
+      ]
+    },
+    {
+      "text": "system",
+      "timestamp": [
+        11.36,
+        11.6
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        12.08,
+        12.4
+      ]
+    },
+    {
+      "text": "me,",
+      "timestamp": [
+        12.4,
+        12.56
+      ]
+    },
+    {
+      "text": "please?",
+      "timestamp": [
+        12.72,
+        13.280000000000001
+      ]
+    }
+  ],
+  "user_speech_end_rel": 13.280000000000001,
+  "latency": {
+    "input_duration_s": 44.52,
+    "output_duration_s": 44.52,
+    "first_speech_s": 17.45
+  },
+  "user_done_unix": 1790776120.4204357,
+  "search_latency_breakdown": {
+    "room": "eval-dffb0598",
+    "tool": "Search Tool",
+    "reasoning": 0.418,
+    "execution": 0.0,
+    "synthesis": 0.701,
+    "total": 1.119,
+    "agent_start_at": 1790776123.4703665
+  },
+  "absolute_total_latency": 3.05,
+  "transcript": "I've successfully updated your passport number in our system.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        17.36,
+        17.76
+      ]
+    },
+    {
+      "text": "successfully",
+      "timestamp": [
+        17.76,
+        18.48
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        18.48,
+        18.96
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        18.96,
+        19.12
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        19.12,
+        19.68
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        19.68,
+        20.0
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        20.0,
+        20.32
+      ]
+    },
+    {
+      "text": "our",
+      "timestamp": [
+        20.32,
+        20.64
+      ]
+    },
+    {
+      "text": "system.",
+      "timestamp": [
+        20.64,
+        20.96
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.08,
+  "audio_agent_speech_start": 17.36,
+  "actual_tool_calls": [
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "passport",
+        "doc_number": "P88990011"
+      },
+      "timestamp_start": 15.63,
+      "timestamp_end": 15.63
+    }
+  ],
+  "status": "completed"
+}

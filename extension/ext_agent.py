@@ -58,7 +58,7 @@ SYSTEM_PROMPT = (
     "booking is cancelled for you automatically, don't call anything else first. "
     "Some tools take a few seconds; you will be told to say a short progress update if one is "
     "still running — keep it brief and never claim a result before you actually have one. "
-    "If a tool reports a 'handoff' status, tell the driver you've passed their request to a "
+    "If a tool reports status 'failed', say plainly that it did not work; never say you transferred, escalated or handed anything off unless the tool's status is 'handoff'. If a tool reports a 'handoff' status, tell the driver you've passed their request to a "
     "human agent and read back the reference number. Always speak the key result: for a "
     "charging station, its id and distance; for a booking, its confirmation id; for traffic, "
     "the congestion level; for a reroute, the new ETA."
@@ -75,7 +75,7 @@ HOME_SYSTEM_PROMPT = (
     "make it eco instead'), just call start_washer again with the new cycle — the old job is "
     "cancelled for you automatically, don't call anything else first. Some tools take a few "
     "seconds; you will be told to say a short progress update if one is still running — keep it "
-    "brief and never claim a result before you actually have one. If a tool reports a 'handoff' "
+    "brief and never claim a result before you actually have one. If a tool reports status 'failed', say plainly that it did not work; never say you transferred, escalated or handed anything off unless the tool's status is 'handoff'. If a tool reports a 'handoff' "
     "status, tell the user you've passed their request to a human agent and read back the "
     "reference number. Always speak the key result: for the AC or lights, the new setting; for "
     "the washer, its job id; for energy usage, the kWh; for the phone, where it is."
@@ -160,6 +160,10 @@ class InCarAssistant:
                 compensate_args={"booking_ref": old_booking_id},
                 compensate_execute=lambda: self.backend.cancel_charging_booking(old_booking_id),
             )
+            if isinstance(result, dict) and result.get("booking_id"):
+                result = {**result, "cancelled_booking_id": old_booking_id,
+                          "note": f"The earlier booking {old_booking_id} was cancelled first, then this one "
+                                  "was made. Tell the driver both."}
         return json.dumps(result)
 
     @ai_callable_decorator(description="Call roadside assistance for a car problem.")
@@ -242,6 +246,10 @@ class HomeAssistant:
                 compensate_args={"job_id": old_job_id},
                 compensate_execute=lambda: self.backend.cancel_washer(old_job_id),
             )
+            if isinstance(result, dict) and result.get("job_id"):
+                result = {**result, "cancelled_job_id": old_job_id,
+                          "note": f"The earlier washer job {old_job_id} was cancelled first, then this one "
+                                  "was started. Tell the user both."}
         return json.dumps(result)
 
     @ai_callable_decorator(description="Check home energy usage for a period. Can take a few seconds.")
@@ -308,23 +316,44 @@ async def entrypoint(ctx: agents.JobContext):
     session = AgentSession(llm=realtime_model(), tools=tools)
 
     def _speak(text: str):
-        # session.say()/generate_reply() are coroutines; schedule them from the runner's
-        # sync callbacks without blocking the callback itself.
-        asyncio.create_task(session.say(text))
+        # A realtime (speech-to-speech) session cannot say() raw text: found in the first
+        # end-to-end run (2026-09-30), where say() raised inside the rollback callback and
+        # failed the tool. Ask the model to say the line instead, and never let a speech
+        # problem break a tool call: the same facts are also put in the tool result.
+        try:
+            session.generate_reply(instructions=text)
+        except Exception as e:
+            logging.getLogger("ext_agent").warning("could not speak %r: %s", text, type(e).__name__)
 
-    runner.on_progress = lambda tool, call_id: _speak(_progress_line(tool))
-    runner.on_handoff = lambda tool, call_id, ref: _speak(
-        f"I've passed this to a human agent. Your reference number is {ref}."
-    )
-    runner.on_rollback = lambda old_tool, comp_tool, new_tool, new_result: _speak(
-        _rollback_line(old_tool, new_result)
-    )
+    # Progress notices are OFF. In the end-to-end runs of 2026-09-30 the speech-to-speech model
+    # read the instruction text aloud ("The tool is still running. Say one short sentence...")
+    # instead of acting on it, in both wordings we tried. A pre-recorded audio clip is the
+    # likely fix (as fdb_agent/responsive.py does for the acknowledgement); not built yet.
+    # EXT_PROGRESS_SPEECH=1 turns the old behaviour back on for testing.
+    if os.getenv("EXT_PROGRESS_SPEECH", "0") == "1":
+        runner.on_progress = lambda tool, call_id: _speak(
+            "The tool is still running. In one short sentence, tell the user you are still "
+            "checking and will have the answer in a moment. Do not state any result yet."
+        )
+    # Hand-off and rollback are announced by the model from the tool result (status "handoff"
+    # with a reference; "cancelled_job_id" / "cancelled_booking_id" with a note), so the
+    # callbacks stay silent: speaking here as well made the agent say those lines twice.
+    runner.on_handoff = None
+    runner.on_rollback = None
 
-    async def _report():
-        with open("/tmp/ext_recovery_events.log", "a") as f:
-            for line in runner.log.lines():
-                f.write(line + "\n")
-    ctx.add_shutdown_callback(_report)
+    _emit = runner.log.emit
+
+    def _emit_and_write(*a, **k):
+        # write each recovery event as it happens (the first end-to-end run, which wrote
+        # the log only in a shutdown hook, ended without a log file; cause not established)
+        e = _emit(*a, **k)
+        try:
+            with open(os.getenv("EXT_EVENT_LOG", "/tmp/ext_recovery_events.log"), "a") as f:
+                f.write(e.to_json() + "\n")
+        except OSError:
+            pass
+        return e
+    runner.log.emit = _emit_and_write
 
     await session.start(room=ctx.room, agent=InCarVoiceAgent())
 
