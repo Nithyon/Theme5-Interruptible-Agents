@@ -1,5 +1,10 @@
 # Video script (3–5 minutes)
 
+> **How to launch (updated 2026-09-30)**
+> - Demo 1 (gate): `bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/demo_gate.sh`, then after Ctrl+C: `bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/demo_show_log.sh`
+> - Demo 2 (extension): `bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/demo_car.sh car` or `bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/demo_car.sh home`
+> - Run these in the Ubuntu (WSL) terminal; they use the laptop microphone. They have **not yet been rehearsed live**.
+
 Per the participant guide: *"a real interruption being handled on the benchmark, then your extension use case"*, and *"unedited single takes are preferred."* Three parts, budgeted ~2 min / ~2 min / ~30s. Grounded in the actual code paths as of 2026-09-29 (`fdb_agent/gate.py`, `gate_agent.py`, `jev.py`, `extension/DESIGN.md`) — every command, file, and event name below is real, not invented for the script.
 
 **One mechanism worth knowing before recording, so the script doesn't overclaim:** `/tmp/gate_events.log` (the full decision trail — `proposed`, `same_tool_again`, `superseded`, `execute`, etc.) is written **once, at session shutdown/close** (`gate_agent.py`'s `_report()`), not streamed line-by-line during the conversation. Only two event kinds print live to the console via Python logging: `superseded` and `duplicate`. So the honest way to show the decision log is: **have the conversation, let the turn finish, then reveal the log** — not a live-updating dashboard. Don't script it as if the log scrolls in real time next to the audio; it doesn't, and claiming otherwise on camera would be the kind of thing that undermines trust in everything else in the video.
@@ -35,6 +40,19 @@ Follows `extension/DESIGN.md`'s demo script directly (same 6 beats, same seed fo
 | **Beat 6 (95–120s)** | Roadside assistance fails (the mock is permanently down) — on the second consecutive failure (`EXT_HANDOFF_AFTER=2` default), agent says *"I've passed this to a human agent, reference HANDOFF-0001"* instead of retrying forever or failing silently. |
 | **Reveal** | `cat /tmp/ext_recovery_events.log \| python -m json.tool` — same "reveal after, not during" pattern as Part 1, for the same reason (`recovery.py`'s `EventLog` is written on shutdown). |
 | **Fallback** | If the charging-station retry doesn't audibly happen within the take (e.g. speech-to-text produces slightly different `near`/`connector_type` text than rehearsal, changing the cache key), just ask for the same station search again on camera — the flaky-then-succeed behavior is keyed per exact argument pair, so a fresh phrasing gets a fresh 2-fail-then-succeed sequence. If the model doesn't naturally re-book on the rollback line, be explicit on camera ("book the Ionity station instead of the Tesla one") — the behavior is triggered by any second `book_charging_slot` call in the same slot, not by specific wording. If `ext_agent.py` itself isn't ready by recording time, this whole part falls back to a voiceover walkthrough of `extension/DESIGN.md`'s architecture diagram and design decisions instead of a live take — say so on camera rather than presenting a mockup as real. |
+
+## Part 2b (optional, ~45 s): Bixby-style home scenario
+
+Same `ext_agent.py` and same recovery layer, different tool pack: `EXT_PACK=home LK_PROVIDER=ext_gemini38 EXT_SEED=0 python extension/ext_agent.py console` (or `demo_car.sh home`). Mock tools, **not a Bixby or SmartThings integration**; say so on camera. Six beats, copied from `extension/README.md` (seed 0):
+
+1. Say: "Set the living room AC to 24 — no, 22." Only 22 is applied; the 24 call is superseded.
+2. Say: "How much energy have I used today?" The assistant says it is still checking while the slow tool runs, then reads the kWh.
+3. Say: "Find my phone." Two internal failures are retried silently; you only hear where it is.
+4. Say: "Start the washer on cotton." One job id is read back. Then say "start the washer on cotton" again: the same job id, no second start.
+5. Say: "Actually, make it eco instead." The cotton job is cancelled first, then the eco job starts (`rollback_and_run` with `cancel_washer` as compensation); the assistant says it cancelled the previous wash and started eco.
+6. Say: "The washer is leaking, call the service centre." The mock line is permanently down, so after two failures the assistant hands off to a human and reads back `HANDOFF-0001`.
+
+**Reveal (after the take, not during):** `cat /tmp/ext_recovery_events.log | python -m json.tool`, same pattern as Parts 1 and 2. The point of the segment: the recovery layer did not change between the car and home packs. Live status is unconfirmed until rehearsed; if it is not run live, use the fallback voiceover over `extension/README.md` and `test_recovery_home.py` output (28 offline tests) and say so.
 
 ## Part 3 — Architecture + results (~30s)
 

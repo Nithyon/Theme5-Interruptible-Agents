@@ -26,6 +26,8 @@ Do not edit `SCORES.md`, `fdb_agent/` or run folders. If a number looks wrong, t
 - Do not claim any latency improvement or any latency figure that is not in SCORES.md (the pipeline's first reply is slower).
 - The judge was **Gemini 2.5 Pro as a stand-in for GPT-4o**, not GPT-4o. Never call the numbers "GPT-4o-judged".
 - Do not compare our numbers with the paper's as like-for-like.
+- Do not say plugins / MCP connectors or a local Gemma model are implemented: both are designed, not built (README "Scalability and what comes next"). Do not say Smart Turn is validated.
+- Do not call the home scenario a Bixby or SmartThings integration: it is a Bixby-style mock scenario, offline-tested (28 tests), on the same recovery layer.
 - Smart Turn is built behind a switch (`GATE_SMART_TURN=1`) with offline tests only; it is NOT validated on real voices and NOT in the benchmark config. Do not claim it improved any score. Escalation to a thinking model and a local fallback are planned only.
 - Retraction, backchannel and identifier-joining rules were added after the final run and are unit-tested only; do not attribute any benchmark result to them. `GATE_LEAN` exists as a switch, is being evaluated on the practice set (run E), and is not in the submitted config.
 - Do not attribute the housing gain to the gate alone (a prompt change was made at the same time, no ablation).
@@ -46,6 +48,7 @@ Do not edit `SCORES.md`, `fdb_agent/` or run folders. If a number looks wrong, t
 ## Known open items (be honest about them)
 - No GPT-4o scoring, no second run for variance, no clean-machine run of `reproduce.sh`.
 - Extension live run and video take depend on someone running `extension/ext_agent.py`.
+- The extension now has two packs (in-car, 36 offline tests; Bixby-style home, 28 offline tests), chosen by `EXT_PACK=car|home`. README has a "Scalability and what comes next" section with a status label per row; deck and video fold it in. Launch commands for the demos are at the top of `VIDEO_SCRIPT.md` (not yet rehearsed live).
 
 
 ## Everything the organizers said (briefing, 2026-09-29) — point by point
@@ -62,7 +65,7 @@ Source of truth: `project-log/meetings/2026-09-29_organizer_briefing_transcript.
 6. **Requirements file** (point 17): organizers asked for an updated "requirements file"; the repo has no `requirements.txt`, only `project-log/runs/env-freeze.txt` (used by `reproduce.sh`). Owner: README polisher to name env-freeze.txt as the requirements file (or lead to add one).
 7. **Plain `GOOGLE_API_KEY` path never smoke-tested** (points 45, 92): our runs used Vertex; the README's default reproduction path is a plain key (OBJECTIVES B2). Owner: user.
 8. **Final full benchmark run with the new config may happen tonight**: if it lands, README, deck and video numbers must be updated from `SCORES.md` (checks in points 33, 50, 65). Owner: lead, then README polisher and deck maker.
-9. **Extension is not a Bixby use case** (point 66): it is an in-car assistant. Optional; do not claim a Bixby link. Owner: deck maker and video.
+9. **Bixby point** (point 66): Bixby-style mock scenario built (home pack), offline-tested; **not a Bixby integration**. Do not claim a Bixby link. Owner: deck maker and video.
 10. **Check the organizers' follow-up PDF and emails** (points 26, 40, 87): a PDF and a possible deadline update were promised. Owner: user.
 11. **Per-recording result JSON files** are being added under each run folder's `per_recording/` (point 30): make sure they are pushed. Owner: lead.
 
@@ -89,7 +92,7 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 7 | Round 2 may raise the compute estimate. | "we will uh increase this estimate uh for the later rounds" | N/A: Round 2 only. | none |
 | 8 | Core goal: stay responsive throughout the conversation. | "you have to stay responsive throughout the conversation" | PARTLY: the pipeline's first reply median is 6.4 s vs 4.00 s for the stock agent (`SCORES.md`). An instant acknowledgement was proposed (OBJECTIVES G1) but is not built. Do not claim a latency win. | none (report honestly) |
 | 9 | All tasks must actually get done. | "You have to make sure that all your tasks are done." | PARTLY: judged 61/100, strict 46/100 (baseline 62 and 50). | none |
-| 10 | Tasks will fail; you must manage that. | "There will be instances where the tasks will fail. You will have to manage that." | PARTLY: the extension has timeout, retry, idempotency and human handoff (35/35 offline tests in `extension/test_recovery.py`) but has not been run live. The benchmark agent has no failure recovery layer. | video (live run) |
+| 10 | Tasks will fail; you must manage that. | "There will be instances where the tasks will fail. You will have to manage that." | PARTLY: the extension has timeout, retry, idempotency and human handoff (36/36 offline tests in `extension/test_recovery.py`; 28 more for the home pack) but has not been run live. The benchmark agent has no failure recovery layer. | video (live run) |
 | 11 | Latency will vary; showing you handle it "will be very good". | "There will be instances where the latency will be variable." | PARTLY: extension narrates slow tools ("still checking") in offline tests only; not shown live. | video |
 | 12 | Tool failures: recover cleanly by retry, closing the session, or human in the loop. | "you can retry, you can close the session, you can move it to human in the loop" | PARTLY: retry and human handoff exist in `extension/recovery.py`, offline tests only. | video |
 | 13 | You may need a LiveKit account for the evaluation script. | "you might have to create a LiveKit account for it" | DONE: LiveKit Cloud used (README, "Declared models / APIs"). Organizers will need their own LiveKit credentials; README lists the variable names. | none |
@@ -99,7 +102,7 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 17 | Code must be runnable; README and requirements file updated. | "make sure that your code are runnable and uh the README and the requirements file" | PARTLY: README done. There is no `requirements.txt`; `project-log/runs/env-freeze.txt` is the frozen environment. Clean-machine run not done. | README polisher, lead |
 | 18 | They may contact you if they cannot run the code. | "we will still reach out to you if uh if we are not able to" | N/A for us, but make sure the form has a contact we read. | user |
 | 19 | Provide good documentation. | "I would recommend that you provide a good documentation around it" | DONE: `README.md`. Needs final polish. | README polisher |
-| 20 | A use-case extension is added as a new part. | "we are adding one part for use case extension" | PARTLY: in-car extension (`extension/`) passes 35/35 offline tests; `ext_agent.py` never run live; mock tools only. | video, user |
+| 20 | A use-case extension is added as a new part. | "we are adding one part for use case extension" | PARTLY: in-car extension (`extension/`) passes 36/36 offline tests (in-car) plus 28 (home pack); `ext_agent.py` never run live; mock tools only. | video, user |
 | 21 | Scores are on the v3 variant only. | "we will be evaluating your scores over the v3 variant only" | DONE: only v3 was run. | none |
 | 22 | You may look at the older variants (v1, v1.5, v2) for understanding and metrics. | "get some understanding and the other metrics from uh the older variants as well" | N/A: optional; not done. | none |
 | 23 | Use cases beyond the benchmark are welcome in the submission. | "if you have certain use cases that, you know, go beyond this benchmark, feel free to include them" | PARTLY: extension exists but is unproven live. | video |
@@ -145,7 +148,7 @@ Owner column: "none" means no action needed. "Lead" is the lead Claude session.
 | 63 | Later they may make the process more transparent and publish scores. | "we'll try to make uh the process more transparent later on" | N/A. | none |
 | 64 | They rerun the code and do not trust numbers; environment must be reproducible. | "we do not believe your numbers" | PARTLY: same as point 16; clean-machine run outstanding. | user |
 | 65 | They will check the run logs you provide and rerun on the same benchmark. | "we will check the logs, whatever run logs you provide" | PARTLY: logs pushed; make sure README and deck numbers match the logs after tonight's possible final run. | lead, README polisher |
-| 66 | Bixby is already integrated at Samsung and is not fully duplex; a Bixby-related use case would be wonderful. | "a use case which relates to Bixby, that is, you know, wonderful for us" | NOT DONE: our extension is an in-car assistant, not Bixby. Optional. | deck maker, video |
+| 66 | Bixby is already integrated at Samsung and is not fully duplex; a Bixby-related use case would be wonderful. | "a use case which relates to Bixby, that is, you know, wonderful for us" | PARTLY: Bixby-style mock home scenario built (`EXT_PACK=home`, 28 offline tests); not a Bixby integration, not run live. | deck maker, video |
 | 67 | The subjective part (use-case extension) is called a percentage; "40%" is inconsistent with 20%. | "come out with flying colors in these this 40%" | unclear in transcript. Every other statement says 60/20/20. Do not use 40%. | none |
 | 68 | The benchmark backing comes first; use cases are the cherry on the cake. A bad integration does not help. | "you are backed by a solid system" | PARTLY: extension is offline-tested only. | video |
 | 69 | A good demo needs the real full-duplex challenges. The sentence is cut off. | "you should also have—because these are real challenges" | unclear in transcript. | video |

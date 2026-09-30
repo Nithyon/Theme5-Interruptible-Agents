@@ -18,11 +18,11 @@ Deck outline for the Theme 05 submission. Every number below is from `project-lo
 
 ## 3. Architecture (diagram described in words)
 - Draw left to right: **user audio** -> **Gemini Live (fast mind: talks)** -> **proposed tool call** -> **commit gate (slow mind)** -> **benchmark tool code** -> **result spoken**
-- Inside the commit gate, a ladder cheapest first: **rules** (quiet 0.9 s / 1.8 s on hesitation, dangling words, draft-call hold) -> **Jev** (typed turn-state and follow-up classifier, rules-only fallback on timeout) -> dashed boxes marked **planned**: **acoustic Smart Turn** and **escalation to a thinking model**
+- Inside the commit gate, a ladder cheapest first: **rules** (quiet 0.9 s / 1.8 s on hesitation, dangling words, draft-call hold) -> **Jev** (typed turn-state and follow-up classifier, rules-only fallback on timeout) -> then **acoustic Smart Turn** (built behind a switch, not validated, not in the benchmark config) and a dashed box marked **planned**: **escalation to a thinking model**
 - Arrow from the gate back to the model for "held / superseded, never executed"; only released calls reach the 12 stock tools and the log
 - Related work, one line each: talker/supervisor split (OpenAI chat-supervisor, LiveKit supervisor blog, LTS-VoiceAgent); cheapest-first deciders (Hybrid LLM, ICLR 2024); change-of-mind taxonomy addition / revision / retraction (Zou et al. 2026)
-- **Speaker notes:** The fast model keeps talking; the gate decides when a proposed action is safe to run. Emphasize nothing is hidden: held or superseded calls are simply never executed, and every executed call is logged by the benchmark's own tool code. Dashed boxes are plans, not built.
-- **Figure:** the mermaid diagram in `README.md`, redrawn with the ladder and the dashed planned boxes
+- **Speaker notes:** The fast model keeps talking; the gate decides when a proposed action is safe to run. Emphasize nothing is hidden: held or superseded calls are simply never executed, and every executed call is logged by the benchmark's own tool code. The dashed box is a plan, not built; Smart Turn is built but not validated.
+- **Figure:** the mermaid diagram in `README.md`, redrawn with the ladder and the dashed planned box
 
 ## 4. The commit gate
 - Hold a call until the user is quiet (0.9 s; 1.8 s after a filler or correction cue); cap any hold at 8 s
@@ -49,20 +49,21 @@ Deck outline for the Theme 05 submission. Every number below is from `project-lo
 - **Speaker notes:** This is the honest limit of a hold-based design and the bridge to the extension. The rollback exists in the extension, not in the benchmark agent.
 - **Figure:** simple timeline: call at t=0, correction at t=+1.4 ... +10.7 s, call already executed
 
-## 7. Extension: in-car recovery
-- Audio-only in-car assistant with mock tools (reroute, traffic, EV charging, roadside), aligned with the organizers' request to show recovery from slow or failing tools
+## 7. Extension: recovery layer, two scenario packs
+- Audio-only assistant with mock tools, aligned with the organizers' request to show recovery from slow or failing tools. **Two packs on one agent and one recovery layer** (`EXT_PACK=car|home`): in-car (reroute, traffic, EV charging, roadside) and a Bixby-style home pack (mock SmartThings-like AC, lights, washer, energy check, find phone, service centre). Mock scenario only, **not a Bixby or SmartThings integration**
 - **Timeout** per attempt; **retry** with backoff for plain failures; a state-changing call that times out is never blindly retried
-- **Idempotency**: same tool + arguments returns the cached result, no double booking
-- **Rollback**: change of mind after a booking succeeded -> cancel the old booking first, then book the new one; if the cancel fails, hand off to a human
-- **Read-back / progress**: "still checking..." while a tool is slow, a spoken summary of what was cancelled and booked, a handoff reference after repeated failures
-- 35/35 offline tests pass; the live LiveKit run is [confirm status with the team before presenting: not run live per the last WORKLOG entry]
-- **Speaker notes:** Tools are deterministic mocks. If the live take is not recorded, say so and show the design and tests instead.
+- **Idempotency**: same tool + arguments returns the cached result, no double booking / double washer start
+- **Rollback**: change of mind after a booking (or washer start) succeeded -> cancel the old one first, then start the new one; if the cancel fails, hand off to a human
+- **Read-back / progress**: "still checking..." while a tool is slow, a spoken summary of what was cancelled and started, a handoff reference after repeated failures
+- **Scales by...** (status labels, keep them on the slide): new tools/plugins (MCP-style) pass through the same gate and recovery layer, *Designed, not built*; new scenarios by swapping tool packs, *Built and tested offline*; rules -> Jev -> stronger model ladder, rules + Jev *Built and benchmarked*, escalation *Designed, not built*; Smart Turn acoustic end-of-turn, *Built, not validated*; graceful degradation (Jev down -> rules, tool down -> retry then human), *Built and tested offline*; on-device Gemma fallback, *Designed, not built* (published evidence only, we ran no local model)
+- 36 (car) + 28 (home) offline tests pass; the live LiveKit run is [confirm status with the team before presenting: not run live per the last WORKLOG entry]
+- **Speaker notes:** Tools are deterministic mocks. The home pack shows the recovery layer is scenario-independent (no change to `recovery.py`), not that we integrated with Bixby. Do not say plugins/MCP or a local Gemma model are implemented, or that Smart Turn is validated. If the live take is not recorded, say so and show the design and tests instead.
 - **Figure:** diagram from `extension/DESIGN.md`, or the demo clip once recorded
 
 ## 8. Reproducibility and next steps
 - `reproduce.sh` reproduces a run from one command; versions pinned in `project-log/runs/env-freeze.txt`; every reported run has its logs in `project-log/runs/`
 - Default path is a plain `GOOGLE_API_KEY` (our own runs used Vertex; the key path is not yet smoke-tested); Jev and the judge are optional and fall back cleanly (rules-only, exact-match)
 - Not yet done: a clean-machine end-to-end run of `reproduce.sh`, a second run for variance, scoring with the GPT-4o judge, practice-set scoring of retraction/backchannel/identifier rules and the `GATE_LEAN` switch
-- Planned, not built: acoustic Smart Turn v3.2 as a third decider, escalation to a thinking model
+- Built but not validated: acoustic Smart Turn v3.2 (`GATE_SMART_TURN=1`, not in the benchmark config). Planned, not built: escalation to a thinking model, plugin/MCP connectors, on-device Gemma fallback
 - **Speaker notes:** Reproducibility gates the benchmark score, so say exactly what was verified. Do not state that planned items exist.
 - **Figure:** none, closing bullet slide

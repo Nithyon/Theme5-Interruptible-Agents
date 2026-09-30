@@ -39,7 +39,7 @@ Added on 2026-09-30, after the final benchmark run (all in `fdb_agent/gate.py`, 
 - **Fast talker + slow thinker split**: our realtime model talks while the gate decides; this follows the same split as the OpenAI Realtime Agents chat-supervisor pattern, the LiveKit supervisor-pattern blog (2026-03-23) and LTS-VoiceAgent (arXiv 2601.19952). Our gate holds every tool call, so a slower check can run inside the hold. The escalation part is **planned, not implemented**.
 - **Decider ladder, cheapest first**: rules, then Jev, in the same spirit as query routing in Hybrid LLM (ICLR 2024, arXiv 2404.14618), which sends easy queries to a cheap model and hard ones to a costly one. We borrow the idea of ordering deciders by cost; we do not reproduce their router.
 - **User change-of-mind taxonomy**: addition / revision / retraction (Zou et al. 2026, arXiv 2604.00892), the basis for our follow-up classes.
-- **Acoustic end-of-turn as a planned third decider**: Smart Turn v3.2 (Pipecat, BSD-2-Clause, ~8M parameters, CPU inference; see `project-log/RESEARCH_SMART_TURN.md`). **Not implemented**; it has not been evaluated on real voices or Indian-English accents.
+- **Acoustic end-of-turn as an optional third decider**: Smart Turn v3.2 (Pipecat, BSD-2-Clause, ~8M parameters, CPU inference; see `project-log/RESEARCH_SMART_TURN.md`). **Built behind `GATE_SMART_TURN=1` (off by default) with offline tests only**; not validated on real voices or Indian-English accents and not in the benchmark configuration.
 
 ## Why this design
 
@@ -180,7 +180,21 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 - **Rollback** when the change of mind arrives *after* the call succeeded: a compensating call (`cancel_charging_booking`) runs first, the new booking only if the compensation succeeded; if compensation fails, it hands off to a human instead of booking a second time.
 - **Read-back / progress**: spoken "still checking..." while a slow tool runs (never a claim of completion), a spoken confirmation of what was cancelled and booked, and a human-handoff reference after repeated failures.
 
-**Status:** the offline core (`recovery.py`, `mock_tools.py`, `test_recovery.py`) passes 35/35 offline tests. The LiveKit agent `extension/ext_agent.py` is written but had **not been run live** as of the last entry in `project-log/WORKLOG.md`; the demo video's extension segment depends on that live run (see `project-log/VIDEO_SCRIPT.md`). The mock tools are deterministic stand-ins, not real vehicle or booking services.
+**Second scenario: Bixby-style home assistant.** The same `ext_agent.py` and the same recovery layer also run a smart-home / device-assistant pack with mock SmartThings-like tools (AC, lights, washer with rollback, energy check, find phone, service-centre handoff). Run: `EXT_PACK=home LK_PROVIDER=ext_gemini38 EXT_SEED=0 python extension/ext_agent.py console` (`EXT_PACK=car` is the default). This is **not** an integration with Bixby or SmartThings and no real device API is called; it shows the recovery layer is scenario-independent, since swapping the tool pack needed no change to `recovery.py`. Details and the six-beat demo are in `extension/README.md`.
+
+**Status:** the offline core (`recovery.py`, `mock_tools.py`, `test_recovery.py`) passes 36/36 offline tests for the in-car pack (28 for the home pack, below). The LiveKit agent `extension/ext_agent.py` is written but had **not been run live** as of the last entry in `project-log/WORKLOG.md`; the demo video's extension segment depends on that live run (see `project-log/VIDEO_SCRIPT.md`). The mock tools are deterministic stand-ins, not real vehicle or booking services.
+
+## Scalability and what comes next
+
+| Capability | How it scales | Status |
+|---|---|---|
+| New tools / plugins (e.g. MCP-style connectors such as Drive, calendar) | Every tool call passes through the same commit gate (hold until the turn settles, supersede, retract, dedupe) and, in the extension, the same recovery layer (timeout, retry with backoff, idempotency, rollback with compensation, human handoff). Adding a tool needs no change to either. No real plugin is wired; the mechanism itself is built. | Designed, not built |
+| New scenarios by swapping tool packs | The extension runs an in-car pack and a Bixby-style home pack (mock SmartThings-like devices) on one agent and one recovery layer via `EXT_PACK=car\|home`. 36 (car) + 28 (home) offline tests pass. Live run status: see `project-log/VIDEO_SCRIPT.md` and `project-log/WORKLOG.md`; we do not claim it ran live here. | Built and tested offline |
+| Decider ladder, cheapest first: rules (free, instant) -> Jev (small typed classifier, 0.8 s timeout, rules fallback) -> stronger thinking model on hard turns | Rules + Jev: built and benchmarked (in the reported configuration). Escalation to a stronger model on hard turns: designed, not built. Lineage only: supervisor pattern and Hybrid LLM, as in "Design lineage" above. | Rules + Jev: Built and benchmarked. Escalation: Designed, not built |
+| Acoustic end-of-turn (Smart Turn v3.2, BSD-2, 8 MB, CPU), `GATE_SMART_TURN=1` | Offline tests with a fake judge pass; the model loads and returns verdicts. Not run in a live room, not validated on real voices, not in the benchmark configuration. | Built, not validated |
+| Graceful degradation | Jev down -> rules; tool down -> retry, then human handoff; a state change that timed out is never auto-retried. The Jev fallback is also exercised in benchmark runs. | Built and tested offline |
+| On-device / offline fallback with a small local model (Gemma family) | We did not run a local model. Evidence is published work only (`project-log/RESEARCH_HYBRID_LOCAL.md`: FunctionGemma 58% -> 85% after fine-tuning; Hybrid LLM). | Designed, not built |
+| Backchannel / retraction / identifier canonicalization / lean gate switches | Unit-tested; practice-set evaluation in progress (run E); not in the reported benchmark configuration. | Built and tested offline |
 
 ## Honest limitations
 
@@ -188,7 +202,7 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 - **Single full run per configuration.** No second run for variance; run-to-run noise on 100 items is not measured, so 61 vs 62 is not a distinguishable difference.
 - **Judge is a stand-in.** All judged numbers use Gemini 2.5 Pro, not the organizers' GPT-4o judge.
 - **Late changes are not fixable by holding** (10 of 10 failed); only undo/rollback addresses them, and that exists in the extension, not in the benchmark agent.
-- **Post-run additions are unscored.** Retraction, identifier canonicalization and backchannel handling were added after the final run (unit-tested only); `GATE_LEAN` is a switch under practice-set evaluation, not in the submitted config. The acoustic end-of-turn decider and escalation to a thinking model are planned, not built.
+- **Post-run additions are unscored.** Retraction, identifier canonicalization and backchannel handling were added after the final run (unit-tested only); `GATE_LEAN` is a switch under practice-set evaluation, not in the submitted config. The acoustic end-of-turn decider (Smart Turn) is built but not validated; escalation to a thinking model is planned, not built.
 - **Identifier canonicalization is an assumption** (single-character separators are speech artefacts).
 - **Cloud-dependent.** The reasoner is a hosted realtime model (Gemini 3.8 Live); no fully local fallback in the current build.
 - **Tuned only on our own synthetic dev set** (`devset/scenarios.jsonl`, plus 12 pause scenarios from a teammate; 62 items in total, Kokoro TTS audio) — never on FDB-v3's own 100 recordings, per the organizers' disqualification rule. Timing constants are our best guess refined on synthetic data.
