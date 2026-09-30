@@ -137,4 +137,4 @@ as executable offline: the result carries `"needs_confirmation": True` and the c
 
 Offline unit tests: `~/theme5/fdb-env/bin/python extension/test_local_fallback.py`.
 
-**Accuracy: not measured yet.**
+**Accuracy (2026-09-30):** measured twice on our 40 test commands (CPU, while the benchmark was running): 11/40 and 13/40 fully correct (27.5% and 32.5%), 0 of 18 in-car commands correct in both runs, 15 to 18 of 40 with no answer. Not usable as built. Both runs were made while a benchmark run was using the machine, against this section's own advice, so repeat on a quiet machine before relying on the numbers. Known causes: runaway generation (fixed by `max_tokens=64`), replies lost in Ollama's parsing of the model's call format (open), wrong argument values from the untuned model (open), server stalls (cause not identified).

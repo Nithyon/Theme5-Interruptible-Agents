@@ -31,7 +31,7 @@ Format: each entry is a short decision record (Context, Decision, Consequence: t
 **Answer:** it is the open, on-device model family from the same vendor as our main model, the organizers prefer it, and FunctionGemma is the variant built for choosing tools.
 - Context: if the cloud is unreachable, a car or appliance should still handle simple commands.
 - Decision: FunctionGemma (300 MB) through Ollama, CPU only. Risky actions (booking, cancelling, starting an appliance) are never executed offline; they come back as "needs confirmation".
-- Evidence: Google reports FunctionGemma at 58% before and 85% after fine-tuning on its Mobile Actions task. **Our own accuracy: not measured yet.** We did not fine-tune.
+- Evidence: Google reports FunctionGemma at 58% before and 85% after fine-tuning on its Mobile Actions task. **Our own result is poor:** measured twice on our 40 test commands (CPU, while the benchmark was running): 11/40 and 13/40 fully correct (27.5% and 32.5%), 0 of 18 in-car commands correct in both runs, 15 to 18 of 40 with no answer. Not usable as built. We did not fine-tune. Part of the loss is our wiring (replies lost between the model and our module), part is the model (wrong values), and the measurement ran under load, so it should be repeated on a quiet machine.
 - Consequence: it is a fallback for the extension only. It is not in the benchmark pipeline and not needed to reproduce our score.
 
 ## 6. Why Smart Turn (the Listener), and is it in the score?
@@ -55,4 +55,4 @@ Format: each entry is a short decision record (Context, Decision, Consequence: t
 **Answer:** one command, `./reproduce.sh`, with pinned package versions and a pinned benchmark commit. It has been run on our development machine only. A clean-folder test found and fixed one install error; the fix has not been re-tested yet.
 
 ## 11. What is not done?
-Plugins (MCP): a local mock plugin runs through the recovery layer in 19 offline checks; not attached to the live voice agent, no real plugin wired. Escalation to a stronger model on hard turns: designed, not built. Local fallback accuracy: not measured. Listener: not validated.
+Plugins (MCP): a local mock plugin runs through the recovery layer in 19 offline checks; not attached to the live voice agent, no real plugin wired. Escalation to a stronger model on hard turns: designed, not built. Local fallback: measured at 27.5% and 32.5% fully correct in two runs, not usable yet. Listener: not validated.

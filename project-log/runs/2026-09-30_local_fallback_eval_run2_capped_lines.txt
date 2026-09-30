@@ -1,0 +1,60 @@
+X    1.48s  'Navigate to the airport' -> {'tool': 'check_traffic', 'args': {}}
+X    0.11s  'Take me to 45 Oak Street' -> None
+X    0.13s  'Change the destination to the central station' -> None
+X    0.45s  'Reroute to the mall, no, the train station' -> {'tool': None}
+T    0.63s  'Navigate to the office' -> {'tool': 'reroute_navigation', 'args': {'destination': ' office location'}}
+X    0.62s  'Check the traffic on my current route' -> None
+X    0.41s  'How is the traffic ahead right now' -> {'tool': None}
+X    0.35s  'Is there heavy traffic on the route' -> {'tool': None}
+X    0.08s  'Check traffic please' -> None
+X    0.16s  'Find a charging station near downtown with a CCS connector' -> None
+X    8.00s  'I need an EV charger near the airport, NACS' -> None
+X    8.00s  'Look for a charging station near the mall, CCS' -> None
+X    8.00s  'Find a charger near downtown, CCS, no, NACS' -> None
+X    8.00s  'Book charging station CHG-001 at 18:00' -> None
+X    8.00s  'Reserve a slot at CHG-042 for 09:30' -> None
+X    8.00s  'Book CHG-007 at 18:00, no, 19:00' -> None
+X    1.62s  'Call roadside assistance, I have a flat tire' -> None
+T    0.61s  "Get roadside help, the car won't start" -> {'tool': 'call_roadside_assistance', 'args': {'issue': " car won't start"}, 'needs_confirmation': True}
+OK   0.48s  'Good morning, how are you today?' -> {'tool': None}
+OK   0.41s  'Tell me a joke about cars' -> {'tool': None}
+X    0.95s  'Set the bedroom AC to 23' -> None
+T    0.52s  'Make the living room AC 21 degrees' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 24, 'room': ' living room '}}
+OK   0.42s  'Set the kitchen AC to 24, no, 22' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 22, 'room': ' kitchen '}}
+T    0.42s  'Set the bedroom AC to 26, sorry, 25' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 26, 'room': ' bedroom '}}
+T    0.54s  'Set the study AC to 20' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 24, 'room': ' study '}}
+OK   0.60s  'Turn off the living room lights' -> {'tool': 'set_lights', 'args': {'brightness': 0, 'room': ' living room', 'state': ' off'}}
+OK   0.60s  'Turn on the bedroom lights' -> {'tool': 'set_lights', 'args': {'brightness': 100, 'room': ' bedroom', 'state': ' on '}}
+X    0.46s  'Set the kitchen lights on at 40 percent brightness' -> None
+T    0.61s  'Turn on the hallway lights, no, off' -> {'tool': 'set_lights', 'args': {'brightness': 100, 'room': ' hallway', 'state': ' on '}}
+OK   0.60s  'Start the washer on the cotton cycle' -> {'tool': 'start_washer', 'args': {'cycle': ' cotton'}, 'needs_confirmation': True}
+T    0.28s  'Run the eco cycle on the washer in 30 minutes' -> {'tool': 'start_washer', 'args': {'cycle': ' eco '}, 'needs_confirmation': True}
+OK   0.61s  'Start the washer on eco' -> {'tool': 'start_washer', 'args': {'cycle': ' eco '}, 'needs_confirmation': True}
+X    0.62s  'How much energy did we use today?' -> None
+T    0.13s  'Check my energy usage this week' -> {'tool': 'check_energy_usage', 'args': {}}
+OK   0.17s  'Find my phone' -> {'tool': 'find_phone', 'args': {}}
+OK   0.11s  'Where is my phone? Ring it' -> {'tool': 'find_phone', 'args': {}}
+OK   0.63s  'Call the service centre, the washer is leaking' -> {'tool': 'call_service_center', 'args': {'issue': ' washer leaking'}, 'needs_confirmation': True}
+OK   0.46s  'Contact the service center, the fridge is making noise' -> {'tool': 'call_service_center', 'args': {'issue': ' fridge making noise'}, 'needs_confirmation': True}
+OK   0.32s  'Thanks, that is all for now' -> {'tool': None}
+OK   0.49s  'What is the capital of France?' -> {'tool': None}
+
+=== SUMMARY ===
+model: functiongemma
+mode: tools
+n: 40
+timeout_s: 8.0
+errors_or_timeouts: 15
+tool_selection_acc_pct: 52.5
+exact_args_acc_pct: 32.5
+self_correction_n: 6
+self_correction_exact_acc_pct: 16.7
+no_tool_precision_pct: 57.1
+no_tool_recall_pct: 100.0
+latency_mean_s: 1.627
+latency_median_s: 0.533
+latency_p95_s: 8.0
+report: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-30_local_fallback_eval.json
+ollama stopped
+
+[exited with code 0]

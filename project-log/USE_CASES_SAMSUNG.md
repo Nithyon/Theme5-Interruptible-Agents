@@ -35,7 +35,7 @@ Each row: what the user says, what goes wrong today in a plain voice model, whic
 
 - Supported: on the 100-recording benchmark (Gemini 2.5 Pro as stand-in judge) our pipeline scored 61 and the stock agent 62 overall; ours was better on self-corrections (0.529 vs 0.471), 3-request turns (0.375 vs 0.312) and the housing domain (0.346 vs 0.192), and worse on shopping (0.586 vs 0.759) and pauses (0.50 vs 0.611).
 - Supported: the first reply was slower with our pipeline (median 6.4 s vs 4.0 s). The lean setting in the run now in progress is meant to reduce this; no number yet.
-- Not supported: any claim that we beat the stock agent overall, any claim about real Samsung devices, and any accuracy figure for the local fallback model (not measured yet).
+- Not supported: any claim that we beat the stock agent overall, any claim about real Samsung devices, and any claim that the local fallback model works (measured 11/40 and 13/40 fully correct, not usable yet).
 - Known limit: when the user changes their mind after the action has already run (10 benchmark cases, 1.4 to 10.7 s later), holding cannot help. That is what rollback in the extension is for (rows 1 and 8).
 
 ## Why the scale matters (one careful sentence for the deck)
