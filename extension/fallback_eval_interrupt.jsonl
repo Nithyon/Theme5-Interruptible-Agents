@@ -1,0 +1,37 @@
+{"pack": "home", "kind": "correct_value", "text": "Set the bedroom AC to 24, no, 21", "expect_tool": "set_ac_temperature", "expect_args": {"room": "bedroom", "celsius": 21}}
+{"pack": "home", "kind": "correct_value", "text": "Make the kitchen AC 19, sorry, I mean 23", "expect_tool": "set_ac_temperature", "expect_args": {"room": "kitchen", "celsius": 23}}
+{"pack": "home", "kind": "correct_value", "text": "Dim the bedroom lights to 20 percent, no, 50 percent", "expect_tool": "set_lights", "expect_args": {"room": "bedroom", "state": "on", "brightness": 50}}
+{"pack": "home", "kind": "correct_value", "text": "Run the washer on cotton, no wait, eco", "expect_tool": "start_washer", "expect_args": {"cycle": "eco"}}
+{"pack": "car", "kind": "correct_value", "text": "Book CHG-012 at 17:00, no, 17:30", "expect_tool": "book_charging_slot", "expect_args": {"station_id": "CHG-012", "time_slot": "17:30"}}
+{"pack": "car", "kind": "correct_value", "text": "Find a charger near the mall with NACS, no, sorry, CCS", "expect_tool": "find_charging_station", "expect_args": {"near": "the mall", "connector_type": "CCS"}}
+{"pack": "home", "kind": "correct_place", "text": "Turn off the kitchen lights, no, the bedroom lights", "expect_tool": "set_lights", "expect_args": {"room": "bedroom", "state": "off"}}
+{"pack": "home", "kind": "correct_place", "text": "Set the living room AC to 22, actually make that the study", "expect_tool": "set_ac_temperature", "expect_args": {"room": "study", "celsius": 22}}
+{"pack": "car", "kind": "correct_place", "text": "Navigate to the airport, no, sorry, the train station", "expect_tool": "reroute_navigation", "expect_args": {"destination": "the train station"}}
+{"pack": "car", "kind": "correct_place", "text": "Take me to the office, actually, take me home", "expect_tool": "reroute_navigation", "expect_args": {"destination": "home"}}
+{"pack": "home", "kind": "change_action", "text": "Find my phone, no wait, check how much energy we used today", "expect_tool": "check_energy_usage", "expect_args": {"period": "today"}}
+{"pack": "home", "kind": "change_action", "text": "Start the washer on eco, actually, just turn off the kitchen lights", "expect_tool": "set_lights", "expect_args": {"room": "kitchen", "state": "off"}}
+{"pack": "car", "kind": "change_action", "text": "Check the traffic, no, find a charging station near downtown, CCS", "expect_tool": "find_charging_station", "expect_args": {"near": "downtown", "connector_type": "CCS"}}
+{"pack": "car", "kind": "change_action", "text": "Navigate to the mall, hmm, actually just check the traffic ahead", "expect_tool": "check_traffic", "expect_args": {}}
+{"pack": "home", "kind": "cancel", "text": "Start the washer on cotton, never mind, don't", "expect_tool": null, "expect_args": {}}
+{"pack": "home", "kind": "cancel", "text": "Set the bedroom AC to 18, oh forget it", "expect_tool": null, "expect_args": {}}
+{"pack": "home", "kind": "cancel", "text": "Turn off the living room lights, wait, no, leave them as they are", "expect_tool": null, "expect_args": {}}
+{"pack": "car", "kind": "cancel", "text": "Book CHG-003 at 20:00, actually cancel that, I'll do it later", "expect_tool": null, "expect_args": {}}
+{"pack": "car", "kind": "cancel", "text": "Reroute to the airport, never mind, keep the current route", "expect_tool": null, "expect_args": {}}
+{"pack": "car", "kind": "cancel", "text": "Call roadside assistance, oh, it started, never mind", "expect_tool": null, "expect_args": {}}
+{"pack": "home", "kind": "hesitation", "text": "Um, can you, uh, set the living room AC to, like, 23", "expect_tool": "set_ac_temperature", "expect_args": {"room": "living room", "celsius": 23}}
+{"pack": "home", "kind": "hesitation", "text": "Turn on the, uh, the, um, hallway lights", "expect_tool": "set_lights", "expect_args": {"room": "hallway", "state": "on"}}
+{"pack": "home", "kind": "hesitation", "text": "Start the washer on, hmm, let me think, eco", "expect_tool": "start_washer", "expect_args": {"cycle": "eco"}}
+{"pack": "car", "kind": "hesitation", "text": "Take me to, er, what's it called, the central station", "expect_tool": "reroute_navigation", "expect_args": {"destination": "the central station"}}
+{"pack": "car", "kind": "hesitation", "text": "Find a charger near, um, downtown, the, uh, CCS kind", "expect_tool": "find_charging_station", "expect_args": {"near": "downtown", "connector_type": "CCS"}}
+{"pack": "home", "kind": "not_a_correction", "text": "Set the bedroom AC to 22, no rush", "expect_tool": "set_ac_temperature", "expect_args": {"room": "bedroom", "celsius": 22}}
+{"pack": "home", "kind": "not_a_correction", "text": "No, I don't need the AC, just turn on the kitchen lights", "expect_tool": "set_lights", "expect_args": {"room": "kitchen", "state": "on"}}
+{"pack": "home", "kind": "not_a_correction", "text": "Sorry to bother you, can you start the washer on eco", "expect_tool": "start_washer", "expect_args": {"cycle": "eco"}}
+{"pack": "car", "kind": "not_a_correction", "text": "Navigate to the airport, no stops on the way", "expect_tool": "reroute_navigation", "expect_args": {"destination": "the airport"}}
+{"pack": "car", "kind": "not_a_correction", "text": "Sorry, could you check the traffic on my route", "expect_tool": "check_traffic", "expect_args": {}}
+{"pack": "home", "kind": "double_correction", "text": "Set the kitchen AC to 20, no, 24, no, sorry, 22", "expect_tool": "set_ac_temperature", "expect_args": {"room": "kitchen", "celsius": 22}}
+{"pack": "car", "kind": "double_correction", "text": "Book CHG-005 at 18:00, no, 19:00, actually no, 18:30", "expect_tool": "book_charging_slot", "expect_args": {"station_id": "CHG-005", "time_slot": "18:30"}}
+{"pack": "home", "kind": "double_correction", "text": "Turn on the bedroom lights, no, off, wait, on at 30 percent", "expect_tool": "set_lights", "expect_args": {"room": "bedroom", "state": "on", "brightness": 30}}
+{"pack": "home", "kind": "correction_then_cancel", "text": "Set the study AC to 21, no, 20, actually never mind", "expect_tool": null, "expect_args": {}}
+{"pack": "car", "kind": "correction_then_cancel", "text": "Navigate to the mall, no, the office, oh forget it, stay on this route", "expect_tool": null, "expect_args": {}}
+{"pack": "home", "kind": "cancel_then_new", "text": "Never mind the washer, set the living room AC to 24 instead", "expect_tool": "set_ac_temperature", "expect_args": {"room": "living room", "celsius": 24}}
+{"pack": "car", "kind": "cancel_then_new", "text": "Forget the charger, just navigate to the office", "expect_tool": "reroute_navigation", "expect_args": {"destination": "the office"}}

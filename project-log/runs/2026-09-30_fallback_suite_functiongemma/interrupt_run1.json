@@ -1,0 +1,687 @@
+{
+  "summary": {
+    "n": 37,
+    "right_tool": 18,
+    "fully_correct": 13,
+    "should_act_n": 29,
+    "stayed_out_correctly": 0,
+    "should_not_act_n": 8,
+    "acted_when_it_should_not": 7,
+    "self_corrections_correct": 6,
+    "self_corrections_n": 16,
+    "no_answer": 5,
+    "latency_median_s": 0.74,
+    "latency_p95_s": 0.85,
+    "by_kind": {
+      "correct_value": "2/6",
+      "correct_place": "1/4",
+      "change_action": "1/4",
+      "cancel": "0/6",
+      "hesitation": "3/5",
+      "not_a_correction": "4/5",
+      "double_correction": "1/3",
+      "correction_then_cancel": "0/2",
+      "cancel_then_new": "1/2"
+    }
+  },
+  "results": [
+    {
+      "pack": "home",
+      "kind": "correct_value",
+      "text": "Set the bedroom AC to 24, no, 21",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "bedroom",
+        "celsius": 21
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 21,
+          "room": " bedroom "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 2.088
+    },
+    {
+      "pack": "home",
+      "kind": "correct_value",
+      "text": "Make the kitchen AC 19, sorry, I mean 23",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "kitchen",
+        "celsius": 23
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 23,
+          "room": " living room "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 0.79
+    },
+    {
+      "pack": "home",
+      "kind": "correct_value",
+      "text": "Dim the bedroom lights to 20 percent, no, 50 percent",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "bedroom",
+        "state": "on",
+        "brightness": 50
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 50,
+          "room": " bedroom",
+          "state": " on "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.802
+    },
+    {
+      "pack": "home",
+      "kind": "correct_value",
+      "text": "Run the washer on cotton, no wait, eco",
+      "expect_tool": "start_washer",
+      "expect_args": {
+        "cycle": "eco"
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": " cotton"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 0.365
+    },
+    {
+      "pack": "car",
+      "kind": "correct_value",
+      "text": "Book CHG-012 at 17:00, no, 17:30",
+      "expect_tool": "book_charging_slot",
+      "expect_args": {
+        "station_id": "CHG-012",
+        "time_slot": "17:30"
+      },
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.847
+    },
+    {
+      "pack": "car",
+      "kind": "correct_value",
+      "text": "Find a charger near the mall with NACS, no, sorry, CCS",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "the mall",
+        "connector_type": "CCS"
+      },
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.359
+    },
+    {
+      "pack": "home",
+      "kind": "correct_place",
+      "text": "Turn off the kitchen lights, no, the bedroom lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "bedroom",
+        "state": "off"
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 0,
+          "room": " bedroom",
+          "state": " off"
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.797
+    },
+    {
+      "pack": "home",
+      "kind": "correct_place",
+      "text": "Set the living room AC to 22, actually make that the study",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "study",
+        "celsius": 22
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 22,
+          "room": " living room "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 0.616
+    },
+    {
+      "pack": "car",
+      "kind": "correct_place",
+      "text": "Navigate to the airport, no, sorry, the train station",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the train station"
+      },
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.503
+    },
+    {
+      "pack": "car",
+      "kind": "correct_place",
+      "text": "Take me to the office, actually, take me home",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "home"
+      },
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.644
+    },
+    {
+      "pack": "home",
+      "kind": "change_action",
+      "text": "Find my phone, no wait, check how much energy we used today",
+      "expect_tool": "check_energy_usage",
+      "expect_args": {
+        "period": "today"
+      },
+      "got": {
+        "tool": "find_phone",
+        "args": {}
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.791
+    },
+    {
+      "pack": "home",
+      "kind": "change_action",
+      "text": "Start the washer on eco, actually, just turn off the kitchen lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "kitchen",
+        "state": "off"
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": " eco "
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.425
+    },
+    {
+      "pack": "car",
+      "kind": "change_action",
+      "text": "Check the traffic, no, find a charging station near downtown, CCS",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "downtown",
+        "connector_type": "CCS"
+      },
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.258
+    },
+    {
+      "pack": "car",
+      "kind": "change_action",
+      "text": "Navigate to the mall, hmm, actually just check the traffic ahead",
+      "expect_tool": "check_traffic",
+      "expect_args": {},
+      "got": {
+        "tool": "check_traffic",
+        "args": {}
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.15
+    },
+    {
+      "pack": "home",
+      "kind": "cancel",
+      "text": "Start the washer on cotton, never mind, don't",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": " cotton"
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.766
+    },
+    {
+      "pack": "home",
+      "kind": "cancel",
+      "text": "Set the bedroom AC to 18, oh forget it",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 18,
+          "room": " bedroom "
+        }
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 1.037
+    },
+    {
+      "pack": "home",
+      "kind": "cancel",
+      "text": "Turn off the living room lights, wait, no, leave them as they are",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 0,
+          "room": " living room",
+          "state": " off"
+        }
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.749
+    },
+    {
+      "pack": "car",
+      "kind": "cancel",
+      "text": "Book CHG-003 at 20:00, actually cancel that, I'll do it later",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "book_charging_slot",
+        "args": {
+          "station_id": " CHG-003",
+          "time_slot": 20
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.766
+    },
+    {
+      "pack": "car",
+      "kind": "cancel",
+      "text": "Reroute to the airport, never mind, keep the current route",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "reroute_navigation",
+        "args": {
+          "destination": " airport"
+        }
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.732
+    },
+    {
+      "pack": "car",
+      "kind": "cancel",
+      "text": "Call roadside assistance, oh, it started, never mind",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.747
+    },
+    {
+      "pack": "home",
+      "kind": "hesitation",
+      "text": "Um, can you, uh, set the living room AC to, like, 23",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "living room",
+        "celsius": 23
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 23,
+          "room": " living room "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.551
+    },
+    {
+      "pack": "home",
+      "kind": "hesitation",
+      "text": "Turn on the, uh, the, um, hallway lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "hallway",
+        "state": "on"
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 100,
+          "room": " hallway",
+          "state": " on "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.732
+    },
+    {
+      "pack": "home",
+      "kind": "hesitation",
+      "text": "Start the washer on, hmm, let me think, eco",
+      "expect_tool": "start_washer",
+      "expect_args": {
+        "cycle": "eco"
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": " eco "
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.37
+    },
+    {
+      "pack": "car",
+      "kind": "hesitation",
+      "text": "Take me to, er, what's it called, the central station",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the central station"
+      },
+      "got": {
+        "tool": null
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.219
+    },
+    {
+      "pack": "car",
+      "kind": "hesitation",
+      "text": "Find a charger near, um, downtown, the, uh, CCS kind",
+      "expect_tool": "find_charging_station",
+      "expect_args": {
+        "near": "downtown",
+        "connector_type": "CCS"
+      },
+      "got": null,
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.304
+    },
+    {
+      "pack": "home",
+      "kind": "not_a_correction",
+      "text": "Set the bedroom AC to 22, no rush",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "bedroom",
+        "celsius": 22
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 22,
+          "room": " bedroom "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.754
+    },
+    {
+      "pack": "home",
+      "kind": "not_a_correction",
+      "text": "No, I don't need the AC, just turn on the kitchen lights",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "kitchen",
+        "state": "on"
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 100,
+          "room": " kitchen",
+          "state": " on "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.708
+    },
+    {
+      "pack": "home",
+      "kind": "not_a_correction",
+      "text": "Sorry to bother you, can you start the washer on eco",
+      "expect_tool": "start_washer",
+      "expect_args": {
+        "cycle": "eco"
+      },
+      "got": {
+        "tool": "start_washer",
+        "args": {
+          "cycle": " eco "
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.739
+    },
+    {
+      "pack": "car",
+      "kind": "not_a_correction",
+      "text": "Navigate to the airport, no stops on the way",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the airport"
+      },
+      "got": {
+        "tool": "check_traffic",
+        "args": {}
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.142
+    },
+    {
+      "pack": "car",
+      "kind": "not_a_correction",
+      "text": "Sorry, could you check the traffic on my route",
+      "expect_tool": "check_traffic",
+      "expect_args": {},
+      "got": {
+        "tool": "check_traffic",
+        "args": {
+          "route_id": 438
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.725
+    },
+    {
+      "pack": "home",
+      "kind": "double_correction",
+      "text": "Set the kitchen AC to 20, no, 24, no, sorry, 22",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "kitchen",
+        "celsius": 22
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 24,
+          "room": " kitchen "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 0.559
+    },
+    {
+      "pack": "car",
+      "kind": "double_correction",
+      "text": "Book CHG-005 at 18:00, no, 19:00, actually no, 18:30",
+      "expect_tool": "book_charging_slot",
+      "expect_args": {
+        "station_id": "CHG-005",
+        "time_slot": "18:30"
+      },
+      "got": {
+        "tool": "book_charging_slot",
+        "args": {
+          "station_id": " CHG-005",
+          "time_slot": 18
+        },
+        "needs_confirmation": true
+      },
+      "tool_ok": true,
+      "args_ok": false,
+      "latency_s": 0.84
+    },
+    {
+      "pack": "home",
+      "kind": "double_correction",
+      "text": "Turn on the bedroom lights, no, off, wait, on at 30 percent",
+      "expect_tool": "set_lights",
+      "expect_args": {
+        "room": "bedroom",
+        "state": "on",
+        "brightness": 30
+      },
+      "got": {
+        "tool": "set_lights",
+        "args": {
+          "brightness": 30,
+          "room": " bedroom",
+          "state": " on "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.739
+    },
+    {
+      "pack": "home",
+      "kind": "correction_then_cancel",
+      "text": "Set the study AC to 21, no, 20, actually never mind",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 21,
+          "room": " study "
+        }
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.776
+    },
+    {
+      "pack": "car",
+      "kind": "correction_then_cancel",
+      "text": "Navigate to the mall, no, the office, oh forget it, stay on this route",
+      "expect_tool": null,
+      "expect_args": {},
+      "got": {
+        "tool": "find_charging_station",
+        "args": {
+          "connector_type": " CCS",
+          "near": " mall"
+        }
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.782
+    },
+    {
+      "pack": "home",
+      "kind": "cancel_then_new",
+      "text": "Never mind the washer, set the living room AC to 24 instead",
+      "expect_tool": "set_ac_temperature",
+      "expect_args": {
+        "room": "living room",
+        "celsius": 24
+      },
+      "got": {
+        "tool": "set_ac_temperature",
+        "args": {
+          "celsius": 24,
+          "room": " living room "
+        }
+      },
+      "tool_ok": true,
+      "args_ok": true,
+      "latency_s": 0.789
+    },
+    {
+      "pack": "car",
+      "kind": "cancel_then_new",
+      "text": "Forget the charger, just navigate to the office",
+      "expect_tool": "reroute_navigation",
+      "expect_args": {
+        "destination": "the office"
+      },
+      "got": {
+        "tool": "find_charging_station",
+        "args": {
+          "connector_type": " CCS",
+          "near": " office"
+        }
+      },
+      "tool_ok": false,
+      "args_ok": false,
+      "latency_s": 0.791
+    }
+  ]
+}

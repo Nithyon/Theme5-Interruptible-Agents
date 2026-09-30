@@ -5,6 +5,11 @@ Sets (both small text files, nothing to download):
   slurp  extension/fallback_eval_slurp.jsonl  111 real user requests from the SLURP test set:
                                               51 light-control (expect set_lights, right on/off)
                                               60 our tools cannot serve (expect no tool)
+  interrupt  extension/fallback_eval_interrupt.jsonl  37 commands we wrote, the way people interrupt
+                                              themselves: corrected values and places, a changed
+                                              action, "never mind" (expect no tool), hesitations,
+                                              words like "no rush" that are NOT corrections, double
+                                              corrections. Scored per kind in summary.md.
 
 Needs a running Ollama with the model pulled. Example:
     python extension/fallback_suite.py --model gemma4:26b-a4b-it-qat --runs 3 --timeout 30
@@ -23,7 +28,8 @@ from eval_fallback import SELF_CORRECT, args_match, p95
 from local_fallback import OLLAMA_URL, TOOL_SETS, LocalFallback
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SETS = {"own": "fallback_eval.jsonl", "slurp": "fallback_eval_slurp.jsonl"}
+SETS = {"own": "fallback_eval.jsonl", "slurp": "fallback_eval_slurp.jsonl",
+        "interrupt": "fallback_eval_interrupt.jsonl"}
 
 
 def machine(url: str, model: str) -> dict:
@@ -82,7 +88,9 @@ def summarise(res: list) -> dict:
             "acted_when_it_should_not": sum(1 for x in none if x["got"] and x["got"].get("tool")),
             "self_corrections_correct": sum(x["args_ok"] for x in sc), "self_corrections_n": len(sc),
             "no_answer": sum(x["got"] is None for x in res),
-            "latency_median_s": round(statistics.median(lat), 2), "latency_p95_s": round(p95(lat), 2)}
+            "latency_median_s": round(statistics.median(lat), 2), "latency_p95_s": round(p95(lat), 2),
+            "by_kind": {k: f"{sum(x['args_ok'] for x in res if x.get('kind') == k)}/{sum(1 for x in res if x.get('kind') == k)}"
+                        for k in dict.fromkeys(x["kind"] for x in res if x.get("kind"))}}
 
 
 def main() -> None:
@@ -90,7 +98,7 @@ def main() -> None:
     ap.add_argument("--model", required=True)
     ap.add_argument("--runs", type=int, default=3)
     ap.add_argument("--timeout", type=float, default=30.0)
-    ap.add_argument("--sets", default="own,slurp")
+    ap.add_argument("--sets", default="own,slurp,interrupt")
     ap.add_argument("--mode", default="tools", choices=["tools", "json"])
     ap.add_argument("--url", default=OLLAMA_URL)
     ap.add_argument("--limit", type=int, default=None, help="first N commands of each set (quick check)")
@@ -133,8 +141,13 @@ def main() -> None:
                       f"{s['stayed_out_correctly']}/{s['should_not_act_n']} | {s['self_corrections_correct']}/{s['self_corrections_n']} | "
                       f"{s['no_answer']} | {s['latency_median_s']} s |")
         md.append(f"| {name} | | commands whose outcome changed between runs: {v['commands_with_different_outcome_across_runs']} | | | | | |")
+    for name, v in summary["sets"].items():
+        for i, s in enumerate(v["runs"], 1):
+            if s["by_kind"]:
+                md += ["", f"{name}, run {i}, fully correct by kind: " + ", ".join(f"{k} {n}" for k, n in s["by_kind"].items())]
     md += ["", "own = 40 commands we wrote. slurp = 111 real requests from the SLURP test set (51 light control, 60 that none of "
-           "our tools can serve); the mapping from SLURP intent to our tool is ours. Typed text, no audio."]
+           "our tools can serve); the mapping from SLURP intent to our tool is ours. interrupt = 37 commands we wrote with "
+           "mid-sentence corrections, cancellations, hesitations and false alarms. Typed text, no audio."]
     open(os.path.join(out, "summary.md"), "w", encoding="utf-8").write("\n".join(md) + "\n")
     print("\n" + "\n".join(md)); print("\nfolder:", out)
 

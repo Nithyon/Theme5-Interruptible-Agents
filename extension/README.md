@@ -226,3 +226,31 @@ python extension/fallback_suite.py --model gemma4:26b-a4b-it-qat --runs 3 --time
 - Output folder `project-log/runs/<date>_fallback_suite_<model>/`: `machine.json` (CPU, RAM, Ollama version, tokens per second), one result file per set and run with every command and the model's answer, `summary.md` with a table.
 - Time: about 5 s per command on a CPU-only laptop, so about 13 minutes per run of both sets. `--runs 1` for a single pass, `--sets slurp` for one set, `--limit 10` for a quick check.
 - The mapping from SLURP intent to our tool is ours (`make_fallback_slurp.py`); room and brightness are not scored because most requests name no room. Typed text, no audio.
+
+## Local fallback on Aryan's laptop (30 September, 22:07 to 22:30 IST)
+
+Measured by Aryan with `extension/fallback_suite.py`, one run, typed text.
+
+**Device.** Intel Core Ultra 7 258V laptop (8 cores), 32 GB RAM, no discrete or NVIDIA GPU (the integrated Arc
+graphics shares system RAM; Ollama placed 8.3 GB of the model there). Linux (CachyOS), Ollama 0.32.14. Model
+`gemma4:26b-a4b-it-qat` (25.2B parameters, Q4_0, 15.9 GB loaded). 16.4 tokens per second as measured by the suite.
+Details: `project-log/runs/2026-09-30_fallback_suite_gemma4_26b-a4b-it-qat/machine.json` and `machine_note.txt`.
+
+| Set | Right tool | Right tool and values | Stayed out when no tool fits | Self-corrections | No answer | Median time |
+|---|---|---|---|---|---|---|
+| Our 40 commands | 36/36 | 34/36 | 4/4 | 6/6 | 0 | 5.6 s |
+| 111 real SLURP requests | 46/51 | 45/51 (right on/off) | 60/60 | n/a | 0 | 6.0 s |
+
+- It never acted on a request none of our tools can serve (60 of 60), which matters most for a fallback that runs
+  without the cloud.
+- The 8 misses: 2 requests asking for something the tool cannot do (a scheduled time, a colour), 2 vague wordings
+  ("and the darkness has fallen"), 2 in our own set where the model's free text ("the car won't start") did not
+  exactly match our expected text ("won't start"), 1 request about a screen that SLURP labels as lights, and 1 real
+  error: "no lights in the kitchen" turned the lights on. The exact-text and mislabelled cases are arguably scoring
+  artefacts; we report the measured score, not an adjusted one.
+- One run only: three runs would not have finished before the deadline, so stability across runs is not measured.
+- It is not wired into the voice agent and is not part of the benchmark score.
+- A third set, `fallback_eval_interrupt.jsonl` (37 commands we wrote: corrected values, "never mind", hesitations,
+  "no rush"), was added after this run and has not been run with Gemma 4. The small FunctionGemma on our desktop scores
+  13 of 29 on its action commands and stays out on 0 of 8 cancellations
+  (`project-log/runs/2026-09-30_fallback_suite_functiongemma/`).

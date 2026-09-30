@@ -1,0 +1,54 @@
+{
+  "model": "functiongemma",
+  "mode": "tools",
+  "timeout_s": 15.0,
+  "machine": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count": 24,
+    "python": "3.10.21",
+    "ram_gb": 16.1,
+    "cpu": "Intel(R) Core(TM) Ultra 9 275HX",
+    "ollama_version": "0.35.0",
+    "model_details": {
+      "family": "gemma3",
+      "parameter_size": "268.10M",
+      "quantization_level": "Q8_0"
+    },
+    "tokens_per_second": 68.1,
+    "loaded_gb": 0.3,
+    "on_gpu_gb": 0.0
+  },
+  "sets": {
+    "interrupt": {
+      "runs": [
+        {
+          "n": 37,
+          "right_tool": 18,
+          "fully_correct": 13,
+          "should_act_n": 29,
+          "stayed_out_correctly": 0,
+          "should_not_act_n": 8,
+          "acted_when_it_should_not": 7,
+          "self_corrections_correct": 6,
+          "self_corrections_n": 16,
+          "no_answer": 5,
+          "latency_median_s": 0.74,
+          "latency_p95_s": 0.85,
+          "by_kind": {
+            "correct_value": "2/6",
+            "correct_place": "1/4",
+            "change_action": "1/4",
+            "cancel": "0/6",
+            "hesitation": "3/5",
+            "not_a_correction": "4/5",
+            "double_correction": "1/3",
+            "correction_then_cancel": "0/2",
+            "cancel_then_new": "1/2"
+          }
+        }
+      ],
+      "commands_with_different_outcome_across_runs": 0
+    }
+  }
+}

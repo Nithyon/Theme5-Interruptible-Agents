@@ -1,0 +1,17 @@
+{
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "cpu_count": 24,
+  "python": "3.10.21",
+  "ram_gb": 16.1,
+  "cpu": "Intel(R) Core(TM) Ultra 9 275HX",
+  "ollama_version": "0.35.0",
+  "model_details": {
+    "family": "gemma3",
+    "parameter_size": "268.10M",
+    "quantization_level": "Q8_0"
+  },
+  "tokens_per_second": 68.1,
+  "loaded_gb": 0.3,
+  "on_gpu_gb": 0.0
+}
