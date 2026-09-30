@@ -79,6 +79,9 @@ class GatedVoiceAgent(stock.VoiceAgent):
 server = stock.AgentServer()
 
 
+LOG_DIR = os.getenv("GATE_LOG_DIR", "/tmp")     # demos write elsewhere so they never touch a run's logs
+
+
 @server.rtc_session()
 async def entrypoint(ctx: agents.JobContext):
     tracker = stock.LatencyTracker()
@@ -124,11 +127,11 @@ async def entrypoint(ctx: agents.JobContext):
         if reported:
             return
         reported.append(True)
-        with open("/tmp/gate_stats.log", "a") as f:
+        with open(os.path.join(LOG_DIR, "gate_stats.log"), "a") as f:
             jev_stats = gate.judge.stats if gate.judge is not None else None
             f.write(json.dumps({"room": ctx.room.name, **gate.stats, "jev": jev_stats,
                                 "smart_turn": gate.acoustic.stats if gate.acoustic is not None else None}) + "\n")
-        with open("/tmp/gate_events.log", "a") as f:
+        with open(os.path.join(LOG_DIR, "gate_events.log"), "a") as f:
             f.write(json.dumps({"room": ctx.room.name, "events": gate.events}, default=str) + "\n")
 
     async def _report_async():

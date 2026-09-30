@@ -1,0 +1,5 @@
+{"room": "eval-23d7648b", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 5, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 800}}
+{"room": "eval-f15bbfd5", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 5, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 761}}
+{"room": "eval-60b5ce42", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 5, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 743}}
+{"room": "eval-9cfe21a5", "proposed": 3, "executed": 3, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 4, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 799}}
+{"room": "eval-1e6fdf59", "proposed": 1, "executed": 1, "superseded": 0, "duplicate": 0, "kept_both": 0, "transcripts": 2, "user_state": 5, "jev": {"calls": 2, "ok": 2, "timeouts": 0, "errors": 0, "ms_total": 758}, "smart_turn": null}

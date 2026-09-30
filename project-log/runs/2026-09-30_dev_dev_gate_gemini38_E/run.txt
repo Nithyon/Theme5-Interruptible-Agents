@@ -1,1 +1,3 @@
 start Wed Sep 30 11:14:12 UTC 2026
+config E: GATE_COMBINE=either GATE_JEV=1 GATE_DRAFT_HOLD_S=2.5 GATE_DANGLING=1 GATE_LEAN=1 GATE_BACKCHANNEL=1 GATE_RETRACT=1 GATE_ID_NORMALIZE=1
+stopped early at Wed Sep 30 11:34:19 UTC 2026 with 30/62 items; gate logs for the first ~23 rooms were lost (a demo start check deleted /tmp/gate_*.log mid-run) and one room hit an agent assignment timeout at 11:30 UTC
