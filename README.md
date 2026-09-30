@@ -238,28 +238,11 @@ retry. One request asked for a light colour and was declined (no such tool); one
 off at once, with the agent saying it cannot schedule. One run.
 Evidence: `project-log/runs/2026-09-30_ext_home_slurp_fail1/`.
 
-**Home assistant, on real speech with pauses inside the request.** The same 11 SLURP recordings, each with one
-silence of 1.6 to 3.1 s (a different length each time) inserted at its longest gap between words, so the speaker
-seems to stop mid-sentence and then carry on: "turn off the ... 2.8 s ... porch light". The speech is real; the
-pauses are ours. Played through LiveKit by the benchmark's own runner to the home assistant (Gemini 3.8 Live with the
-recovery layer, but without the Commit Harness), with mock tools that did not fail. One run, on a laptop with an
-Intel Core Ultra 9 275HX.
-
-| | Without pauses | With pauses |
-|---|---|---|
-| Ended with the lights action that was asked for | 10 of 11 | 8 of 11 |
-| Did something wrong or unrequested | 0 of 11 | **6 of 11** |
-| Fully right, nothing wrong done | 10 of 11 | **5 of 11** |
-
-With pauses, "turn the lights off" turned them on, "light colour for study room" set the study AC to 22, "please
-turn lights off" also changed the dining-room AC, and after "turn my lights down" the agent rang the phone, which
-nobody asked for. Silences inside a request make the plain voice agent mishear and act wrongly; the benchmark agent
-puts the Commit Harness in front of its tools for this reason, and combining the two is the next step. Limits: 11
-recordings, one run, inserted pauses; the run without pauses had the lights tool failing on its first try, so the
-two conditions are not identical. By our clock no action came before the request ended, but that clock can be off by
-a second or two, so we do not claim the agent acted during a pause.
-Evidence: `project-log/runs/2026-09-30_ext_home_slurp_pauses_fail0/` (recovery log, per-request score, agent audio);
-a first attempt that could not connect to Gemini Live is kept as `..._attempt1_no_connection`.
+**Home assistant, with pauses inside the request.** The same 11 SLURP recordings, each with a 1.6 to 3.1 s silence
+inserted mid-sentence ("turn off the ... porch light"). Fully right dropped from 10 of 11 to **5 of 11**, with a wrong
+or unrequested action in 6 (e.g. "turn the lights off" turned them on). This agent has no Commit Harness, which is
+why combining the two is the next step. Real speech, pauses added by us, one run.
+Evidence: `project-log/runs/2026-09-30_ext_home_slurp_pauses_fail0/`.
 
 **Local fallback: Gemma 4 offline, on typed commands.** If the cloud model is unreachable, a local model on
 [Ollama](https://ollama.com) could choose the action instead. We tested two sizes on three sets of typed commands:
