@@ -32,7 +32,7 @@ def test_valid_call_parsed(monkeypatch):
     out = LocalFallback().decide("set the bedroom AC to 23", HOME_TOOLS)
     assert out == {"tool": "set_ac_temperature", "args": {"room": "bedroom", "celsius": 23}}
     assert seen["url"].endswith("/api/chat")
-    assert seen["payload"]["options"] == {"temperature": 0.0, "num_thread": 4}
+    assert seen["payload"]["options"] == {"temperature": 0.0, "num_thread": 4, "num_predict": 64}
     assert len(seen["payload"]["tools"]) == len(HOME_TOOLS)
     assert lf.is_executable(out)
 

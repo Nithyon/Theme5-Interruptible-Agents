@@ -1,0 +1,60 @@
+X    1.48s  'Navigate to the airport' -> {'tool': 'check_traffic', 'args': {}}
+X    0.11s  'Take me to 45 Oak Street' -> None
+X    0.12s  'Change the destination to the central station' -> None
+X    0.45s  'Reroute to the mall, no, the train station' -> {'tool': None}
+X    8.00s  'Navigate to the office' -> None
+X    0.20s  'Check the traffic on my current route' -> None
+X    0.43s  'How is the traffic ahead right now' -> {'tool': None}
+X    0.39s  'Is there heavy traffic on the route' -> {'tool': None}
+X    0.09s  'Check traffic please' -> None
+X    0.17s  'Find a charging station near downtown with a CCS connector' -> None
+X    0.25s  'I need an EV charger near the airport, NACS' -> {'tool': None}
+X    0.27s  'Look for a charging station near the mall, CCS' -> None
+X    8.00s  'Find a charger near downtown, CCS, no, NACS' -> None
+X    0.31s  'Book charging station CHG-001 at 18:00' -> None
+X    0.47s  'Reserve a slot at CHG-042 for 09:30' -> {'tool': None}
+X    0.29s  'Book CHG-007 at 18:00, no, 19:00' -> None
+X    0.96s  'Call roadside assistance, I have a flat tire' -> None
+X    8.00s  "Get roadside help, the car won't start" -> None
+OK   0.55s  'Good morning, how are you today?' -> {'tool': None}
+OK   0.42s  'Tell me a joke about cars' -> {'tool': None}
+X    1.19s  'Set the bedroom AC to 23' -> None
+T    0.55s  'Make the living room AC 21 degrees' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 24, 'room': ' living room '}}
+OK   0.52s  'Set the kitchen AC to 24, no, 22' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 22, 'room': ' kitchen '}}
+T    0.44s  'Set the bedroom AC to 26, sorry, 25' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 26, 'room': ' bedroom '}}
+T    0.60s  'Set the study AC to 20' -> {'tool': 'set_ac_temperature', 'args': {'celsius': 24, 'room': ' study '}}
+OK   2.60s  'Turn off the living room lights' -> {'tool': 'set_lights', 'args': {'brightness': 0, 'room': ' living room', 'state': ' off'}}
+X    8.00s  'Turn on the bedroom lights' -> None
+X    0.56s  'Set the kitchen lights on at 40 percent brightness' -> None
+X    8.00s  'Turn on the hallway lights, no, off' -> None
+X    8.00s  'Start the washer on the cotton cycle' -> None
+T    0.40s  'Run the eco cycle on the washer in 30 minutes' -> {'tool': 'start_washer', 'args': {'cycle': ' eco '}, 'needs_confirmation': True}
+X    8.00s  'Start the washer on eco' -> None
+T    0.34s  'How much energy did we use today?' -> {'tool': 'check_energy_usage', 'args': {}}
+OK   0.43s  'Check my energy usage this week' -> {'tool': 'check_energy_usage', 'args': {'period': ' this week'}}
+OK   0.19s  'Find my phone' -> {'tool': 'find_phone', 'args': {}}
+OK   0.11s  'Where is my phone? Ring it' -> {'tool': 'find_phone', 'args': {}}
+OK   0.47s  'Call the service centre, the washer is leaking' -> {'tool': 'call_service_center', 'args': {'issue': ' washer leaking'}, 'needs_confirmation': True}
+OK   0.46s  'Contact the service center, the fridge is making noise' -> {'tool': 'call_service_center', 'args': {'issue': ' fridge making noise'}, 'needs_confirmation': True}
+OK   0.49s  'Thanks, that is all for now' -> {'tool': None}
+OK   0.45s  'What is the capital of France?' -> {'tool': None}
+
+=== SUMMARY ===
+model: functiongemma
+mode: tools
+n: 40
+timeout_s: 8.0
+errors_or_timeouts: 18
+tool_selection_acc_pct: 40.0
+exact_args_acc_pct: 27.5
+self_correction_n: 6
+self_correction_exact_acc_pct: 16.7
+no_tool_precision_pct: 44.4
+no_tool_recall_pct: 100.0
+latency_mean_s: 1.819
+latency_median_s: 0.458
+latency_p95_s: 8.0
+report: /mnt/d/Theme5-Interruptible-Agents/project-log/runs/2026-09-30_local_fallback_eval.json
+ollama stopped
+
+[exited with code 0]

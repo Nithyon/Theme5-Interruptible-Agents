@@ -112,7 +112,10 @@ def _coerce(value: Any, ptype: str) -> Any:
 class LocalFallback:
     def __init__(self, model: str = DEFAULT_MODEL, base_url: str = OLLAMA_URL,
                  timeout: float = 8.0, num_thread: int = 4, temperature: float = 0.0,
-                 mode: str = "tools", risky=RISKY):
+                 mode: str = "tools", risky=RISKY, max_tokens: int = 64):
+        # max_tokens: one tool call is ~20 tokens. Without a cap the model keeps emitting further
+        # calls and chat turns until the timeout (seen in the first evaluation), so bound it.
+        self.max_tokens = max_tokens
         self.model = model
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
@@ -139,7 +142,8 @@ class LocalFallback:
 
     # ----------------------------------------------------------------- internals
     def _payload(self, text: str, tools: List[dict]) -> dict:
-        options = {"temperature": self.temperature, "num_thread": self.num_thread}
+        options = {"temperature": self.temperature, "num_thread": self.num_thread,
+                   "num_predict": self.max_tokens}
         if self.mode == "tools":
             messages = [{"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": text}]
