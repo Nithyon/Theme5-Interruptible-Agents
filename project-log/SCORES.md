@@ -47,3 +47,46 @@ Reply speed, medians from the per-recording result files (`scripts/latency_quick
 What the decision logs show (`scripts/harness_effect.sh`): 29 Sep run 148 calls proposed, 146 executed unchanged, 1 replaced, 1 duplicate blocked. The score difference from the stock agent therefore does not come from replacing calls; prompt rules and the identifier rule are the other differences and were not tested separately. Reasoner (`scripts/jev_usage.sh`): 29 Sep 126 of 269 calls timed out; 30 Sep (first 76 recordings of the submitted run) 8 of 177, average 351 ms.
 
 Selection disclosure: two configurations were run on the benchmark on 30 September and the better one is submitted. Judge for every judged number: Gemini 2.5 Pro with the benchmark's judge prompts unchanged (stand-in for GPT-4o).
+
+## Update, late 30 September: real speech for the extension, and the fallback re-measured
+
+**Extension on real recordings (SLURP).** SLURP (Bastianelli et al., EMNLP 2020) is a published set of real people giving
+home-assistant commands; its audio licence is CC BY-NC 4.0. We took one shard of its test split and selected by a fixed
+rule, without listening: light-control intents, headset recordings, one per sentence, in file order (5 off, 2 on, 2 dim,
+2 up = 11 recordings). They were joined with 11 s of silence between them and played to the home assistant through LiveKit,
+the way the benchmark plays its recordings. The lights tool was set to fail on the first attempt of each new request
+(`EXT_LIGHTS_FAIL_FIRST=1`).
+
+| | Attempt 1 | After the fix |
+|---|---|---|
+| Requests that ended in a lights action with the asked state | 9 of 11 | 10 of 11 |
+| Injected first-attempt failures, recovered by a retry | 4 of 4 | 8 of 8 |
+| Requests answered from an earlier identical request | 5 | 0 |
+| Hand-offs | 0 | 0 |
+
+- Attempt 1 exposed a defect in the no-repeat rule: "lights on", then "dim", then "turn up the brightness" produced the same
+  call as the first request and was answered from memory, so the lights stayed dimmed while the agent said they were up.
+  Fix in `extension/recovery.py`: a repeat is answered from memory only while it still matches the latest completed action
+  of that kind. Offline tests still pass (35 and 28).
+- Not done in either run: "light colour for study room" (we have no colour tool; the agent said so). "Turn off bedroom light
+  at nine thirty pm" was declined in attempt 1 and, in the second run, switched off at once with the agent saying it cannot
+  schedule; we count that as a lights action, not as a correct handling of the time.
+- Limits: 11 recordings, one run after the fix, the room is not scored (most requests name none and the agent picks one),
+  brightness is logged but not scored, mock tools. The SLURP audio is not stored in the repository;
+  `extension/e2e/make_clip_slurp.py` rebuilds the clip from the dataset.
+- Evidence: `project-log/runs/2026-09-30_ext_home_slurp_fail1/` and `..._attempt1/` (recovery log, per-request score,
+  agent audio). Run script: `project-log/scripts/ext_e2e_slurp.sh`.
+
+**Local fallback re-measured (teammate's laptop, idle; our own 40 typed commands; one run each).**
+
+| Model | Right tool | Fully correct | Self-corrections | No answer | Median time |
+|---|---|---|---|---|---|
+| FunctionGemma (300 MB) | 24/40 | 15/40 | 1/6 | 11 | 0.8 s |
+| Qwen3 30B | 38/40 | 36/40 | 6/6 | 2 | 2.2 s |
+| Gemma 4 26B, thinking on (before the fix) | 2/40 | 2/40 | 0/6 | 38 | 10.2 s |
+| Gemma 4 26B, thinking off | 40/40 | 38/40 | 6/6 | 0 | 5.4 s |
+
+Gemma 4 spent its whole reply limit on hidden thinking and returned no tool call; `"think": False` in the request fixes it.
+The earlier statement "about 30% correct, not usable" holds for FunctionGemma only. Gemma 4 26B is a large model, suited to
+a PC or a car computer, not a phone. The fallback is still not attached to the voice agent and is not part of the benchmark
+score. Result files: `project-log/runs/2026-09-30_local_fallback_eval_*_laptop*.json`.

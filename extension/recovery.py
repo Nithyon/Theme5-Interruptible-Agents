@@ -149,7 +149,12 @@ class ToolRunner:
         key = tool + "|" + _canon(args)
         self.log.emit("proposed", call_id, tool, _canon(args))
 
-        if key in self.executed:
+        # A repeat is answered from the cache only while it still describes the current state.
+        # Found on real SLURP recordings (2026-09-30): "lights on" / "dim" / "turn them up" -- the
+        # third request matched the first one and was skipped, leaving the lights dimmed.
+        latest = self.completed.get(slot)
+        stale = state_changing and latest is not None and latest.args_key != key
+        if key in self.executed and not stale:
             self.log.emit("duplicate", call_id, tool, "returning cached result, not re-executed")
             return self.executed[key]
 

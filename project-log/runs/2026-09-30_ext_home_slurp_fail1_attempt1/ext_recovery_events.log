@@ -1,0 +1,43 @@
+{"kind": "session_start", "ts": 315.257827337}
+{"seq": 1, "kind": "proposed", "call_id": "c1", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 337.772}
+{"seq": 2, "kind": "started", "call_id": "c1", "tool": "set_lights", "detail": "attempt 1", "ts": 337.773}
+{"seq": 3, "kind": "failed", "call_id": "c1", "tool": "set_lights", "detail": "attempt 1: light hub did not acknowledge the command", "ts": 337.823}
+{"seq": 4, "kind": "retry", "call_id": "c1", "tool": "set_lights", "detail": "backing off 0.50s", "ts": 337.824}
+{"seq": 5, "kind": "started", "call_id": "c1", "tool": "set_lights", "detail": "attempt 2", "ts": 338.325}
+{"seq": 6, "kind": "succeeded", "call_id": "c1", "tool": "set_lights", "detail": "attempt 2", "ts": 338.377}
+{"seq": 7, "kind": "proposed", "call_id": "c2", "tool": "set_lights", "detail": "{\"brightness\": 15, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 355.739}
+{"seq": 8, "kind": "started", "call_id": "c2", "tool": "set_lights", "detail": "attempt 1", "ts": 355.739}
+{"seq": 9, "kind": "failed", "call_id": "c2", "tool": "set_lights", "detail": "attempt 1: light hub did not acknowledge the command", "ts": 355.791}
+{"seq": 10, "kind": "retry", "call_id": "c2", "tool": "set_lights", "detail": "backing off 0.50s", "ts": 355.792}
+{"seq": 11, "kind": "started", "call_id": "c2", "tool": "set_lights", "detail": "attempt 2", "ts": 356.294}
+{"seq": 12, "kind": "succeeded", "call_id": "c2", "tool": "set_lights", "detail": "attempt 2", "ts": 356.344}
+{"seq": 13, "kind": "proposed", "call_id": "c3", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 369.554}
+{"seq": 14, "kind": "duplicate", "call_id": "c3", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 369.555}
+{"seq": 15, "kind": "proposed", "call_id": "c4", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 370.158}
+{"seq": 16, "kind": "duplicate", "call_id": "c4", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 370.158}
+{"seq": 17, "kind": "proposed", "call_id": "c5", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"porch\", \"state\": \"off\"}", "ts": 383.109}
+{"seq": 18, "kind": "started", "call_id": "c5", "tool": "set_lights", "detail": "attempt 1", "ts": 383.109}
+{"seq": 19, "kind": "failed", "call_id": "c5", "tool": "set_lights", "detail": "attempt 1: light hub did not acknowledge the command", "ts": 383.16}
+{"seq": 20, "kind": "retry", "call_id": "c5", "tool": "set_lights", "detail": "backing off 0.50s", "ts": 383.16}
+{"seq": 21, "kind": "started", "call_id": "c5", "tool": "set_lights", "detail": "attempt 2", "ts": 383.661}
+{"seq": 22, "kind": "succeeded", "call_id": "c5", "tool": "set_lights", "detail": "attempt 2", "ts": 383.712}
+{"seq": 23, "kind": "proposed", "call_id": "c6", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 397.095}
+{"seq": 24, "kind": "duplicate", "call_id": "c6", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 397.096}
+{"seq": 25, "kind": "proposed", "call_id": "c7", "tool": "set_lights", "detail": "{\"brightness\": 15, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 411.456}
+{"seq": 26, "kind": "duplicate", "call_id": "c7", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 411.456}
+{"seq": 27, "kind": "proposed", "call_id": "c8", "tool": "set_lights", "detail": "{\"brightness\": 15, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 412.062}
+{"seq": 28, "kind": "duplicate", "call_id": "c8", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 412.063}
+{"seq": 29, "kind": "proposed", "call_id": "c9", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"kitchen\", \"state\": \"off\"}", "ts": 439.613}
+{"seq": 30, "kind": "started", "call_id": "c9", "tool": "set_lights", "detail": "attempt 1", "ts": 439.613}
+{"seq": 31, "kind": "failed", "call_id": "c9", "tool": "set_lights", "detail": "attempt 1: light hub did not acknowledge the command", "ts": 439.664}
+{"seq": 32, "kind": "retry", "call_id": "c9", "tool": "set_lights", "detail": "backing off 0.50s", "ts": 439.664}
+{"seq": 33, "kind": "started", "call_id": "c9", "tool": "set_lights", "detail": "attempt 2", "ts": 440.165}
+{"seq": 34, "kind": "succeeded", "call_id": "c9", "tool": "set_lights", "detail": "attempt 2", "ts": 440.216}
+{"seq": 35, "kind": "proposed", "call_id": "c10", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"kitchen\", \"state\": \"off\"}", "ts": 452.957}
+{"seq": 36, "kind": "duplicate", "call_id": "c10", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 452.957}
+{"seq": 37, "kind": "proposed", "call_id": "c11", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"kitchen\", \"state\": \"off\"}", "ts": 453.542}
+{"seq": 38, "kind": "duplicate", "call_id": "c11", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 453.543}
+{"seq": 39, "kind": "proposed", "call_id": "c12", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"kitchen\", \"state\": \"off\"}", "ts": 467.11}
+{"seq": 40, "kind": "duplicate", "call_id": "c12", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 467.11}
+{"seq": 41, "kind": "proposed", "call_id": "c13", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"kitchen\", \"state\": \"off\"}", "ts": 467.695}
+{"seq": 42, "kind": "duplicate", "call_id": "c13", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 467.695}

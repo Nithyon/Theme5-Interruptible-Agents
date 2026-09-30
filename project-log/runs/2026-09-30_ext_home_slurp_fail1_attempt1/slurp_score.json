@@ -1,0 +1,295 @@
+{
+  "summary": {
+    "recordings": 11,
+    "done": 9,
+    "needed_retry": 4,
+    "answered_from_identical_request": 5,
+    "failed_events": 4,
+    "retry_events": 4,
+    "handoff_events": 0
+  },
+  "rows": [
+    {
+      "transcript": "turn off bedroom light at nine thirty pm",
+      "intent": "iot_hue_lightoff",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": []
+    },
+    {
+      "transcript": "light up the lights in the kitchen",
+      "intent": "iot_hue_lighton",
+      "done": true,
+      "retried": true,
+      "answered_from_earlier_identical_request": false,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 100,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "started",
+            "failed",
+            "retry",
+            "started",
+            "succeeded"
+          ],
+          "t": 22.5
+        }
+      ]
+    },
+    {
+      "transcript": "turn my lights down to a lower level of brightness",
+      "intent": "iot_hue_lightdim",
+      "done": true,
+      "retried": true,
+      "answered_from_earlier_identical_request": false,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 15,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "started",
+            "failed",
+            "retry",
+            "started",
+            "succeeded"
+          ],
+          "t": 40.5
+        }
+      ]
+    },
+    {
+      "transcript": "turn up the brightness",
+      "intent": "iot_hue_lightup",
+      "done": true,
+      "retried": false,
+      "answered_from_earlier_identical_request": true,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 100,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 54.3
+        },
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 100,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 54.9
+        }
+      ]
+    },
+    {
+      "transcript": "turn off the porch light",
+      "intent": "iot_hue_lightoff",
+      "done": true,
+      "retried": true,
+      "answered_from_earlier_identical_request": false,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 0,
+            "room": "porch",
+            "state": "off"
+          },
+          "events": [
+            "proposed",
+            "started",
+            "failed",
+            "retry",
+            "started",
+            "succeeded"
+          ],
+          "t": 67.9
+        }
+      ]
+    },
+    {
+      "transcript": "and the darkness has fallen",
+      "intent": "iot_hue_lighton",
+      "done": true,
+      "retried": false,
+      "answered_from_earlier_identical_request": true,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 100,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 81.8
+        }
+      ]
+    },
+    {
+      "transcript": "lower the lights please",
+      "intent": "iot_hue_lightdim",
+      "done": true,
+      "retried": false,
+      "answered_from_earlier_identical_request": true,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 15,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 96.2
+        },
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 15,
+            "room": "kitchen",
+            "state": "on"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 96.8
+        }
+      ]
+    },
+    {
+      "transcript": "light colour for study room",
+      "intent": "iot_hue_lightup",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": []
+    },
+    {
+      "transcript": "shut the lights off",
+      "intent": "iot_hue_lightoff",
+      "done": true,
+      "retried": true,
+      "answered_from_earlier_identical_request": false,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 0,
+            "room": "kitchen",
+            "state": "off"
+          },
+          "events": [
+            "proposed",
+            "started",
+            "failed",
+            "retry",
+            "started",
+            "succeeded"
+          ],
+          "t": 124.4
+        }
+      ]
+    },
+    {
+      "transcript": "turn the lights off",
+      "intent": "iot_hue_lightoff",
+      "done": true,
+      "retried": false,
+      "answered_from_earlier_identical_request": true,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 0,
+            "room": "kitchen",
+            "state": "off"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 137.7
+        },
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 0,
+            "room": "kitchen",
+            "state": "off"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 138.3
+        }
+      ]
+    },
+    {
+      "transcript": "please turn lights off",
+      "intent": "iot_hue_lightoff",
+      "done": true,
+      "retried": false,
+      "answered_from_earlier_identical_request": true,
+      "calls": [
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 0,
+            "room": "kitchen",
+            "state": "off"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 151.9
+        },
+        {
+          "tool": "set_lights",
+          "args": {
+            "brightness": 0,
+            "room": "kitchen",
+            "state": "off"
+          },
+          "events": [
+            "proposed",
+            "duplicate"
+          ],
+          "t": 152.4
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
 output_*.wav
 result_*.json
 input_mono.wav
+audio_slurp/*/input.wav

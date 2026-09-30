@@ -44,7 +44,7 @@ flowchart LR
 | Tool packs | Mock car tools (reroute, traffic, charger search, booking, roadside) and mock home tools (AC, lights, washer, energy, find phone, service centre) | `extension/mock_tools.py`, `mock_tools_home.py` |
 | Agent | Wires the model, the recovery layer and one pack (`EXT_PACK=car` or `home`) | `extension/ext_agent.py` |
 | Plugin bridge | A mock plugin server driven through the recovery layer; tested offline, not attached to the agent | `extension/mcp_bridge.py`, `mcp_home_server.py` |
-| Local fallback | FunctionGemma through Ollama; about 30% correct in our test, not attached to the agent | `extension/local_fallback.py` |
+| Local fallback | Gemma through Ollama, not attached to the agent. FunctionGemma (300 MB): 15 of 40 of our commands fully correct. Gemma 4 26B (large, about 5.4 s per command): 38 of 40 | `extension/local_fallback.py` |
 
 ## 3. What runs where
 

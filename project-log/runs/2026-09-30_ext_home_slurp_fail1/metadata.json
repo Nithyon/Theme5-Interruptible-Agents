@@ -1,0 +1,118 @@
+{
+  "id": "slurp01",
+  "title": "extension on real speech: 11 SLURP test recordings, light control",
+  "domain": "home",
+  "expected_tool_calls": [],
+  "source": "SLURP test split (Bastianelli et al., EMNLP 2020), audio CC BY-NC 4.0",
+  "selection": "headset recordings, one per sentence, file order, quotas {\"iot_hue_lightoff\": 5, \"iot_hue_lighton\": 3, \"iot_hue_lightdim\": 2, \"iot_hue_lightup\": 2}",
+  "lines": [
+    {
+      "slurp_id": 6074,
+      "file": "audio-1501768054-headset.flac",
+      "transcript": "turn off bedroom light at nine thirty pm",
+      "intent": "iot_hue_lightoff",
+      "slots": [
+        "house_place=bedroom",
+        "time=nine thirty pm"
+      ],
+      "offset_s": 2.0,
+      "duration_s": 3.52
+    },
+    {
+      "slurp_id": 286,
+      "file": "audio-1434529664-headset.flac",
+      "transcript": "light up the lights in the kitchen",
+      "intent": "iot_hue_lighton",
+      "slots": [
+        "house_place=kitchen"
+      ],
+      "offset_s": 16.52,
+      "duration_s": 2.43
+    },
+    {
+      "slurp_id": 5201,
+      "file": "audio-1500898526-headset.flac",
+      "transcript": "turn my lights down to a lower level of brightness",
+      "intent": "iot_hue_lightdim",
+      "slots": [],
+      "offset_s": 29.95,
+      "duration_s": 6.34
+    },
+    {
+      "slurp_id": 2591,
+      "file": "audio-1502896975-headset.flac",
+      "transcript": "turn up the brightness",
+      "intent": "iot_hue_lightup",
+      "slots": [],
+      "offset_s": 47.29,
+      "duration_s": 1.98
+    },
+    {
+      "slurp_id": 2578,
+      "file": "audio-1497872468-headset.flac",
+      "transcript": "turn off the porch light",
+      "intent": "iot_hue_lightoff",
+      "slots": [
+        "house_place=porch"
+      ],
+      "offset_s": 60.27,
+      "duration_s": 2.37
+    },
+    {
+      "slurp_id": 14,
+      "file": "audio-1501766369-headset.flac",
+      "transcript": "and the darkness has fallen",
+      "intent": "iot_hue_lighton",
+      "slots": [],
+      "offset_s": 73.64,
+      "duration_s": 2.43
+    },
+    {
+      "slurp_id": 3280,
+      "file": "audio-1497869907-headset.flac",
+      "transcript": "lower the lights please",
+      "intent": "iot_hue_lightdim",
+      "slots": [],
+      "offset_s": 87.07,
+      "duration_s": 2.3
+    },
+    {
+      "slurp_id": 2264,
+      "file": "audio-1501757880-headset.flac",
+      "transcript": "light colour for study room",
+      "intent": "iot_hue_lightup",
+      "slots": [
+        "house_place=study room"
+      ],
+      "offset_s": 100.38,
+      "duration_s": 2.94
+    },
+    {
+      "slurp_id": 2711,
+      "file": "audio-1499088787-headset.flac",
+      "transcript": "shut the lights off",
+      "intent": "iot_hue_lightoff",
+      "slots": [],
+      "offset_s": 114.32,
+      "duration_s": 1.6
+    },
+    {
+      "slurp_id": 730,
+      "file": "audio-1490103360-headset.flac",
+      "transcript": "turn the lights off",
+      "intent": "iot_hue_lightoff",
+      "slots": [],
+      "offset_s": 126.92,
+      "duration_s": 1.54
+    },
+    {
+      "slurp_id": 914,
+      "file": "audio-1497872542-headset.flac",
+      "transcript": "please turn lights off",
+      "intent": "iot_hue_lightoff",
+      "slots": [],
+      "offset_s": 139.46,
+      "duration_s": 2.56
+    }
+  ]
+}

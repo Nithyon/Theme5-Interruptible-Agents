@@ -7,6 +7,7 @@ recovery.py get exercised.
 from __future__ import annotations
 
 import asyncio
+import os
 import random
 from typing import Dict
 
@@ -20,6 +21,8 @@ class HomeBackend:
         self.lights: Dict[str, dict] = {}          # room -> {"state", "brightness"}
         self.washer_jobs: Dict[str, dict] = {}     # keyed by "cycle|delay_minutes"
         self._find_phone_attempts = 0
+        self.lights_fail_first = os.getenv("EXT_LIGHTS_FAIL_FIRST", "0") == "1"
+        self._lights_attempts: Dict[str, int] = {}
 
     # -- fast, idempotent (setting the same value twice is harmless) -------------------
     async def set_ac_temperature(self, room: str, celsius: float) -> dict:
@@ -30,6 +33,11 @@ class HomeBackend:
     # -- fast ----------------------------------------------------------------------------
     async def set_lights(self, room: str, state: str, brightness: int = 100) -> dict:
         await asyncio.sleep(0.05)
+        if self.lights_fail_first:  # EXT_LIGHTS_FAIL_FIRST=1: first attempt of each request fails
+            key = f"{room.strip().lower()}|{state}|{brightness}"
+            self._lights_attempts[key] = self._lights_attempts.get(key, 0) + 1
+            if self._lights_attempts[key] == 1:
+                raise ToolFailure("light hub did not acknowledge the command")
         self.lights[room.strip().lower()] = {"state": state, "brightness": brightness}
         return {"status": "success", "room": room, "state": state, "brightness": brightness}
 

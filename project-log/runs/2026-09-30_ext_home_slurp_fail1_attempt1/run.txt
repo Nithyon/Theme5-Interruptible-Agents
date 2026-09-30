@@ -1,0 +1,3 @@
+start Wed Sep 30 16:17:12 UTC 2026
+EXT_PACK=home EXT_SEED=0 EXT_LIGHTS_FAIL_FIRST=1 provider=ext_home_slurp clip=slurp01_3f1be6705a1ec221c1e6295e
+inference exit 0 at Wed Sep 30 16:20:42 UTC 2026

@@ -35,6 +35,8 @@ A recovery layer (`extension/recovery.py`) for slow and failing tools, run end t
 a corrected reroute runs once, a failing charger lookup is retried quietly, a repeated booking is not made
 twice, changing the time cancels the first booking before making the new one, and two failed roadside
 requests end in a hand-off to a human. Mock tools, synthetic request voice, one run.
+
+On real speech: 11 recordings from the SLURP test set (light-control requests, headset microphone, picked by a fixed rule, not by ear) were played to the home assistant with the lights tool made to fail on its first attempt. 10 of 11 requests ended in a lights action and all 8 injected failures were recovered by a retry. One request asked for a light colour and was declined (no such tool); one asked for a time and was switched off at once, with the agent saying it cannot schedule. One run. Evidence: `project-log/runs/2026-09-30_ext_home_slurp_fail1/`.
 Evidence: `project-log/runs/2026-09-30_ext_car_e2e/` (conversation audio, recovery log).
 
 ## Reproduce

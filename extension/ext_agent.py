@@ -21,6 +21,7 @@ import json
 import logging
 import os
 import sys
+import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))                        # this folder
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "fdb_agent"))  # for models.py
@@ -356,6 +357,11 @@ async def entrypoint(ctx: agents.JobContext):
     runner.log.emit = _emit_and_write
 
     await session.start(room=ctx.room, agent=InCarVoiceAgent())
+    try:  # clock anchor, so tool events can be lined up with the input clip afterwards
+        with open(os.getenv("EXT_EVENT_LOG", "/tmp/ext_recovery_events.log"), "a") as f:
+            f.write(json.dumps({"kind": "session_start", "ts": time.monotonic()}) + "\n")
+    except OSError:
+        pass
 
 
 def _progress_line(tool: str) -> str:

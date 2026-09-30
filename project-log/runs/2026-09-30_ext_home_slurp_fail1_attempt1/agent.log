@@ -1,0 +1,139 @@
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v2 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v2 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.texttospeech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.texttospeech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+INFO:livekit.agents:starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.8.3", "rtc-version": "1.1.18", "pid": 86, "timestamp": "2026-09-30T16:17:14.145422+00:00"}
+INFO:livekit.agents:plugin registered
+{"message": "plugin registered", "level": "INFO", "name": "livekit.agents", "plugin": "livekit.plugins.google", "version": "1.8.3", "pid": 86, "timestamp": "2026-09-30T16:17:14.145866+00:00"}
+INFO:livekit.agents:preloading plugins
+{"message": "preloading plugins", "level": "INFO", "name": "livekit.agents", "packages": ["livekit.plugins.google", "livekit.agents.ipc._preload", "livekit.agents.ipc._preload_freeze"], "pid": 86, "timestamp": "2026-09-30T16:17:14.146072+00:00"}
+INFO:livekit.agents:HTTP server listening on :8081
+{"message": "HTTP server listening on :8081", "level": "INFO", "name": "livekit.agents", "pid": 86, "timestamp": "2026-09-30T16:17:14.151697+00:00"}
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v2 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v2 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.texttospeech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.texttospeech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 147, "timestamp": "2026-09-30T16:17:15.798896+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 149, "timestamp": "2026-09-30T16:17:15.800878+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 151, "timestamp": "2026-09-30T16:17:15.804024+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 153, "timestamp": "2026-09-30T16:17:15.806535+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 147, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.834076+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 151, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.834818+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 149, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.835762+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 166, "timestamp": "2026-09-30T16:17:15.839575+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 153, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.840825+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 170, "timestamp": "2026-09-30T16:17:15.842355+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 173, "timestamp": "2026-09-30T16:17:15.843857+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 175, "timestamp": "2026-09-30T16:17:15.845996+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 170, "elapsed_time": 0.02, "timestamp": "2026-09-30T16:17:15.866711+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 166, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.868450+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 183, "timestamp": "2026-09-30T16:17:15.872927+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 185, "timestamp": "2026-09-30T16:17:15.875861+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 173, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:15.880767+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 175, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:15.882168+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 193, "timestamp": "2026-09-30T16:17:15.885096+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 195, "timestamp": "2026-09-30T16:17:15.887982+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 185, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.910639+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 183, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:15.915442+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 195, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.917595+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 206, "timestamp": "2026-09-30T16:17:15.920719+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 208, "timestamp": "2026-09-30T16:17:15.923640+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 211, "timestamp": "2026-09-30T16:17:15.925968+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 193, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:15.926675+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 215, "timestamp": "2026-09-30T16:17:15.931399+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 208, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.951980+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 206, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.952612+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 211, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.952963+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 226, "timestamp": "2026-09-30T16:17:15.962791+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 228, "timestamp": "2026-09-30T16:17:15.965035+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 215, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.966456+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 231, "timestamp": "2026-09-30T16:17:15.968362+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 235, "timestamp": "2026-09-30T16:17:15.971210+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 226, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:15.992794+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 240, "timestamp": "2026-09-30T16:17:15.998295+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 231, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:16.002643+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 228, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:16.004044+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 235, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:16.008630+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 249, "timestamp": "2026-09-30T16:17:16.011240+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 253, "timestamp": "2026-09-30T16:17:16.012376+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 255, "timestamp": "2026-09-30T16:17:16.014704+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 240, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:16.032371+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 253, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:16.040846+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 249, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:16.041317+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 255, "elapsed_time": 0.03, "timestamp": "2026-09-30T16:17:16.046747+00:00"}
+INFO:livekit.agents:registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "agent_name": "", "deployment": "", "id": "AW_aHdP8Rdc8wWy", "url": "wss://samsung-jxdakoa3.livekit.cloud", "region": "India South", "protocol": 17, "pid": 86, "timestamp": "2026-09-30T16:17:20.402338+00:00"}
+INFO:livekit.agents:received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_FUMRo59bbhcy", "dispatch_id": "AD_htzchGF55VRo", "room": "eval-f1588e1e", "room_id": "RM_YsR4Rfmymy24", "agent_name": "", "resuming": false, "enable_recording": true, "pid": 86, "timestamp": "2026-09-30T16:17:52.872816+00:00"}
+INFO:google_genai._api_client:The user provided project/location will take precedence over the Vertex AI API key from the environment variable.
+{"message": "The user provided project/location will take precedence over the Vertex AI API key from the environment variable.", "level": "INFO", "name": "google_genai._api_client", "pid": 147, "job_id": "AJ_FUMRo59bbhcy", "room": "eval-f1588e1e", "room_id": "RM_YsR4Rfmymy24", "timestamp": "2026-09-30T16:17:52.924548+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 478, "timestamp": "2026-09-30T16:17:52.995101+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 478, "elapsed_time": 0.04, "timestamp": "2026-09-30T16:17:53.035885+00:00"}
+Nvidia Decoder is supported.
+WARNING:livekit.agents:event loop blocked for 359ms at "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py", line 1796, in _execute_child; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client
+{"message": "event loop blocked for 359ms at \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 1796, in _execute_child; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client", "level": "WARNING", "name": "livekit.agents", "duration": 0.3594, "threshold": 0.1, "gc_time": 0.0017, "cpu_time": 0.0776, "task": "gemini-realtime-session", "stack": "# loop thread sampled 142ms into the stall\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py\", line 17, in async_fn_logs\n    return await fn(*args, **kwargs)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1057, in connect\n    creds, _ = google.auth.default(  # type: ignore\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_default.py\", line 716, in default\n    credentials, project_id = checker()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_default.py\", line 710, in <lambda>\n    lambda: _get_gcloud_sdk_credentials(quota_project_id=quota_project_id),\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_default.py\", line 321, in _get_gcloud_sdk_credentials\n    project_id = _cloud_sdk.get_project_id()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_cloud_sdk.py\", line 103, in get_project_id\n    project = _run_subprocess_ignore_stderr(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/auth/_cloud_sdk.py\", line 85, in _run_subprocess_ignore_stderr\n    output = subprocess.check_output(command, stderr=devnull)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 421, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 503, in run\n    with Popen(*popenargs, **kwargs) as process:\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 971, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/subprocess.py\", line 1796, in _execute_child\n    self.pid = _posixsubprocess.fork_exec(", "pid": 147, "job_id": "AJ_FUMRo59bbhcy", "room": "eval-f1588e1e", "room_id": "RM_YsR4Rfmymy24", "timestamp": "2026-09-30T16:17:53.296584+00:00"}
+INFO:livekit.agents:RoomIO linked to participant
+{"message": "RoomIO linked to participant", "level": "INFO", "name": "livekit.agents", "lk.pii.participant_identity": "wav-file-user", "lk.pii.room_name": "eval-f1588e1e", "pid": 147, "job_id": "AJ_FUMRo59bbhcy", "room": "eval-f1588e1e", "room_id": "RM_YsR4Rfmymy24", "timestamp": "2026-09-30T16:17:53.629799+00:00"}
+INFO:livekit.agents:closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)
+{"message": "closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)", "level": "INFO", "name": "livekit.agents", "room": "eval-f1588e1e", "participant": "wav-file-user", "reason": "CLIENT_INITIATED", "pid": 147, "job_id": "AJ_FUMRo59bbhcy", "room_id": "RM_YsR4Rfmymy24", "timestamp": "2026-09-30T16:20:37.168031+00:00"}
+INFO:livekit.agents:draining worker
+{"message": "draining worker", "level": "INFO", "name": "livekit.agents", "id": "AW_aHdP8Rdc8wWy", "timeout": 3600, "pid": 86, "timestamp": "2026-09-30T16:20:48.297548+00:00"}
