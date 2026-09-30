@@ -93,3 +93,8 @@ Newest first. One entry per working session: what was done, results, files touch
 ## 2026-09-30 — backchannel handling in the gate
 - `fdb_agent/gate.py`: backchannel-only utterances ("okay", "mm-hmm", "uh-huh", "yeah, got it") are logged but are not a new turn: no hesitation update, no retraction check, no Jev call, no "turn done" acknowledgement, and they don't count as a correction when the same tool is proposed again. Fillers ("uh", "um", "hmm") are deliberately NOT backchannels. Default on; `GATE_BACKCHANNEL=0` disables. Motivation: S-MARC (arXiv 2602.11065) models backchannel as its own class, separate from turn-taking.
 - Tests: 4 new checks in `test_gate.py`; full suite ALL PASS. Not yet run on the practice set.
+
+## 2026-09-30 (evening) — lean switch, Smart Turn (built, off), practice run E
+- `GATE_LEAN=1`: Jev never lengthens a hold beyond the rule window ("Jev as decider"). Test added. Default off; the 2026-09-29 final run did not use it.
+- `fdb_agent/smart_turn.py`: Smart Turn v3.2 (pipecat-ai, BSD-2, 8 MB ONNX, CPU) as an optional acoustic decider. `GATE_SMART_TURN=1` taps the user's audio track (16 kHz, last 8 s), asks once per pause (after 0.3 s quiet), and if P(complete) < 0.5 the hold extends to the hesitant window (1.8 s); it never shortens a hold; failures are ignored. Logged as `smart_turn` events. 3 offline tests pass (fake judge). Smoke: model loads, ~220 ms/call in WSL while another run was using the CPU. **Not validated on real voices and not run live in a room; NOT in the benchmark config.**
+- Practice run E (final config + GATE_LEAN + backchannel + retraction + ID rule) started 17:05 IST: `runs/2026-09-30_dev_dev_gate_gemini38_E/`.

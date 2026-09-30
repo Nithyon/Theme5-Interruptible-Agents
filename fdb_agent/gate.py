@@ -54,6 +54,7 @@ COMBINE_EITHER = os.getenv("GATE_COMBINE", "") == "either"
 # GATE_LEAN=1: "Jev as decider" — Jev may shorten a hold or classify a follow-up, but never
 # lengthens a hold beyond what the rules ask for.
 LEAN = os.getenv("GATE_LEAN", "0") == "1"
+ACOUSTIC_DONE_P = float(os.getenv("SMART_TURN_DONE_P", "0.5"))   # Smart Turn's own default
 
 
 def ends_hesitantly(text: str) -> bool:
@@ -172,6 +173,10 @@ class CommitGate:
     unclear_supersedes: bool = True       # a same-tool re-call after more speech with no cue
     judge: Any = None                     # optional JevJudge; None = rules only
     draft_hold_s: float = 0.0             # >0: hold placeholder-looking calls this long
+    acoustic: Any = None                  # optional AcousticJudge (Smart Turn); None = off
+    acoustic_p: Optional[float] = None    # its P(turn complete) for the current pause
+    acoustic_at: float = -1.0             # the last_user_activity value that verdict is for
+    acoustic_after_s: float = 0.3         # ask once the user has been quiet this long
     on_turn_done: Optional[Callable[[], None]] = None      # the user has really finished
     on_tool_done: Optional[Callable[[str], None]] = None   # a tool result was returned
     _turn_done_idx: int = -1
@@ -283,6 +288,26 @@ class CommitGate:
                 return JEV_FAST_S
         return rule
 
+    def _acoustic_hold(self, need: float) -> float:
+        """The voice says "not finished" (level pitch, unfinished phrase): wait the hesitant
+        window even though the words look complete. It never shortens a hold."""
+        if (self.acoustic_p is not None and self.acoustic_at == self.last_user_activity
+                and self.acoustic_p < ACOUSTIC_DONE_P):
+            return max(need, self.hesitant_quiet_s)
+        return need
+
+    async def _ask_acoustic(self, now: float) -> None:
+        if (self.acoustic is None or self.user_speaking
+                or self.acoustic_at == self.last_user_activity
+                or now - self.last_user_activity < self.acoustic_after_s):
+            return
+        stamp = self.acoustic_at = self.last_user_activity   # one verdict per pause
+        self.acoustic_p = None
+        p = await self.acoustic.complete_probability()
+        if stamp == self.last_user_activity:
+            self.acoustic_p = p
+        self._event("smart_turn", p_complete=None if p is None else round(p, 3))
+
     # ---- gating ---------------------------------------------------------------------
     async def run(self, name: str, args: Dict[str, Any],
                   execute: Callable[[], Awaitable[Any]]) -> Any:
@@ -334,7 +359,9 @@ class CommitGate:
                                        "note": "The user corrected this request; the updated "
                                                "request is being handled instead."})
                 now = time.monotonic()
-                need = self.required_quiet()
+                await self._ask_acoustic(now)
+                now = time.monotonic()
+                need = self._acoustic_hold(self.required_quiet())
                 if self.draft_hold_s > 0 and looks_draft(p.args):
                     need = max(need, self.draft_hold_s)
                 settled = (not self.user_speaking) and now - self.last_user_activity >= need

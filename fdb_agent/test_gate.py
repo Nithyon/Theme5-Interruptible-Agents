@@ -375,7 +375,41 @@ async def backchannel():
     check(ran == ["New York"], f"backchannel then correction: correction still supersedes {ran}")
 
 
+class FakeAcoustic:
+    def __init__(self, p=None, boom=False):
+        self.p, self.boom, self.calls = p, boom, 0
+
+    async def complete_probability(self):
+        self.calls += 1
+        if self.boom:
+            return None                       # the real judge returns None on any failure
+        return self.p
+
+
+async def acoustic():
+    # 17. Smart Turn (acoustic decider): "voice not finished" waits the hesitant window;
+    # "finished" or a failure leaves the rule window unchanged
+    async def noop():
+        return "ok"
+
+    async def held_for(ac):
+        g = CommitGate(quiet_s=0.4, hesitant_quiet_s=1.0, acoustic=ac, acoustic_after_s=0.1)
+        g.on_user_transcript("book a flight to Chicago", True)
+        t0 = time.monotonic()
+        await g.run("search_flights", {"destination": "Chicago"}, noop)
+        return time.monotonic() - t0, g
+    d, g = await held_for(FakeAcoustic(p=0.1))
+    check(0.95 <= d < 1.4 and any(e["kind"] == "smart_turn" for e in g.events),
+          f"acoustic 'not finished': waits the hesitant window and is logged ({d:.2f}s)")
+    d, _ = await held_for(FakeAcoustic(p=0.95))
+    check(d < 0.7, f"acoustic 'finished': rule window unchanged ({d:.2f}s)")
+    ac = FakeAcoustic(boom=True)
+    d, _ = await held_for(ac)
+    check(d < 0.7 and ac.calls == 1, f"acoustic failure: gate behaves as if it were absent ({d:.2f}s)")
+
+
 asyncio.run(scenarios())
+asyncio.run(acoustic())
 asyncio.run(backchannel())
 asyncio.run(transcript_driven())
 asyncio.run(with_jev())
