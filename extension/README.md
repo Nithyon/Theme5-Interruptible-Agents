@@ -105,3 +105,36 @@ These are mock tools. This is not an integration with Bixby or SmartThings, and 
 or vendor API is called. The point is that the recovery layer (timeout, retry/backoff,
 idempotency, supersede, rollback, progress, handoff) is scenario-independent: swapping the
 tool pack required no change to `recovery.py`.
+
+## Offline fallback with a local Gemma model (evaluation pending)
+
+**What it is.** `local_fallback.py` (`LocalFallback`) is an optional offline tool selector: given a
+text command and the tool schemas (`CAR_TOOLS` / `HOME_TOOLS`, mirroring `ext_agent.py`), it asks a
+small local Ollama model (`functiongemma`, Google's 270M function-calling Gemma) which tool to call
+and returns `{"tool", "args"}`, `{"tool": None}`, or `None` on any error/timeout (default 8 s).
+`fallback_eval.jsonl` holds 40 hand-written commands (20 car, 20 home; 6 with a spoken
+self-correction, 4 chit-chat); `eval_fallback.py` scores it; `test_local_fallback.py` has offline
+tests with a fake HTTP responder (no inference).
+
+**Not part of the benchmark.** This is not in the benchmark pipeline and is not required to
+reproduce the benchmark score.
+
+**Risky actions.** State-changing tools (`book_charging_slot`, `cancel_charging_booking`,
+`start_washer`, `cancel_washer`, `call_roadside_assistance`, `call_service_center`) are never returned
+as executable offline: the result carries `"needs_confirmation": True` and the caller must confirm first.
+
+**Install (userspace, no sudo; what we did on WSL Ubuntu).**
+1. Download Ollama (the current Linux asset is `.tar.zst`; if `zstd` is missing, decompress with any
+   tool that supports zstd, e.g. Windows `tar`):
+   `curl -L --limit-rate 3M -o ~/theme5/ollama/ollama-linux-amd64.tar.zst https://ollama.com/download/ollama-linux-amd64.tar.zst`
+   then extract into `~/theme5/ollama/` so `bin/ollama` and `lib/ollama/` exist
+   (helper scripts: `project-log/scripts/fb_install_ollama.sh`, `fb_extract_ollama.sh`).
+2. Pull the model once: `project-log/scripts/fb_pull_model.sh functiongemma`
+   (starts the server with `OLLAMA_MODELS=~/theme5/ollama/models`, pulls, stops it).
+3. Run the evaluation (starts and stops the server itself; run only when the machine is idle):
+   `wsl -d Ubuntu bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/fallback_eval.sh`
+   (add `--limit N` for a partial run). It writes `project-log/runs/<date>_local_fallback_eval.json`.
+
+Offline unit tests: `~/theme5/fdb-env/bin/python extension/test_local_fallback.py`.
+
+**Accuracy: not measured yet.**
