@@ -119,5 +119,5 @@
 <text x="674.8" y="716.0" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-style="normal">Boston.</text>
 <line x1="623.5" y1="711.0" x2="646.0" y2="711.0" stroke="#7b3f8c" stroke-width="1.5" marker-end="url(#corr)"/>
 <text x="600.0" y="752.0" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d" text-anchor="middle" font-weight="normal" font-style="italic">An illustration of the mechanism, not a benchmark recording. On the benchmark the harness changed what ran in 2 of 100 recordings:</text>
-<text x="600.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d" text-anchor="middle" font-weight="normal" font-style="italic">Gemini 3.8 Live usually proposes a call only after the user has finished (see “What we found”).</text>
+<text x="600.0" y="770.0" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#52606d" text-anchor="middle" font-weight="normal" font-style="italic">Gemini 3.8 Live usually proposes a call only after the user has finished.</text>
 </svg>

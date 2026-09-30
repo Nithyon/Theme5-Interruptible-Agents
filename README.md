@@ -12,7 +12,7 @@ To change the figure, edit and run `python docs/figures/make_overview.py`.*
 
 - [Result](#result-100-real-recordings)
 - [How it works](#how-it-works)
-- [What we found](#what-we-found-and-report)
+- [Smart Turn (Listener)](#smart-turn-listener)
 - [Setup and reproduce](#setup-and-reproduce)
 - [Troubleshooting](#troubleshooting)
 - [Things you can run without keys](#things-you-can-run-without-keys)
@@ -44,13 +44,21 @@ The prompt rules (the last value said wins, use values exactly as spoken, never 
 and an identifier rule ("B-O-B-1-2" becomes "BOB12") are part of the submitted configuration.
 One-page architecture with both agents: [`project-log/ARCHITECTURE.md`](project-log/ARCHITECTURE.md).
 
-## What we found (and report)
+## Smart Turn (Listener)
 
-- The harness changed what ran in only 2 of 100 recordings: the model proposes a call only after it thinks
-  the user has finished. The gain over the stock agent comes from our prompt rules and an identifier
-  formatting rule, which we did not test separately.
-- We are one recording worse than the stock agent on self-corrections (7 of 17 against 8) and slower to reply.
-- Ten failures were changes of mind after the action had already run. Only undo can fix those.
+A third decider we built and tested, **off in the submitted configuration**. [Smart Turn v3.2](https://github.com/pipecat-ai/smart-turn)
+(Pipecat, BSD-2-Clause, about 8M parameters, runs on CPU) listens to the audio itself (tone and pace, not the words)
+and gives the probability that the user has finished. In the harness it sits next to Reflex and Reasoner
+(`fdb_agent/smart_turn.py`) and is switched on with `GATE_SMART_TURN=1`.
+
+| Test | Result | Evidence |
+|---|---|---|
+| Full benchmark run, Smart Turn on (30 September) | 50 strict / 64 judged, against 55 / 67 with it off. Faster replies (3.44 s median against 5.28 s), but one silent recording and about 7 s of stalled audio per recording while the model loads in each room. | `project-log/runs/2026-09-30_full_gate_gemini38_v3st/` |
+| On its own, on Full-Duplex-Bench v1 conversation clips | Right on 74–84% of mid-sentence pauses, but recognised only 17–36% of finished turns (balanced accuracy 0.50–0.57, close to chance). About 126 ms per check. | `project-log/runs/2026-09-30_smart_turn_fdbv1/` |
+
+So we submit with it off. To try it: `GATE_SMART_TURN=1 ./reproduce.sh`. Background: `project-log/RESEARCH_SMART_TURN.md`.
+Recordings and other files for the runs are in the team's
+[Google Drive folder](https://drive.google.com/drive/folders/1wFiVit_etrPbMFMhhFRsLO72S9UnPqnm?usp=sharing).
 
 ## Setup and reproduce
 
