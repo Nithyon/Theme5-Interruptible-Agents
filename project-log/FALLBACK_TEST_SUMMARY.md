@@ -60,7 +60,8 @@ hesitation 4/5, not a correction 5/5, double correction 3/3, correction then can
 
 ## What this shows and does not show
 
-- Only the real SLURP requests told the two models apart; on our own commands they tie.
+- The real SLURP requests and the cancellations in the interruption set told the two models apart; on our own
+  40 commands they tie.
 - It does not show behaviour on speech, pauses or someone talking over the agent: these are typed sentences.
 - The 26B ran once per set, so its run-to-run stability is not measured.
 - It was tested on a 32 GB laptop; the 26B takes about 16 GB when loaded and about 6 s per command: a car
