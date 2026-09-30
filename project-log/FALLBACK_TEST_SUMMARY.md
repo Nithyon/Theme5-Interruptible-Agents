@@ -2,7 +2,7 @@
 
 **Conclusion.** Run offline, Gemma 4 26B chooses the right action reliably, understands corrections and
 cancellations, and never acted when no tool fitted. The 3 GB Gemma 4 e4b is three times faster but refuses most
-real requests and carries out cancelled actions, so it is not safe as the fallback. The fallback is not yet wired
+real light requests and carries out cancelled actions, so it is not safe as the fallback. The fallback is not yet wired
 into the voice agent and is not part of the benchmark score.
 
 Every number below was recounted from the per-run result files (`project-log/scripts/suite_check.py`,
@@ -38,7 +38,7 @@ e4b. The laptop was otherwise idle during the runs.
 | Our commands: correctly did nothing | 4/4 | 4/4 |
 | SLURP light requests right | **45/51** | **18/51** (declined 31) |
 | SLURP "no tool fits": correctly did nothing | 60/60 | 60/60 |
-| Interruptions: right action | 28/29 | 29/29 |
+| Interruptions: right tool and values | 28/29 (right tool 29/29; the miss is wording) | 29/29 |
 | Interruptions: cancelled, correctly did nothing | **8/8** | **6/8** |
 | Median time per command | 5.6 to 6.0 s | 1.7 to 2.3 s |
 
@@ -50,7 +50,8 @@ hesitation 4/5, not a correction 5/5, double correction 3/3, correction then can
 - **e4b carried out 2 cancelled actions, in all 3 runs:** "Turn off the living room lights, wait, no, leave them as
   they are" turned the lights off; "Navigate to the mall, no, the office, oh forget it, stay on this route"
   rerouted to the office. Neither tool needs confirmation in our fallback, so both would really run.
-- **e4b declined 31 plain SLURP light requests**, such as "turn the lights off". Likely cause, not tested: our lights
+- **e4b declined 31 SLURP light requests.** 5 are the same unservable or vague requests the 26B also declined; the
+  other 26 are plain ones the 26B handled, such as "turn the lights off". Likely cause, not tested: our lights
   tool requires a room and most requests name none.
 - **26B's misses:** the SLURP set has 6 (a scheduled time and a colour it cannot do, two vague wordings, one screen
   request SLURP labels as lights, and one real error: "no lights in the kitchen" turned the lights on). Our commands
@@ -62,7 +63,8 @@ hesitation 4/5, not a correction 5/5, double correction 3/3, correction then can
 - Only the real SLURP requests told the two models apart; on our own commands they tie.
 - It does not show behaviour on speech, pauses or someone talking over the agent: these are typed sentences.
 - The 26B ran once per set, so its run-to-run stability is not measured.
-- It needs a 32 GB laptop-class machine and about 6 s per command: a car computer or PC, not a phone.
+- It was tested on a 32 GB laptop; the 26B takes about 16 GB when loaded and about 6 s per command: a car
+  computer or PC, not a phone. Smaller machines were not tested.
 
 Result folders: `project-log/runs/2026-09-30_fallback_suite_gemma4_26b-a4b-it-qat/`, `..._interrupt/`,
 `2026-09-30_fallback_suite_gemma4_e4b-it-qat/`, `..._interrupt/`, and the earlier 40-command comparison
