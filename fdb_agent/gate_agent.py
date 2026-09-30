@@ -88,6 +88,11 @@ async def entrypoint(ctx: agents.JobContext):
                       unclear_supersedes=os.getenv("GATE_UNCLEAR_SUPERSEDES", "1") == "1",
                       judge=make_judge(),
                       draft_hold_s=float(os.getenv("GATE_DRAFT_HOLD_S", "0")))
+    if os.getenv("GATE_SMART_TURN", "0") == "1":      # optional acoustic decider, off by default
+        from smart_turn import feed_from_room, make_acoustic_judge
+        gate.acoustic = make_acoustic_judge()
+        if gate.acoustic is not None:
+            feed_from_room(ctx.room, gate.acoustic.tap)
     tools = gate_tools(llm.find_function_tools(fnc_ctx), gate, FunctionTool)
     session = AgentSession(llm=realtime_model(), tools=tools)
     resp = Responsiveness(session, gate,
@@ -121,7 +126,8 @@ async def entrypoint(ctx: agents.JobContext):
         reported.append(True)
         with open("/tmp/gate_stats.log", "a") as f:
             jev_stats = gate.judge.stats if gate.judge is not None else None
-            f.write(json.dumps({"room": ctx.room.name, **gate.stats, "jev": jev_stats}) + "\n")
+            f.write(json.dumps({"room": ctx.room.name, **gate.stats, "jev": jev_stats,
+                                "smart_turn": gate.acoustic.stats if gate.acoustic is not None else None}) + "\n")
         with open("/tmp/gate_events.log", "a") as f:
             f.write(json.dumps({"room": ctx.room.name, "events": gate.events}, default=str) + "\n")
 
