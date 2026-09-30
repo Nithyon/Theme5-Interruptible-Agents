@@ -29,6 +29,7 @@ from livekit import agents                                    # noqa: E402
 from livekit.agents import Agent, AgentServer, AgentSession, llm  # noqa: E402
 
 from mock_tools import MockBackend                             # noqa: E402
+from mock_tools_home import HomeBackend                         # noqa: E402
 from recovery import ToolRunner, _canon                         # noqa: E402
 from models import gemini_live                                  # noqa: E402
 
@@ -39,6 +40,11 @@ else:
 
 MODEL = os.getenv("GEMINI_LIVE_MODEL", "gemini-3.8-live")
 PROVIDER = os.getenv("LK_PROVIDER", "ext_gemini38")
+# Which tool pack to run: "car" (default, in-car assistant) or "home" (Bixby-style home
+# assistant with mock SmartThings-like tools). Same agent, same ToolRunner either way.
+PACK = os.getenv("EXT_PACK", "car").strip().lower()
+if PACK not in ("car", "home"):
+    raise SystemExit(f"EXT_PACK must be 'car' or 'home', got {PACK!r}")
 
 SYSTEM_PROMPT = (
     "You are the voice assistant built into a car. Keep responses short and spoken-natural. "
@@ -56,6 +62,23 @@ SYSTEM_PROMPT = (
     "human agent and read back the reference number. Always speak the key result: for a "
     "charging station, its id and distance; for a booking, its confirmation id; for traffic, "
     "the congestion level; for a reroute, the new ETA."
+)
+
+HOME_SYSTEM_PROMPT = (
+    "You are a Bixby-style voice assistant for a smart home (mock devices, SmartThings-like). "
+    "Keep responses short and spoken-natural. You have tools for the air conditioner, lights, "
+    "the washer, energy usage, finding the user's phone, and the service centre. Execute the "
+    "right tool immediately when the user asks for something — do not ask clarifying questions, "
+    "do not wait for confirmation before calling a tool. If the user corrects themselves "
+    "mid-request (e.g. 'set the AC to 24... no, 22'), act only on their final, corrected "
+    "request. If the user changes the cycle of a washer that was already started (e.g. 'actually, "
+    "make it eco instead'), just call start_washer again with the new cycle — the old job is "
+    "cancelled for you automatically, don't call anything else first. Some tools take a few "
+    "seconds; you will be told to say a short progress update if one is still running — keep it "
+    "brief and never claim a result before you actually have one. If a tool reports a 'handoff' "
+    "status, tell the user you've passed their request to a human agent and read back the "
+    "reference number. Always speak the key result: for the AC or lights, the new setting; for "
+    "the washer, its job id; for energy usage, the kWh; for the phone, where it is."
 )
 
 
@@ -153,9 +176,113 @@ class InCarAssistant:
         return json.dumps(result)
 
 
+class HomeAssistant:
+    """Exposes the 6 mock smart-home tools as function_tools (plus cancel_washer, used only as
+    the rollback compensation), routed through the same shared ToolRunner as the in-car pack.
+    Mock tools only: not an integration with Bixby or SmartThings."""
+
+    def __init__(self, runner: ToolRunner, backend: HomeBackend):
+        self.runner = runner
+        self.backend = backend
+
+    @ai_callable_decorator(description="Set the air conditioner target temperature in a room.")
+    async def set_ac_temperature(self, room: str, celsius: float):
+        """
+        Args:
+            room: Which room, e.g. 'living room'
+            celsius: Target temperature in degrees Celsius
+        """
+        result = await self.runner.run(
+            "set_ac_temperature", {"room": room, "celsius": celsius},
+            lambda: self.backend.set_ac_temperature(room, celsius),
+            slot="ac_temperature", state_changing=True,
+        )
+        return json.dumps(result)
+
+    @ai_callable_decorator(description="Turn the lights in a room on or off and set brightness.")
+    async def set_lights(self, room: str, state: str, brightness: int = 100):
+        """
+        Args:
+            room: Which room, e.g. 'bedroom'
+            state: 'on' or 'off'
+            brightness: Brightness percent 0-100
+        """
+        result = await self.runner.run(
+            "set_lights", {"room": room, "state": state, "brightness": brightness},
+            lambda: self.backend.set_lights(room, state, brightness),
+            slot="lights", state_changing=True,
+        )
+        return json.dumps(result)
+
+    @ai_callable_decorator(description="Start the washer with a cycle, optionally delayed.")
+    async def start_washer(self, cycle: str, delay_minutes: int = 0):
+        """
+        Args:
+            cycle: Washer cycle, e.g. 'cotton' or 'eco'
+            delay_minutes: Minutes to wait before starting, default 0
+        """
+        args = {"cycle": cycle, "delay_minutes": delay_minutes}
+        prior = self.runner.completed.get("washer")
+        if prior is None or prior.compensated or prior.args_key == "start_washer|" + _canon(args):
+            # nothing already started, or this is the identical request — a normal call.
+            result = await self.runner.run(
+                "start_washer", args,
+                lambda: self.backend.start_washer(cycle, delay_minutes),
+                slot="washer", state_changing=True,
+            )
+        else:
+            # a washer job already started in this slot and the user wants a different cycle —
+            # cancel the old job first, then start the new one.
+            old_job_id = prior.result["job_id"]
+            result = await self.runner.rollback_and_run(
+                "start_washer", args,
+                lambda: self.backend.start_washer(cycle, delay_minutes),
+                slot="washer",
+                compensate_tool="cancel_washer",
+                compensate_args={"job_id": old_job_id},
+                compensate_execute=lambda: self.backend.cancel_washer(old_job_id),
+            )
+        return json.dumps(result)
+
+    @ai_callable_decorator(description="Check home energy usage for a period. Can take a few seconds.")
+    async def check_energy_usage(self, period: str = "today"):
+        """
+        Args:
+            period: 'today', 'this week' or 'this month'
+        """
+        result = await self.runner.run(
+            "check_energy_usage", {"period": period},
+            lambda: self.backend.check_energy_usage(period),
+            slot="energy", state_changing=False,
+        )
+        return json.dumps(result)
+
+    @ai_callable_decorator(description="Ring the user's phone to find it. May need a couple of tries.")
+    async def find_phone(self):
+        result = await self.runner.run(
+            "find_phone", {},
+            lambda: self.backend.find_phone(),
+            slot="find_phone", state_changing=False,
+        )
+        return json.dumps(result)
+
+    @ai_callable_decorator(description="Call the appliance service centre about a problem.")
+    async def call_service_center(self, issue: str):
+        """
+        Args:
+            issue: What's wrong, e.g. 'washer leaking'
+        """
+        result = await self.runner.run(
+            "call_service_center", {"issue": issue},
+            lambda: self.backend.call_service_center(issue),
+            slot="service_center", state_changing=True,
+        )
+        return json.dumps(result)
+
+
 class InCarVoiceAgent(Agent):
     def __init__(self) -> None:
-        super().__init__(instructions=SYSTEM_PROMPT)
+        super().__init__(instructions=HOME_SYSTEM_PROMPT if PACK == "home" else SYSTEM_PROMPT)
 
 
 def realtime_model():
@@ -167,7 +294,8 @@ server = AgentServer()
 
 @server.rtc_session()
 async def entrypoint(ctx: agents.JobContext):
-    backend = MockBackend(seed=int(os.getenv("EXT_SEED", "0")))
+    seed = int(os.getenv("EXT_SEED", "0"))
+    backend = HomeBackend(seed=seed) if PACK == "home" else MockBackend(seed=seed)
     runner = ToolRunner(
         timeout_s=float(os.getenv("EXT_TIMEOUT_S", "9.0")),
         max_retries=int(os.getenv("EXT_MAX_RETRIES", "2")),
@@ -175,7 +303,7 @@ async def entrypoint(ctx: agents.JobContext):
         progress_after_s=float(os.getenv("EXT_PROGRESS_AFTER_S", "1.5")),
         handoff_after_failures=int(os.getenv("EXT_HANDOFF_AFTER", "2")),
     )
-    fnc_ctx = InCarAssistant(runner, backend)
+    fnc_ctx = HomeAssistant(runner, backend) if PACK == "home" else InCarAssistant(runner, backend)
     tools = llm.find_function_tools(fnc_ctx)
     session = AgentSession(llm=realtime_model(), tools=tools)
 
@@ -208,12 +336,19 @@ def _progress_line(tool: str) -> str:
         "book_charging_slot": "Still booking that slot...",
         "reroute_navigation": "Still rerouting...",
         "call_roadside_assistance": "Still trying to reach roadside assistance...",
+        "check_energy_usage": "Still checking your energy usage, one moment...",
+        "find_phone": "Still trying to find your phone...",
+        "start_washer": "Still starting the washer...",
+        "call_service_center": "Still trying to reach the service centre...",
     }.get(tool, "Still working on that...")
 
 
 def _rollback_line(old_tool: str, new_result: dict) -> str:
     if old_tool == "book_charging_slot":
         return f"Done — I've cancelled the previous booking and booked {new_result.get('station_id', 'the new station')} instead."
+    if old_tool == "start_washer":
+        return (f"Done — I've cancelled the previous wash and started the "
+                f"{new_result.get('cycle', 'new')} cycle instead.")
     return "Done — I've reversed the previous action and completed the new one instead."
 
 

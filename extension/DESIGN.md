@@ -151,3 +151,45 @@ task's rule not to start any agent or touch `fdb_agent/` from this session) — 
 6. *(80–105s)* Roadside assistance fails twice (mock is permanently down) → talker says
    "I've passed this to a human agent, reference HANDOFF-0001" instead of failing silently or
    retrying forever.
+
+## Second scenario: Bixby-style home assistant (mock SmartThings-like tools)
+
+The same `ext_agent.py` and the same `ToolRunner` (`recovery.py`) can run a smart-home /
+device-assistant scenario instead of the in-car one. The pack is chosen by an environment
+variable: `EXT_PACK=car` (default, unchanged) or `EXT_PACK=home`. The home pack lives in
+`mock_tools_home.py` (`HomeBackend`) and the `HomeAssistant` tool class in `ext_agent.py`;
+its offline tests are in `test_recovery_home.py`.
+
+Run:
+
+```bash
+EXT_PACK=home LK_PROVIDER=ext_gemini38 EXT_SEED=0 python extension/ext_agent.py console
+```
+
+Tools and which recovery path each one exercises: `set_ac_temperature` (fast, idempotent;
+supersede on a correction), `set_lights` (fast), `start_washer` (state-changing, returns a job
+id, idempotent so it never double-starts), `cancel_washer` (the rollback compensation for
+`start_washer`, not exposed to the model), `check_energy_usage` (3-6 s, "still checking"
+progress), `find_phone` (fails twice, then succeeds: silent retry), `call_service_center`
+(permanently down: human handoff).
+
+### Demo script (seed 0, six beats)
+
+1. Say: "Set the living room AC to 24 — no, 22." Only 22 is applied; the 24 call is superseded.
+2. Say: "How much energy have I used today?" The assistant says it is still checking while the
+   slow tool runs, then reads the kWh.
+3. Say: "Find my phone." Two internal failures are retried silently; you only hear where it is.
+4. Say: "Start the washer on cotton." One job id is read back. Then say "start the washer on
+   cotton" again: the same job id, no second start.
+5. Say: "Actually, make it eco instead." The cotton job is cancelled first, then the eco job
+   starts (`rollback_and_run` with `cancel_washer` as compensation); the assistant says it
+   cancelled the previous wash and started eco.
+6. Say: "The washer is leaking, call the service centre." The mock line is permanently down, so
+   after two failures the assistant hands off to a human and reads back `HANDOFF-0001`.
+
+### Honest note
+
+These are mock tools. This is not an integration with Bixby or SmartThings, and no real device
+or vendor API is called. The point is that the recovery layer (timeout, retry/backoff,
+idempotency, supersede, rollback, progress, handoff) is scenario-independent: swapping the
+tool pack required no change to `recovery.py`.
