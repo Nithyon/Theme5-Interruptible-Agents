@@ -70,3 +70,18 @@ hesitation 4/5, not a correction 5/5, double correction 3/3, correction then can
 Result folders: `project-log/runs/2026-09-30_fallback_suite_gemma4_26b-a4b-it-qat/`, `..._interrupt/`,
 `2026-09-30_fallback_suite_gemma4_e4b-it-qat/`, `..._interrupt/`, and the earlier 40-command comparison
 `2026-09-30_local_fallback_eval_*_laptop*.json`.
+
+## How to reproduce
+
+Needs Ollama running with the model pulled (`ollama pull gemma4:26b-a4b-it-qat`, about 16 GB); no keys, no GPU.
+
+```bash
+./reproduce_extension.sh fallback                                              # all three sets, Gemma 4 26B, 1 run
+./reproduce_extension.sh fallback --sets interrupt                             # only the interruption set
+FALLBACK_MODEL=gemma4:e4b-it-qat FALLBACK_RUNS=3 ./reproduce_extension.sh fallback   # the small model, 3 runs
+```
+
+The script calls `extension/fallback_suite.py` and writes a new folder under `project-log/runs/` with `machine.json`,
+one result file per set and run, and `summary.md`. Expect about 6 s per command on a 32 GB laptop without a discrete
+GPU; numbers can differ by a command or two between machines (a re-run on a second laptop, with an RTX 5070 laptop
+GPU, gave 36/40 against 38/40 on our own commands; see `SCORES.md`).
