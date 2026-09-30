@@ -25,6 +25,22 @@ The gate (`fdb_agent/gate.py`, wired in `fdb_agent/gate_agent.py`):
 - Caps any hold at **8 s**, so a genuinely long pause can't stall the conversation forever.
 - **Only executed calls are logged.** Held or superseded calls never touch `/tmp/agent_tool_calls.log` — nothing is hidden from the scorer, execution is just deferred until it's safe.
 
+Added on 2026-09-30, after the final benchmark run (all in `fdb_agent/gate.py`, all covered by `fdb_agent/test_gate.py`, which passes):
+
+- **Retraction handling** (`GATE_RETRACT`, default on). Follows the change-of-mind taxonomy of Zou et al. 2026 (arXiv 2604.00892): a user can *add* to, *revise*, or *retract* a request. Cues such as "never mind", "forget that", "don't book anything" drop a held call with no replacement; the Jev follow-up classifier gained a `retraction` label.
+- **Conservative identifier canonicalization** (`GATE_ID_NORMALIZE`, default on). Applies to arguments named `*_id` / `*_number`. It joins only spelled-out *single characters* ("B-O-B-1-2" -> "BOB12"); it keeps letter case and real multi-character hyphens ("PO-999" stays "PO-999"). **This is a documented assumption**: we treat a separator between single characters as a speech-to-text artefact (the stock-prompt baseline shows it too), not as part of the identifier. If a real system used such separators meaningfully, this rule would be wrong for it.
+- **Backchannel handling** (`GATE_BACKCHANNEL`, default on). "okay", "mm-hmm", "uh-huh", "got it" mean "I'm listening", not a new turn: no supersede, no retraction check, no Jev call, no "turn done" acknowledgement, and they do not count as a correction if the same tool is proposed again. Fillers ("uh", "um", "hmm") are deliberately *not* backchannels; they still signal hesitation. Motivated by S-MARC (arXiv 2602.11065), which models backchannel as its own class separate from turn-taking.
+- **`GATE_LEAN` switch, "Jev as decider"** (default off). Jev may shorten a hold or classify a follow-up, but never lengthens a hold beyond the rule window. **It is a switch under practice-set evaluation and is not in the submitted configuration.**
+
+**Status of these four.** The full-benchmark numbers in the Results section were measured *before* retraction, identifier canonicalization and backchannel handling existed, so none of those three is reflected in them; they are unit-tested but have **not** been scored on the practice set or the benchmark. Their defaults are on, so a fresh `reproduce.sh` run today includes them; set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0` to run the configuration that produced the reported numbers.
+
+### Design lineage / related work
+
+- **Fast talker + slow thinker split**: our realtime model talks while the gate decides; this follows the same split as the OpenAI Realtime Agents chat-supervisor pattern, the LiveKit supervisor-pattern blog (2026-03-23) and LTS-VoiceAgent (arXiv 2601.19952). Our gate holds every tool call, so a slower check can run inside the hold. The escalation part is **planned, not implemented**.
+- **Decider ladder, cheapest first**: rules, then Jev, in the same spirit as query routing in Hybrid LLM (ICLR 2024, arXiv 2404.14618), which sends easy queries to a cheap model and hard ones to a costly one. We borrow the idea of ordering deciders by cost; we do not reproduce their router.
+- **User change-of-mind taxonomy**: addition / revision / retraction (Zou et al. 2026, arXiv 2604.00892), the basis for our follow-up classes.
+- **Acoustic end-of-turn as a planned third decider**: Smart Turn v3.2 (Pipecat, BSD-2-Clause, ~8M parameters, CPU inference; see `project-log/RESEARCH_SMART_TURN.md`). **Not implemented**; it has not been evaluated on real voices or Indian-English accents.
+
 ## Why this design
 
 Full-Duplex-Bench v3's own scoring is unforgiving of early commitment: a single wrong or extra tool call fails the entire scenario's strict Pass@1, even if the corrected call follows immediately after (`evaluate_pass_rate.py`'s multiset + precision check — verified by reading the benchmark's own code, not assumed). The paper's own published numbers (arXiv 2604.04847, verified against the paper directly) confirm this is a universal problem, not one model's quirk:
@@ -75,23 +91,45 @@ This is why the shipped gate uses `GATE_COMBINE=either`: hold if *either* the ru
 
 ## Results
 
-| System | Pass@1 (exact-match) | Pass@1 (`--use-llm` GPT-4o judge) | Latency | Source |
+Honest headline: **the full pipeline does not beat the stock baseline overall.** Judged pass rate is 61/100 for the pipeline against 62/100 for the stock agent (strict exact-match: 46/100 against 50/100). It gains in some slices and loses in others.
+
+| System | Strict exact-match | Gemini 2.5 Pro judge (stand-in for GPT-4o) | Latency (first reply, median) | Source |
 |---|---|---|---|---|
 | Paper: GPT-Realtime | — | 0.600 | — | arXiv 2604.04847 |
 | Paper: Gemini Live 3.1 | — | 0.540 | 4.25 s task completion | arXiv 2604.04847 |
 | Paper: Cascaded (Whisper/GPT-4o/TTS) | — | 0.450 | 10.12 s task completion | arXiv 2604.04847 |
-| **Ours: stock agent, no gate** (`baseline_agent.py`, `gemini-3.8-live`, all 100) | **0.50 (50/100)** | TBD (no judge key yet) | 3.92 s median perceived (first reply); task completion TBD | `project-log/SCORES.md`, `runs/2026-09-29_full_gemini3_8/` |
-| **Ours: with commit gate** (`gate_agent.py`, `GATE_COMBINE=either` — rules + Jev as one decider, draft-call hold + dangling-word trigger + prompt v2) | **TBD — full 100-recording run in progress** (`gate_gemini38_final`, started ~15:23 UTC 2026-09-29; an earlier config-C-only run was stopped at 10/100 once the combined decider was adopted) | TBD | TBD | `project-log/runs/` (link added once frozen) |
+| **Ours: stock agent, no gate** (`baseline_agent.py`, `gemini-3.8-live`, all 100) | 50/100 | **62/100** | 3.92 s perceived (strict run); 4.00 s (`analyze_tool_latency.py`) | `project-log/SCORES.md`, `runs/2026-09-29_full_gemini3_8/` |
+| **Ours: full pipeline** (`gate_agent.py`, rules + Jev as one decider, draft-call hold, dangling-word trigger, prompt v2) | 46/100 | **61/100** | 6.4 s | `project-log/SCORES.md`, `runs/2026-09-29_full_gate_gemini38_final/` |
 
-> The paper's pass rates were scored with the GPT-4o judge; our exact-match numbers are stricter, so they are **not** directly comparable until our runs are re-scored with the judge. Latency: the paper reports task-completion time; "perceived" is time from the user's speech end to the agent's first reply.
+**Judge caveat.** The organizers score with a GPT-4o judge. We had no OpenAI key, so our judged numbers use Gemini 2.5 Pro with the benchmark's own judge prompts unchanged (119/119 judge replies parsed for the pipeline, 121/121 for the baseline, no fallbacks). They are a stand-in and are **not** claimed to equal a GPT-4o-judged score. The paper's pass rates were scored with GPT-4o. Latency: the paper reports task-completion time; "perceived" / "first reply" is the time from the user's speech end to the agent's first reply.
 
-Baseline failure breakdown (exact-match, from `project-log/SCORES.md`): by disfluency — pause 0.389, filler 0.448, self-correction 0.471, hesitation 0.50, false start 0.667; by domain — finance 0.88, e-commerce 0.759, travel 0.15, housing 0.115; failure causes — 32 wrong-argument, 10 missing-tool, 5 extra-tool, 3 missing+extra.
+**Where the pipeline gains and loses (judged, from `SCORES.md`):**
 
-All numbers above without a source link are **TBD** and will be filled in from a `runs/` folder once frozen — no number here is reported without a log behind it.
+| Slice | Pipeline | Baseline |
+|---|---|---|
+| Overall | 61 | 62 |
+| Housing | 0.346 | 0.192 |
+| Self-correction | 0.529 | 0.471 |
+| 3-tool requests | 0.375 | 0.312 |
+| E-commerce | 0.586 | 0.759 |
+| Pause | 0.50 | 0.611 |
+| Travel | 0.65 | 0.65 |
+| Finance | 0.88 | 0.88 |
+
+Failure counts, judged: wrong tools 18 vs 18, wrong arguments 21 vs 20. We do not claim the gains come from the gate alone: the pipeline also includes a prompt change (`GATE_PROMPT=2`, e.g. "never ask a follow-up question") and we ran no full-benchmark ablation that separates the components.
+
+**Failure analysis: late changes.** Of 14 same-tool repeats in the pipeline run, 4 were legitimate parallel pairs (the gate kept both; all 4 passed) and **10 were late changes, where the user resumed 1.4–10.7 s after the first call; all 10 failed.** No hold window can fix these: a hold long enough to catch them would stall every normal turn, and no turn-final judge can foresee a correction not yet spoken. This is the case that motivates *undo / rollback* rather than a longer hold, which is what the extension builds.
+
+Baseline failure breakdown (exact-match, `SCORES.md`): by disfluency — pause 0.389, filler 0.448, self-correction 0.471, hesitation 0.50, false start 0.667; by domain — finance 0.88, e-commerce 0.759, travel 0.15, housing 0.115; failure causes — 32 wrong-argument, 10 missing-tool, 5 extra-tool, 3 missing+extra. Under the Gemini judge the baseline's travel score is 0.65 and housing 0.192 (wrong arguments drop from 32 to 20), so part of the strict travel/housing gap was wording, not wrong behavior.
+
+**Not measured, so not claimed:** the paper rows are published numbers, not a like-for-like comparison with ours (different judge and model versions); we report no latency improvement (the pipeline's first reply is slower than the stock agent's); a second full run for variance was not done.
 
 ## Reproduce
 
 `reproduce.sh` (repo root) is the one-command reproduction script; see `BUILD_PLAN_FDB_V3.md` §7 for exactly what each step does and its unverified assumptions. The organizers' 48 GB GPU is only used by the benchmark harness's own Parakeet ASR when it scores the agent's spoken answers — our agent and its reasoner (Gemini 3.8 Live, hosted) never touch that GPU themselves.
+
+
+> **Config note.** The reported 61/100 (judged) and 46/100 (strict) were produced with the settings in `run.txt` of `runs/2026-09-29_full_gate_gemini38_final/`, which predate the retraction, identifier-canonicalization and backchannel switches. Those now default to on; to reproduce the reported configuration exactly, also set `GATE_RETRACT=0 GATE_ID_NORMALIZE=0 GATE_BACKCHANNEL=0`. `reproduce.sh` itself has not yet been run end to end on a clean machine.
 
 The exact one-command reproduction, with our submitted (final) config:
 
@@ -115,25 +153,39 @@ It needs these environment variables set **by name only** in `~/theme5/Full-Dupl
 ./reproduce.sh fdb_agent/baseline_agent.py gemini3_8         # stock baseline, for comparison
 ```
 
-## Extension (placeholder — not yet built)
+## Extension: in-car assistant with slow / failing tool recovery
 
-**Audio-only "slow/failing tool recovery" use case.** The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_notes.md`) confirmed FDB-v3 has no video input in Round 1 and named exactly this scenario as something they want showcased: *"There will be instances where the tasks will fail... there will be instances where the latency will be variable... if you can showcase [that], that will be very good... you should be able to recover — retry, close the session, move to human in the loop."* The plan is to reuse the same coordinator (talker/reasoner/commit gate) behind a second adapter, feeding it slow or failing mock tool calls instead of LiveKit audio, and show: a retried read-only call, a state-changing call that is never blindly retried, and a clean handoff when recovery isn't possible. **Not implemented yet** — this section is a placeholder until it is.
+The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_notes.md`) confirmed FDB-v3 has no video input in Round 1 and named tool failure and variable latency as something they want showcased: *"you should be able to recover — retry, close the session, move to human in the loop."* The extension (`extension/`, design in `extension/DESIGN.md`) reuses the same talker + commit-gate pattern behind a recovery layer, for an audio-only in-car assistant (reroute, traffic, EV charging lookup and booking, roadside assistance) with mock tools:
+
+- **Timeout and retry with backoff** for plain failures; a state-changing call that *times out* is never auto-retried, because a timeout is ambiguous (did the booking land?).
+- **Idempotency**: calls are keyed by tool + canonicalized arguments; a repeated call that already succeeded returns the cached result and never re-runs the tool.
+- **Supersede** a call that is still pending when the driver changes their mind.
+- **Rollback** when the change of mind arrives *after* the call succeeded: a compensating call (`cancel_charging_booking`) runs first, the new booking only if the compensation succeeded; if compensation fails, it hands off to a human instead of booking a second time.
+- **Read-back / progress**: spoken "still checking..." while a slow tool runs (never a claim of completion), a spoken confirmation of what was cancelled and booked, and a human-handoff reference after repeated failures.
+
+**Status:** the offline core (`recovery.py`, `mock_tools.py`, `test_recovery.py`) passes 35/35 offline tests. The LiveKit agent `extension/ext_agent.py` is written but had **not been run live** as of the last entry in `project-log/WORKLOG.md`; the demo video's extension segment depends on that live run (see `project-log/VIDEO_SCRIPT.md`). The mock tools are deterministic stand-ins, not real vehicle or booking services.
 
 ## Honest limitations
 
-- **Single reported run so far.** The results table above is one baseline pass; the gate run and a second full run (for mean + variance, per `BUILD_PLAN_FDB_V3.md`'s own plan) are still pending.
-- **Exact-match scoring only, for now.** No OpenAI/Azure key is wired in yet, so `--use-llm` numbers are TBD; exact-match can penalize a correct answer in a different valid format.
-- **Cloud-dependent.** The reasoner is a hosted realtime model (Gemini 3.8 Live); there's no fully local fallback in the current build, though `BUILD_PLAN_FDB_V3.md` scopes one as a stretch goal if the deadline moves.
-- **Tuned only on our own synthetic dev set** (`devset/scenarios.jsonl`, 40 scenarios written from scratch against the tool signatures) — never on FDB-v3's own 100 test recordings, per the organizers' disqualification rule. This means our gate's timing constants are our best guess refined on synthetic data, not on the actual test distribution.
-- **Extension is not yet built** (see above) — currently a stated plan, not working code.
+- **The pipeline does not beat the stock baseline overall** (61 vs 62 judged, 46 vs 50 strict); it wins housing, self-correction and 3-tool requests and loses e-commerce and pause. Its first reply is slower (6.4 s vs 4.00 s median).
+- **Single full run per configuration.** No second run for variance; run-to-run noise on 100 items is not measured, so 61 vs 62 is not a distinguishable difference.
+- **Judge is a stand-in.** All judged numbers use Gemini 2.5 Pro, not the organizers' GPT-4o judge.
+- **Late changes are not fixable by holding** (10 of 10 failed); only undo/rollback addresses them, and that exists in the extension, not in the benchmark agent.
+- **Post-run additions are unscored.** Retraction, identifier canonicalization and backchannel handling were added after the final run (unit-tested only); `GATE_LEAN` is a switch under practice-set evaluation, not in the submitted config. The acoustic end-of-turn decider and escalation to a thinking model are planned, not built.
+- **Identifier canonicalization is an assumption** (single-character separators are speech artefacts).
+- **Cloud-dependent.** The reasoner is a hosted realtime model (Gemini 3.8 Live); no fully local fallback in the current build.
+- **Tuned only on our own synthetic dev set** (`devset/scenarios.jsonl`, plus 12 pause scenarios from a teammate; 62 items in total, Kokoro TTS audio) — never on FDB-v3's own 100 recordings, per the organizers' disqualification rule. Timing constants are our best guess refined on synthetic data.
+- **`reproduce.sh` has not been run end to end on a clean machine** (`project-log/OBJECTIVES.md`, B1); the extension has not been run live.
 - **`book_flight` argument scope.** The stock tool only takes `passenger_name`, no `flight_id` — an open question for how the judge treats any expected `flight_id` reference (`project-log/STATUS.md`).
 
 ## Declared models / APIs
 
 - **Reasoner:** Gemini 3.8 Live (Google), via a plain API key by default, or Vertex AI with ADC in our own dev environment
 - **Voice infrastructure:** LiveKit Cloud (real-time audio room, required by the benchmark's own harness)
-- **Judge (optional):** GPT-4o, via OpenAI API or an Azure OpenAI deployment — declared, not yet wired in
+- **Decision layer (optional):** TypeSafe Jev (`typesafe-sdk` 0.7.2), with automatic rules-only fallback
+- **Judge:** the organizers' GPT-4o judge is not wired in; our reported judged numbers use Gemini 2.5 Pro (Vertex) as a stand-in with the benchmark's prompts unchanged
 - **Scoring ASR:** NVIDIA Parakeet-TDT-0.6B-v2 — run by the benchmark's own scorer, not by our agent
+- **Dev-set TTS:** Kokoro-82M, for our own practice audio only
 
 ## AI usage
 

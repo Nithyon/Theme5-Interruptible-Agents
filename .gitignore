@@ -22,3 +22,7 @@ desktop.ini
 # Delete this line if the repo is private and you want it tracked.
 docs-source/
 devset/audio/
+
+# submission packs
+docs-pack/
+docs-pack.zip
