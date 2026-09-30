@@ -1,0 +1,466 @@
+{
+  "pid": "04417d7cebfbd45b2d2276c4",
+  "example_id": "slurppause01",
+  "category": "home",
+  "title": "extension on real speech with inserted mid-request pauses (SLURP)",
+  "provider": "ext_home_slurp",
+  "evaluated_at": "2026-09-30T17:40:49.877129",
+  "inference_time_s": 196.68,
+  "room_name": "eval-538ecc58",
+  "stream_start_time": 1790790055.2319074,
+  "input_transcript": "Turn off bedroom light at nine hundred and thirty PM Light up the lights in the kitchen Turn my light down to the low level of brightness Turn up the brightness Turn off the porch light And the darkness has fallen Lower the lights please Light colour for study room Shut the lights off Turn the lights off you turn the lights off",
+  "input_asr_chunks": [
+    {
+      "text": "Turn",
+      "timestamp": [
+        2.32,
+        2.72
+      ]
+    },
+    {
+      "text": "off",
+      "timestamp": [
+        2.72,
+        3.04
+      ]
+    },
+    {
+      "text": "bedroom",
+      "timestamp": [
+        4.96,
+        5.44
+      ]
+    },
+    {
+      "text": "light",
+      "timestamp": [
+        5.44,
+        5.68
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        5.68,
+        5.84
+      ]
+    },
+    {
+      "text": "nine",
+      "timestamp": [
+        5.84,
+        6.08
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        6.16,
+        6.32
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        6.4,
+        6.48
+      ]
+    },
+    {
+      "text": "thirty",
+      "timestamp": [
+        6.5600000000000005,
+        6.96
+      ]
+    },
+    {
+      "text": "PM",
+      "timestamp": [
+        6.96,
+        7.44
+      ]
+    },
+    {
+      "text": "Light",
+      "timestamp": [
+        19.28,
+        19.84
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        19.84,
+        20.16
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        22.240000000000002,
+        22.400000000000002
+      ]
+    },
+    {
+      "text": "lights",
+      "timestamp": [
+        22.400000000000002,
+        22.72
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        22.72,
+        22.8
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        22.8,
+        22.88
+      ]
+    },
+    {
+      "text": "kitchen",
+      "timestamp": [
+        22.88,
+        23.6
+      ]
+    },
+    {
+      "text": "Turn",
+      "timestamp": [
+        35.04,
+        35.68
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        35.68,
+        35.92
+      ]
+    },
+    {
+      "text": "light",
+      "timestamp": [
+        36.160000000000004,
+        36.72
+      ]
+    },
+    {
+      "text": "down",
+      "timestamp": [
+        36.72,
+        37.04
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        37.04,
+        37.28
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        37.28,
+        37.6
+      ]
+    },
+    {
+      "text": "low",
+      "timestamp": [
+        37.6,
+        38.0
+      ]
+    },
+    {
+      "text": "level",
+      "timestamp": [
+        38.0,
+        38.64
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        38.64,
+        38.96
+      ]
+    },
+    {
+      "text": "brightness",
+      "timestamp": [
+        42.4,
+        43.28
+      ]
+    },
+    {
+      "text": "Turn",
+      "timestamp": [
+        55.120000000000005,
+        55.44
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        55.44,
+        55.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        55.6,
+        55.84
+      ]
+    },
+    {
+      "text": "brightness",
+      "timestamp": [
+        57.44,
+        58.160000000000004
+      ]
+    },
+    {
+      "text": "Turn",
+      "timestamp": [
+        69.44,
+        69.84
+      ]
+    },
+    {
+      "text": "off",
+      "timestamp": [
+        69.84,
+        70.0
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        70.0,
+        70.24
+      ]
+    },
+    {
+      "text": "porch",
+      "timestamp": [
+        70.24,
+        70.72
+      ]
+    },
+    {
+      "text": "light",
+      "timestamp": [
+        70.72,
+        71.2
+      ]
+    },
+    {
+      "text": "And",
+      "timestamp": [
+        85.84,
+        86.08
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        86.08,
+        86.16
+      ]
+    },
+    {
+      "text": "darkness",
+      "timestamp": [
+        86.16,
+        86.8
+      ]
+    },
+    {
+      "text": "has",
+      "timestamp": [
+        86.8,
+        86.96000000000001
+      ]
+    },
+    {
+      "text": "fallen",
+      "timestamp": [
+        89.2,
+        90.08
+      ]
+    },
+    {
+      "text": "Lower",
+      "timestamp": [
+        101.44,
+        102.0
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        102.0,
+        102.24000000000001
+      ]
+    },
+    {
+      "text": "lights",
+      "timestamp": [
+        102.24000000000001,
+        102.64
+      ]
+    },
+    {
+      "text": "please",
+      "timestamp": [
+        102.8,
+        103.60000000000001
+      ]
+    },
+    {
+      "text": "Light",
+      "timestamp": [
+        116.72,
+        117.28
+      ]
+    },
+    {
+      "text": "colour",
+      "timestamp": [
+        117.28,
+        118.08
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        120.72,
+        121.04
+      ]
+    },
+    {
+      "text": "study",
+      "timestamp": [
+        121.04,
+        121.52
+      ]
+    },
+    {
+      "text": "room",
+      "timestamp": [
+        121.52,
+        122.16
+      ]
+    },
+    {
+      "text": "Shut",
+      "timestamp": [
+        133.2,
+        133.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        133.6,
+        133.68
+      ]
+    },
+    {
+      "text": "lights",
+      "timestamp": [
+        133.68,
+        134.32
+      ]
+    },
+    {
+      "text": "off",
+      "timestamp": [
+        134.32,
+        134.64000000000001
+      ]
+    },
+    {
+      "text": "Turn",
+      "timestamp": [
+        147.44,
+        147.76
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        147.76,
+        147.84
+      ]
+    },
+    {
+      "text": "lights",
+      "timestamp": [
+        147.84,
+        150.96
+      ]
+    },
+    {
+      "text": "off",
+      "timestamp": [
+        150.96,
+        151.12
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        162.4,
+        162.56
+      ]
+    },
+    {
+      "text": "turn",
+      "timestamp": [
+        162.8,
+        163.36
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        164.96,
+        165.28
+      ]
+    },
+    {
+      "text": "lights",
+      "timestamp": [
+        165.28,
+        166.08
+      ]
+    },
+    {
+      "text": "off",
+      "timestamp": [
+        166.08,
+        166.4
+      ]
+    }
+  ],
+  "user_speech_end_rel": 7.44,
+  "latency": {
+    "input_duration_s": 177.516,
+    "output_duration_s": 177.516,
+    "first_speech_s": 177.516
+  },
+  "user_done_unix": 1790790062.6719074,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

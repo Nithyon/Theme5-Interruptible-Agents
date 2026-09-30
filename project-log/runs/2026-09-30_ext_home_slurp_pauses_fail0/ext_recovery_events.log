@@ -1,0 +1,55 @@
+{"kind": "session_start", "ts": 402.96288013}
+{"seq": 1, "kind": "proposed", "call_id": "c1", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"bedroom\", \"state\": \"off\"}", "ts": 412.999}
+{"seq": 2, "kind": "started", "call_id": "c1", "tool": "set_lights", "detail": "attempt 1", "ts": 413.0}
+{"seq": 3, "kind": "succeeded", "call_id": "c1", "tool": "set_lights", "detail": "attempt 1", "ts": 413.052}
+{"seq": 4, "kind": "proposed", "call_id": "c2", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"bedroom\", \"state\": \"on\"}", "ts": 427.107}
+{"seq": 5, "kind": "started", "call_id": "c2", "tool": "set_lights", "detail": "attempt 1", "ts": 427.108}
+{"seq": 6, "kind": "succeeded", "call_id": "c2", "tool": "set_lights", "detail": "attempt 1", "ts": 427.159}
+{"seq": 7, "kind": "proposed", "call_id": "c3", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 429.858}
+{"seq": 8, "kind": "started", "call_id": "c3", "tool": "set_lights", "detail": "attempt 1", "ts": 429.858}
+{"seq": 9, "kind": "succeeded", "call_id": "c3", "tool": "set_lights", "detail": "attempt 1", "ts": 429.911}
+{"seq": 10, "kind": "proposed", "call_id": "c4", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 430.878}
+{"seq": 11, "kind": "duplicate", "call_id": "c4", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 430.879}
+{"seq": 12, "kind": "proposed", "call_id": "c5", "tool": "set_lights", "detail": "{\"brightness\": 10, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 446.759}
+{"seq": 13, "kind": "started", "call_id": "c5", "tool": "set_lights", "detail": "attempt 1", "ts": 446.76}
+{"seq": 14, "kind": "succeeded", "call_id": "c5", "tool": "set_lights", "detail": "attempt 1", "ts": 446.813}
+{"seq": 15, "kind": "proposed", "call_id": "c6", "tool": "find_phone", "detail": "{}", "ts": 451.301}
+{"seq": 16, "kind": "started", "call_id": "c6", "tool": "find_phone", "detail": "attempt 1", "ts": 451.302}
+{"seq": 17, "kind": "failed", "call_id": "c6", "tool": "find_phone", "detail": "attempt 1: phone did not answer the ring request", "ts": 451.353}
+{"seq": 18, "kind": "retry", "call_id": "c6", "tool": "find_phone", "detail": "backing off 0.50s", "ts": 451.354}
+{"seq": 19, "kind": "started", "call_id": "c6", "tool": "find_phone", "detail": "attempt 2", "ts": 451.854}
+{"seq": 20, "kind": "failed", "call_id": "c6", "tool": "find_phone", "detail": "attempt 2: phone did not answer the ring request", "ts": 451.906}
+{"seq": 21, "kind": "retry", "call_id": "c6", "tool": "find_phone", "detail": "backing off 1.00s", "ts": 451.906}
+{"seq": 22, "kind": "started", "call_id": "c6", "tool": "find_phone", "detail": "attempt 3", "ts": 452.906}
+{"seq": 23, "kind": "succeeded", "call_id": "c6", "tool": "find_phone", "detail": "attempt 3", "ts": 452.957}
+{"seq": 24, "kind": "proposed", "call_id": "c7", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 464.814}
+{"seq": 25, "kind": "started", "call_id": "c7", "tool": "set_lights", "detail": "attempt 1", "ts": 464.816}
+{"seq": 26, "kind": "succeeded", "call_id": "c7", "tool": "set_lights", "detail": "attempt 1", "ts": 464.868}
+{"seq": 27, "kind": "proposed", "call_id": "c8", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"kitchen\", \"state\": \"on\"}", "ts": 467.113}
+{"seq": 28, "kind": "duplicate", "call_id": "c8", "tool": "set_lights", "detail": "returning cached result, not re-executed", "ts": 467.114}
+{"seq": 29, "kind": "proposed", "call_id": "c9", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"porch\", \"state\": \"off\"}", "ts": 480.784}
+{"seq": 30, "kind": "started", "call_id": "c9", "tool": "set_lights", "detail": "attempt 1", "ts": 480.785}
+{"seq": 31, "kind": "succeeded", "call_id": "c9", "tool": "set_lights", "detail": "attempt 1", "ts": 480.837}
+{"seq": 32, "kind": "proposed", "call_id": "c10", "tool": "set_ac_temperature", "detail": "{\"celsius\": 24.0, \"room\": \"bedroom\"}", "ts": 500.565}
+{"seq": 33, "kind": "started", "call_id": "c10", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 500.566}
+{"seq": 34, "kind": "succeeded", "call_id": "c10", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 500.618}
+{"seq": 35, "kind": "proposed", "call_id": "c11", "tool": "set_lights", "detail": "{\"brightness\": 30, \"room\": \"bedroom\", \"state\": \"on\"}", "ts": 514.978}
+{"seq": 36, "kind": "started", "call_id": "c11", "tool": "set_lights", "detail": "attempt 1", "ts": 514.979}
+{"seq": 37, "kind": "succeeded", "call_id": "c11", "tool": "set_lights", "detail": "attempt 1", "ts": 515.03}
+{"seq": 38, "kind": "proposed", "call_id": "c12", "tool": "set_ac_temperature", "detail": "{\"celsius\": 22.0, \"room\": \"study room\"}", "ts": 534.638}
+{"seq": 39, "kind": "started", "call_id": "c12", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 534.639}
+{"seq": 40, "kind": "succeeded", "call_id": "c12", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 534.692}
+{"seq": 41, "kind": "proposed", "call_id": "c13", "tool": "set_ac_temperature", "detail": "{\"celsius\": 22.0, \"room\": \"study room\"}", "ts": 535.228}
+{"seq": 42, "kind": "duplicate", "call_id": "c13", "tool": "set_ac_temperature", "detail": "returning cached result, not re-executed", "ts": 535.228}
+{"seq": 43, "kind": "proposed", "call_id": "c14", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"bedroom\", \"state\": \"off\"}", "ts": 548.541}
+{"seq": 44, "kind": "started", "call_id": "c14", "tool": "set_lights", "detail": "attempt 1", "ts": 548.548}
+{"seq": 45, "kind": "succeeded", "call_id": "c14", "tool": "set_lights", "detail": "attempt 1", "ts": 548.601}
+{"seq": 46, "kind": "proposed", "call_id": "c15", "tool": "set_lights", "detail": "{\"brightness\": 100, \"room\": \"bedroom\", \"state\": \"on\"}", "ts": 562.966}
+{"seq": 47, "kind": "started", "call_id": "c15", "tool": "set_lights", "detail": "attempt 1", "ts": 562.967}
+{"seq": 48, "kind": "succeeded", "call_id": "c15", "tool": "set_lights", "detail": "attempt 1", "ts": 563.018}
+{"seq": 49, "kind": "proposed", "call_id": "c16", "tool": "set_ac_temperature", "detail": "{\"celsius\": 22.0, \"room\": \"dining room\"}", "ts": 579.664}
+{"seq": 50, "kind": "started", "call_id": "c16", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 579.666}
+{"seq": 51, "kind": "succeeded", "call_id": "c16", "tool": "set_ac_temperature", "detail": "attempt 1", "ts": 579.719}
+{"seq": 52, "kind": "proposed", "call_id": "c17", "tool": "set_lights", "detail": "{\"brightness\": 0, \"room\": \"dining room\", \"state\": \"off\"}", "ts": 582.482}
+{"seq": 53, "kind": "started", "call_id": "c17", "tool": "set_lights", "detail": "attempt 1", "ts": 582.484}
+{"seq": 54, "kind": "succeeded", "call_id": "c17", "tool": "set_lights", "detail": "attempt 1", "ts": 582.539}

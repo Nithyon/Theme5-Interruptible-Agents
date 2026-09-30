@@ -1,0 +1,161 @@
+{
+  "id": "slurppause01",
+  "title": "extension on real speech with inserted mid-request pauses (SLURP)",
+  "domain": "home",
+  "expected_tool_calls": [],
+  "source": "SLURP test split (Bastianelli et al., EMNLP 2020), audio CC BY-NC 4.0; pauses inserted by us",
+  "lines": [
+    {
+      "slurp_id": 6074,
+      "file": "audio-1501768054-headset.flac",
+      "transcript": "turn off bedroom light at nine thirty pm",
+      "intent": "iot_hue_lightoff",
+      "slots": [
+        "house_place=bedroom",
+        "time=nine thirty pm"
+      ],
+      "offset_s": 2.0,
+      "pause_at_s": 2.76,
+      "pause_len_s": 2.31,
+      "natural_gap_s": 0.08,
+      "speech_end_s": 7.83,
+      "duration_s": 5.83
+    },
+    {
+      "slurp_id": 286,
+      "file": "audio-1434529664-headset.flac",
+      "transcript": "light up the lights in the kitchen",
+      "intent": "iot_hue_lighton",
+      "slots": [
+        "house_place=kitchen"
+      ],
+      "offset_s": 18.83,
+      "pause_at_s": 20.11,
+      "pause_len_s": 1.88,
+      "natural_gap_s": 0.64,
+      "speech_end_s": 23.14,
+      "duration_s": 4.31
+    },
+    {
+      "slurp_id": 5201,
+      "file": "audio-1500898526-headset.flac",
+      "transcript": "turn my lights down to a lower level of brightness",
+      "intent": "iot_hue_lightdim",
+      "slots": [],
+      "offset_s": 34.14,
+      "pause_at_s": 39.14,
+      "pause_len_s": 3.13,
+      "natural_gap_s": 0.44,
+      "speech_end_s": 43.61,
+      "duration_s": 9.47
+    },
+    {
+      "slurp_id": 2591,
+      "file": "audio-1502896975-headset.flac",
+      "transcript": "turn up the brightness",
+      "intent": "iot_hue_lightup",
+      "slots": [],
+      "offset_s": 54.61,
+      "pause_at_s": 55.85,
+      "pause_len_s": 1.68,
+      "natural_gap_s": 0.0,
+      "speech_end_s": 58.27,
+      "duration_s": 3.66
+    },
+    {
+      "slurp_id": 2578,
+      "file": "audio-1497872468-headset.flac",
+      "transcript": "turn off the porch light",
+      "intent": "iot_hue_lightoff",
+      "slots": [
+        "house_place=porch"
+      ],
+      "offset_s": 69.27,
+      "pause_at_s": 71.15,
+      "pause_len_s": 2.84,
+      "natural_gap_s": 0.36,
+      "speech_end_s": 74.48,
+      "duration_s": 5.21
+    },
+    {
+      "slurp_id": 14,
+      "file": "audio-1501766369-headset.flac",
+      "transcript": "and the darkness has fallen",
+      "intent": "iot_hue_lighton",
+      "slots": [],
+      "offset_s": 85.48,
+      "pause_at_s": 86.86,
+      "pause_len_s": 2.41,
+      "natural_gap_s": 0.08,
+      "speech_end_s": 90.32,
+      "duration_s": 4.84
+    },
+    {
+      "slurp_id": 3280,
+      "file": "audio-1497869907-headset.flac",
+      "transcript": "lower the lights please",
+      "intent": "iot_hue_lightdim",
+      "slots": [],
+      "offset_s": 101.32,
+      "pause_at_s": 103.22,
+      "pause_len_s": 1.64,
+      "natural_gap_s": 0.32,
+      "speech_end_s": 105.27,
+      "duration_s": 3.94
+    },
+    {
+      "slurp_id": 2264,
+      "file": "audio-1501757880-headset.flac",
+      "transcript": "light colour for study room",
+      "intent": "iot_hue_lightup",
+      "slots": [
+        "house_place=study room"
+      ],
+      "offset_s": 116.27,
+      "pause_at_s": 117.91,
+      "pause_len_s": 2.77,
+      "natural_gap_s": 0.34,
+      "speech_end_s": 121.98,
+      "duration_s": 5.71
+    },
+    {
+      "slurp_id": 2711,
+      "file": "audio-1499088787-headset.flac",
+      "transcript": "shut the lights off",
+      "intent": "iot_hue_lightoff",
+      "slots": [],
+      "offset_s": 132.98,
+      "pause_at_s": 134.22,
+      "pause_len_s": 1.59,
+      "natural_gap_s": 0.26,
+      "speech_end_s": 136.17,
+      "duration_s": 3.19
+    },
+    {
+      "slurp_id": 730,
+      "file": "audio-1490103360-headset.flac",
+      "transcript": "turn the lights off",
+      "intent": "iot_hue_lightoff",
+      "slots": [],
+      "offset_s": 147.17,
+      "pause_at_s": 148.11,
+      "pause_len_s": 2.58,
+      "natural_gap_s": 0.08,
+      "speech_end_s": 151.29,
+      "duration_s": 4.12
+    },
+    {
+      "slurp_id": 914,
+      "file": "audio-1497872542-headset.flac",
+      "transcript": "please turn lights off",
+      "intent": "iot_hue_lightoff",
+      "slots": [],
+      "offset_s": 162.29,
+      "pause_at_s": 163.27,
+      "pause_len_s": 1.67,
+      "natural_gap_s": 0.18,
+      "speech_end_s": 166.52,
+      "duration_s": 4.23
+    }
+  ]
+}

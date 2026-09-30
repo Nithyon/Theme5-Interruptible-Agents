@@ -39,12 +39,19 @@ for i, ln in enumerate(lines):
     rows.append({"transcript": ln["transcript"], "intent": ln["intent"], "done": bool(ok), "retried": r,
                  "answered_from_earlier_identical_request": d,
                  "calls": [{"tool": c["tool"], "args": c["args"], "events": c["kinds"], "t": round(c["t"], 1)} for c in mine]})
-    print(f"{'OK ' if ok else 'NO '} {ln['intent']:18s} {ln['transcript']!r}")
+    early = [c for c in mine if "speech_end_s" in ln and c["t"] < ln["speech_end_s"] - 0.2]
+    if "speech_end_s" in ln:
+        rows[-1]["acted_before_request_ended"] = bool(early)
+        premature = locals().get("premature", 0) + bool(early)
+    print(f"{'OK ' if ok else 'NO '}{' EARLY' if early else ''} {ln['intent']:18s} {ln['transcript']!r}"
+          + (f"  (pause {ln['pause_len_s']}s at +{ln['pause_at_s'] - ln['offset_s']:.1f}s, ends +{ln['speech_end_s'] - ln['offset_s']:.1f}s)" if "speech_end_s" in ln else ""))
     for c in mine:
         print(f"      t={c['t']:6.1f}s {c['tool']} {c['args']} -> {' '.join(c['kinds'])}")
 summary = {"recordings": len(lines), "done": done, "needed_retry": retried, "answered_from_identical_request": dup,
            "failed_events": sum(e["kind"] == "failed" for e in events), "retry_events": sum(e["kind"] == "retry" for e in events),
            "handoff_events": sum(e["kind"] == "handoff" for e in events)}
+if any("speech_end_s" in ln for ln in lines):
+    summary["acted_before_request_ended"] = sum(r.get("acted_before_request_ended", False) for r in rows)
 print("SUMMARY", json.dumps(summary))
 json.dump({"summary": summary, "rows": rows}, open(os.path.join(out, "slurp_score.json"), "w", encoding="utf-8"), indent=2)
 r = os.path.join(out, "result.json")

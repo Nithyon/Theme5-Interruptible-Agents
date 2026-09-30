@@ -1,0 +1,391 @@
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v2 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v2 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.texttospeech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.texttospeech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+INFO:livekit.agents:starting worker
+{"message": "starting worker", "level": "INFO", "name": "livekit.agents", "version": "1.8.3", "rtc-version": "1.1.18", "pid": 82, "timestamp": "2026-09-30T17:39:43.873138+00:00"}
+INFO:livekit.agents:plugin registered
+{"message": "plugin registered", "level": "INFO", "name": "livekit.agents", "plugin": "livekit.plugins.google", "version": "1.8.3", "pid": 82, "timestamp": "2026-09-30T17:39:43.874416+00:00"}
+INFO:livekit.agents:preloading plugins
+{"message": "preloading plugins", "level": "INFO", "name": "livekit.agents", "packages": ["livekit.plugins.google", "livekit.agents.ipc._preload", "livekit.agents.ipc._preload_freeze"], "pid": 82, "timestamp": "2026-09-30T17:39:43.875030+00:00"}
+INFO:livekit.agents:HTTP server listening on :8081
+{"message": "HTTP server listening on :8081", "level": "INFO", "name": "livekit.agents", "pid": 82, "timestamp": "2026-09-30T17:39:43.891985+00:00"}
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.speech_v2 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.speech_v2 past that date.
+  warnings.warn(message, FutureWarning)
+/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:254: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.cloud.texttospeech_v1 once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.cloud.texttospeech_v1 past that date.
+  warnings.warn(message, FutureWarning)
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 143, "timestamp": "2026-09-30T17:39:47.503952+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 145, "timestamp": "2026-09-30T17:39:47.513677+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 147, "timestamp": "2026-09-30T17:39:47.525515+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 149, "timestamp": "2026-09-30T17:39:47.529992+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 145, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:47.629467+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 147, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:47.632101+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 143, "elapsed_time": 0.13, "timestamp": "2026-09-30T17:39:47.636204+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 149, "elapsed_time": 0.11, "timestamp": "2026-09-30T17:39:47.648445+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 162, "timestamp": "2026-09-30T17:39:47.653787+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 166, "timestamp": "2026-09-30T17:39:47.659985+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 168, "timestamp": "2026-09-30T17:39:47.669601+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 170, "timestamp": "2026-09-30T17:39:47.677255+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 166, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:47.754637+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 162, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:47.758851+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 168, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:47.766406+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 181, "timestamp": "2026-09-30T17:39:47.776309+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 183, "timestamp": "2026-09-30T17:39:47.784943+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 186, "timestamp": "2026-09-30T17:39:47.791478+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 170, "elapsed_time": 0.12, "timestamp": "2026-09-30T17:39:47.793093+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 190, "timestamp": "2026-09-30T17:39:47.804407+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 183, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:47.880200+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 181, "elapsed_time": 0.11, "timestamp": "2026-09-30T17:39:47.883867+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 198, "timestamp": "2026-09-30T17:39:47.892681+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 190, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:47.894847+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 186, "elapsed_time": 0.11, "timestamp": "2026-09-30T17:39:47.898127+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 205, "timestamp": "2026-09-30T17:39:47.904580+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 208, "timestamp": "2026-09-30T17:39:47.910972+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 210, "timestamp": "2026-09-30T17:39:47.919210+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 205, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:47.991834+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 198, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:47.994363+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 208, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:48.003439+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 221, "timestamp": "2026-09-30T17:39:48.012856+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 224, "timestamp": "2026-09-30T17:39:48.021265+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 210, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:48.022239+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 228, "timestamp": "2026-09-30T17:39:48.029998+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 230, "timestamp": "2026-09-30T17:39:48.039859+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 221, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:48.108066+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 224, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:48.112095+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 239, "timestamp": "2026-09-30T17:39:48.128449+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 228, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:48.129589+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 243, "timestamp": "2026-09-30T17:39:48.135928+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 245, "timestamp": "2026-09-30T17:39:48.143984+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 230, "elapsed_time": 0.11, "timestamp": "2026-09-30T17:39:48.146265+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 250, "timestamp": "2026-09-30T17:39:48.163195+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 239, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:48.227637+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 243, "elapsed_time": 0.09, "timestamp": "2026-09-30T17:39:48.229564+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 245, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:48.248930+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 250, "elapsed_time": 0.1, "timestamp": "2026-09-30T17:39:48.268313+00:00"}
+INFO:livekit.agents:registered worker
+{"message": "registered worker", "level": "INFO", "name": "livekit.agents", "agent_name": "", "deployment": "", "id": "AW_A6LqHigp3Azn", "url": "wss://samsung-jxdakoa3.livekit.cloud", "region": "India South", "protocol": 17, "pid": 82, "timestamp": "2026-09-30T17:39:52.756422+00:00"}
+INFO:livekit.agents:received job request
+{"message": "received job request", "level": "INFO", "name": "livekit.agents", "job_id": "AJ_u2aAsxVpdibA", "dispatch_id": "AD_ZigCaYrrV6bX", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "agent_name": "", "resuming": false, "enable_recording": true, "pid": 82, "timestamp": "2026-09-30T17:40:53.056993+00:00"}
+INFO:livekit.agents:initializing process
+{"message": "initializing process", "level": "INFO", "name": "livekit.agents", "pid": 429, "timestamp": "2026-09-30T17:40:53.356669+00:00"}
+INFO:google_genai._api_client:The user provided project/location will take precedence over the Vertex AI API key from the environment variable.
+{"message": "The user provided project/location will take precedence over the Vertex AI API key from the environment variable.", "level": "INFO", "name": "google_genai._api_client", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:40:53.453791+00:00"}
+INFO:livekit.agents:process initialized
+{"message": "process initialized", "level": "INFO", "name": "livekit.agents", "pid": 429, "elapsed_time": 0.14, "timestamp": "2026-09-30T17:40:53.497054+00:00"}
+Nvidia Decoder is supported.
+WARNING:livekit.agents:event loop blocked for 983ms at "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/ssl.py", line 778, in create_default_context; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client
+{"message": "event loop blocked for 983ms at \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/ssl.py\", line 778, in create_default_context; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client", "level": "WARNING", "name": "livekit.agents", "duration": 0.9827, "threshold": 0.1, "gc_time": 0.0068, "cpu_time": 0.2725, "task": "Task-17", "stack": "# loop thread sampled 93ms into the stall\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py\", line 17, in async_fn_logs\n    return await fn(*args, **kwargs)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_session.py\", line 1973, in _update_activity_task\n    await self._update_activity(agent, wait_on_enter=False)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_session.py\", line 1941, in _update_activity\n    await self._activity.start(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_activity.py\", line 1035, in start\n    await self._start_session(reuse_resources=reuse_resources)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/voice/agent_activity.py\", line 1232, in _start_session\n    self._rt_session = self.llm.session(turn_detection_disabled=turn_detection_disabled)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 454, in session\n    sess = RealtimeSession(self)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 531, in __init__\n    self._client = GenAIClient(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/client.py\", line 422, in __init__\n    self._api_client = self._get_api_client(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/client.py\", line 477, in _get_api_client\n    return BaseApiClient(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/_api_client.py\", line 906, in __init__\n    self._websocket_ssl_ctx = self._ensure_websocket_ssl_ctx(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/_api_client.py\", line 1249, in _ensure_websocket_ssl_ctx\n    ctx = ssl.create_default_context(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/ssl.py\", line 778, in create_default_context\n    context.load_verify_locations(cafile, capath, cadata)", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:40:54.510989+00:00"}
+WARNING:livekit.agents:event loop blocked for 104ms at "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/linecache.py", line 137, in updatecache; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client
+{"message": "event loop blocked for 104ms at \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/linecache.py\", line 137, in updatecache; synchronous work on the agent loop delays audio and turn handling, move it to a thread or an async client", "level": "WARNING", "name": "livekit.agents", "duration": 0.104, "threshold": 0.1, "gc_time": 0.0, "cpu_time": 0.0083, "stack": "# loop thread sampled 93ms into the stall\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/telemetry/loop_monitor.py\", line 326, in _on_tick\n    self._report(self._build_report(lag, gc_time, cpu_time, watchdog_gap, samples))\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/telemetry/loop_monitor.py\", line 343, in _build_report\n    stacks = [\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/telemetry/loop_monitor.py\", line 345, in <listcomp>\n    + _format_frames(s.frames, importing=s.importing)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/telemetry/loop_monitor.py\", line 680, in _format_frames\n    entries.append(\"\".join(traceback.format_list([f])))\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/traceback.py\", line 39, in format_list\n    return StackSummary.from_list(extracted_list).format()\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/traceback.py\", line 442, in format\n    if frame.line:\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/traceback.py\", line 306, in line\n    self._line = linecache.getline(self.filename, self.lineno)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/linecache.py\", line 30, in getline\n    lines = getlines(filename, module_globals)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/linecache.py\", line 46, in getlines\n    return updatecache(filename, module_globals)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/linecache.py\", line 137, in updatecache\n    lines = fp.readlines()", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:40:54.515584+00:00"}
+INFO:livekit.agents:RoomIO linked to participant
+{"message": "RoomIO linked to participant", "level": "INFO", "name": "livekit.agents", "lk.pii.participant_identity": "wav-file-user", "lk.pii.room_name": "eval-538ecc58", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:40:59.000092+00:00"}
+ERROR:livekit.plugins.google:Gemini Realtime API error: timed out during opening handshake
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 555, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 470, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1036, in create_connection
+    infos = await self._ensure_resolved(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1418, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 863, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 553, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 976, in _main_task
+    async with self._client.aio.live.connect(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py", line 1117, in connect
+    async with ws_connect(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 601, in __aenter__
+    return await self
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 592, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 555, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 470, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1036, in create_connection
+    infos = await self._ensure_resolved(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1418, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 863, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 553, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 976, in _main_task
+    async with self._client.aio.live.connect(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py", line 1117, in connect
+    async with ws_connect(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 601, in __aenter__
+    return await self
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 592, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+{"message": "Gemini Realtime API error: timed out during opening handshake\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 555, in __await_impl__\n    self.connection = await self.create_connection()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 470, in create_connection\n    _, connection = await loop.create_connection(factory, **kwargs)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1036, in create_connection\n    infos = await self._ensure_resolved(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1418, in _ensure_resolved\n    return await loop.getaddrinfo(host, port, family=family, type=type,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 863, in getaddrinfo\n    return await self.run_in_executor(\nasyncio.exceptions.CancelledError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 553, in __await_impl__\n    async with asyncio_timeout(self.open_timeout):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 181, in __aexit__\n    self._do_exit(exc_type)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 268, in _do_exit\n    raise asyncio.TimeoutError\nasyncio.exceptions.TimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1117, in connect\n    async with ws_connect(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 601, in __aenter__\n    return await self\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 592, in __await_impl__\n    raise TimeoutError(\"timed out during opening handshake\") from exc\nasyncio.exceptions.TimeoutError: timed out during opening handshake", "level": "ERROR", "name": "livekit.plugins.google", "exc_info": "Traceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 555, in __await_impl__\n    self.connection = await self.create_connection()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 470, in create_connection\n    _, connection = await loop.create_connection(factory, **kwargs)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1036, in create_connection\n    infos = await self._ensure_resolved(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1418, in _ensure_resolved\n    return await loop.getaddrinfo(host, port, family=family, type=type,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 863, in getaddrinfo\n    return await self.run_in_executor(\nasyncio.exceptions.CancelledError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 553, in __await_impl__\n    async with asyncio_timeout(self.open_timeout):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 181, in __aexit__\n    self._do_exit(exc_type)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 268, in _do_exit\n    raise asyncio.TimeoutError\nasyncio.exceptions.TimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1117, in connect\n    async with ws_connect(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 601, in __aenter__\n    return await self\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 592, in __await_impl__\n    raise TimeoutError(\"timed out during opening handshake\") from exc\nasyncio.exceptions.TimeoutError: timed out during opening handshake", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:41:04.387221+00:00"}
+ERROR:livekit.agents:AgentSession is closing due to unrecoverable error
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 555, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 470, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1036, in create_connection
+    infos = await self._ensure_resolved(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1418, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 863, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 553, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 976, in _main_task
+    async with self._client.aio.live.connect(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py", line 1117, in connect
+    async with ws_connect(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 601, in __aenter__
+    return await self
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 592, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 555, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 470, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1036, in create_connection
+    infos = await self._ensure_resolved(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1418, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 863, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 553, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 976, in _main_task
+    async with self._client.aio.live.connect(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py", line 1117, in connect
+    async with ws_connect(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 601, in __aenter__
+    return await self
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 592, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+{"message": "AgentSession is closing due to unrecoverable error\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 555, in __await_impl__\n    self.connection = await self.create_connection()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 470, in create_connection\n    _, connection = await loop.create_connection(factory, **kwargs)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1036, in create_connection\n    infos = await self._ensure_resolved(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1418, in _ensure_resolved\n    return await loop.getaddrinfo(host, port, family=family, type=type,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 863, in getaddrinfo\n    return await self.run_in_executor(\nasyncio.exceptions.CancelledError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 553, in __await_impl__\n    async with asyncio_timeout(self.open_timeout):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 181, in __aexit__\n    self._do_exit(exc_type)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 268, in _do_exit\n    raise asyncio.TimeoutError\nasyncio.exceptions.TimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1117, in connect\n    async with ws_connect(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 601, in __aenter__\n    return await self\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 592, in __await_impl__\n    raise TimeoutError(\"timed out during opening handshake\") from exc\nasyncio.exceptions.TimeoutError: timed out during opening handshake", "level": "ERROR", "name": "livekit.agents", "exc_info": "Traceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 555, in __await_impl__\n    self.connection = await self.create_connection()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 470, in create_connection\n    _, connection = await loop.create_connection(factory, **kwargs)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1036, in create_connection\n    infos = await self._ensure_resolved(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1418, in _ensure_resolved\n    return await loop.getaddrinfo(host, port, family=family, type=type,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 863, in getaddrinfo\n    return await self.run_in_executor(\nasyncio.exceptions.CancelledError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 553, in __await_impl__\n    async with asyncio_timeout(self.open_timeout):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 181, in __aexit__\n    self._do_exit(exc_type)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 268, in _do_exit\n    raise asyncio.TimeoutError\nasyncio.exceptions.TimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1117, in connect\n    async with ws_connect(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 601, in __aenter__\n    return await self\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 592, in __await_impl__\n    raise TimeoutError(\"timed out during opening handshake\") from exc\nasyncio.exceptions.TimeoutError: timed out during opening handshake", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:41:04.399430+00:00"}
+ERROR:livekit.plugins.google:Error in _main_task
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 555, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 470, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1036, in create_connection
+    infos = await self._ensure_resolved(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1418, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 863, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 553, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 976, in _main_task
+    async with self._client.aio.live.connect(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py", line 1117, in connect
+    async with ws_connect(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 601, in __aenter__
+    return await self
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 592, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py", line 17, in async_fn_logs
+    return await fn(*args, **kwargs)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 1093, in _main_task
+    raise APIConnectionError(message=error_msg) from e
+livekit.agents._exceptions.APIConnectionError: Failed to connect to Gemini Live (caused by TimeoutError)
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 555, in __await_impl__
+    self.connection = await self.create_connection()
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 470, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1036, in create_connection
+    infos = await self._ensure_resolved(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 1418, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py", line 863, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 553, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 976, in _main_task
+    async with self._client.aio.live.connect(
+  File "/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py", line 1117, in connect
+    async with ws_connect(
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 601, in __aenter__
+    return await self
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py", line 592, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py", line 17, in async_fn_logs
+    return await fn(*args, **kwargs)
+  File "/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py", line 1093, in _main_task
+    raise APIConnectionError(message=error_msg) from e
+livekit.agents._exceptions.APIConnectionError: Failed to connect to Gemini Live (caused by TimeoutError)
+{"message": "Error in _main_task\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 555, in __await_impl__\n    self.connection = await self.create_connection()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 470, in create_connection\n    _, connection = await loop.create_connection(factory, **kwargs)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1036, in create_connection\n    infos = await self._ensure_resolved(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1418, in _ensure_resolved\n    return await loop.getaddrinfo(host, port, family=family, type=type,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 863, in getaddrinfo\n    return await self.run_in_executor(\nasyncio.exceptions.CancelledError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 553, in __await_impl__\n    async with asyncio_timeout(self.open_timeout):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 181, in __aexit__\n    self._do_exit(exc_type)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 268, in _do_exit\n    raise asyncio.TimeoutError\nasyncio.exceptions.TimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1117, in connect\n    async with ws_connect(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 601, in __aenter__\n    return await self\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 592, in __await_impl__\n    raise TimeoutError(\"timed out during opening handshake\") from exc\nasyncio.exceptions.TimeoutError: timed out during opening handshake\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py\", line 17, in async_fn_logs\n    return await fn(*args, **kwargs)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 1093, in _main_task\n    raise APIConnectionError(message=error_msg) from e\nlivekit.agents._exceptions.APIConnectionError: Failed to connect to Gemini Live (caused by TimeoutError)", "level": "ERROR", "name": "livekit.plugins.google", "exc_info": "Traceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 555, in __await_impl__\n    self.connection = await self.create_connection()\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 470, in create_connection\n    _, connection = await loop.create_connection(factory, **kwargs)\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1036, in create_connection\n    infos = await self._ensure_resolved(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 1418, in _ensure_resolved\n    return await loop.getaddrinfo(host, port, family=family, type=type,\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/asyncio/base_events.py\", line 863, in getaddrinfo\n    return await self.run_in_executor(\nasyncio.exceptions.CancelledError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 553, in __await_impl__\n    async with asyncio_timeout(self.open_timeout):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 181, in __aexit__\n    self._do_exit(exc_type)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/async_timeout.py\", line 268, in _do_exit\n    raise asyncio.TimeoutError\nasyncio.exceptions.TimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 976, in _main_task\n    async with self._client.aio.live.connect(\n  File \"/home/saini/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/contextlib.py\", line 199, in __aenter__\n    return await anext(self.gen)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/google/genai/live.py\", line 1117, in connect\n    async with ws_connect(\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 601, in __aenter__\n    return await self\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/websockets/asyncio/client.py\", line 592, in __await_impl__\n    raise TimeoutError(\"timed out during opening handshake\") from exc\nasyncio.exceptions.TimeoutError: timed out during opening handshake\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/agents/utils/log.py\", line 17, in async_fn_logs\n    return await fn(*args, **kwargs)\n  File \"/home/saini/theme5/fdb-env/lib/python3.10/site-packages/livekit/plugins/google/realtime/realtime_api.py\", line 1093, in _main_task\n    raise APIConnectionError(message=error_msg) from e\nlivekit.agents._exceptions.APIConnectionError: Failed to connect to Gemini Live (caused by TimeoutError)", "pid": 145, "job_id": "AJ_u2aAsxVpdibA", "room": "eval-538ecc58", "room_id": "RM_x33PdmBHUgcS", "timestamp": "2026-09-30T17:41:04.400810+00:00"}
+INFO:livekit.agents:draining worker
+{"message": "draining worker", "level": "INFO", "name": "livekit.agents", "id": "AW_A6LqHigp3Azn", "timeout": 3600, "pid": 82, "timestamp": "2026-09-30T17:44:25.324756+00:00"}

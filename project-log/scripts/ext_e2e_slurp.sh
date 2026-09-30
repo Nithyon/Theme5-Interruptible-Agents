@@ -5,8 +5,9 @@
 set -uo pipefail
 FAIL=${1:-1}
 P=ext_home_slurp
-A=/mnt/d/Theme5-Interruptible-Agents/extension/e2e/audio_slurp
-OUT=/mnt/d/Theme5-Interruptible-Agents/project-log/runs/$(date +%F)_ext_home_slurp_fail$FAIL
+CLIP=${CLIP:-audio_slurp}   # CLIP=audio_slurp_pauses for the version with mid-request pauses
+A=/mnt/d/Theme5-Interruptible-Agents/extension/e2e/$CLIP
+OUT=/mnt/d/Theme5-Interruptible-Agents/project-log/runs/$(date +%F)_ext_home_${CLIP#audio_}_fail$FAIL
 LOG=/tmp/ext_slurp_events.log
 source ~/theme5/fdb-env/bin/activate
 cd ~/theme5/Full-Duplex-Bench/v3

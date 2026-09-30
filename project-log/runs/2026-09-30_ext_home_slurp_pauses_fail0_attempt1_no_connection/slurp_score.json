@@ -1,0 +1,113 @@
+{
+  "summary": {
+    "recordings": 11,
+    "done": 0,
+    "needed_retry": 0,
+    "answered_from_identical_request": 0,
+    "failed_events": 0,
+    "retry_events": 0,
+    "handoff_events": 0,
+    "acted_before_request_ended": 0
+  },
+  "rows": [
+    {
+      "transcript": "turn off bedroom light at nine thirty pm",
+      "intent": "iot_hue_lightoff",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "light up the lights in the kitchen",
+      "intent": "iot_hue_lighton",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "turn my lights down to a lower level of brightness",
+      "intent": "iot_hue_lightdim",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "turn up the brightness",
+      "intent": "iot_hue_lightup",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "turn off the porch light",
+      "intent": "iot_hue_lightoff",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "and the darkness has fallen",
+      "intent": "iot_hue_lighton",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "lower the lights please",
+      "intent": "iot_hue_lightdim",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "light colour for study room",
+      "intent": "iot_hue_lightup",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "shut the lights off",
+      "intent": "iot_hue_lightoff",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "turn the lights off",
+      "intent": "iot_hue_lightoff",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    },
+    {
+      "transcript": "please turn lights off",
+      "intent": "iot_hue_lightoff",
+      "done": false,
+      "retried": false,
+      "answered_from_earlier_identical_request": false,
+      "calls": [],
+      "acted_before_request_ended": false
+    }
+  ]
+}

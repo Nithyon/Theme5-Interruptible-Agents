@@ -346,3 +346,32 @@ Details: `project-log/runs/2026-09-30_fallback_suite_gemma4_26b-a4b-it-qat/machi
 - The small model gave identical answers in all 3 runs. Neither model ever acted when no tool fitted.
 - Recounted from the per-run result files (`project-log/scripts/suite_check.py`); folders
   `project-log/runs/2026-09-30_fallback_suite_gemma4_26b-a4b-it-qat/` and `..._gemma4_e4b-it-qat/`.
+
+## Pause test: real speech with silences inside the request (30 September, 23:15 IST)
+
+The same 11 real SLURP recordings, each with one silence of 1.6 to 3.1 s (irregular, fixed seed) inserted at its
+longest gap between words, e.g. "turn off the ... 2.8 s ... porch light". The speech is real; the pauses are ours.
+Played to the extension's home assistant through LiveKit, tools not failing (`EXT_LIGHTS_FAIL_FIRST=0`).
+This agent has the recovery layer but not the Commit Harness. One run; the first attempt failed to connect to
+Gemini Live and is kept as `..._attempt1_no_connection`.
+
+| | Same recordings without pauses (earlier run) | With pauses |
+|---|---|---|
+| Requests that ended with the asked lights action | 10 of 11 | 8 of 11 |
+| Requests with a wrong or unrequested action | 0 of 11 | **6 of 11** |
+| Requests fully right, with nothing wrong done | 10 of 11 | 5 of 11 |
+
+Wrong actions with pauses: "turn the lights off" turned them on; "light colour for study room" set the study AC to
+22 (without pauses it said it cannot change colour); "and the darkness has fallen" set the bedroom AC; "please turn
+lights off" also changed the dining-room AC; "light up the lights in the kitchen" first switched on the bedroom,
+then the kitchen; after "turn my lights down" it also rang the phone, which nobody asked for.
+
+- By our clock no action came before the request had ended, but the clock is lined up from the agent's session
+  start, so it can be off by a second or two; we do not claim that the agent acted during the pause.
+- What the run does show: silences inside a request make the plain voice agent mishear and act wrongly, six times in
+  eleven. The benchmark agent puts the Commit Harness in front of the tools for this reason; the extension agent does
+  not have it yet, and this run supports combining the two.
+- Limits: 11 recordings, one run, inserted pauses, the no-pause comparison ran with the lights tool failing on its
+  first attempt (that does not cause wrong actions, but the conditions are not identical).
+- Evidence: `project-log/runs/2026-09-30_ext_home_slurp_pauses_fail0/` (recovery log, per-request score, agent audio);
+  clip builder `extension/e2e/make_clip_slurp_pauses.py`.
