@@ -1,0 +1,376 @@
+{
+  "pid": "56780a5a89319e0011644cb4",
+  "example_id": "ecommerce_15",
+  "category": "ecommerce_support",
+  "title": "Order Track with Pause and Filler",
+  "provider": "gate_gemini38",
+  "evaluated_at": "2026-09-29T12:12:44.734223",
+  "inference_time_s": 55.5,
+  "room_name": "eval-59a88863",
+  "stream_start_time": 1790683967.8163712,
+  "input_transcript": "Hey, um, so well, can can you uh track order BOB12 for me? Um, I ordered it a few days ago and it should be arriving soon, but I just wanted to make sure.",
+  "input_asr_chunks": [
+    {
+      "text": "Hey,",
+      "timestamp": [
+        1.92,
+        2.16
+      ]
+    },
+    {
+      "text": "um,",
+      "timestamp": [
+        2.24,
+        2.48
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        2.72,
+        2.88
+      ]
+    },
+    {
+      "text": "well,",
+      "timestamp": [
+        2.96,
+        3.2
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        3.68,
+        3.84
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        4.08,
+        4.32
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        4.32,
+        4.4
+      ]
+    },
+    {
+      "text": "uh",
+      "timestamp": [
+        4.48,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        4.72,
+        5.2
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        5.44,
+        6.24
+      ]
+    },
+    {
+      "text": "BOB12",
+      "timestamp": [
+        7.12,
+        8.4
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        8.64,
+        8.88
+      ]
+    },
+    {
+      "text": "me?",
+      "timestamp": [
+        8.88,
+        9.200000000000001
+      ]
+    },
+    {
+      "text": "Um,",
+      "timestamp": [
+        9.52,
+        9.76
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        9.92,
+        10.08
+      ]
+    },
+    {
+      "text": "ordered",
+      "timestamp": [
+        10.08,
+        10.48
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        10.48,
+        10.64
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.64,
+        10.72
+      ]
+    },
+    {
+      "text": "few",
+      "timestamp": [
+        10.72,
+        10.96
+      ]
+    },
+    {
+      "text": "days",
+      "timestamp": [
+        10.96,
+        11.28
+      ]
+    },
+    {
+      "text": "ago",
+      "timestamp": [
+        11.28,
+        11.6
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.76,
+        11.92
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        11.92,
+        12.08
+      ]
+    },
+    {
+      "text": "should",
+      "timestamp": [
+        12.08,
+        12.32
+      ]
+    },
+    {
+      "text": "be",
+      "timestamp": [
+        12.32,
+        12.56
+      ]
+    },
+    {
+      "text": "arriving",
+      "timestamp": [
+        12.56,
+        13.36
+      ]
+    },
+    {
+      "text": "soon,",
+      "timestamp": [
+        13.68,
+        14.24
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        15.040000000000001,
+        15.200000000000001
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        15.200000000000001,
+        15.280000000000001
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        15.280000000000001,
+        15.44
+      ]
+    },
+    {
+      "text": "wanted",
+      "timestamp": [
+        15.44,
+        15.92
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        15.92,
+        16.16
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        16.16,
+        16.48
+      ]
+    },
+    {
+      "text": "sure.",
+      "timestamp": [
+        16.48,
+        16.8
+      ]
+    }
+  ],
+  "user_speech_end_rel": 16.8,
+  "latency": {
+    "input_duration_s": 48.24,
+    "output_duration_s": 48.24,
+    "first_speech_s": 21.35
+  },
+  "user_done_unix": 1790683984.6163712,
+  "search_latency_breakdown": {
+    "room": "eval-59a88863",
+    "tool": "Search Tool",
+    "reasoning": 0.955,
+    "execution": 0.0,
+    "synthesis": 0.768,
+    "total": 1.724,
+    "agent_start_at": 1790683988.4798748
+  },
+  "absolute_total_latency": 3.864,
+  "transcript": "Your order BOB12 is currently out for delivery and should be arriving soon.",
+  "asr_chunks": [
+    {
+      "text": "Your",
+      "timestamp": [
+        21.28,
+        21.52
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        21.52,
+        21.92
+      ]
+    },
+    {
+      "text": "BOB12",
+      "timestamp": [
+        22.0,
+        23.04
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        23.12,
+        23.28
+      ]
+    },
+    {
+      "text": "currently",
+      "timestamp": [
+        23.28,
+        23.68
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        23.68,
+        23.84
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        23.84,
+        24.0
+      ]
+    },
+    {
+      "text": "delivery",
+      "timestamp": [
+        24.0,
+        24.560000000000002
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        24.560000000000002,
+        24.8
+      ]
+    },
+    {
+      "text": "should",
+      "timestamp": [
+        24.8,
+        24.96
+      ]
+    },
+    {
+      "text": "be",
+      "timestamp": [
+        24.96,
+        25.12
+      ]
+    },
+    {
+      "text": "arriving",
+      "timestamp": [
+        25.12,
+        25.68
+      ]
+    },
+    {
+      "text": "soon.",
+      "timestamp": [
+        25.68,
+        26.16
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.48,
+  "audio_agent_speech_start": 21.28,
+  "actual_tool_calls": [
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "BOB12"
+      },
+      "timestamp_start": 19.9,
+      "timestamp_end": 19.9
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,525 @@
+{
+  "pid": "66c4f3cb14cbfc4db836bd4e",
+  "example_id": "ecommerce_20",
+  "category": "ecommerce_support",
+  "title": "Conditional Logic: Price Check then Cart",
+  "provider": "gemini3_8",
+  "evaluated_at": "2026-09-29T10:35:21.423700",
+  "inference_time_s": 62.29,
+  "room_name": "eval-f96bd818",
+  "stream_start_time": 1790678124.5741124,
+  "input_transcript": "So, you know, so search for a coffee maker first. If you find one that's under $50, go ahead and add two to the cart because they make great gifts. But if everything's over $50, I just forget the coffee maker and track order WWW for me instead.",
+  "input_asr_chunks": [
+    {
+      "text": "So,",
+      "timestamp": [
+        1.76,
+        2.0
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        2.56,
+        2.72
+      ]
+    },
+    {
+      "text": "know,",
+      "timestamp": [
+        2.72,
+        2.88
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        5.44,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        5.76,
+        6.0
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.0,
+        6.16
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.16,
+        6.32
+      ]
+    },
+    {
+      "text": "coffee",
+      "timestamp": [
+        6.32,
+        6.72
+      ]
+    },
+    {
+      "text": "maker",
+      "timestamp": [
+        6.72,
+        7.2
+      ]
+    },
+    {
+      "text": "first.",
+      "timestamp": [
+        7.2,
+        7.44
+      ]
+    },
+    {
+      "text": "If",
+      "timestamp": [
+        7.84,
+        8.08
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        8.08,
+        8.4
+      ]
+    },
+    {
+      "text": "find",
+      "timestamp": [
+        8.4,
+        8.72
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        8.72,
+        8.96
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        8.96,
+        9.36
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        9.36,
+        9.6
+      ]
+    },
+    {
+      "text": "$50,",
+      "timestamp": [
+        9.6,
+        10.16
+      ]
+    },
+    {
+      "text": "go",
+      "timestamp": [
+        10.88,
+        11.120000000000001
+      ]
+    },
+    {
+      "text": "ahead",
+      "timestamp": [
+        11.120000000000001,
+        11.52
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.52,
+        11.84
+      ]
+    },
+    {
+      "text": "add",
+      "timestamp": [
+        11.84,
+        12.16
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        12.16,
+        12.48
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        13.040000000000001,
+        13.200000000000001
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        13.200000000000001,
+        13.44
+      ]
+    },
+    {
+      "text": "cart",
+      "timestamp": [
+        13.44,
+        14.0
+      ]
+    },
+    {
+      "text": "because",
+      "timestamp": [
+        14.0,
+        14.32
+      ]
+    },
+    {
+      "text": "they",
+      "timestamp": [
+        14.32,
+        14.64
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        14.64,
+        14.96
+      ]
+    },
+    {
+      "text": "great",
+      "timestamp": [
+        14.96,
+        15.280000000000001
+      ]
+    },
+    {
+      "text": "gifts.",
+      "timestamp": [
+        15.280000000000001,
+        15.84
+      ]
+    },
+    {
+      "text": "But",
+      "timestamp": [
+        16.16,
+        16.48
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        16.48,
+        16.8
+      ]
+    },
+    {
+      "text": "everything's",
+      "timestamp": [
+        16.8,
+        17.44
+      ]
+    },
+    {
+      "text": "over",
+      "timestamp": [
+        17.44,
+        17.68
+      ]
+    },
+    {
+      "text": "$50,",
+      "timestamp": [
+        17.68,
+        18.240000000000002
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        18.56,
+        18.72
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        18.96,
+        19.28
+      ]
+    },
+    {
+      "text": "forget",
+      "timestamp": [
+        19.28,
+        19.76
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        19.76,
+        19.92
+      ]
+    },
+    {
+      "text": "coffee",
+      "timestamp": [
+        19.92,
+        20.32
+      ]
+    },
+    {
+      "text": "maker",
+      "timestamp": [
+        20.32,
+        20.72
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        20.72,
+        20.88
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        20.88,
+        21.28
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        21.28,
+        22.080000000000002
+      ]
+    },
+    {
+      "text": "WWW",
+      "timestamp": [
+        22.080000000000002,
+        22.96
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        23.2,
+        23.52
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        23.52,
+        23.84
+      ]
+    },
+    {
+      "text": "instead.",
+      "timestamp": [
+        23.84,
+        24.48
+      ]
+    }
+  ],
+  "user_speech_end_rel": 2.88,
+  "latency": {
+    "input_duration_s": 54.629,
+    "output_duration_s": 54.629,
+    "first_speech_s": 30.0
+  },
+  "user_done_unix": 1790678127.4541125,
+  "search_latency_breakdown": {
+    "room": "eval-f96bd818",
+    "tool": "Search Tool",
+    "reasoning": 0.659,
+    "execution": 0.0,
+    "synthesis": 1.12,
+    "total": 1.779,
+    "agent_start_at": 1790678153.7964475
+  },
+  "absolute_total_latency": 26.342,
+  "transcript": "The available coffee maker is priced over $50. I've tracked your order, WWW, and it is out for delivery.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        29.92,
+        30.16
+      ]
+    },
+    {
+      "text": "available",
+      "timestamp": [
+        30.16,
+        30.64
+      ]
+    },
+    {
+      "text": "coffee",
+      "timestamp": [
+        30.64,
+        31.12
+      ]
+    },
+    {
+      "text": "maker",
+      "timestamp": [
+        31.12,
+        31.6
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        31.6,
+        31.76
+      ]
+    },
+    {
+      "text": "priced",
+      "timestamp": [
+        31.76,
+        32.32
+      ]
+    },
+    {
+      "text": "over",
+      "timestamp": [
+        32.32,
+        32.56
+      ]
+    },
+    {
+      "text": "$50.",
+      "timestamp": [
+        32.56,
+        33.04
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        33.6,
+        33.84
+      ]
+    },
+    {
+      "text": "tracked",
+      "timestamp": [
+        33.84,
+        34.160000000000004
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        34.160000000000004,
+        34.32
+      ]
+    },
+    {
+      "text": "order,",
+      "timestamp": [
+        34.32,
+        34.64
+      ]
+    },
+    {
+      "text": "WWW,",
+      "timestamp": [
+        34.800000000000004,
+        35.52
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        35.84,
+        36.08
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        36.08,
+        36.160000000000004
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        36.160000000000004,
+        36.32
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        36.32,
+        36.56
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        36.56,
+        36.72
+      ]
+    },
+    {
+      "text": "delivery.",
+      "timestamp": [
+        36.72,
+        37.52
+      ]
+    }
+  ],
+  "perceived_total_latency": 27.04,
+  "audio_agent_speech_start": 29.92,
+  "actual_tool_calls": [
+    {
+      "function": "search_products",
+      "args": {
+        "query": "coffee maker",
+        "max_price": null
+      },
+      "timestamp_start": 27.49,
+      "timestamp_end": 27.49
+    },
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "www"
+      },
+      "timestamp_start": 28.1,
+      "timestamp_end": 28.1
+    }
+  ],
+  "status": "completed"
+}

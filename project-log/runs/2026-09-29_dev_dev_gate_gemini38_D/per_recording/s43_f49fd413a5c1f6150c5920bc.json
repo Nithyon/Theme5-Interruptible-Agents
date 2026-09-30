@@ -1,0 +1,217 @@
+{
+  "pid": "f49fd413a5c1f6150c5920bc",
+  "example_id": "s43",
+  "category": "housing",
+  "title": "devset s43: housing / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T15:05:10.622174",
+  "inference_time_s": 33.51,
+  "room_name": "eval-36901f0c",
+  "stream_start_time": 1790694313.6506188,
+  "input_transcript": "Calculate my commute from the office to home by driving.",
+  "input_asr_chunks": [
+    {
+      "text": "Calculate",
+      "timestamp": [
+        0.32,
+        0.88
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        1.44,
+        1.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        1.6,
+        1.92
+      ]
+    },
+    {
+      "text": "office",
+      "timestamp": [
+        1.92,
+        2.48
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.08,
+        4.32
+      ]
+    },
+    {
+      "text": "home",
+      "timestamp": [
+        4.32,
+        4.72
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        4.72,
+        4.96
+      ]
+    },
+    {
+      "text": "driving.",
+      "timestamp": [
+        4.96,
+        5.84
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.84,
+  "latency": {
+    "input_duration_s": 27.35,
+    "output_duration_s": 27.35,
+    "first_speech_s": 9.85
+  },
+  "user_done_unix": 1790694319.4906187,
+  "search_latency_breakdown": {
+    "room": "eval-36901f0c",
+    "tool": "Search Tool",
+    "reasoning": 0.941,
+    "execution": 0.653,
+    "synthesis": 2.621,
+    "total": 4.215,
+    "agent_start_at": 1790694322.6703937
+  },
+  "absolute_total_latency": 3.18,
+  "transcript": "The commute from your office to home by driving will take about 25 minutes.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        9.6,
+        9.92
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        9.92,
+        10.4
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        10.4,
+        10.56
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        10.56,
+        10.72
+      ]
+    },
+    {
+      "text": "office",
+      "timestamp": [
+        10.72,
+        11.040000000000001
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.040000000000001,
+        11.28
+      ]
+    },
+    {
+      "text": "home",
+      "timestamp": [
+        11.28,
+        11.52
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        11.52,
+        11.68
+      ]
+    },
+    {
+      "text": "driving",
+      "timestamp": [
+        11.68,
+        12.16
+      ]
+    },
+    {
+      "text": "will",
+      "timestamp": [
+        12.16,
+        12.4
+      ]
+    },
+    {
+      "text": "take",
+      "timestamp": [
+        12.4,
+        12.56
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        12.56,
+        12.72
+      ]
+    },
+    {
+      "text": "25",
+      "timestamp": [
+        12.72,
+        13.36
+      ]
+    },
+    {
+      "text": "minutes.",
+      "timestamp": [
+        13.36,
+        14.08
+      ]
+    }
+  ],
+  "perceived_total_latency": 3.76,
+  "audio_agent_speech_start": 9.6,
+  "actual_tool_calls": [
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "my office",
+        "destination_address": "home",
+        "mode": "driving"
+      },
+      "timestamp_start": 5.75,
+      "timestamp_end": 6.4
+    }
+  ],
+  "status": "completed"
+}

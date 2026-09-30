@@ -1,0 +1,160 @@
+{
+  "pid": "413c3c34c786333e8df64041",
+  "example_id": "s30",
+  "category": "housing",
+  "title": "devset s30: housing / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:57:53.133324",
+  "inference_time_s": 30.67,
+  "room_name": "eval-3c0f3e71",
+  "stream_start_time": 1790693876.1385229,
+  "input_transcript": "Set my search filter minimum bedrooms to two.",
+  "input_asr_chunks": [
+    {
+      "text": "Set",
+      "timestamp": [
+        0.24,
+        0.48
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.48,
+        0.64
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        0.64,
+        0.88
+      ]
+    },
+    {
+      "text": "filter",
+      "timestamp": [
+        0.88,
+        1.2
+      ]
+    },
+    {
+      "text": "minimum",
+      "timestamp": [
+        1.28,
+        1.68
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        1.68,
+        2.16
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        2.24,
+        2.48
+      ]
+    },
+    {
+      "text": "two.",
+      "timestamp": [
+        2.48,
+        2.64
+      ]
+    }
+  ],
+  "user_speech_end_rel": 2.64,
+  "latency": {
+    "input_duration_s": 24.7,
+    "output_duration_s": 24.7,
+    "first_speech_s": 7.5
+  },
+  "user_done_unix": 1790693878.778523,
+  "search_latency_breakdown": {
+    "room": "eval-3c0f3e71",
+    "tool": "Search Tool",
+    "reasoning": 0.43,
+    "execution": 0.162,
+    "synthesis": 0.791,
+    "total": 1.384,
+    "agent_start_at": 1790693882.8810883
+  },
+  "absolute_total_latency": 4.103,
+  "transcript": "I've updated your minimum bedrooms filter to two.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        7.28,
+        7.76
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        7.76,
+        8.16
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.16,
+        8.4
+      ]
+    },
+    {
+      "text": "minimum",
+      "timestamp": [
+        8.4,
+        8.8
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        8.8,
+        9.28
+      ]
+    },
+    {
+      "text": "filter",
+      "timestamp": [
+        9.28,
+        9.68
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.68,
+        9.92
+      ]
+    },
+    {
+      "text": "two.",
+      "timestamp": [
+        9.92,
+        10.08
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.64,
+  "audio_agent_speech_start": 7.28,
+  "actual_tool_calls": [
+    {
+      "function": "update_search_filter",
+      "args": {
+        "filter_name": "min_bedrooms",
+        "value": "2"
+      },
+      "timestamp_start": 5.79,
+      "timestamp_end": 5.95
+    }
+  ],
+  "status": "completed"
+}

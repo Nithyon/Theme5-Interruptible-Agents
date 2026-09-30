@@ -1,0 +1,116 @@
+{
+  "pid": "ba7fe23551a112368d7f41d4",
+  "example_id": "s21",
+  "category": "housing",
+  "title": "devset s21: housing / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:10:45.424160",
+  "inference_time_s": 12.8,
+  "room_name": "eval-38866a2f",
+  "stream_start_time": 1790687448.3728387,
+  "input_transcript": "Search apartments in Austin with two bedrooms under $1,500. Actually, make that Dallas.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.16,
+        0.64
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.64,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.2
+      ]
+    },
+    {
+      "text": "Austin",
+      "timestamp": [
+        1.2,
+        1.68
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.68,
+        1.84
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        1.84,
+        2.08
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        2.08,
+        2.56
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        2.56,
+        2.72
+      ]
+    },
+    {
+      "text": "$1,500.",
+      "timestamp": [
+        2.72,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        5.04,
+        5.28
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        5.28,
+        5.5200000000000005
+      ]
+    },
+    {
+      "text": "Dallas.",
+      "timestamp": [
+        5.6000000000000005,
+        6.48
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.48,
+  "latency": {
+    "input_duration_s": 7.75,
+    "output_duration_s": 7.75,
+    "first_speech_s": 7.75
+  },
+  "user_done_unix": 1790687454.8528388,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

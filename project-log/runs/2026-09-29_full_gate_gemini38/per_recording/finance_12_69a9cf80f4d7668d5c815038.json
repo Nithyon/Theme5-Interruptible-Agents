@@ -1,0 +1,423 @@
+{
+  "pid": "69a9cf80f4d7668d5c815038",
+  "example_id": "finance_12",
+  "category": "finance_billing",
+  "title": "Amount Self-Correction",
+  "provider": "gate_gemini38",
+  "evaluated_at": "2026-09-29T12:36:18.686849",
+  "inference_time_s": 53.17,
+  "room_name": "eval-32735b90",
+  "stream_start_time": 1790685381.735133,
+  "input_transcript": "Well, I want to calculate how much hundred Euros would be in US dollars. Oh, wait, uh, I was looking at the wrong invoice. It's actually 150 Euros, not 100. So, 150 Euros to US dollars.",
+  "input_asr_chunks": [
+    {
+      "text": "Well,",
+      "timestamp": [
+        1.04,
+        1.36
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        1.52,
+        1.84
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        1.84,
+        2.08
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        2.08,
+        2.16
+      ]
+    },
+    {
+      "text": "calculate",
+      "timestamp": [
+        2.16,
+        2.72
+      ]
+    },
+    {
+      "text": "how",
+      "timestamp": [
+        2.72,
+        2.88
+      ]
+    },
+    {
+      "text": "much",
+      "timestamp": [
+        2.88,
+        3.2
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        3.2,
+        3.68
+      ]
+    },
+    {
+      "text": "Euros",
+      "timestamp": [
+        3.68,
+        4.24
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        4.24,
+        4.48
+      ]
+    },
+    {
+      "text": "be",
+      "timestamp": [
+        4.48,
+        4.64
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        4.64,
+        4.8
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        4.8,
+        5.2
+      ]
+    },
+    {
+      "text": "dollars.",
+      "timestamp": [
+        5.2,
+        6.16
+      ]
+    },
+    {
+      "text": "Oh,",
+      "timestamp": [
+        6.8,
+        6.96
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        7.04,
+        7.28
+      ]
+    },
+    {
+      "text": "uh,",
+      "timestamp": [
+        7.44,
+        7.6000000000000005
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.68,
+        7.84
+      ]
+    },
+    {
+      "text": "was",
+      "timestamp": [
+        7.84,
+        8.0
+      ]
+    },
+    {
+      "text": "looking",
+      "timestamp": [
+        8.0,
+        8.24
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        8.24,
+        8.4
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.4,
+        8.48
+      ]
+    },
+    {
+      "text": "wrong",
+      "timestamp": [
+        8.48,
+        8.72
+      ]
+    },
+    {
+      "text": "invoice.",
+      "timestamp": [
+        8.72,
+        9.200000000000001
+      ]
+    },
+    {
+      "text": "It's",
+      "timestamp": [
+        9.36,
+        9.52
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        9.52,
+        9.76
+      ]
+    },
+    {
+      "text": "150",
+      "timestamp": [
+        9.76,
+        10.4
+      ]
+    },
+    {
+      "text": "Euros,",
+      "timestamp": [
+        10.4,
+        10.88
+      ]
+    },
+    {
+      "text": "not",
+      "timestamp": [
+        11.040000000000001,
+        11.28
+      ]
+    },
+    {
+      "text": "100.",
+      "timestamp": [
+        11.28,
+        11.68
+      ]
+    },
+    {
+      "text": "So,",
+      "timestamp": [
+        12.32,
+        12.4
+      ]
+    },
+    {
+      "text": "150",
+      "timestamp": [
+        12.56,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "Euros",
+      "timestamp": [
+        13.120000000000001,
+        13.44
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        13.44,
+        13.6
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        13.6,
+        13.92
+      ]
+    },
+    {
+      "text": "dollars.",
+      "timestamp": [
+        13.92,
+        14.8
+      ]
+    }
+  ],
+  "user_speech_end_rel": 14.8,
+  "latency": {
+    "input_duration_s": 46.14,
+    "output_duration_s": 46.14,
+    "first_speech_s": 19.45
+  },
+  "user_done_unix": 1790685396.535133,
+  "search_latency_breakdown": {
+    "room": "eval-32735b90",
+    "tool": "Search Tool",
+    "reasoning": 10.553,
+    "execution": 0.0,
+    "synthesis": 0.829,
+    "total": 11.382,
+    "agent_start_at": 1790685400.5548341
+  },
+  "absolute_total_latency": 4.02,
+  "transcript": "One hundred and fifty Euros is currently equal to one hundred and sixty five US dollars.",
+  "asr_chunks": [
+    {
+      "text": "One",
+      "timestamp": [
+        19.36,
+        19.76
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        19.76,
+        20.0
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        20.0,
+        20.080000000000002
+      ]
+    },
+    {
+      "text": "fifty",
+      "timestamp": [
+        20.16,
+        20.48
+      ]
+    },
+    {
+      "text": "Euros",
+      "timestamp": [
+        20.48,
+        21.04
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        21.04,
+        21.2
+      ]
+    },
+    {
+      "text": "currently",
+      "timestamp": [
+        21.2,
+        21.68
+      ]
+    },
+    {
+      "text": "equal",
+      "timestamp": [
+        21.68,
+        22.0
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        22.0,
+        22.240000000000002
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        22.240000000000002,
+        22.400000000000002
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        22.56,
+        22.72
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        22.8,
+        22.88
+      ]
+    },
+    {
+      "text": "sixty",
+      "timestamp": [
+        22.88,
+        23.2
+      ]
+    },
+    {
+      "text": "five",
+      "timestamp": [
+        23.28,
+        23.52
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        23.52,
+        24.0
+      ]
+    },
+    {
+      "text": "dollars.",
+      "timestamp": [
+        24.0,
+        24.88
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.56,
+  "audio_agent_speech_start": 19.36,
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 100.0,
+        "from_currency": "EUR",
+        "to_currency": "USD"
+      },
+      "timestamp_start": 8.38,
+      "timestamp_end": 8.38
+    },
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 150.0,
+        "from_currency": "EUR",
+        "to_currency": "USD"
+      },
+      "timestamp_start": 17.99,
+      "timestamp_end": 17.99
+    }
+  ],
+  "status": "completed"
+}

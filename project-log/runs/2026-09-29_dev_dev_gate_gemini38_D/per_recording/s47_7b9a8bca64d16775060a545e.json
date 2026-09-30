@@ -1,0 +1,203 @@
+{
+  "pid": "7b9a8bca64d16775060a545e",
+  "example_id": "s47",
+  "category": "housing",
+  "title": "devset s47: housing / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T15:07:27.098739",
+  "inference_time_s": 35.01,
+  "room_name": "eval-7b6c3137",
+  "stream_start_time": 1790694451.1543353,
+  "input_transcript": "Search apartments in Austin with two bedrooms under $1,600.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.2
+      ]
+    },
+    {
+      "text": "Austin",
+      "timestamp": [
+        1.2,
+        1.68
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        3.2800000000000002,
+        3.36
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        3.52,
+        3.68
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        3.84,
+        4.4
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        4.4,
+        4.72
+      ]
+    },
+    {
+      "text": "$1,600.",
+      "timestamp": [
+        4.72,
+        5.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.68,
+  "latency": {
+    "input_duration_s": 27.8,
+    "output_duration_s": 27.8,
+    "first_speech_s": 12.95
+  },
+  "user_done_unix": 1790694456.8343353,
+  "search_latency_breakdown": {
+    "room": "eval-7b6c3137",
+    "tool": "Search Tool",
+    "reasoning": 0.987,
+    "execution": 0.385,
+    "synthesis": 0.894,
+    "total": 2.266,
+    "agent_start_at": 1790694462.2427585
+  },
+  "absolute_total_latency": 5.408,
+  "transcript": "I found one two-bedroom apartment in Austin for fifteen hundred dollars per month.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        12.8,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        13.120000000000001,
+        13.76
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        13.76,
+        14.0
+      ]
+    },
+    {
+      "text": "two-bedroom",
+      "timestamp": [
+        14.0,
+        14.72
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        14.72,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        15.120000000000001,
+        15.280000000000001
+      ]
+    },
+    {
+      "text": "Austin",
+      "timestamp": [
+        15.280000000000001,
+        15.84
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        15.84,
+        16.0
+      ]
+    },
+    {
+      "text": "fifteen",
+      "timestamp": [
+        16.0,
+        16.48
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        16.56,
+        16.88
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        16.88,
+        17.2
+      ]
+    },
+    {
+      "text": "per",
+      "timestamp": [
+        17.2,
+        17.52
+      ]
+    },
+    {
+      "text": "month.",
+      "timestamp": [
+        17.52,
+        18.0
+      ]
+    }
+  ],
+  "perceived_total_latency": 7.12,
+  "audio_agent_speech_start": 12.8,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Austin",
+        "bedrooms": 2,
+        "max_price": 1600.0
+      },
+      "timestamp_start": 9.81,
+      "timestamp_end": 10.19
+    }
+  ],
+  "status": "completed"
+}

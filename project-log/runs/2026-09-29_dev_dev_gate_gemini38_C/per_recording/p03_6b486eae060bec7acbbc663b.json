@@ -1,0 +1,238 @@
+{
+  "pid": "6b486eae060bec7acbbc663b",
+  "example_id": "p03",
+  "category": "finance",
+  "title": "devset p03: finance / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:21:53.342593",
+  "inference_time_s": 36.31,
+  "room_name": "eval-a19659d1",
+  "stream_start_time": 1790688116.3460715,
+  "input_transcript": "Convert eighty A eighty Canadian dollars too Japanese yen Japan",
+  "input_asr_chunks": [
+    {
+      "text": "Convert",
+      "timestamp": [
+        0.32,
+        0.8
+      ]
+    },
+    {
+      "text": "eighty",
+      "timestamp": [
+        0.8,
+        1.28
+      ]
+    },
+    {
+      "text": "A",
+      "timestamp": [
+        3.12,
+        3.36
+      ]
+    },
+    {
+      "text": "eighty",
+      "timestamp": [
+        3.6,
+        3.92
+      ]
+    },
+    {
+      "text": "Canadian",
+      "timestamp": [
+        3.92,
+        4.4
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "too",
+      "timestamp": [
+        4.88,
+        5.12
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        7.04,
+        7.76
+      ]
+    },
+    {
+      "text": "yen",
+      "timestamp": [
+        7.76,
+        8.32
+      ]
+    },
+    {
+      "text": "Japan",
+      "timestamp": [
+        11.200000000000001,
+        11.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 8.32,
+  "latency": {
+    "input_duration_s": 30.1,
+    "output_duration_s": 30.1,
+    "first_speech_s": 3.55
+  },
+  "user_done_unix": 1790688124.6660714,
+  "transcript": "Which currencies would you like me to convert between? To convert to Japanese yen, which currency are you converting from?",
+  "asr_chunks": [
+    {
+      "text": "Which",
+      "timestamp": [
+        3.36,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "currencies",
+      "timestamp": [
+        3.7600000000000002,
+        4.4
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        4.4,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        4.5600000000000005,
+        4.64
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        4.64,
+        4.8
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        4.8,
+        4.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.96,
+        5.04
+      ]
+    },
+    {
+      "text": "convert",
+      "timestamp": [
+        5.04,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "between?",
+      "timestamp": [
+        5.6000000000000005,
+        5.84
+      ]
+    },
+    {
+      "text": "To",
+      "timestamp": [
+        10.96,
+        11.120000000000001
+      ]
+    },
+    {
+      "text": "convert",
+      "timestamp": [
+        11.120000000000001,
+        11.6
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.6,
+        11.76
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        11.76,
+        12.4
+      ]
+    },
+    {
+      "text": "yen,",
+      "timestamp": [
+        12.4,
+        12.8
+      ]
+    },
+    {
+      "text": "which",
+      "timestamp": [
+        12.96,
+        13.200000000000001
+      ]
+    },
+    {
+      "text": "currency",
+      "timestamp": [
+        13.200000000000001,
+        13.76
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        13.76,
+        13.92
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        13.92,
+        14.0
+      ]
+    },
+    {
+      "text": "converting",
+      "timestamp": [
+        14.0,
+        14.88
+      ]
+    },
+    {
+      "text": "from?",
+      "timestamp": [
+        14.88,
+        15.200000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": -4.96,
+  "audio_agent_speech_start": 3.36,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

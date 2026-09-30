@@ -1,0 +1,203 @@
+{
+  "pid": "bebb5f96171fe2b7e972443e",
+  "example_id": "p12",
+  "category": "housing",
+  "title": "devset p12: housing / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:40:43.321503",
+  "inference_time_s": 33.44,
+  "room_name": "eval-1bf6a6a6",
+  "stream_start_time": 1790692846.337727,
+  "input_transcript": "Set my search filter for um Pets allowed to yes.",
+  "input_asr_chunks": [
+    {
+      "text": "Set",
+      "timestamp": [
+        0.32,
+        0.48
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.48,
+        0.64
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        0.64,
+        0.88
+      ]
+    },
+    {
+      "text": "filter",
+      "timestamp": [
+        0.88,
+        1.2
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.2,
+        1.44
+      ]
+    },
+    {
+      "text": "um",
+      "timestamp": [
+        1.44,
+        1.68
+      ]
+    },
+    {
+      "text": "Pets",
+      "timestamp": [
+        4.16,
+        4.64
+      ]
+    },
+    {
+      "text": "allowed",
+      "timestamp": [
+        4.64,
+        4.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.96,
+        5.2
+      ]
+    },
+    {
+      "text": "yes.",
+      "timestamp": [
+        5.2,
+        5.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 1.68,
+  "latency": {
+    "input_duration_s": 27.35,
+    "output_duration_s": 27.35,
+    "first_speech_s": 5.25
+  },
+  "user_done_unix": 1790692848.0177271,
+  "transcript": "That's incomplete. Could you please specify which filter and value you would like to set?",
+  "asr_chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        5.12,
+        5.5200000000000005
+      ]
+    },
+    {
+      "text": "incomplete.",
+      "timestamp": [
+        5.5200000000000005,
+        6.24
+      ]
+    },
+    {
+      "text": "Could",
+      "timestamp": [
+        6.4,
+        6.640000000000001
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        6.640000000000001,
+        6.8
+      ]
+    },
+    {
+      "text": "please",
+      "timestamp": [
+        6.8,
+        7.04
+      ]
+    },
+    {
+      "text": "specify",
+      "timestamp": [
+        7.04,
+        7.6000000000000005
+      ]
+    },
+    {
+      "text": "which",
+      "timestamp": [
+        7.6000000000000005,
+        7.84
+      ]
+    },
+    {
+      "text": "filter",
+      "timestamp": [
+        7.84,
+        8.32
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        8.32,
+        8.48
+      ]
+    },
+    {
+      "text": "value",
+      "timestamp": [
+        8.48,
+        8.88
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        8.88,
+        8.96
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        8.96,
+        9.120000000000001
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        9.120000000000001,
+        9.28
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.28,
+        9.52
+      ]
+    },
+    {
+      "text": "set?",
+      "timestamp": [
+        9.52,
+        9.68
+      ]
+    }
+  ],
+  "perceived_total_latency": 3.44,
+  "audio_agent_speech_start": 5.12,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

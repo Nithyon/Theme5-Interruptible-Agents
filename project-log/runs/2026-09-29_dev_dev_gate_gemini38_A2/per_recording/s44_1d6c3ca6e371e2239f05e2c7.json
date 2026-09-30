@@ -1,0 +1,211 @@
+{
+  "pid": "1d6c3ca6e371e2239f05e2c7",
+  "example_id": "s44",
+  "category": "ecommerce",
+  "title": "devset s44: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:28:08.482595",
+  "inference_time_s": 33.2,
+  "room_name": "eval-23c05596",
+  "stream_start_time": 1790692091.4531605,
+  "input_transcript": "Add product P forty two to my cart, um Quantity three",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.24,
+        0.4
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        0.48,
+        0.88
+      ]
+    },
+    {
+      "text": "P",
+      "timestamp": [
+        0.88,
+        1.12
+      ]
+    },
+    {
+      "text": "forty",
+      "timestamp": [
+        1.12,
+        1.28
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        1.36,
+        1.44
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.52,
+        1.68
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        1.68,
+        1.84
+      ]
+    },
+    {
+      "text": "cart,",
+      "timestamp": [
+        1.84,
+        2.08
+      ]
+    },
+    {
+      "text": "um",
+      "timestamp": [
+        2.24,
+        2.4
+      ]
+    },
+    {
+      "text": "Quantity",
+      "timestamp": [
+        4.16,
+        4.88
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        4.88,
+        5.04
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.04,
+  "latency": {
+    "input_duration_s": 27.15,
+    "output_duration_s": 27.15,
+    "first_speech_s": 10.05
+  },
+  "user_done_unix": 1790692096.4931605,
+  "search_latency_breakdown": {
+    "room": "eval-23c05596",
+    "tool": "Search Tool",
+    "reasoning": 3.947,
+    "execution": 0.0,
+    "synthesis": 1.104,
+    "total": 5.051,
+    "agent_start_at": 1790692100.763677
+  },
+  "absolute_total_latency": 4.271,
+  "transcript": "I've updated your cart to include three units of product P42.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        9.92,
+        10.32
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        10.32,
+        10.8
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        10.8,
+        10.96
+      ]
+    },
+    {
+      "text": "cart",
+      "timestamp": [
+        10.96,
+        11.28
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.28,
+        11.44
+      ]
+    },
+    {
+      "text": "include",
+      "timestamp": [
+        11.44,
+        11.84
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        11.84,
+        12.0
+      ]
+    },
+    {
+      "text": "units",
+      "timestamp": [
+        12.16,
+        12.56
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        12.56,
+        12.72
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        12.72,
+        13.200000000000001
+      ]
+    },
+    {
+      "text": "P42.",
+      "timestamp": [
+        13.200000000000001,
+        14.24
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.88,
+  "audio_agent_speech_start": 9.92,
+  "actual_tool_calls": [
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "P42",
+        "quantity": 1
+      },
+      "timestamp_start": 5.21,
+      "timestamp_end": 5.21
+    },
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "P42",
+        "quantity": 3
+      },
+      "timestamp_start": 8.21,
+      "timestamp_end": 8.21
+    }
+  ],
+  "status": "completed"
+}

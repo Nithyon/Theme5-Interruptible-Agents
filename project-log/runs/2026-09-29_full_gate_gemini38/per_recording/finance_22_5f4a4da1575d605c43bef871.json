@@ -1,0 +1,435 @@
+{
+  "pid": "5f4a4da1575d605c43bef871",
+  "example_id": "finance_22",
+  "category": "finance_billing",
+  "title": "Heavy Fillers + Dual Autopay",
+  "provider": "gate_gemini38",
+  "evaluated_at": "2026-09-29T12:44:29.343318",
+  "inference_time_s": 58.48,
+  "room_name": "eval-fd27f650",
+  "stream_start_time": 1790685872.545332,
+  "input_transcript": "First, I want to change my mortgage auto pay so it pulls from savings. That's the right account for that. Then I also want to set my credit card payment to come from my checking.",
+  "input_asr_chunks": [
+    {
+      "text": "First,",
+      "timestamp": [
+        2.64,
+        3.12
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        4.08,
+        4.32
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        4.32,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.5600000000000005,
+        4.72
+      ]
+    },
+    {
+      "text": "change",
+      "timestamp": [
+        4.72,
+        4.96
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        4.96,
+        5.2
+      ]
+    },
+    {
+      "text": "mortgage",
+      "timestamp": [
+        5.2,
+        5.68
+      ]
+    },
+    {
+      "text": "auto",
+      "timestamp": [
+        5.68,
+        6.16
+      ]
+    },
+    {
+      "text": "pay",
+      "timestamp": [
+        6.16,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        6.8,
+        7.04
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        7.04,
+        7.28
+      ]
+    },
+    {
+      "text": "pulls",
+      "timestamp": [
+        7.28,
+        8.0
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        8.0,
+        8.32
+      ]
+    },
+    {
+      "text": "savings.",
+      "timestamp": [
+        8.88,
+        9.76
+      ]
+    },
+    {
+      "text": "That's",
+      "timestamp": [
+        10.32,
+        10.64
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        10.64,
+        10.88
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        10.88,
+        11.120000000000001
+      ]
+    },
+    {
+      "text": "account",
+      "timestamp": [
+        11.120000000000001,
+        11.6
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        11.6,
+        11.92
+      ]
+    },
+    {
+      "text": "that.",
+      "timestamp": [
+        11.92,
+        12.24
+      ]
+    },
+    {
+      "text": "Then",
+      "timestamp": [
+        12.56,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.56,
+        14.88
+      ]
+    },
+    {
+      "text": "also",
+      "timestamp": [
+        14.88,
+        15.200000000000001
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        15.200000000000001,
+        15.44
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        15.68,
+        16.0
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        16.0,
+        16.16
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        16.16,
+        16.4
+      ]
+    },
+    {
+      "text": "credit",
+      "timestamp": [
+        16.4,
+        16.8
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        16.8,
+        17.2
+      ]
+    },
+    {
+      "text": "payment",
+      "timestamp": [
+        17.2,
+        17.76
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        17.76,
+        18.0
+      ]
+    },
+    {
+      "text": "come",
+      "timestamp": [
+        18.0,
+        18.240000000000002
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        18.240000000000002,
+        18.48
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        18.48,
+        18.72
+      ]
+    },
+    {
+      "text": "checking.",
+      "timestamp": [
+        18.72,
+        19.6
+      ]
+    }
+  ],
+  "user_speech_end_rel": 19.6,
+  "latency": {
+    "input_duration_s": 50.941,
+    "output_duration_s": 50.941,
+    "first_speech_s": 25.0
+  },
+  "user_done_unix": 1790685892.1453319,
+  "search_latency_breakdown": {
+    "room": "eval-fd27f650",
+    "tool": "Search Tool",
+    "reasoning": 1.543,
+    "execution": 0.0,
+    "synthesis": 0.717,
+    "total": 2.26,
+    "agent_start_at": 1790685896.8136494
+  },
+  "absolute_total_latency": 4.668,
+  "transcript": "I've set your mortgage auto pay to pull from savings and your credit card payment to come from checking.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        24.88,
+        25.2
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        25.2,
+        25.44
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        25.44,
+        25.6
+      ]
+    },
+    {
+      "text": "mortgage",
+      "timestamp": [
+        25.6,
+        26.080000000000002
+      ]
+    },
+    {
+      "text": "auto",
+      "timestamp": [
+        26.080000000000002,
+        26.560000000000002
+      ]
+    },
+    {
+      "text": "pay",
+      "timestamp": [
+        26.560000000000002,
+        26.8
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        26.8,
+        26.88
+      ]
+    },
+    {
+      "text": "pull",
+      "timestamp": [
+        26.88,
+        27.12
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        27.12,
+        27.36
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        27.36,
+        27.76
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        27.92,
+        28.080000000000002
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        28.080000000000002,
+        28.240000000000002
+      ]
+    },
+    {
+      "text": "credit",
+      "timestamp": [
+        28.240000000000002,
+        28.560000000000002
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        28.560000000000002,
+        28.8
+      ]
+    },
+    {
+      "text": "payment",
+      "timestamp": [
+        28.8,
+        29.12
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        29.12,
+        29.28
+      ]
+    },
+    {
+      "text": "come",
+      "timestamp": [
+        29.28,
+        29.44
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        29.44,
+        29.6
+      ]
+    },
+    {
+      "text": "checking.",
+      "timestamp": [
+        29.6,
+        30.48
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.28,
+  "audio_agent_speech_start": 24.88,
+  "actual_tool_calls": [
+    {
+      "function": "modify_autopay",
+      "args": {
+        "bill_type": "mortgage",
+        "source_account": "savings"
+      },
+      "timestamp_start": 23.55,
+      "timestamp_end": 23.55
+    },
+    {
+      "function": "modify_autopay",
+      "args": {
+        "bill_type": "credit_card",
+        "source_account": "checking"
+      },
+      "timestamp_start": 23.55,
+      "timestamp_end": 23.55
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,216 @@
+{
+  "pid": "cf7feafa3aa4cb182315dd8e",
+  "example_id": "s01",
+  "category": "travel",
+  "title": "devset s01: travel / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:41:17.160766",
+  "inference_time_s": 32.66,
+  "room_name": "eval-01969871",
+  "stream_start_time": 1790692880.0869803,
+  "input_transcript": "Search flights to Boston on March 3rd. No wait, actually, New York, same date.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.12
+      ]
+    },
+    {
+      "text": "Boston",
+      "timestamp": [
+        1.12,
+        1.52
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.52,
+        1.68
+      ]
+    },
+    {
+      "text": "March",
+      "timestamp": [
+        1.68,
+        1.92
+      ]
+    },
+    {
+      "text": "3rd.",
+      "timestamp": [
+        1.92,
+        2.32
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        2.56,
+        2.72
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        2.8000000000000003,
+        3.12
+      ]
+    },
+    {
+      "text": "actually,",
+      "timestamp": [
+        3.2,
+        3.36
+      ]
+    },
+    {
+      "text": "New",
+      "timestamp": [
+        3.6,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "York,",
+      "timestamp": [
+        3.7600000000000002,
+        4.0
+      ]
+    },
+    {
+      "text": "same",
+      "timestamp": [
+        4.24,
+        4.48
+      ]
+    },
+    {
+      "text": "date.",
+      "timestamp": [
+        4.48,
+        5.12
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.12,
+  "latency": {
+    "input_duration_s": 26.65,
+    "output_duration_s": 26.65,
+    "first_speech_s": 10.5
+  },
+  "user_done_unix": 1790692885.2069802,
+  "search_latency_breakdown": {
+    "room": "eval-01969871",
+    "tool": "Search Tool",
+    "reasoning": 2.568,
+    "execution": 0.713,
+    "synthesis": 1.024,
+    "total": 4.305,
+    "agent_start_at": 1790692891.9772549
+  },
+  "absolute_total_latency": 6.77,
+  "transcript": "Flights to New York on March 3rd start at $450.",
+  "asr_chunks": [
+    {
+      "text": "Flights",
+      "timestamp": [
+        10.4,
+        10.88
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        10.88,
+        11.040000000000001
+      ]
+    },
+    {
+      "text": "New",
+      "timestamp": [
+        11.040000000000001,
+        11.28
+      ]
+    },
+    {
+      "text": "York",
+      "timestamp": [
+        11.28,
+        11.6
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        11.6,
+        11.76
+      ]
+    },
+    {
+      "text": "March",
+      "timestamp": [
+        11.76,
+        12.16
+      ]
+    },
+    {
+      "text": "3rd",
+      "timestamp": [
+        12.16,
+        12.56
+      ]
+    },
+    {
+      "text": "start",
+      "timestamp": [
+        12.56,
+        12.8
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        12.8,
+        12.96
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        12.96,
+        14.08
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.28,
+  "audio_agent_speech_start": 10.4,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "New York",
+        "date": "2026-03-03"
+      },
+      "timestamp_start": 10.15,
+      "timestamp_end": 10.87
+    }
+  ],
+  "status": "completed"
+}

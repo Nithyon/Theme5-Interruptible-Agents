@@ -1,0 +1,456 @@
+{
+  "pid": "69a9cf80f4d7668d5c815038",
+  "example_id": "travel_23",
+  "category": "travel_identity",
+  "title": "Heavy Fillers + Document Updates",
+  "provider": "gate_gemini38_final",
+  "evaluated_at": "2026-09-29T16:56:48.159676",
+  "inference_time_s": 66.35,
+  "room_name": "eval-a2b9a68d",
+  "stream_start_time": 1790701012.856849,
+  "input_transcript": "Hmm. Um, so I need to like update my passport number to P1122 because I just renewed it, and then um, I also got a new driver license. So, could you change that one to D L nine zero nine zero as well?",
+  "input_asr_chunks": [
+    {
+      "text": "Hmm.",
+      "timestamp": [
+        0.96,
+        1.6
+      ]
+    },
+    {
+      "text": "Um,",
+      "timestamp": [
+        2.56,
+        3.12
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        3.7600000000000002,
+        4.0
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        4.16,
+        4.48
+      ]
+    },
+    {
+      "text": "need",
+      "timestamp": [
+        4.48,
+        4.8
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.8,
+        5.12
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        5.12,
+        5.36
+      ]
+    },
+    {
+      "text": "update",
+      "timestamp": [
+        5.68,
+        6.24
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        6.24,
+        6.4
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        6.4,
+        7.04
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        7.04,
+        7.36
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.36,
+        7.68
+      ]
+    },
+    {
+      "text": "P1122",
+      "timestamp": [
+        7.68,
+        9.28
+      ]
+    },
+    {
+      "text": "because",
+      "timestamp": [
+        10.08,
+        10.4
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        10.4,
+        10.64
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        10.64,
+        10.8
+      ]
+    },
+    {
+      "text": "renewed",
+      "timestamp": [
+        10.8,
+        11.52
+      ]
+    },
+    {
+      "text": "it,",
+      "timestamp": [
+        11.52,
+        11.76
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        12.4,
+        12.72
+      ]
+    },
+    {
+      "text": "then",
+      "timestamp": [
+        12.72,
+        13.040000000000001
+      ]
+    },
+    {
+      "text": "um,",
+      "timestamp": [
+        13.280000000000001,
+        13.6
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.88,
+        15.200000000000001
+      ]
+    },
+    {
+      "text": "also",
+      "timestamp": [
+        15.52,
+        15.76
+      ]
+    },
+    {
+      "text": "got",
+      "timestamp": [
+        16.0,
+        16.240000000000002
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        16.240000000000002,
+        16.4
+      ]
+    },
+    {
+      "text": "new",
+      "timestamp": [
+        16.4,
+        16.56
+      ]
+    },
+    {
+      "text": "driver",
+      "timestamp": [
+        16.56,
+        17.2
+      ]
+    },
+    {
+      "text": "license.",
+      "timestamp": [
+        17.2,
+        17.84
+      ]
+    },
+    {
+      "text": "So,",
+      "timestamp": [
+        18.16,
+        18.32
+      ]
+    },
+    {
+      "text": "could",
+      "timestamp": [
+        18.400000000000002,
+        18.64
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        18.64,
+        18.8
+      ]
+    },
+    {
+      "text": "change",
+      "timestamp": [
+        18.8,
+        19.2
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        19.2,
+        19.52
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        19.52,
+        19.84
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        19.84,
+        20.16
+      ]
+    },
+    {
+      "text": "D",
+      "timestamp": [
+        20.16,
+        20.48
+      ]
+    },
+    {
+      "text": "L",
+      "timestamp": [
+        20.72,
+        20.96
+      ]
+    },
+    {
+      "text": "nine",
+      "timestamp": [
+        21.2,
+        21.68
+      ]
+    },
+    {
+      "text": "zero",
+      "timestamp": [
+        21.76,
+        22.16
+      ]
+    },
+    {
+      "text": "nine",
+      "timestamp": [
+        22.32,
+        22.64
+      ]
+    },
+    {
+      "text": "zero",
+      "timestamp": [
+        22.8,
+        23.6
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        23.6,
+        23.92
+      ]
+    },
+    {
+      "text": "well?",
+      "timestamp": [
+        23.92,
+        24.080000000000002
+      ]
+    }
+  ],
+  "user_speech_end_rel": 24.080000000000002,
+  "latency": {
+    "input_duration_s": 55.32,
+    "output_duration_s": 55.32,
+    "first_speech_s": 4.85
+  },
+  "user_done_unix": 1790701036.9368489,
+  "search_latency_breakdown": {
+    "room": "eval-a2b9a68d",
+    "tool": "Search Tool",
+    "reasoning": 23.776,
+    "execution": 0.0,
+    "synthesis": 1.009,
+    "total": 24.785,
+    "agent_start_at": 1790701043.9337368
+  },
+  "absolute_total_latency": 6.997,
+  "transcript": "Hmm. Both your passport and driver's license have been successfully updated in the system.",
+  "asr_chunks": [
+    {
+      "text": "Hmm.",
+      "timestamp": [
+        4.72,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "Both",
+      "timestamp": [
+        30.72,
+        31.12
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        31.12,
+        31.36
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        31.36,
+        31.92
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        32.4,
+        32.56
+      ]
+    },
+    {
+      "text": "driver's",
+      "timestamp": [
+        32.56,
+        32.96
+      ]
+    },
+    {
+      "text": "license",
+      "timestamp": [
+        32.96,
+        33.44
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        33.44,
+        33.6
+      ]
+    },
+    {
+      "text": "been",
+      "timestamp": [
+        33.6,
+        33.76
+      ]
+    },
+    {
+      "text": "successfully",
+      "timestamp": [
+        33.76,
+        34.4
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        34.4,
+        34.88
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        34.88,
+        34.96
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        34.96,
+        35.2
+      ]
+    },
+    {
+      "text": "system.",
+      "timestamp": [
+        35.2,
+        35.52
+      ]
+    }
+  ],
+  "perceived_total_latency": -19.36,
+  "audio_agent_speech_start": 4.72,
+  "actual_tool_calls": [
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "passport",
+        "doc_number": "P1122"
+      },
+      "timestamp_start": 30.06,
+      "timestamp_end": 30.06
+    },
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "driver_license",
+        "doc_number": "DL9090"
+      },
+      "timestamp_start": 30.07,
+      "timestamp_end": 30.07
+    }
+  ],
+  "status": "completed"
+}

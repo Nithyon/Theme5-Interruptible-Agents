@@ -1,0 +1,168 @@
+{
+  "pid": "ec40b686314d2d507fd8d7ff",
+  "example_id": "s19",
+  "category": "finance",
+  "title": "devset s19: finance / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:10:21.844302",
+  "inference_time_s": 11.18,
+  "room_name": "eval-967ab7d7",
+  "stream_start_time": 1790687424.8802388,
+  "input_transcript": "Can you tell me the benefits of the gold card?",
+  "input_asr_chunks": [
+    {
+      "text": "Can",
+      "timestamp": [
+        0.16,
+        0.64
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        1.28,
+        1.52
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        2.48,
+        2.72
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        2.72,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        3.2800000000000002,
+        3.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        3.44,
+        3.52
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        3.52,
+        3.92
+      ]
+    },
+    {
+      "text": "card?",
+      "timestamp": [
+        3.92,
+        4.5600000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.5600000000000005,
+  "latency": {
+    "input_duration_s": 6.125,
+    "output_duration_s": 6.125,
+    "first_speech_s": 3.6
+  },
+  "user_done_unix": 1790687429.4402387,
+  "transcript": "Yes, I can help. What would you like to know?",
+  "asr_chunks": [
+    {
+      "text": "Yes,",
+      "timestamp": [
+        3.44,
+        3.92
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        4.08,
+        4.32
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        4.32,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "help.",
+      "timestamp": [
+        4.5600000000000005,
+        4.72
+      ]
+    },
+    {
+      "text": "What",
+      "timestamp": [
+        4.96,
+        5.2
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        5.2,
+        5.36
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        5.36,
+        5.44
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        5.44,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.6000000000000005,
+        5.68
+      ]
+    },
+    {
+      "text": "know?",
+      "timestamp": [
+        5.68,
+        5.84
+      ]
+    }
+  ],
+  "perceived_total_latency": -1.12,
+  "audio_agent_speech_start": 3.44,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

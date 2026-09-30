@@ -1,0 +1,160 @@
+{
+  "pid": "40c0df72186d6c36471bb7ca",
+  "example_id": "s39",
+  "category": "ecommerce",
+  "title": "devset s39: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:25:17.705908",
+  "inference_time_s": 32.87,
+  "room_name": "eval-7e4058fa",
+  "stream_start_time": 1790691920.6806824,
+  "input_transcript": "Search for Bluetooth speakers under $100",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.4,
+        1.04
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.04,
+        1.36
+      ]
+    },
+    {
+      "text": "Bluetooth",
+      "timestamp": [
+        2.64,
+        3.36
+      ]
+    },
+    {
+      "text": "speakers",
+      "timestamp": [
+        3.36,
+        3.84
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        3.84,
+        3.92
+      ]
+    },
+    {
+      "text": "$100",
+      "timestamp": [
+        4.08,
+        4.64
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.64,
+  "latency": {
+    "input_duration_s": 26.85,
+    "output_duration_s": 26.85,
+    "first_speech_s": 4.05
+  },
+  "user_done_unix": 1790691925.3206825,
+  "search_latency_breakdown": {
+    "room": "eval-7e4058fa",
+    "tool": "Search Tool",
+    "reasoning": 3.945,
+    "execution": 0.0,
+    "synthesis": 0.732,
+    "total": 4.677,
+    "agent_start_at": 1790691929.1180284
+  },
+  "absolute_total_latency": 3.797,
+  "transcript": "One sh I found Bluetooth speakers premium for ninety dollars.",
+  "asr_chunks": [
+    {
+      "text": "One",
+      "timestamp": [
+        3.92,
+        4.16
+      ]
+    },
+    {
+      "text": "sh",
+      "timestamp": [
+        4.32,
+        4.4
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        9.040000000000001,
+        9.28
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        9.28,
+        9.6
+      ]
+    },
+    {
+      "text": "Bluetooth",
+      "timestamp": [
+        9.6,
+        10.24
+      ]
+    },
+    {
+      "text": "speakers",
+      "timestamp": [
+        10.24,
+        10.64
+      ]
+    },
+    {
+      "text": "premium",
+      "timestamp": [
+        10.64,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        11.200000000000001,
+        11.44
+      ]
+    },
+    {
+      "text": "ninety",
+      "timestamp": [
+        11.44,
+        11.92
+      ]
+    },
+    {
+      "text": "dollars.",
+      "timestamp": [
+        11.92,
+        12.56
+      ]
+    }
+  ],
+  "perceived_total_latency": -0.72,
+  "audio_agent_speech_start": 3.92,
+  "actual_tool_calls": [
+    {
+      "function": "search_products",
+      "args": {
+        "query": "Bluetooth speakers",
+        "max_price": 100.0
+      },
+      "timestamp_start": 7.71,
+      "timestamp_end": 7.71
+    }
+  ],
+  "status": "completed"
+}

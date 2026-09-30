@@ -1,0 +1,159 @@
+{
+  "pid": "34aedc27a20ebdb9145fc41b",
+  "example_id": "s09",
+  "category": "travel",
+  "title": "devset s09: travel / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:08:14.390200",
+  "inference_time_s": 29.9,
+  "room_name": "eval-e2016737",
+  "stream_start_time": 1790690897.4198384,
+  "input_transcript": "Please book the flight for Anita Rao.",
+  "input_asr_chunks": [
+    {
+      "text": "Please",
+      "timestamp": [
+        0.32,
+        0.56
+      ]
+    },
+    {
+      "text": "book",
+      "timestamp": [
+        0.56,
+        0.8
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.8,
+        0.88
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        0.88,
+        1.12
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.12,
+        1.28
+      ]
+    },
+    {
+      "text": "Anita",
+      "timestamp": [
+        1.28,
+        1.76
+      ]
+    },
+    {
+      "text": "Rao.",
+      "timestamp": [
+        1.76,
+        2.16
+      ]
+    }
+  ],
+  "user_speech_end_rel": 2.16,
+  "latency": {
+    "input_duration_s": 23.925,
+    "output_duration_s": 23.925,
+    "first_speech_s": 6.4
+  },
+  "user_done_unix": 1790690899.5798385,
+  "search_latency_breakdown": {
+    "room": "eval-e2016737",
+    "tool": "Search Tool",
+    "reasoning": 0.96,
+    "execution": 0.0,
+    "synthesis": 0.772,
+    "total": 1.731,
+    "agent_start_at": 1790690902.7933142
+  },
+  "absolute_total_latency": 3.213,
+  "transcript": "The flight for Anita Rao has been successfully booked.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        6.24,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        6.5600000000000005,
+        6.88
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.88,
+        7.04
+      ]
+    },
+    {
+      "text": "Anita",
+      "timestamp": [
+        7.04,
+        7.5200000000000005
+      ]
+    },
+    {
+      "text": "Rao",
+      "timestamp": [
+        7.6000000000000005,
+        7.92
+      ]
+    },
+    {
+      "text": "has",
+      "timestamp": [
+        8.0,
+        8.16
+      ]
+    },
+    {
+      "text": "been",
+      "timestamp": [
+        8.16,
+        8.32
+      ]
+    },
+    {
+      "text": "successfully",
+      "timestamp": [
+        8.32,
+        8.88
+      ]
+    },
+    {
+      "text": "booked.",
+      "timestamp": [
+        8.88,
+        9.76
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.08,
+  "audio_agent_speech_start": 6.24,
+  "actual_tool_calls": [
+    {
+      "function": "book_flight",
+      "args": {
+        "passenger_name": "Anita Rao"
+      },
+      "timestamp_start": 4.6,
+      "timestamp_end": 4.6
+    }
+  ],
+  "status": "completed"
+}

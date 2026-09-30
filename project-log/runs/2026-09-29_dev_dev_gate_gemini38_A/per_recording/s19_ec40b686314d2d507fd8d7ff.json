@@ -1,0 +1,147 @@
+{
+  "pid": "ec40b686314d2d507fd8d7ff",
+  "example_id": "s19",
+  "category": "finance",
+  "title": "devset s19: finance / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T12:58:42.016787",
+  "inference_time_s": 11.15,
+  "room_name": "eval-51e13583",
+  "stream_start_time": 1790686725.0202327,
+  "input_transcript": "Can you tell me the benefits of the gold card?",
+  "input_asr_chunks": [
+    {
+      "text": "Can",
+      "timestamp": [
+        0.16,
+        0.64
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        1.28,
+        1.52
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        2.48,
+        2.72
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        2.72,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        3.2800000000000002,
+        3.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        3.44,
+        3.52
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        3.52,
+        3.92
+      ]
+    },
+    {
+      "text": "card?",
+      "timestamp": [
+        3.92,
+        4.5600000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.5600000000000005,
+  "latency": {
+    "input_duration_s": 6.125,
+    "output_duration_s": 6.125,
+    "first_speech_s": 3.6
+  },
+  "user_done_unix": 1790686729.5802326,
+  "transcript": "Yes, I am listening. Please go ahead.",
+  "asr_chunks": [
+    {
+      "text": "Yes,",
+      "timestamp": [
+        3.44,
+        3.92
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        4.08,
+        4.32
+      ]
+    },
+    {
+      "text": "am",
+      "timestamp": [
+        4.32,
+        4.48
+      ]
+    },
+    {
+      "text": "listening.",
+      "timestamp": [
+        4.48,
+        4.96
+      ]
+    },
+    {
+      "text": "Please",
+      "timestamp": [
+        5.2,
+        5.5200000000000005
+      ]
+    },
+    {
+      "text": "go",
+      "timestamp": [
+        5.5200000000000005,
+        5.68
+      ]
+    },
+    {
+      "text": "ahead.",
+      "timestamp": [
+        5.68,
+        5.92
+      ]
+    }
+  ],
+  "perceived_total_latency": -1.12,
+  "audio_agent_speech_start": 3.44,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

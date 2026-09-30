@@ -1,0 +1,127 @@
+{
+  "pid": "aade5c5c134d109c958339a4",
+  "example_id": "s28",
+  "category": "housing",
+  "title": "devset s28: housing / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:12:23.664356",
+  "inference_time_s": 12.13,
+  "room_name": "eval-026b6ef8",
+  "stream_start_time": 1790687546.6146212,
+  "input_transcript": "Calculate my commute from home to the office by driving actually by transit.",
+  "input_asr_chunks": [
+    {
+      "text": "Calculate",
+      "timestamp": [
+        0.16,
+        0.8
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.8,
+        1.04
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        1.44,
+        1.6
+      ]
+    },
+    {
+      "text": "home",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.76,
+        1.92
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        1.92,
+        2.08
+      ]
+    },
+    {
+      "text": "office",
+      "timestamp": [
+        2.08,
+        2.48
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        2.48,
+        2.72
+      ]
+    },
+    {
+      "text": "driving",
+      "timestamp": [
+        3.2800000000000002,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        4.0,
+        4.32
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        4.48,
+        4.8
+      ]
+    },
+    {
+      "text": "transit.",
+      "timestamp": [
+        4.8,
+        5.36
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.36,
+  "latency": {
+    "input_duration_s": 7.15,
+    "output_duration_s": 7.15,
+    "first_speech_s": 7.15
+  },
+  "user_done_unix": 1790687551.974621,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "home",
+        "destination_address": "the office",
+        "mode": "transit"
+      },
+      "timestamp_start": 8.58,
+      "timestamp_end": 8.94
+    }
+  ],
+  "status": "completed"
+}

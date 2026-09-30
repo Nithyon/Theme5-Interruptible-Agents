@@ -1,0 +1,196 @@
+{
+  "pid": "aade5c5c134d109c958339a4",
+  "example_id": "s28",
+  "category": "housing",
+  "title": "devset s28: housing / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:56:41.724524",
+  "inference_time_s": 33.91,
+  "room_name": "eval-8e2f7886",
+  "stream_start_time": 1790693805.42883,
+  "input_transcript": "Calculate my commute from home to the office by driving actually by transit.",
+  "input_asr_chunks": [
+    {
+      "text": "Calculate",
+      "timestamp": [
+        0.32,
+        0.88
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        1.44,
+        1.6
+      ]
+    },
+    {
+      "text": "home",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.76,
+        1.92
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        1.92,
+        2.08
+      ]
+    },
+    {
+      "text": "office",
+      "timestamp": [
+        2.08,
+        2.48
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        2.48,
+        2.72
+      ]
+    },
+    {
+      "text": "driving",
+      "timestamp": [
+        3.2800000000000002,
+        3.84
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        3.92,
+        4.24
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        4.48,
+        4.8
+      ]
+    },
+    {
+      "text": "transit.",
+      "timestamp": [
+        4.8,
+        5.44
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.44,
+  "latency": {
+    "input_duration_s": 27.15,
+    "output_duration_s": 27.15,
+    "first_speech_s": 11.2
+  },
+  "user_done_unix": 1790693810.86883,
+  "search_latency_breakdown": {
+    "room": "eval-8e2f7886",
+    "tool": "Search Tool",
+    "reasoning": 0.949,
+    "execution": 0.673,
+    "synthesis": 0.872,
+    "total": 2.493,
+    "agent_start_at": 1790693815.9507592
+  },
+  "absolute_total_latency": 5.082,
+  "transcript": "Your commute by transit will take twenty-five minutes.",
+  "asr_chunks": [
+    {
+      "text": "Your",
+      "timestamp": [
+        11.040000000000001,
+        11.36
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        11.36,
+        11.76
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        11.76,
+        12.0
+      ]
+    },
+    {
+      "text": "transit",
+      "timestamp": [
+        12.0,
+        12.48
+      ]
+    },
+    {
+      "text": "will",
+      "timestamp": [
+        12.48,
+        12.64
+      ]
+    },
+    {
+      "text": "take",
+      "timestamp": [
+        12.64,
+        12.88
+      ]
+    },
+    {
+      "text": "twenty-five",
+      "timestamp": [
+        12.88,
+        13.36
+      ]
+    },
+    {
+      "text": "minutes.",
+      "timestamp": [
+        13.52,
+        14.24
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.6,
+  "audio_agent_speech_start": 11.040000000000001,
+  "actual_tool_calls": [
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "home",
+        "destination_address": "the office",
+        "mode": "transit"
+      },
+      "timestamp_start": 8.98,
+      "timestamp_end": 9.65
+    }
+  ],
+  "status": "completed"
+}

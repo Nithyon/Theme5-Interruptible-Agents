@@ -1,0 +1,384 @@
+{
+  "pid": "66c4f3cb14cbfc4db836bd4e",
+  "example_id": "finance_15",
+  "category": "finance_billing",
+  "title": "Autopay Correction",
+  "provider": "gate_gemini38_final",
+  "evaluated_at": "2026-09-29T16:04:31.009890",
+  "inference_time_s": 51.41,
+  "room_name": "eval-f57e9095",
+  "stream_start_time": 1790697875.3562555,
+  "input_transcript": "Hmm I I want um to switch my mortgage. Auto pay to po from checking. Wait, wait, no, that's wrong too. May make it savings instead. Yeah, savings is savings is the right one.",
+  "input_asr_chunks": [
+    {
+      "text": "Hmm",
+      "timestamp": [
+        0.24,
+        0.88
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        1.04,
+        1.2
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        1.36,
+        1.52
+      ]
+    },
+    {
+      "text": "um",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.84,
+        2.0
+      ]
+    },
+    {
+      "text": "switch",
+      "timestamp": [
+        2.0,
+        2.32
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        2.32,
+        2.48
+      ]
+    },
+    {
+      "text": "mortgage.",
+      "timestamp": [
+        2.48,
+        2.88
+      ]
+    },
+    {
+      "text": "Auto",
+      "timestamp": [
+        3.04,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "pay",
+      "timestamp": [
+        3.36,
+        3.52
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        3.6,
+        3.68
+      ]
+    },
+    {
+      "text": "po",
+      "timestamp": [
+        3.7600000000000002,
+        3.84
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        4.0,
+        4.08
+      ]
+    },
+    {
+      "text": "checking.",
+      "timestamp": [
+        4.24,
+        4.88
+      ]
+    },
+    {
+      "text": "Wait,",
+      "timestamp": [
+        5.2,
+        5.5200000000000005
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        5.68,
+        5.92
+      ]
+    },
+    {
+      "text": "no,",
+      "timestamp": [
+        6.08,
+        6.32
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        6.5600000000000005,
+        6.96
+      ]
+    },
+    {
+      "text": "wrong",
+      "timestamp": [
+        6.96,
+        7.2
+      ]
+    },
+    {
+      "text": "too.",
+      "timestamp": [
+        7.28,
+        7.44
+      ]
+    },
+    {
+      "text": "May",
+      "timestamp": [
+        7.6000000000000005,
+        7.76
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        7.92,
+        8.08
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        8.24,
+        8.48
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        8.48,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "instead.",
+      "timestamp": [
+        9.040000000000001,
+        9.36
+      ]
+    },
+    {
+      "text": "Yeah,",
+      "timestamp": [
+        9.68,
+        9.84
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        10.0,
+        10.48
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        10.48,
+        10.72
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        11.040000000000001,
+        11.6
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        11.6,
+        11.76
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        11.76,
+        12.0
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        12.0,
+        12.24
+      ]
+    },
+    {
+      "text": "one.",
+      "timestamp": [
+        12.24,
+        12.56
+      ]
+    }
+  ],
+  "user_speech_end_rel": 12.56,
+  "latency": {
+    "input_duration_s": 42.576,
+    "output_duration_s": 42.576,
+    "first_speech_s": 17.55
+  },
+  "user_done_unix": 1790697887.9162555,
+  "search_latency_breakdown": {
+    "room": "eval-f57e9095",
+    "tool": "Search Tool",
+    "reasoning": 0.954,
+    "execution": 0.0,
+    "synthesis": 1.081,
+    "total": 2.035,
+    "agent_start_at": 1790697893.1225493
+  },
+  "absolute_total_latency": 5.206,
+  "transcript": "Your mortgage auto pay has been successfully updated to pull from your savings account.",
+  "asr_chunks": [
+    {
+      "text": "Your",
+      "timestamp": [
+        17.44,
+        17.68
+      ]
+    },
+    {
+      "text": "mortgage",
+      "timestamp": [
+        17.68,
+        18.240000000000002
+      ]
+    },
+    {
+      "text": "auto",
+      "timestamp": [
+        18.240000000000002,
+        18.64
+      ]
+    },
+    {
+      "text": "pay",
+      "timestamp": [
+        18.64,
+        19.04
+      ]
+    },
+    {
+      "text": "has",
+      "timestamp": [
+        19.04,
+        19.2
+      ]
+    },
+    {
+      "text": "been",
+      "timestamp": [
+        19.2,
+        19.36
+      ]
+    },
+    {
+      "text": "successfully",
+      "timestamp": [
+        19.36,
+        20.0
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        20.0,
+        20.48
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        20.48,
+        20.64
+      ]
+    },
+    {
+      "text": "pull",
+      "timestamp": [
+        20.64,
+        21.12
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        21.76,
+        22.080000000000002
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        22.080000000000002,
+        22.240000000000002
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        22.240000000000002,
+        22.96
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        23.92,
+        24.560000000000002
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.88,
+  "audio_agent_speech_start": 17.44,
+  "actual_tool_calls": [
+    {
+      "function": "modify_autopay",
+      "args": {
+        "bill_type": "mortgage",
+        "source_account": "savings"
+      },
+      "timestamp_start": 16.69,
+      "timestamp_end": 16.69
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,120 @@
+{
+  "pid": "82234274110a509e36b3c9a7",
+  "example_id": "s25",
+  "category": "housing",
+  "title": "devset s25: housing / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:11:41.844528",
+  "inference_time_s": 11.79,
+  "room_name": "eval-9ef87740",
+  "stream_start_time": 1790687504.9722273,
+  "input_transcript": "Calculate my commute from Union Station to Fifth Avenue Tower by transit.",
+  "input_asr_chunks": [
+    {
+      "text": "Calculate",
+      "timestamp": [
+        0.16,
+        0.8
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.8,
+        1.04
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        1.04,
+        1.36
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        1.36,
+        1.6
+      ]
+    },
+    {
+      "text": "Union",
+      "timestamp": [
+        1.6,
+        2.08
+      ]
+    },
+    {
+      "text": "Station",
+      "timestamp": [
+        2.08,
+        2.56
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        2.56,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "Fifth",
+      "timestamp": [
+        2.8000000000000003,
+        3.2
+      ]
+    },
+    {
+      "text": "Avenue",
+      "timestamp": [
+        3.2,
+        3.68
+      ]
+    },
+    {
+      "text": "Tower",
+      "timestamp": [
+        3.68,
+        3.92
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        4.08,
+        4.32
+      ]
+    },
+    {
+      "text": "transit.",
+      "timestamp": [
+        4.32,
+        5.12
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.12,
+  "latency": {
+    "input_duration_s": 6.65,
+    "output_duration_s": 6.65,
+    "first_speech_s": 6.65
+  },
+  "user_done_unix": 1790687510.0922272,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "Union Station",
+        "destination_address": "Fifth Avenue Tower",
+        "mode": "transit"
+      },
+      "timestamp_start": 7.11,
+      "timestamp_end": 7.78
+    }
+  ],
+  "status": "completed"
+}

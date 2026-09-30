@@ -1,0 +1,211 @@
+{
+  "pid": "dd06bbb9cf0cb539f55a6083",
+  "example_id": "p02",
+  "category": "travel",
+  "title": "devset p02: travel / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:34:54.057383",
+  "inference_time_s": 34.17,
+  "room_name": "eval-113f06cd",
+  "stream_start_time": 1790692497.066883,
+  "input_transcript": "Search flights to Denver on November 2nd. No, hold on, November 9th.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.12
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        1.12,
+        1.52
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.52,
+        1.68
+      ]
+    },
+    {
+      "text": "November",
+      "timestamp": [
+        1.68,
+        2.16
+      ]
+    },
+    {
+      "text": "2nd.",
+      "timestamp": [
+        2.16,
+        2.96
+      ]
+    },
+    {
+      "text": "No,",
+      "timestamp": [
+        4.5600000000000005,
+        4.8
+      ]
+    },
+    {
+      "text": "hold",
+      "timestamp": [
+        4.96,
+        5.2
+      ]
+    },
+    {
+      "text": "on,",
+      "timestamp": [
+        5.2,
+        5.36
+      ]
+    },
+    {
+      "text": "November",
+      "timestamp": [
+        5.44,
+        5.84
+      ]
+    },
+    {
+      "text": "9th.",
+      "timestamp": [
+        5.84,
+        6.5600000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.5600000000000005,
+  "latency": {
+    "input_duration_s": 28.075,
+    "output_duration_s": 28.075,
+    "first_speech_s": 14.05
+  },
+  "user_done_unix": 1790692503.626883,
+  "search_latency_breakdown": {
+    "room": "eval-113f06cd",
+    "tool": "Search Tool",
+    "reasoning": 6.771,
+    "execution": 0.761,
+    "synthesis": 0.851,
+    "total": 8.382,
+    "agent_start_at": 1790692510.55038
+  },
+  "absolute_total_latency": 6.923,
+  "transcript": "I found flights to Denver on November 9th for $450.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        13.84,
+        14.16
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        14.16,
+        14.48
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        14.48,
+        14.8
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        14.8,
+        14.96
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        14.96,
+        15.44
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        15.44,
+        15.6
+      ]
+    },
+    {
+      "text": "November",
+      "timestamp": [
+        15.6,
+        16.0
+      ]
+    },
+    {
+      "text": "9th",
+      "timestamp": [
+        16.0,
+        16.48
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        16.48,
+        16.64
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        16.64,
+        17.68
+      ]
+    }
+  ],
+  "perceived_total_latency": 7.28,
+  "audio_agent_speech_start": 13.84,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Denver",
+        "date": "2026-11-02"
+      },
+      "timestamp_start": 5.6,
+      "timestamp_end": 5.81
+    },
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Denver",
+        "date": "2026-11-09"
+      },
+      "timestamp_start": 11.87,
+      "timestamp_end": 12.63
+    }
+  ],
+  "status": "completed"
+}

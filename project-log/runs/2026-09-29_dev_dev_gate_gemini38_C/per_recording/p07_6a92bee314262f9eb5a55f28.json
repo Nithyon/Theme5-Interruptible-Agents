@@ -1,0 +1,223 @@
+{
+  "pid": "6a92bee314262f9eb5a55f28",
+  "example_id": "p07",
+  "category": "ecommerce",
+  "title": "devset p07: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:24:15.277028",
+  "inference_time_s": 34.27,
+  "room_name": "eval-3d5beb51",
+  "stream_start_time": 1790688258.3469868,
+  "input_transcript": "Add the the product K four forty two to my cart, two of them.",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.32,
+        0.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.56,
+        0.8
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.96,
+        1.12
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        3.2800000000000002,
+        3.84
+      ]
+    },
+    {
+      "text": "K",
+      "timestamp": [
+        3.84,
+        4.08
+      ]
+    },
+    {
+      "text": "four",
+      "timestamp": [
+        4.08,
+        4.16
+      ]
+    },
+    {
+      "text": "forty",
+      "timestamp": [
+        4.4,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        4.64,
+        4.72
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.8,
+        4.96
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        4.96,
+        5.04
+      ]
+    },
+    {
+      "text": "cart,",
+      "timestamp": [
+        5.12,
+        5.44
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        5.6000000000000005,
+        5.84
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        5.84,
+        6.08
+      ]
+    },
+    {
+      "text": "them.",
+      "timestamp": [
+        6.08,
+        6.4
+      ]
+    }
+  ],
+  "user_speech_end_rel": 1.12,
+  "latency": {
+    "input_duration_s": 28.025,
+    "output_duration_s": 28.025,
+    "first_speech_s": 4.5
+  },
+  "user_done_unix": 1790688259.4669867,
+  "search_latency_breakdown": {
+    "room": "eval-3d5beb51",
+    "tool": "Search Tool",
+    "reasoning": 4.087,
+    "execution": 0.0,
+    "synthesis": 0.784,
+    "total": 4.87,
+    "agent_start_at": 1790688267.520146
+  },
+  "absolute_total_latency": 8.053,
+  "transcript": "I'm not. I've added two of product A442 to your cart.",
+  "asr_chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "not.",
+      "timestamp": [
+        4.8,
+        5.04
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        9.84,
+        10.24
+      ]
+    },
+    {
+      "text": "added",
+      "timestamp": [
+        10.24,
+        10.72
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        10.72,
+        10.96
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        10.96,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        11.200000000000001,
+        11.68
+      ]
+    },
+    {
+      "text": "A442",
+      "timestamp": [
+        11.68,
+        12.72
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.72,
+        12.8
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        12.8,
+        13.040000000000001
+      ]
+    },
+    {
+      "text": "cart.",
+      "timestamp": [
+        13.040000000000001,
+        13.52
+      ]
+    }
+  ],
+  "perceived_total_latency": 3.28,
+  "audio_agent_speech_start": 4.4,
+  "actual_tool_calls": [
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "A442",
+        "quantity": 2
+      },
+      "timestamp_start": 8.39,
+      "timestamp_end": 8.39
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,140 @@
+{
+  "pid": "259b2f92f910d37feb513189",
+  "example_id": "s42",
+  "category": "finance",
+  "title": "devset s42: finance / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:15:20.888588",
+  "inference_time_s": 12.72,
+  "room_name": "eval-d3891caf",
+  "stream_start_time": 1790687723.8703024,
+  "input_transcript": "Get the exchange rate for a 300 US dollars to Japanese yen.",
+  "input_asr_chunks": [
+    {
+      "text": "Get",
+      "timestamp": [
+        0.0,
+        0.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.48,
+        0.56
+      ]
+    },
+    {
+      "text": "exchange",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        1.04,
+        1.28
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "300",
+      "timestamp": [
+        3.12,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        3.7600000000000002,
+        4.16
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        4.16,
+        4.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.64,
+        4.8
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        4.8,
+        5.44
+      ]
+    },
+    {
+      "text": "yen.",
+      "timestamp": [
+        5.44,
+        6.08
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.08,
+  "latency": {
+    "input_duration_s": 7.675,
+    "output_duration_s": 7.675,
+    "first_speech_s": 4.4
+  },
+  "user_done_unix": 1790687729.9503024,
+  "search_latency_breakdown": {
+    "room": "eval-d3891caf",
+    "tool": "Search Tool",
+    "reasoning": 3.967,
+    "execution": 0.0,
+    "synthesis": 0.816,
+    "total": 4.783,
+    "agent_start_at": 1790687732.7842941
+  },
+  "absolute_total_latency": 2.834,
+  "transcript": "Only",
+  "asr_chunks": [
+    {
+      "text": "Only",
+      "timestamp": [
+        4.32,
+        4.8
+      ]
+    }
+  ],
+  "perceived_total_latency": -1.76,
+  "audio_agent_speech_start": 4.32,
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 350.0,
+        "from_currency": "USD",
+        "to_currency": "JPY"
+      },
+      "timestamp_start": 8.1,
+      "timestamp_end": 8.1
+    }
+  ],
+  "status": "completed"
+}

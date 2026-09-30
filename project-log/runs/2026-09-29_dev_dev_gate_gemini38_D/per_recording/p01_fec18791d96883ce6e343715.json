@@ -1,0 +1,119 @@
+{
+  "pid": "fec18791d96883ce6e343715",
+  "example_id": "p01",
+  "category": "travel",
+  "title": "devset p01: travel / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:34:18.933631",
+  "inference_time_s": 33.7,
+  "room_name": "eval-6be13b15",
+  "stream_start_time": 1790692462.1322212,
+  "input_transcript": "Find me flights to Um Vancouver on October 14th.",
+  "input_asr_chunks": [
+    {
+      "text": "Find",
+      "timestamp": [
+        0.24,
+        0.48
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        0.48,
+        0.56
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.12
+      ]
+    },
+    {
+      "text": "Um",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "Vancouver",
+      "timestamp": [
+        3.7600000000000002,
+        4.48
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        4.48,
+        4.64
+      ]
+    },
+    {
+      "text": "October",
+      "timestamp": [
+        4.64,
+        5.04
+      ]
+    },
+    {
+      "text": "14th.",
+      "timestamp": [
+        5.04,
+        5.84
+      ]
+    }
+  ],
+  "user_speech_end_rel": 1.6,
+  "latency": {
+    "input_duration_s": 27.425,
+    "output_duration_s": 27.425,
+    "first_speech_s": 5.0
+  },
+  "user_done_unix": 1790692463.7322211,
+  "transcript": "Find me flights to",
+  "asr_chunks": [
+    {
+      "text": "Find",
+      "timestamp": [
+        5.04,
+        5.44
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        5.44,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        5.76,
+        6.16
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.32,
+        6.640000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 3.44,
+  "audio_agent_speech_start": 5.04,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

@@ -1,0 +1,152 @@
+{
+  "pid": "2c884f9e4722fa10d615265b",
+  "example_id": "s13",
+  "category": "finance",
+  "title": "devset s13: finance / level 2",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:09:01.400779",
+  "inference_time_s": 12.15,
+  "room_name": "eval-7d558df7",
+  "stream_start_time": 1790687344.3621776,
+  "input_transcript": "Tell me the gold card's benefits, and also convert 100 US dollars to Euros.",
+  "input_asr_chunks": [
+    {
+      "text": "Tell",
+      "timestamp": [
+        0.16,
+        0.48
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        0.48,
+        0.64
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.64,
+        0.72
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        0.72,
+        1.04
+      ]
+    },
+    {
+      "text": "card's",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "benefits,",
+      "timestamp": [
+        1.44,
+        2.08
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        2.32,
+        2.48
+      ]
+    },
+    {
+      "text": "also",
+      "timestamp": [
+        2.48,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "convert",
+      "timestamp": [
+        2.8000000000000003,
+        3.2
+      ]
+    },
+    {
+      "text": "100",
+      "timestamp": [
+        3.2,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        3.7600000000000002,
+        4.16
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        4.16,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.5600000000000005,
+        4.72
+      ]
+    },
+    {
+      "text": "Euros.",
+      "timestamp": [
+        4.72,
+        5.6000000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.6000000000000005,
+  "latency": {
+    "input_duration_s": 7.15,
+    "output_duration_s": 7.15,
+    "first_speech_s": 7.15
+  },
+  "user_done_unix": 1790687349.9621775,
+  "search_latency_breakdown": {
+    "room": "eval-7d558df7",
+    "tool": "Search Tool",
+    "reasoning": 0.487,
+    "execution": 0.0,
+    "synthesis": 0.791,
+    "total": 1.278,
+    "agent_start_at": 1790687352.665587
+  },
+  "absolute_total_latency": 2.703,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "gold"
+      },
+      "timestamp_start": 7.51,
+      "timestamp_end": 7.51
+    },
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 100.0,
+        "from_currency": "USD",
+        "to_currency": "EUR"
+      },
+      "timestamp_start": 7.51,
+      "timestamp_end": 7.51
+    }
+  ],
+  "status": "completed"
+}

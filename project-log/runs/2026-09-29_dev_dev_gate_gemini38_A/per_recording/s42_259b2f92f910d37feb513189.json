@@ -1,0 +1,189 @@
+{
+  "pid": "259b2f92f910d37feb513189",
+  "example_id": "s42",
+  "category": "finance",
+  "title": "devset s42: finance / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T13:03:42.277452",
+  "inference_time_s": 12.72,
+  "room_name": "eval-d1270543",
+  "stream_start_time": 1790687025.224036,
+  "input_transcript": "Get the exchange rate for a 300 US dollars to Japanese yen.",
+  "input_asr_chunks": [
+    {
+      "text": "Get",
+      "timestamp": [
+        0.0,
+        0.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.48,
+        0.56
+      ]
+    },
+    {
+      "text": "exchange",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        1.04,
+        1.28
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "300",
+      "timestamp": [
+        3.12,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        3.7600000000000002,
+        4.16
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        4.16,
+        4.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.64,
+        4.8
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        4.8,
+        5.44
+      ]
+    },
+    {
+      "text": "yen.",
+      "timestamp": [
+        5.44,
+        6.08
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.08,
+  "latency": {
+    "input_duration_s": 7.675,
+    "output_duration_s": 7.675,
+    "first_speech_s": 4.4
+  },
+  "user_done_unix": 1790687031.304036,
+  "transcript": "Could you please specify which currencies you'd like to convert between?",
+  "asr_chunks": [
+    {
+      "text": "Could",
+      "timestamp": [
+        4.08,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        4.5600000000000005,
+        4.8
+      ]
+    },
+    {
+      "text": "please",
+      "timestamp": [
+        4.8,
+        5.12
+      ]
+    },
+    {
+      "text": "specify",
+      "timestamp": [
+        5.12,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "which",
+      "timestamp": [
+        5.6000000000000005,
+        5.84
+      ]
+    },
+    {
+      "text": "currencies",
+      "timestamp": [
+        5.84,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "you'd",
+      "timestamp": [
+        6.5600000000000005,
+        6.72
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        6.72,
+        6.88
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.88,
+        6.96
+      ]
+    },
+    {
+      "text": "convert",
+      "timestamp": [
+        6.96,
+        7.28
+      ]
+    },
+    {
+      "text": "between?",
+      "timestamp": [
+        7.28,
+        7.5200000000000005
+      ]
+    }
+  ],
+  "perceived_total_latency": -2.0,
+  "audio_agent_speech_start": 4.08,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

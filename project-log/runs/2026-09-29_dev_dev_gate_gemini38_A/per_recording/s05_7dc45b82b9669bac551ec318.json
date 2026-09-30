@@ -1,0 +1,171 @@
+{
+  "pid": "7dc45b82b9669bac551ec318",
+  "example_id": "s05",
+  "category": "travel",
+  "title": "devset s05: travel / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T12:55:38.100894",
+  "inference_time_s": 15.08,
+  "room_name": "eval-995f09fd",
+  "stream_start_time": 1790686540.9949977,
+  "input_transcript": "Book the flight for Sara Lee. Actually, wait, don't book yet, just update my passport number to P4471900.",
+  "input_asr_chunks": [
+    {
+      "text": "Book",
+      "timestamp": [
+        0.16,
+        0.56
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        0.64,
+        0.88
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": "Sara",
+      "timestamp": [
+        1.04,
+        1.36
+      ]
+    },
+    {
+      "text": "Lee.",
+      "timestamp": [
+        1.44,
+        1.84
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        2.24,
+        2.56
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        2.64,
+        2.96
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        3.2,
+        3.44
+      ]
+    },
+    {
+      "text": "book",
+      "timestamp": [
+        3.44,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "yet,",
+      "timestamp": [
+        3.7600000000000002,
+        4.0
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        4.16,
+        4.32
+      ]
+    },
+    {
+      "text": "update",
+      "timestamp": [
+        4.32,
+        4.72
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        4.72,
+        4.88
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        4.88,
+        5.36
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        5.36,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.6000000000000005,
+        5.76
+      ]
+    },
+    {
+      "text": "P4471900.",
+      "timestamp": [
+        5.76,
+        8.08
+      ]
+    }
+  ],
+  "user_speech_end_rel": 8.08,
+  "latency": {
+    "input_duration_s": 10.0,
+    "output_duration_s": 10.0,
+    "first_speech_s": 10.0
+  },
+  "user_done_unix": 1790686549.0749977,
+  "search_latency_breakdown": {
+    "room": "eval-995f09fd",
+    "tool": "Search Tool",
+    "reasoning": 0.966,
+    "execution": 0.0,
+    "synthesis": 0.732,
+    "total": 1.698,
+    "agent_start_at": 1790686552.808138
+  },
+  "absolute_total_latency": 3.733,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "passport",
+        "doc_number": "P4471900"
+      },
+      "timestamp_start": 11.08,
+      "timestamp_end": 11.08
+    }
+  ],
+  "status": "completed"
+}

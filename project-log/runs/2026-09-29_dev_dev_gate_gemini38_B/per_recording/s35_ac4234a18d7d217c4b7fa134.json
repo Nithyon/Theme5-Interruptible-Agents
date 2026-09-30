@@ -1,0 +1,100 @@
+{
+  "pid": "ac4234a18d7d217c4b7fa134",
+  "example_id": "s35",
+  "category": "ecommerce",
+  "title": "devset s35: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:13:48.757063",
+  "inference_time_s": 10.28,
+  "room_name": "eval-f25c71e2",
+  "stream_start_time": 1790687631.7325299,
+  "input_transcript": "Track my order. The order ID is ORD991.",
+  "input_asr_chunks": [
+    {
+      "text": "Track",
+      "timestamp": [
+        0.0,
+        0.56
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.56,
+        0.72
+      ]
+    },
+    {
+      "text": "order.",
+      "timestamp": [
+        0.72,
+        1.04
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        1.28,
+        1.36
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        1.36,
+        1.68
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        1.68,
+        2.0
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        2.0,
+        2.16
+      ]
+    },
+    {
+      "text": "ORD991.",
+      "timestamp": [
+        2.16,
+        3.7600000000000002
+      ]
+    }
+  ],
+  "user_speech_end_rel": 3.7600000000000002,
+  "latency": {
+    "input_duration_s": 5.35,
+    "output_duration_s": 5.35,
+    "first_speech_s": 5.35
+  },
+  "user_done_unix": 1790687635.4925299,
+  "search_latency_breakdown": {
+    "room": "eval-f25c71e2",
+    "tool": "Search Tool",
+    "reasoning": 0.442,
+    "execution": 0.0,
+    "synthesis": 0.759,
+    "total": 1.201,
+    "agent_start_at": 1790687638.1879013
+  },
+  "absolute_total_latency": 2.695,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "ORD991"
+      },
+      "timestamp_start": 5.7,
+      "timestamp_end": 5.7
+    }
+  ],
+  "status": "completed"
+}

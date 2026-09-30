@@ -1,0 +1,258 @@
+{
+  "pid": "4e68beae3fa255eaf029fa2c",
+  "example_id": "s27",
+  "category": "housing",
+  "title": "devset s27: housing / level 3",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:12:05.822258",
+  "inference_time_s": 17.56,
+  "room_name": "eval-02d13750",
+  "stream_start_time": 1790687528.8109486,
+  "input_transcript": "Search apartments in Portland with two bedrooms under $1,700. Calculate my commute from there to the tech district by bike and set my search filter sort by to price.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.64,
+        1.12
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.12,
+        1.28
+      ]
+    },
+    {
+      "text": "Portland",
+      "timestamp": [
+        1.28,
+        1.84
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.84,
+        2.0
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        2.0,
+        2.24
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        2.24,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        2.8000000000000003,
+        2.96
+      ]
+    },
+    {
+      "text": "$1,700.",
+      "timestamp": [
+        2.96,
+        4.0
+      ]
+    },
+    {
+      "text": "Calculate",
+      "timestamp": [
+        4.64,
+        5.2
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        5.2,
+        5.44
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        5.44,
+        5.84
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        5.84,
+        6.08
+      ]
+    },
+    {
+      "text": "there",
+      "timestamp": [
+        6.08,
+        6.32
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.32,
+        6.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        6.48,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "tech",
+      "timestamp": [
+        6.5600000000000005,
+        6.96
+      ]
+    },
+    {
+      "text": "district",
+      "timestamp": [
+        6.96,
+        7.36
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        7.36,
+        7.5200000000000005
+      ]
+    },
+    {
+      "text": "bike",
+      "timestamp": [
+        7.5200000000000005,
+        7.92
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        8.16,
+        8.32
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        8.32,
+        8.48
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        8.48,
+        8.72
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        8.72,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "filter",
+      "timestamp": [
+        9.040000000000001,
+        9.36
+      ]
+    },
+    {
+      "text": "sort",
+      "timestamp": [
+        9.44,
+        9.52
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        9.68,
+        9.84
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        10.0,
+        10.32
+      ]
+    },
+    {
+      "text": "price.",
+      "timestamp": [
+        10.32,
+        10.96
+      ]
+    }
+  ],
+  "user_speech_end_rel": 10.96,
+  "latency": {
+    "input_duration_s": 12.225,
+    "output_duration_s": 12.225,
+    "first_speech_s": 12.225
+  },
+  "user_done_unix": 1790687539.7709486,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Portland",
+        "bedrooms": 2,
+        "max_price": 1700.0
+      },
+      "timestamp_start": 13.31,
+      "timestamp_end": 13.86
+    },
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "the apartment",
+        "destination_address": "Tech District",
+        "mode": "bicycle"
+      },
+      "timestamp_start": 13.86,
+      "timestamp_end": 14.13
+    },
+    {
+      "function": "update_search_filter",
+      "args": {
+        "filter_name": "sort_by",
+        "value": "price"
+      },
+      "timestamp_start": 14.13,
+      "timestamp_end": 14.24
+    }
+  ],
+  "status": "completed"
+}

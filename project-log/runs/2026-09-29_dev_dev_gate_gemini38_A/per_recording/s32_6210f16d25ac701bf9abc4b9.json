@@ -1,0 +1,122 @@
+{
+  "pid": "6210f16d25ac701bf9abc4b9",
+  "example_id": "s32",
+  "category": "ecommerce",
+  "title": "devset s32: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T13:01:33.732264",
+  "inference_time_s": 11.26,
+  "room_name": "eval-f35a9b2e",
+  "stream_start_time": 1790686896.7292738,
+  "input_transcript": "Add product P100 to my cart. No wait, I meant P200.",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.0,
+        0.32
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        0.48,
+        0.88
+      ]
+    },
+    {
+      "text": "P100",
+      "timestamp": [
+        0.88,
+        1.52
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.52,
+        1.6
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "cart.",
+      "timestamp": [
+        1.76,
+        2.16
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        2.4,
+        2.56
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        2.64,
+        2.96
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        3.12,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "meant",
+      "timestamp": [
+        3.2800000000000002,
+        3.52
+      ]
+    },
+    {
+      "text": "P200.",
+      "timestamp": [
+        3.52,
+        4.72
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.72,
+  "latency": {
+    "input_duration_s": 6.25,
+    "output_duration_s": 6.25,
+    "first_speech_s": 6.25
+  },
+  "user_done_unix": 1790686901.4492738,
+  "search_latency_breakdown": {
+    "room": "eval-f35a9b2e",
+    "tool": "Search Tool",
+    "reasoning": 0.921,
+    "execution": 0.0,
+    "synthesis": 0.779,
+    "total": 1.7,
+    "agent_start_at": 1790686904.5794976
+  },
+  "absolute_total_latency": 3.13,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "P200",
+        "quantity": 1
+      },
+      "timestamp_start": 7.07,
+      "timestamp_end": 7.07
+    }
+  ],
+  "status": "completed"
+}

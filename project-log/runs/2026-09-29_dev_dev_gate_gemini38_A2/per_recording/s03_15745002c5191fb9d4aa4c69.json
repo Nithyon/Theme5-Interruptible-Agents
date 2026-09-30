@@ -1,0 +1,195 @@
+{
+  "pid": "15745002c5191fb9d4aa4c69",
+  "example_id": "s03",
+  "category": "travel",
+  "title": "devset s03: travel / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:04:47.346783",
+  "inference_time_s": 30.84,
+  "room_name": "eval-b2bdfdb1",
+  "stream_start_time": 1790690690.3689659,
+  "input_transcript": "Uh, can you search flights to Rome for April 12th?",
+  "input_asr_chunks": [
+    {
+      "text": "Uh,",
+      "timestamp": [
+        0.32,
+        0.64
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        0.72,
+        0.88
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        0.88,
+        0.96
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "Rome",
+      "timestamp": [
+        1.76,
+        2.08
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        2.08,
+        2.24
+      ]
+    },
+    {
+      "text": "April",
+      "timestamp": [
+        2.24,
+        2.64
+      ]
+    },
+    {
+      "text": "12th?",
+      "timestamp": [
+        2.64,
+        3.12
+      ]
+    }
+  ],
+  "user_speech_end_rel": 3.12,
+  "latency": {
+    "input_duration_s": 24.875,
+    "output_duration_s": 24.875,
+    "first_speech_s": 8.05
+  },
+  "user_done_unix": 1790690693.4889657,
+  "search_latency_breakdown": {
+    "room": "eval-b2bdfdb1",
+    "tool": "Search Tool",
+    "reasoning": 0.966,
+    "execution": 0.73,
+    "synthesis": 0.867,
+    "total": 2.563,
+    "agent_start_at": 1790690697.6328025
+  },
+  "absolute_total_latency": 4.144,
+  "transcript": "I found a flight to Rome on April 12th for $450.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        7.92,
+        8.16
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        8.16,
+        8.48
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.48,
+        8.56
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        8.56,
+        8.8
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        8.8,
+        8.96
+      ]
+    },
+    {
+      "text": "Rome",
+      "timestamp": [
+        8.96,
+        9.28
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        9.28,
+        9.44
+      ]
+    },
+    {
+      "text": "April",
+      "timestamp": [
+        9.44,
+        9.76
+      ]
+    },
+    {
+      "text": "12th",
+      "timestamp": [
+        9.76,
+        10.16
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        10.16,
+        10.4
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        10.4,
+        11.44
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.8,
+  "audio_agent_speech_start": 7.92,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Rome",
+        "date": "2026-04-12"
+      },
+      "timestamp_start": 5.67,
+      "timestamp_end": 6.4
+    }
+  ],
+  "status": "completed"
+}

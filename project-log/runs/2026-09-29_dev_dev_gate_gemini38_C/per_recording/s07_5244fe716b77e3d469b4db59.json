@@ -1,0 +1,204 @@
+{
+  "pid": "5244fe716b77e3d469b4db59",
+  "example_id": "s07",
+  "category": "travel",
+  "title": "devset s07: travel / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:31:07.873803",
+  "inference_time_s": 35.14,
+  "room_name": "eval-a4b06842",
+  "stream_start_time": 1790688670.9562986,
+  "input_transcript": "Update my passport number to Y1000. Actually, no, it's Y2201.",
+  "input_asr_chunks": [
+    {
+      "text": "Update",
+      "timestamp": [
+        0.32,
+        0.72
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.72,
+        0.88
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        0.88,
+        1.28
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "Y1000.",
+      "timestamp": [
+        1.84,
+        3.12
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        4.64,
+        5.04
+      ]
+    },
+    {
+      "text": "no,",
+      "timestamp": [
+        5.2,
+        5.36
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        5.5200000000000005,
+        5.76
+      ]
+    },
+    {
+      "text": "Y2201.",
+      "timestamp": [
+        5.76,
+        7.04
+      ]
+    }
+  ],
+  "user_speech_end_rel": 7.04,
+  "latency": {
+    "input_duration_s": 28.875,
+    "output_duration_s": 28.875,
+    "first_speech_s": 11.4
+  },
+  "user_done_unix": 1790688677.9962986,
+  "search_latency_breakdown": {
+    "room": "eval-a4b06842",
+    "tool": "Search Tool",
+    "reasoning": 5.31,
+    "execution": 0.0,
+    "synthesis": 0.882,
+    "total": 6.191,
+    "agent_start_at": 1790688681.6832852
+  },
+  "absolute_total_latency": 3.687,
+  "transcript": "I've updated your passport number to Y twenty two oh one.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        11.36,
+        11.84
+      ]
+    },
+    {
+      "text": "updated",
+      "timestamp": [
+        11.84,
+        12.4
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        12.4,
+        12.56
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        12.56,
+        13.040000000000001
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        13.040000000000001,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        13.280000000000001,
+        13.6
+      ]
+    },
+    {
+      "text": "Y",
+      "timestamp": [
+        13.6,
+        13.92
+      ]
+    },
+    {
+      "text": "twenty",
+      "timestamp": [
+        14.0,
+        14.24
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        14.32,
+        14.4
+      ]
+    },
+    {
+      "text": "oh",
+      "timestamp": [
+        14.56,
+        14.72
+      ]
+    },
+    {
+      "text": "one.",
+      "timestamp": [
+        14.88,
+        15.200000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.32,
+  "audio_agent_speech_start": 11.36,
+  "actual_tool_calls": [
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "passport",
+        "doc_number": "Y1000"
+      },
+      "timestamp_start": 5.04,
+      "timestamp_end": 5.04
+    },
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "passport",
+        "doc_number": "Y2201"
+      },
+      "timestamp_start": 9.85,
+      "timestamp_end": 9.85
+    }
+  ],
+  "status": "completed"
+}

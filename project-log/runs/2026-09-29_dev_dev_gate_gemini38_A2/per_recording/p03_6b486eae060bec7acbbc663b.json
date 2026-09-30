@@ -1,0 +1,287 @@
+{
+  "pid": "6b486eae060bec7acbbc663b",
+  "example_id": "p03",
+  "category": "finance",
+  "title": "devset p03: finance / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T13:57:51.954249",
+  "inference_time_s": 36.34,
+  "room_name": "eval-5b0b8d9f",
+  "stream_start_time": 1790690274.9708288,
+  "input_transcript": "Convert eighty A eighty Canadian dollars too Japanese yen Japan",
+  "input_asr_chunks": [
+    {
+      "text": "Convert",
+      "timestamp": [
+        0.32,
+        0.8
+      ]
+    },
+    {
+      "text": "eighty",
+      "timestamp": [
+        0.8,
+        1.28
+      ]
+    },
+    {
+      "text": "A",
+      "timestamp": [
+        3.12,
+        3.36
+      ]
+    },
+    {
+      "text": "eighty",
+      "timestamp": [
+        3.6,
+        3.92
+      ]
+    },
+    {
+      "text": "Canadian",
+      "timestamp": [
+        3.92,
+        4.4
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "too",
+      "timestamp": [
+        4.88,
+        5.12
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        7.04,
+        7.76
+      ]
+    },
+    {
+      "text": "yen",
+      "timestamp": [
+        7.76,
+        8.32
+      ]
+    },
+    {
+      "text": "Japan",
+      "timestamp": [
+        11.200000000000001,
+        11.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 8.32,
+  "latency": {
+    "input_duration_s": 30.1,
+    "output_duration_s": 30.1,
+    "first_speech_s": 4.1
+  },
+  "user_done_unix": 1790690283.2908287,
+  "transcript": "To convert that amount, could you please tell me the from and to currencies to convert to Japanese yen? I still need to know the original currency.",
+  "asr_chunks": [
+    {
+      "text": "To",
+      "timestamp": [
+        3.84,
+        4.16
+      ]
+    },
+    {
+      "text": "convert",
+      "timestamp": [
+        4.16,
+        4.64
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        4.64,
+        4.8
+      ]
+    },
+    {
+      "text": "amount,",
+      "timestamp": [
+        4.8,
+        5.12
+      ]
+    },
+    {
+      "text": "could",
+      "timestamp": [
+        5.28,
+        5.44
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        5.44,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "please",
+      "timestamp": [
+        5.6000000000000005,
+        5.92
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        5.92,
+        6.08
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        6.08,
+        6.32
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        6.32,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        6.5600000000000005,
+        6.88
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        6.88,
+        7.04
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.04,
+        7.28
+      ]
+    },
+    {
+      "text": "currencies",
+      "timestamp": [
+        7.28,
+        8.16
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.36,
+        11.6
+      ]
+    },
+    {
+      "text": "convert",
+      "timestamp": [
+        11.6,
+        12.0
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.0,
+        12.16
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        12.16,
+        12.72
+      ]
+    },
+    {
+      "text": "yen?",
+      "timestamp": [
+        12.72,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        13.280000000000001,
+        13.44
+      ]
+    },
+    {
+      "text": "still",
+      "timestamp": [
+        13.44,
+        13.68
+      ]
+    },
+    {
+      "text": "need",
+      "timestamp": [
+        13.68,
+        13.84
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        13.84,
+        13.92
+      ]
+    },
+    {
+      "text": "know",
+      "timestamp": [
+        13.92,
+        14.08
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        14.08,
+        14.24
+      ]
+    },
+    {
+      "text": "original",
+      "timestamp": [
+        14.24,
+        14.72
+      ]
+    },
+    {
+      "text": "currency.",
+      "timestamp": [
+        14.72,
+        15.76
+      ]
+    }
+  ],
+  "perceived_total_latency": -4.48,
+  "audio_agent_speech_start": 3.84,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

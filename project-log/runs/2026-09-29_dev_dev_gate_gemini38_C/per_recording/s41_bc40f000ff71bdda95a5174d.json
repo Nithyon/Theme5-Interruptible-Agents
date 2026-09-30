@@ -1,0 +1,260 @@
+{
+  "pid": "bc40f000ff71bdda95a5174d",
+  "example_id": "s41",
+  "category": "travel",
+  "title": "devset s41: travel / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:50:28.162694",
+  "inference_time_s": 33.07,
+  "room_name": "eval-5e01848d",
+  "stream_start_time": 1790689831.1481202,
+  "input_transcript": "Search flights to Amsterdam on September 20th.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.04
+      ]
+    },
+    {
+      "text": "Amsterdam",
+      "timestamp": [
+        1.04,
+        1.76
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.76,
+        2.08
+      ]
+    },
+    {
+      "text": "September",
+      "timestamp": [
+        3.92,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "20th.",
+      "timestamp": [
+        4.5600000000000005,
+        5.36
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.36,
+  "latency": {
+    "input_duration_s": 26.975,
+    "output_duration_s": 26.975,
+    "first_speech_s": 9.55
+  },
+  "user_done_unix": 1790689836.50812,
+  "search_latency_breakdown": {
+    "room": "eval-5e01848d",
+    "tool": "Search Tool",
+    "reasoning": 4.794,
+    "execution": 0.279,
+    "synthesis": 0.847,
+    "total": 5.92,
+    "agent_start_at": 1790689840.7976599
+  },
+  "absolute_total_latency": 4.29,
+  "transcript": "I found a flight to Amsterdam on September 20th for $450. I found a flight to Amsterdam on September 20th for $450.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        9.36,
+        9.68
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        9.68,
+        10.0
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.0,
+        10.16
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        10.16,
+        10.4
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        10.4,
+        10.56
+      ]
+    },
+    {
+      "text": "Amsterdam",
+      "timestamp": [
+        10.56,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        11.200000000000001,
+        11.44
+      ]
+    },
+    {
+      "text": "September",
+      "timestamp": [
+        11.44,
+        11.92
+      ]
+    },
+    {
+      "text": "20th",
+      "timestamp": [
+        11.92,
+        12.56
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        12.56,
+        12.8
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        12.8,
+        14.0
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.96,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        15.120000000000001,
+        15.44
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        15.44,
+        15.52
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        15.52,
+        15.84
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        15.84,
+        15.92
+      ]
+    },
+    {
+      "text": "Amsterdam",
+      "timestamp": [
+        15.92,
+        16.64
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        16.64,
+        16.8
+      ]
+    },
+    {
+      "text": "September",
+      "timestamp": [
+        16.8,
+        17.36
+      ]
+    },
+    {
+      "text": "20th",
+      "timestamp": [
+        17.36,
+        18.0
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        18.0,
+        18.16
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        18.16,
+        19.36
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.0,
+  "audio_agent_speech_start": 9.36,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Amsterdam",
+        "date": "on"
+      },
+      "timestamp_start": 6.88,
+      "timestamp_end": 7.59
+    },
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Amsterdam",
+        "date": "2026-09-20"
+      },
+      "timestamp_start": 8.52,
+      "timestamp_end": 8.8
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,244 @@
+{
+  "pid": "09d5426ca72126dc377e43ca",
+  "example_id": "p09",
+  "category": "finance",
+  "title": "devset p09: finance / level 2",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:25:22.332279",
+  "inference_time_s": 33.52,
+  "room_name": "eval-ea7c36c6",
+  "stream_start_time": 1790688325.3525271,
+  "input_transcript": "What do the gold card benefits look like? And the silver card, too.",
+  "input_asr_chunks": [
+    {
+      "text": "What",
+      "timestamp": [
+        0.24,
+        0.4
+      ]
+    },
+    {
+      "text": "do",
+      "timestamp": [
+        0.4,
+        0.56
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        1.28,
+        2.0
+      ]
+    },
+    {
+      "text": "look",
+      "timestamp": [
+        2.0,
+        2.24
+      ]
+    },
+    {
+      "text": "like?",
+      "timestamp": [
+        2.24,
+        2.56
+      ]
+    },
+    {
+      "text": "And",
+      "timestamp": [
+        4.08,
+        4.24
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        4.24,
+        4.4
+      ]
+    },
+    {
+      "text": "silver",
+      "timestamp": [
+        4.4,
+        4.88
+      ]
+    },
+    {
+      "text": "card,",
+      "timestamp": [
+        4.88,
+        5.2
+      ]
+    },
+    {
+      "text": "too.",
+      "timestamp": [
+        5.36,
+        5.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.68,
+  "latency": {
+    "input_duration_s": 27.375,
+    "output_duration_s": 27.375,
+    "first_speech_s": 11.3
+  },
+  "user_done_unix": 1790688331.0325272,
+  "search_latency_breakdown": {
+    "room": "eval-ea7c36c6",
+    "tool": "Search Tool",
+    "reasoning": 5.801,
+    "execution": 0.0,
+    "synthesis": 0.736,
+    "total": 6.537,
+    "agent_start_at": 1790688335.948269
+  },
+  "absolute_total_latency": 4.916,
+  "transcript": "The silver card also offers two percent cash back and no foreign transaction fees.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        11.040000000000001,
+        11.36
+      ]
+    },
+    {
+      "text": "silver",
+      "timestamp": [
+        11.36,
+        11.92
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        11.92,
+        12.32
+      ]
+    },
+    {
+      "text": "also",
+      "timestamp": [
+        12.32,
+        12.64
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        12.64,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        13.120000000000001,
+        13.36
+      ]
+    },
+    {
+      "text": "percent",
+      "timestamp": [
+        13.36,
+        13.68
+      ]
+    },
+    {
+      "text": "cash",
+      "timestamp": [
+        13.68,
+        14.0
+      ]
+    },
+    {
+      "text": "back",
+      "timestamp": [
+        14.0,
+        14.16
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        14.32,
+        14.56
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        14.56,
+        14.72
+      ]
+    },
+    {
+      "text": "foreign",
+      "timestamp": [
+        14.72,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "transaction",
+      "timestamp": [
+        15.120000000000001,
+        15.92
+      ]
+    },
+    {
+      "text": "fees.",
+      "timestamp": [
+        15.92,
+        16.56
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.36,
+  "audio_agent_speech_start": 11.040000000000001,
+  "actual_tool_calls": [
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "gold"
+      },
+      "timestamp_start": 4.56,
+      "timestamp_end": 4.56
+    },
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "silver"
+      },
+      "timestamp_start": 9.86,
+      "timestamp_end": 9.86
+    }
+  ],
+  "status": "completed"
+}

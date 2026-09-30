@@ -1,0 +1,237 @@
+{
+  "pid": "09d5426ca72126dc377e43ca",
+  "example_id": "p09",
+  "category": "finance",
+  "title": "devset p09: finance / level 2",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:01:21.020336",
+  "inference_time_s": 33.52,
+  "room_name": "eval-cad94fee",
+  "stream_start_time": 1790690484.0399601,
+  "input_transcript": "What do the gold card benefits look like? And the silver card, too.",
+  "input_asr_chunks": [
+    {
+      "text": "What",
+      "timestamp": [
+        0.24,
+        0.4
+      ]
+    },
+    {
+      "text": "do",
+      "timestamp": [
+        0.4,
+        0.56
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        1.28,
+        2.0
+      ]
+    },
+    {
+      "text": "look",
+      "timestamp": [
+        2.0,
+        2.24
+      ]
+    },
+    {
+      "text": "like?",
+      "timestamp": [
+        2.24,
+        2.56
+      ]
+    },
+    {
+      "text": "And",
+      "timestamp": [
+        4.08,
+        4.24
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        4.24,
+        4.4
+      ]
+    },
+    {
+      "text": "silver",
+      "timestamp": [
+        4.4,
+        4.88
+      ]
+    },
+    {
+      "text": "card,",
+      "timestamp": [
+        4.88,
+        5.2
+      ]
+    },
+    {
+      "text": "too.",
+      "timestamp": [
+        5.36,
+        5.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.68,
+  "latency": {
+    "input_duration_s": 27.375,
+    "output_duration_s": 27.375,
+    "first_speech_s": 9.65
+  },
+  "user_done_unix": 1790690489.7199602,
+  "search_latency_breakdown": {
+    "room": "eval-cad94fee",
+    "tool": "Search Tool",
+    "reasoning": 4.455,
+    "execution": 0.0,
+    "synthesis": 0.823,
+    "total": 5.278,
+    "agent_start_at": 1790690493.3658864
+  },
+  "absolute_total_latency": 3.646,
+  "transcript": "The silver card offers two percent cash back and no foreign transaction fees.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        9.52,
+        9.84
+      ]
+    },
+    {
+      "text": "silver",
+      "timestamp": [
+        9.84,
+        10.32
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        10.32,
+        10.72
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        10.72,
+        11.120000000000001
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        11.120000000000001,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "percent",
+      "timestamp": [
+        11.36,
+        11.76
+      ]
+    },
+    {
+      "text": "cash",
+      "timestamp": [
+        11.76,
+        12.08
+      ]
+    },
+    {
+      "text": "back",
+      "timestamp": [
+        12.08,
+        12.24
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        12.4,
+        12.64
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        12.64,
+        12.88
+      ]
+    },
+    {
+      "text": "foreign",
+      "timestamp": [
+        12.88,
+        13.36
+      ]
+    },
+    {
+      "text": "transaction",
+      "timestamp": [
+        13.36,
+        14.0
+      ]
+    },
+    {
+      "text": "fees.",
+      "timestamp": [
+        14.0,
+        14.64
+      ]
+    }
+  ],
+  "perceived_total_latency": 3.84,
+  "audio_agent_speech_start": 9.52,
+  "actual_tool_calls": [
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "gold"
+      },
+      "timestamp_start": 5.92,
+      "timestamp_end": 5.92
+    },
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "silver"
+      },
+      "timestamp_start": 8.5,
+      "timestamp_end": 8.5
+    }
+  ],
+  "status": "completed"
+}

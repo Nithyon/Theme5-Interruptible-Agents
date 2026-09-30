@@ -1,0 +1,181 @@
+{
+  "pid": "7f09483fd0e4563ced1bf603",
+  "example_id": "p08",
+  "category": "ecommerce",
+  "title": "devset p08: ecommerce / level 2",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:00:48.686314",
+  "inference_time_s": 31.93,
+  "room_name": "eval-cb9b4257",
+  "stream_start_time": 1790690451.6458964,
+  "input_transcript": "Track order ZX301 and order ZX302 for me.",
+  "input_asr_chunks": [
+    {
+      "text": "Track",
+      "timestamp": [
+        0.24,
+        0.48
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        0.56,
+        0.8
+      ]
+    },
+    {
+      "text": "ZX301",
+      "timestamp": [
+        0.8,
+        1.92
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        2.0,
+        2.16
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        2.16,
+        2.4
+      ]
+    },
+    {
+      "text": "ZX302",
+      "timestamp": [
+        2.4,
+        3.6
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        3.6,
+        3.84
+      ]
+    },
+    {
+      "text": "me.",
+      "timestamp": [
+        3.84,
+        4.16
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.16,
+  "latency": {
+    "input_duration_s": 25.925,
+    "output_duration_s": 25.925,
+    "first_speech_s": 9.65
+  },
+  "user_done_unix": 1790690455.8058965,
+  "search_latency_breakdown": {
+    "room": "eval-cb9b4257",
+    "tool": "Search Tool",
+    "reasoning": 2.508,
+    "execution": 0.0,
+    "synthesis": 0.764,
+    "total": 3.272,
+    "agent_start_at": 1790690460.606052
+  },
+  "absolute_total_latency": 4.8,
+  "transcript": "Both orders, ZX301 and ZX302, are currently out for delivery.",
+  "asr_chunks": [
+    {
+      "text": "Both",
+      "timestamp": [
+        9.52,
+        9.92
+      ]
+    },
+    {
+      "text": "orders,",
+      "timestamp": [
+        9.92,
+        10.32
+      ]
+    },
+    {
+      "text": "ZX301",
+      "timestamp": [
+        10.56,
+        11.84
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.84,
+        12.0
+      ]
+    },
+    {
+      "text": "ZX302,",
+      "timestamp": [
+        12.0,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        13.200000000000001,
+        13.44
+      ]
+    },
+    {
+      "text": "currently",
+      "timestamp": [
+        13.44,
+        13.84
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        13.84,
+        14.08
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        14.08,
+        14.24
+      ]
+    },
+    {
+      "text": "delivery.",
+      "timestamp": [
+        14.24,
+        15.120000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.36,
+  "audio_agent_speech_start": 9.52,
+  "actual_tool_calls": [
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "ZX301"
+      },
+      "timestamp_start": 6.65,
+      "timestamp_end": 6.65
+    },
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "ZX302"
+      },
+      "timestamp_start": 8.2,
+      "timestamp_end": 8.2
+    }
+  ],
+  "status": "completed"
+}

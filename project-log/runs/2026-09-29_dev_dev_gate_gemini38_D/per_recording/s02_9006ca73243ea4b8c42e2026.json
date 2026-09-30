@@ -1,0 +1,230 @@
+{
+  "pid": "9006ca73243ea4b8c42e2026",
+  "example_id": "s02",
+  "category": "travel",
+  "title": "devset s02: travel / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:41:50.258527",
+  "inference_time_s": 33.15,
+  "room_name": "eval-d4b6f63a",
+  "stream_start_time": 1790692913.2139404,
+  "input_transcript": "I want to fly to Paris on um December 1st. Actually, make that December 8th.",
+  "input_asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        0.24,
+        0.4
+      ]
+    },
+    {
+      "text": "want",
+      "timestamp": [
+        0.4,
+        0.56
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "fly",
+      "timestamp": [
+        0.64,
+        0.88
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.88,
+        0.96
+      ]
+    },
+    {
+      "text": "Paris",
+      "timestamp": [
+        0.96,
+        1.44
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.44,
+        1.68
+      ]
+    },
+    {
+      "text": "um",
+      "timestamp": [
+        1.92,
+        2.08
+      ]
+    },
+    {
+      "text": "December",
+      "timestamp": [
+        2.56,
+        3.04
+      ]
+    },
+    {
+      "text": "1st.",
+      "timestamp": [
+        3.04,
+        3.44
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        3.68,
+        3.92
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        4.0,
+        4.08
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        4.24,
+        4.48
+      ]
+    },
+    {
+      "text": "December",
+      "timestamp": [
+        4.48,
+        4.88
+      ]
+    },
+    {
+      "text": "8th.",
+      "timestamp": [
+        4.88,
+        5.6000000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.6000000000000005,
+  "latency": {
+    "input_duration_s": 27.125,
+    "output_duration_s": 27.125,
+    "first_speech_s": 10.85
+  },
+  "user_done_unix": 1790692918.8139403,
+  "search_latency_breakdown": {
+    "room": "eval-d4b6f63a",
+    "tool": "Search Tool",
+    "reasoning": 0.983,
+    "execution": 0.422,
+    "synthesis": 0.836,
+    "total": 2.241,
+    "agent_start_at": 1790692923.5048676
+  },
+  "absolute_total_latency": 4.691,
+  "transcript": "I found a flight to Paris on December 8th for $450.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        10.72,
+        10.96
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        10.96,
+        11.28
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.28,
+        11.36
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        11.36,
+        11.68
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.68,
+        11.84
+      ]
+    },
+    {
+      "text": "Paris",
+      "timestamp": [
+        11.84,
+        12.24
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        12.24,
+        12.48
+      ]
+    },
+    {
+      "text": "December",
+      "timestamp": [
+        12.48,
+        12.8
+      ]
+    },
+    {
+      "text": "8th",
+      "timestamp": [
+        12.8,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        13.280000000000001,
+        13.44
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        13.44,
+        14.48
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.12,
+  "audio_agent_speech_start": 10.72,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Paris",
+        "date": "2026-12-08"
+      },
+      "timestamp_start": 9.03,
+      "timestamp_end": 9.45
+    }
+  ],
+  "status": "completed"
+}

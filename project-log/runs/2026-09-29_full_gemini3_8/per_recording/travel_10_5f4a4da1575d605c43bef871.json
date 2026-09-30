@@ -1,0 +1,365 @@
+{
+  "pid": "5f4a4da1575d605c43bef871",
+  "example_id": "travel_10",
+  "category": "travel_identity",
+  "title": "Date Correction with Fillers",
+  "provider": "gemini3_8",
+  "evaluated_at": "2026-09-29T11:34:30.775593",
+  "inference_time_s": 55.03,
+  "room_name": "eval-6ec57c6e",
+  "stream_start_time": 1790681674.006827,
+  "input_transcript": "Looking at flights to Miami on October 5th. Oh, wait. My schedule just changed. My meeting got moved, so actually make it October seventh instead.",
+  "input_asr_chunks": [
+    {
+      "text": "Looking",
+      "timestamp": [
+        2.64,
+        2.96
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        2.96,
+        3.12
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        3.12,
+        3.52
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        3.52,
+        3.68
+      ]
+    },
+    {
+      "text": "Miami",
+      "timestamp": [
+        3.68,
+        4.32
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        4.32,
+        4.48
+      ]
+    },
+    {
+      "text": "October",
+      "timestamp": [
+        4.48,
+        5.12
+      ]
+    },
+    {
+      "text": "5th.",
+      "timestamp": [
+        5.12,
+        5.92
+      ]
+    },
+    {
+      "text": "Oh,",
+      "timestamp": [
+        6.5600000000000005,
+        6.88
+      ]
+    },
+    {
+      "text": "wait.",
+      "timestamp": [
+        7.04,
+        7.68
+      ]
+    },
+    {
+      "text": "My",
+      "timestamp": [
+        10.56,
+        10.88
+      ]
+    },
+    {
+      "text": "schedule",
+      "timestamp": [
+        10.88,
+        11.6
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        11.6,
+        11.84
+      ]
+    },
+    {
+      "text": "changed.",
+      "timestamp": [
+        11.84,
+        12.32
+      ]
+    },
+    {
+      "text": "My",
+      "timestamp": [
+        12.56,
+        12.8
+      ]
+    },
+    {
+      "text": "meeting",
+      "timestamp": [
+        12.8,
+        13.200000000000001
+      ]
+    },
+    {
+      "text": "got",
+      "timestamp": [
+        13.200000000000001,
+        13.44
+      ]
+    },
+    {
+      "text": "moved,",
+      "timestamp": [
+        13.44,
+        13.92
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        14.24,
+        14.4
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        14.56,
+        14.8
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        14.96,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        15.120000000000001,
+        15.36
+      ]
+    },
+    {
+      "text": "October",
+      "timestamp": [
+        15.36,
+        15.92
+      ]
+    },
+    {
+      "text": "seventh",
+      "timestamp": [
+        15.92,
+        16.48
+      ]
+    },
+    {
+      "text": "instead.",
+      "timestamp": [
+        16.48,
+        17.12
+      ]
+    }
+  ],
+  "user_speech_end_rel": 7.68,
+  "latency": {
+    "input_duration_s": 47.648,
+    "output_duration_s": 47.648,
+    "first_speech_s": 10.25
+  },
+  "user_done_unix": 1790681681.6868272,
+  "search_latency_breakdown": {
+    "room": "eval-6ec57c6e",
+    "tool": "Search Tool",
+    "reasoning": 0.04,
+    "execution": 0.562,
+    "synthesis": 0.791,
+    "total": 1.393,
+    "agent_start_at": 1790681694.7820354
+  },
+  "absolute_total_latency": 13.095,
+  "transcript": "I'm listening. What would you like to do? I found a flight to Wiami on October 7th for $450.",
+  "asr_chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        10.4,
+        10.8
+      ]
+    },
+    {
+      "text": "listening.",
+      "timestamp": [
+        10.8,
+        11.28
+      ]
+    },
+    {
+      "text": "What",
+      "timestamp": [
+        11.44,
+        11.6
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        11.6,
+        11.76
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        11.76,
+        11.92
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        11.92,
+        12.16
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.16,
+        12.48
+      ]
+    },
+    {
+      "text": "do?",
+      "timestamp": [
+        12.48,
+        12.8
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        21.44,
+        21.6
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        21.6,
+        21.92
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        21.92,
+        22.0
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        22.0,
+        22.240000000000002
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        22.240000000000002,
+        22.400000000000002
+      ]
+    },
+    {
+      "text": "Wiami",
+      "timestamp": [
+        22.400000000000002,
+        22.88
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        22.88,
+        23.04
+      ]
+    },
+    {
+      "text": "October",
+      "timestamp": [
+        23.04,
+        23.44
+      ]
+    },
+    {
+      "text": "7th",
+      "timestamp": [
+        23.44,
+        24.0
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        24.0,
+        24.16
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        24.16,
+        25.28
+      ]
+    }
+  ],
+  "perceived_total_latency": 2.72,
+  "audio_agent_speech_start": 10.4,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Miami",
+        "date": "2026-10-05"
+      },
+      "timestamp_start": 7.37,
+      "timestamp_end": 7.81
+    },
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Miami",
+        "date": "2026-10-07"
+      },
+      "timestamp_start": 19.42,
+      "timestamp_end": 19.98
+    }
+  ],
+  "status": "completed"
+}

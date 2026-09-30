@@ -1,0 +1,203 @@
+{
+  "pid": "0096012d05c5880222340ae2",
+  "example_id": "s12",
+  "category": "finance",
+  "title": "devset s12: finance / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:33:53.789480",
+  "inference_time_s": 32.7,
+  "room_name": "eval-aae55f86",
+  "stream_start_time": 1790688836.8760047,
+  "input_transcript": "Convert one hundred US dollars to Euros. No weight to British pounds.",
+  "input_asr_chunks": [
+    {
+      "text": "Convert",
+      "timestamp": [
+        0.32,
+        0.72
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        0.72,
+        0.88
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        1.6,
+        1.92
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.92,
+        2.08
+      ]
+    },
+    {
+      "text": "Euros.",
+      "timestamp": [
+        2.08,
+        2.64
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        2.96,
+        3.2
+      ]
+    },
+    {
+      "text": "weight",
+      "timestamp": [
+        3.2,
+        3.6
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        3.6,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "British",
+      "timestamp": [
+        3.7600000000000002,
+        4.24
+      ]
+    },
+    {
+      "text": "pounds.",
+      "timestamp": [
+        4.24,
+        5.04
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.04,
+  "latency": {
+    "input_duration_s": 26.525,
+    "output_duration_s": 26.525,
+    "first_speech_s": 10.35
+  },
+  "user_done_unix": 1790688841.9160047,
+  "search_latency_breakdown": {
+    "room": "eval-aae55f86",
+    "tool": "Search Tool",
+    "reasoning": 2.546,
+    "execution": 0.0,
+    "synthesis": 0.784,
+    "total": 3.33,
+    "agent_start_at": 1790688846.852051
+  },
+  "absolute_total_latency": 4.936,
+  "transcript": "One hundred US dollars is equivalent to ninety British pounds.",
+  "asr_chunks": [
+    {
+      "text": "One",
+      "timestamp": [
+        10.24,
+        10.56
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        10.56,
+        10.88
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        10.88,
+        11.28
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        11.28,
+        11.68
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        11.68,
+        11.84
+      ]
+    },
+    {
+      "text": "equivalent",
+      "timestamp": [
+        11.84,
+        12.4
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.4,
+        12.56
+      ]
+    },
+    {
+      "text": "ninety",
+      "timestamp": [
+        12.56,
+        13.040000000000001
+      ]
+    },
+    {
+      "text": "British",
+      "timestamp": [
+        13.040000000000001,
+        13.52
+      ]
+    },
+    {
+      "text": "pounds.",
+      "timestamp": [
+        13.52,
+        14.48
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.2,
+  "audio_agent_speech_start": 10.24,
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 100.0,
+        "from_currency": "USD",
+        "to_currency": "GBP"
+      },
+      "timestamp_start": 9.19,
+      "timestamp_end": 9.19
+    }
+  ],
+  "status": "completed"
+}

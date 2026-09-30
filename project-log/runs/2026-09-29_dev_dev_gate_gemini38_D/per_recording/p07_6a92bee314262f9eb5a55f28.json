@@ -1,0 +1,246 @@
+{
+  "pid": "6a92bee314262f9eb5a55f28",
+  "example_id": "p07",
+  "category": "ecommerce",
+  "title": "devset p07: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:37:50.890307",
+  "inference_time_s": 34.11,
+  "room_name": "eval-52c892f9",
+  "stream_start_time": 1790692673.8552966,
+  "input_transcript": "Add the the product K four forty two to my cart, two of them.",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.32,
+        0.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.56,
+        0.8
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.96,
+        1.12
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        3.2800000000000002,
+        3.84
+      ]
+    },
+    {
+      "text": "K",
+      "timestamp": [
+        3.84,
+        4.08
+      ]
+    },
+    {
+      "text": "four",
+      "timestamp": [
+        4.08,
+        4.16
+      ]
+    },
+    {
+      "text": "forty",
+      "timestamp": [
+        4.4,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        4.64,
+        4.72
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.8,
+        4.96
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        4.96,
+        5.04
+      ]
+    },
+    {
+      "text": "cart,",
+      "timestamp": [
+        5.12,
+        5.44
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        5.6000000000000005,
+        5.84
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        5.84,
+        6.08
+      ]
+    },
+    {
+      "text": "them.",
+      "timestamp": [
+        6.08,
+        6.4
+      ]
+    }
+  ],
+  "user_speech_end_rel": 1.12,
+  "latency": {
+    "input_duration_s": 28.025,
+    "output_duration_s": 28.025,
+    "first_speech_s": 11.1
+  },
+  "user_done_unix": 1790692674.9752965,
+  "search_latency_breakdown": {
+    "room": "eval-52c892f9",
+    "tool": "Search Tool",
+    "reasoning": 5.969,
+    "execution": 0.0,
+    "synthesis": 0.772,
+    "total": 6.741,
+    "agent_start_at": 1790692684.3009589
+  },
+  "absolute_total_latency": 9.326,
+  "transcript": "I've added two units of product K four forty two to your cart.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        10.96,
+        11.28
+      ]
+    },
+    {
+      "text": "added",
+      "timestamp": [
+        11.28,
+        11.68
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        11.68,
+        11.92
+      ]
+    },
+    {
+      "text": "units",
+      "timestamp": [
+        11.92,
+        12.4
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        12.4,
+        12.56
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        12.56,
+        13.040000000000001
+      ]
+    },
+    {
+      "text": "K",
+      "timestamp": [
+        13.040000000000001,
+        13.36
+      ]
+    },
+    {
+      "text": "four",
+      "timestamp": [
+        13.36,
+        13.52
+      ]
+    },
+    {
+      "text": "forty",
+      "timestamp": [
+        13.68,
+        13.92
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        14.0,
+        14.32
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        14.32,
+        14.48
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        14.48,
+        14.64
+      ]
+    },
+    {
+      "text": "cart.",
+      "timestamp": [
+        14.64,
+        15.200000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 9.84,
+  "audio_agent_speech_start": 10.96,
+  "actual_tool_calls": [
+    {
+      "function": "search_products",
+      "args": {
+        "query": "Adidas",
+        "max_price": null
+      },
+      "timestamp_start": 6.31,
+      "timestamp_end": 6.31
+    },
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "K442",
+        "quantity": 2
+      },
+      "timestamp_start": 9.67,
+      "timestamp_end": 9.67
+    }
+  ],
+  "status": "completed"
+}

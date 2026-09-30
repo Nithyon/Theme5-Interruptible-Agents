@@ -1,0 +1,363 @@
+{
+  "pid": "695bd157114f0d2317f88617",
+  "example_id": "ecommerce_05",
+  "category": "ecommerce_support",
+  "title": "Product Search with Hesitation",
+  "provider": "gate_gemini38_c",
+  "evaluated_at": "2026-09-29T15:15:25.702726",
+  "inference_time_s": 59.81,
+  "room_name": "eval-00c9d7a6",
+  "stream_start_time": 1790694929.083326,
+  "input_transcript": "Um, so like, uh, I'm looking for, um, for a new let me think a desk. Yes, something under three hundred dollars. If you have an option like that, that would be great.",
+  "input_asr_chunks": [
+    {
+      "text": "Um,",
+      "timestamp": [
+        0.8,
+        1.44
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        1.76,
+        2.0
+      ]
+    },
+    {
+      "text": "like,",
+      "timestamp": [
+        2.16,
+        2.48
+      ]
+    },
+    {
+      "text": "uh,",
+      "timestamp": [
+        2.8000000000000003,
+        3.12
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        3.7600000000000002,
+        4.24
+      ]
+    },
+    {
+      "text": "looking",
+      "timestamp": [
+        4.24,
+        4.72
+      ]
+    },
+    {
+      "text": "for,",
+      "timestamp": [
+        4.72,
+        4.96
+      ]
+    },
+    {
+      "text": "um,",
+      "timestamp": [
+        5.04,
+        5.28
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.24,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.5600000000000005,
+        6.88
+      ]
+    },
+    {
+      "text": "new",
+      "timestamp": [
+        6.88,
+        7.2
+      ]
+    },
+    {
+      "text": "let",
+      "timestamp": [
+        9.76,
+        9.92
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        10.16,
+        10.48
+      ]
+    },
+    {
+      "text": "think",
+      "timestamp": [
+        10.48,
+        10.8
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.44,
+        11.76
+      ]
+    },
+    {
+      "text": "desk.",
+      "timestamp": [
+        11.76,
+        12.32
+      ]
+    },
+    {
+      "text": "Yes,",
+      "timestamp": [
+        13.280000000000001,
+        13.84
+      ]
+    },
+    {
+      "text": "something",
+      "timestamp": [
+        14.48,
+        14.72
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        15.040000000000001,
+        15.36
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        15.36,
+        15.52
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        15.76,
+        16.4
+      ]
+    },
+    {
+      "text": "dollars.",
+      "timestamp": [
+        16.4,
+        17.04
+      ]
+    },
+    {
+      "text": "If",
+      "timestamp": [
+        18.0,
+        18.240000000000002
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        18.240000000000002,
+        18.400000000000002
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        18.400000000000002,
+        18.56
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        18.56,
+        18.72
+      ]
+    },
+    {
+      "text": "option",
+      "timestamp": [
+        18.72,
+        19.36
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        19.36,
+        19.6
+      ]
+    },
+    {
+      "text": "that,",
+      "timestamp": [
+        19.6,
+        19.92
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        20.240000000000002,
+        20.48
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        20.48,
+        20.8
+      ]
+    },
+    {
+      "text": "be",
+      "timestamp": [
+        20.8,
+        21.12
+      ]
+    },
+    {
+      "text": "great.",
+      "timestamp": [
+        21.12,
+        21.44
+      ]
+    }
+  ],
+  "user_speech_end_rel": 7.2,
+  "latency": {
+    "input_duration_s": 52.08,
+    "output_duration_s": 52.08,
+    "first_speech_s": 28.9
+  },
+  "user_done_unix": 1790694936.2833261,
+  "search_latency_breakdown": {
+    "room": "eval-00c9d7a6",
+    "tool": "Search Tool",
+    "reasoning": 15.006,
+    "execution": 0.0,
+    "synthesis": 0.882,
+    "total": 15.887,
+    "agent_start_at": 1790694956.3496275
+  },
+  "absolute_total_latency": 20.066,
+  "transcript": "I found a premium desk available for two hundred and ninety dollars.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        28.8,
+        29.04
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        29.04,
+        29.36
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        29.36,
+        29.52
+      ]
+    },
+    {
+      "text": "premium",
+      "timestamp": [
+        29.92,
+        30.560000000000002
+      ]
+    },
+    {
+      "text": "desk",
+      "timestamp": [
+        30.560000000000002,
+        31.04
+      ]
+    },
+    {
+      "text": "available",
+      "timestamp": [
+        31.04,
+        31.52
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        31.52,
+        31.76
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        31.76,
+        31.92
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        32.08,
+        32.32
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        32.32,
+        32.4
+      ]
+    },
+    {
+      "text": "ninety",
+      "timestamp": [
+        32.480000000000004,
+        32.88
+      ]
+    },
+    {
+      "text": "dollars.",
+      "timestamp": [
+        32.88,
+        33.68
+      ]
+    }
+  ],
+  "perceived_total_latency": 21.6,
+  "audio_agent_speech_start": 28.8,
+  "actual_tool_calls": [
+    {
+      "function": "search_products",
+      "args": {
+        "query": "desk",
+        "max_price": 300.0
+      },
+      "timestamp_start": 26.38,
+      "timestamp_end": 26.38
+    }
+  ],
+  "status": "completed"
+}

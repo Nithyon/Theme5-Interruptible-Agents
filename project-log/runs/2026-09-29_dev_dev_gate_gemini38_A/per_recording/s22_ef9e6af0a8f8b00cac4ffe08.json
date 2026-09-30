@@ -1,0 +1,127 @@
+{
+  "pid": "ef9e6af0a8f8b00cac4ffe08",
+  "example_id": "s22",
+  "category": "housing",
+  "title": "devset s22: housing / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T12:59:18.874663",
+  "inference_time_s": 12.95,
+  "room_name": "eval-69357e6e",
+  "stream_start_time": 1790686761.850006,
+  "input_transcript": "Find apartments in Denver with two bedrooms under $1,800. No wait, three bedrooms.",
+  "input_asr_chunks": [
+    {
+      "text": "Find",
+      "timestamp": [
+        0.16,
+        0.56
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.12
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        1.12,
+        1.6
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        1.76,
+        1.84
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        1.92,
+        2.32
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        2.4,
+        2.64
+      ]
+    },
+    {
+      "text": "$1,800.",
+      "timestamp": [
+        2.64,
+        3.6
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        4.16,
+        4.4
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        5.04,
+        5.2
+      ]
+    },
+    {
+      "text": "bedrooms.",
+      "timestamp": [
+        5.36,
+        6.640000000000001
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.640000000000001,
+  "latency": {
+    "input_duration_s": 7.9,
+    "output_duration_s": 7.9,
+    "first_speech_s": 7.9
+  },
+  "user_done_unix": 1790686768.4900062,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Denver",
+        "bedrooms": 3,
+        "max_price": 1800.0
+      },
+      "timestamp_start": 8.78,
+      "timestamp_end": 9.57
+    }
+  ],
+  "status": "completed"
+}

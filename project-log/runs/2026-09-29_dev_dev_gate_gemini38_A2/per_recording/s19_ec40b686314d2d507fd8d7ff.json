@@ -1,0 +1,154 @@
+{
+  "pid": "ec40b686314d2d507fd8d7ff",
+  "example_id": "s19",
+  "category": "finance",
+  "title": "devset s19: finance / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:13:54.069464",
+  "inference_time_s": 32.21,
+  "room_name": "eval-19ea3e49",
+  "stream_start_time": 1790691237.1192956,
+  "input_transcript": "Can you tell me the benefits of the gold card?",
+  "input_asr_chunks": [
+    {
+      "text": "Can",
+      "timestamp": [
+        0.32,
+        0.64
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        2.56,
+        2.72
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        2.72,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        3.2800000000000002,
+        3.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        3.44,
+        3.52
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        3.52,
+        3.92
+      ]
+    },
+    {
+      "text": "card?",
+      "timestamp": [
+        3.92,
+        4.4
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.4,
+  "latency": {
+    "input_duration_s": 26.125,
+    "output_duration_s": 26.125,
+    "first_speech_s": 3.55
+  },
+  "user_done_unix": 1790691241.5192957,
+  "transcript": "I'm listening. What would you like to know?",
+  "asr_chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        3.36,
+        3.84
+      ]
+    },
+    {
+      "text": "listening.",
+      "timestamp": [
+        3.84,
+        4.32
+      ]
+    },
+    {
+      "text": "What",
+      "timestamp": [
+        4.5600000000000005,
+        4.8
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        4.8,
+        4.96
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        4.96,
+        5.12
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        5.12,
+        5.36
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.36,
+        5.68
+      ]
+    },
+    {
+      "text": "know?",
+      "timestamp": [
+        5.68,
+        5.92
+      ]
+    }
+  ],
+  "perceived_total_latency": -1.04,
+  "audio_agent_speech_start": 3.36,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

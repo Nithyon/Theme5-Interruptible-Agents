@@ -1,0 +1,236 @@
+{
+  "pid": "4bc24a6771527f72f194fd71",
+  "example_id": "s40",
+  "category": "ecommerce",
+  "title": "devset s40: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:49:52.005794",
+  "inference_time_s": 35.7,
+  "room_name": "eval-14f52179",
+  "stream_start_time": 1790689795.1989944,
+  "input_transcript": "Um track order. Uh order ABC 50 no wait. It doesn't matter. Track order ABC 99 instead.",
+  "input_asr_chunks": [
+    {
+      "text": "Um",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        0.72,
+        1.04
+      ]
+    },
+    {
+      "text": "order.",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "Uh",
+      "timestamp": [
+        1.76,
+        2.08
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        2.24,
+        2.56
+      ]
+    },
+    {
+      "text": "ABC",
+      "timestamp": [
+        2.56,
+        3.04
+      ]
+    },
+    {
+      "text": "50",
+      "timestamp": [
+        3.12,
+        3.44
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        3.52,
+        3.6
+      ]
+    },
+    {
+      "text": "wait.",
+      "timestamp": [
+        3.68,
+        4.0
+      ]
+    },
+    {
+      "text": "It",
+      "timestamp": [
+        4.16,
+        4.32
+      ]
+    },
+    {
+      "text": "doesn't",
+      "timestamp": [
+        4.32,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "matter.",
+      "timestamp": [
+        4.5600000000000005,
+        4.8
+      ]
+    },
+    {
+      "text": "Track",
+      "timestamp": [
+        5.04,
+        5.36
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        5.36,
+        5.68
+      ]
+    },
+    {
+      "text": "ABC",
+      "timestamp": [
+        5.68,
+        6.16
+      ]
+    },
+    {
+      "text": "99",
+      "timestamp": [
+        6.24,
+        6.8
+      ]
+    },
+    {
+      "text": "instead.",
+      "timestamp": [
+        6.96,
+        7.6000000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 7.6000000000000005,
+  "latency": {
+    "input_duration_s": 29.275,
+    "output_duration_s": 29.275,
+    "first_speech_s": 13.1
+  },
+  "user_done_unix": 1790689802.7989943,
+  "search_latency_breakdown": {
+    "room": "eval-14f52179",
+    "tool": "Search Tool",
+    "reasoning": 2.61,
+    "execution": 0.0,
+    "synthesis": 0.885,
+    "total": 3.495,
+    "agent_start_at": 1790689808.1349523
+  },
+  "absolute_total_latency": 5.336,
+  "transcript": "Your order, a BC ninety-nine, is currently out for delivery.",
+  "asr_chunks": [
+    {
+      "text": "Your",
+      "timestamp": [
+        12.96,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "order,",
+      "timestamp": [
+        13.280000000000001,
+        13.6
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        13.68,
+        13.84
+      ]
+    },
+    {
+      "text": "BC",
+      "timestamp": [
+        13.92,
+        14.32
+      ]
+    },
+    {
+      "text": "ninety-nine,",
+      "timestamp": [
+        14.4,
+        14.88
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        14.96,
+        15.200000000000001
+      ]
+    },
+    {
+      "text": "currently",
+      "timestamp": [
+        15.200000000000001,
+        15.6
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        15.6,
+        15.76
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        15.76,
+        16.0
+      ]
+    },
+    {
+      "text": "delivery.",
+      "timestamp": [
+        16.0,
+        16.88
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.36,
+  "audio_agent_speech_start": 12.96,
+  "actual_tool_calls": [
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "ABC99"
+      },
+      "timestamp_start": 12.05,
+      "timestamp_end": 12.05
+    }
+  ],
+  "status": "completed"
+}

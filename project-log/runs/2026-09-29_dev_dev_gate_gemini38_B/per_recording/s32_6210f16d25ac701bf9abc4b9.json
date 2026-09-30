@@ -1,0 +1,102 @@
+{
+  "pid": "6210f16d25ac701bf9abc4b9",
+  "example_id": "s32",
+  "category": "ecommerce",
+  "title": "devset s32: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:13:12.948892",
+  "inference_time_s": 11.19,
+  "room_name": "eval-fad5b6cc",
+  "stream_start_time": 1790687595.893536,
+  "input_transcript": "Add product P100 to my cart. No wait, I meant P200.",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.0,
+        0.32
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        0.48,
+        0.88
+      ]
+    },
+    {
+      "text": "P100",
+      "timestamp": [
+        0.88,
+        1.52
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.52,
+        1.6
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "cart.",
+      "timestamp": [
+        1.76,
+        2.16
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        2.4,
+        2.56
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        2.64,
+        2.96
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        3.12,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "meant",
+      "timestamp": [
+        3.2800000000000002,
+        3.52
+      ]
+    },
+    {
+      "text": "P200.",
+      "timestamp": [
+        3.52,
+        4.72
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.72,
+  "latency": {
+    "input_duration_s": 6.25,
+    "output_duration_s": 6.25,
+    "first_speech_s": 6.25
+  },
+  "user_done_unix": 1790687600.6135361,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

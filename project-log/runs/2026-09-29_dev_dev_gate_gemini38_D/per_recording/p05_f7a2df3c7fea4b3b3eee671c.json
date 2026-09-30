@@ -1,0 +1,147 @@
+{
+  "pid": "f7a2df3c7fea4b3b3eee671c",
+  "example_id": "p05",
+  "category": "housing",
+  "title": "devset p05: housing / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:36:40.586279",
+  "inference_time_s": 34.63,
+  "room_name": "eval-f18d5b54",
+  "stream_start_time": 1790692603.551383,
+  "input_transcript": "Look for apartments in Raleigh with a three bedrooms under $2,100.",
+  "input_asr_chunks": [
+    {
+      "text": "Look",
+      "timestamp": [
+        0.32,
+        0.48
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        0.48,
+        0.64
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.64,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.12
+      ]
+    },
+    {
+      "text": "Raleigh",
+      "timestamp": [
+        1.12,
+        1.52
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        1.92,
+        2.16
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        4.24,
+        4.4
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        4.5600000000000005,
+        5.2
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        5.2,
+        5.44
+      ]
+    },
+    {
+      "text": "$2,100.",
+      "timestamp": [
+        5.44,
+        6.32
+      ]
+    }
+  ],
+  "user_speech_end_rel": 2.16,
+  "latency": {
+    "input_duration_s": 28.525,
+    "output_duration_s": 28.525,
+    "first_speech_s": 5.4
+  },
+  "user_done_unix": 1790692605.711383,
+  "transcript": "Look for apartments in Raleigh with",
+  "asr_chunks": [
+    {
+      "text": "Look",
+      "timestamp": [
+        5.36,
+        5.68
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        5.68,
+        5.92
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        5.92,
+        6.48
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        6.48,
+        6.640000000000001
+      ]
+    },
+    {
+      "text": "Raleigh",
+      "timestamp": [
+        6.640000000000001,
+        7.12
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        7.28,
+        7.6000000000000005
+      ]
+    }
+  ],
+  "perceived_total_latency": 3.2,
+  "audio_agent_speech_start": 5.36,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

@@ -1,0 +1,141 @@
+{
+  "pid": "ce699b790bdc5817cbe68617",
+  "example_id": "s49",
+  "category": "travel",
+  "title": "devset s49: travel / level 2",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:16:50.259537",
+  "inference_time_s": 13.32,
+  "room_name": "eval-77074f2c",
+  "stream_start_time": 1790687813.2840455,
+  "input_transcript": "Search flights to Vienna on October 3rd, and UM. Book it for Alina Petrova.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.0,
+        0.56
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.56,
+        0.88
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.88,
+        0.96
+      ]
+    },
+    {
+      "text": "Vienna",
+      "timestamp": [
+        0.96,
+        1.44
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.44,
+        1.6
+      ]
+    },
+    {
+      "text": "October",
+      "timestamp": [
+        1.6,
+        1.92
+      ]
+    },
+    {
+      "text": "3rd,",
+      "timestamp": [
+        1.92,
+        2.32
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        2.48,
+        2.72
+      ]
+    },
+    {
+      "text": "UM.",
+      "timestamp": [
+        2.72,
+        3.12
+      ]
+    },
+    {
+      "text": "Book",
+      "timestamp": [
+        4.64,
+        4.96
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        4.96,
+        5.12
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        5.12,
+        5.28
+      ]
+    },
+    {
+      "text": "Alina",
+      "timestamp": [
+        5.28,
+        5.76
+      ]
+    },
+    {
+      "text": "Petrova.",
+      "timestamp": [
+        5.76,
+        6.72
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.72,
+  "latency": {
+    "input_duration_s": 8.2,
+    "output_duration_s": 8.2,
+    "first_speech_s": 8.2
+  },
+  "user_done_unix": 1790687820.0040455,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Vienna",
+        "date": "2026-10-03"
+      },
+      "timestamp_start": 7.5,
+      "timestamp_end": 8.01
+    },
+    {
+      "function": "book_flight",
+      "args": {
+        "passenger_name": "Elena Petrova"
+      },
+      "timestamp_start": 9.67,
+      "timestamp_end": 9.67
+    }
+  ],
+  "status": "completed"
+}

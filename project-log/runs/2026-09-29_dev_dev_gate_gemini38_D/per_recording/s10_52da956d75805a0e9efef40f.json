@@ -1,0 +1,230 @@
+{
+  "pid": "52da956d75805a0e9efef40f",
+  "example_id": "s10",
+  "category": "travel",
+  "title": "devset s10: travel / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:46:20.902927",
+  "inference_time_s": 34.06,
+  "room_name": "eval-c7edcc38",
+  "stream_start_time": 1790693183.9028835,
+  "input_transcript": "Search flights to Madrid, No Wait, Barcelona on August 2nd, actually make that August 9th.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.04
+      ]
+    },
+    {
+      "text": "Madrid,",
+      "timestamp": [
+        1.04,
+        1.52
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        1.68,
+        1.84
+      ]
+    },
+    {
+      "text": "Wait,",
+      "timestamp": [
+        2.0,
+        2.32
+      ]
+    },
+    {
+      "text": "Barcelona",
+      "timestamp": [
+        2.4,
+        3.04
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        3.12,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "August",
+      "timestamp": [
+        3.2800000000000002,
+        3.68
+      ]
+    },
+    {
+      "text": "2nd,",
+      "timestamp": [
+        3.68,
+        4.08
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        4.4,
+        4.72
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        4.72,
+        4.96
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        4.96,
+        5.28
+      ]
+    },
+    {
+      "text": "August",
+      "timestamp": [
+        5.28,
+        5.68
+      ]
+    },
+    {
+      "text": "9th.",
+      "timestamp": [
+        5.68,
+        6.4
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.4,
+  "latency": {
+    "input_duration_s": 27.925,
+    "output_duration_s": 27.925,
+    "first_speech_s": 11.1
+  },
+  "user_done_unix": 1790693190.3028836,
+  "search_latency_breakdown": {
+    "room": "eval-c7edcc38",
+    "tool": "Search Tool",
+    "reasoning": 0.478,
+    "execution": 0.676,
+    "synthesis": 0.948,
+    "total": 2.102,
+    "agent_start_at": 1790693194.8377993
+  },
+  "absolute_total_latency": 4.535,
+  "transcript": "I found a flight to Barcelona on August 9th for $450.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        10.88,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        11.200000000000001,
+        11.52
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.52,
+        11.6
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        11.6,
+        11.92
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.92,
+        12.0
+      ]
+    },
+    {
+      "text": "Barcelona",
+      "timestamp": [
+        12.0,
+        12.8
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        12.8,
+        12.96
+      ]
+    },
+    {
+      "text": "August",
+      "timestamp": [
+        12.96,
+        13.36
+      ]
+    },
+    {
+      "text": "9th",
+      "timestamp": [
+        13.36,
+        13.76
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        13.76,
+        14.0
+      ]
+    },
+    {
+      "text": "$450.",
+      "timestamp": [
+        14.0,
+        15.040000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.48,
+  "audio_agent_speech_start": 10.88,
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Barcelona",
+        "date": "2026-08-09"
+      },
+      "timestamp_start": 9.31,
+      "timestamp_end": 9.99
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,175 @@
+{
+  "pid": "bebb5f96171fe2b7e972443e",
+  "example_id": "p12",
+  "category": "housing",
+  "title": "devset p12: housing / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:27:08.467847",
+  "inference_time_s": 33.45,
+  "room_name": "eval-cae5d2a5",
+  "stream_start_time": 1790688431.5029845,
+  "input_transcript": "Set my search filter for um Pets allowed to yes.",
+  "input_asr_chunks": [
+    {
+      "text": "Set",
+      "timestamp": [
+        0.32,
+        0.48
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.48,
+        0.64
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        0.64,
+        0.88
+      ]
+    },
+    {
+      "text": "filter",
+      "timestamp": [
+        0.88,
+        1.2
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.2,
+        1.44
+      ]
+    },
+    {
+      "text": "um",
+      "timestamp": [
+        1.44,
+        1.68
+      ]
+    },
+    {
+      "text": "Pets",
+      "timestamp": [
+        4.16,
+        4.64
+      ]
+    },
+    {
+      "text": "allowed",
+      "timestamp": [
+        4.64,
+        4.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.96,
+        5.2
+      ]
+    },
+    {
+      "text": "yes.",
+      "timestamp": [
+        5.2,
+        5.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 1.68,
+  "latency": {
+    "input_duration_s": 27.35,
+    "output_duration_s": 27.35,
+    "first_speech_s": 4.35
+  },
+  "user_done_unix": 1790688433.1829846,
+  "transcript": "I'm listening. Please go ahead. I'm ready. Please provide the details.",
+  "asr_chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        4.32,
+        4.72
+      ]
+    },
+    {
+      "text": "listening.",
+      "timestamp": [
+        4.72,
+        5.2
+      ]
+    },
+    {
+      "text": "Please",
+      "timestamp": [
+        5.36,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "go",
+      "timestamp": [
+        5.6000000000000005,
+        5.84
+      ]
+    },
+    {
+      "text": "ahead.",
+      "timestamp": [
+        5.84,
+        6.640000000000001
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        7.92,
+        8.24
+      ]
+    },
+    {
+      "text": "ready.",
+      "timestamp": [
+        8.24,
+        8.56
+      ]
+    },
+    {
+      "text": "Please",
+      "timestamp": [
+        8.8,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "provide",
+      "timestamp": [
+        9.040000000000001,
+        9.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        9.44,
+        9.6
+      ]
+    },
+    {
+      "text": "details.",
+      "timestamp": [
+        9.6,
+        10.56
+      ]
+    }
+  ],
+  "perceived_total_latency": 2.64,
+  "audio_agent_speech_start": 4.32,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

@@ -1,0 +1,252 @@
+{
+  "pid": "a73834924953665b4438652c",
+  "example_id": "s33",
+  "category": "ecommerce",
+  "title": "devset s33: ecommerce / level 2",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:45:54.255218",
+  "inference_time_s": 33.66,
+  "room_name": "eval-40a91041",
+  "stream_start_time": 1790689557.2841299,
+  "input_transcript": "Track order ORD 556, and also search the catalog for wireless headphones.",
+  "input_asr_chunks": [
+    {
+      "text": "Track",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        0.56,
+        0.96
+      ]
+    },
+    {
+      "text": "ORD",
+      "timestamp": [
+        0.96,
+        1.44
+      ]
+    },
+    {
+      "text": "556,",
+      "timestamp": [
+        1.52,
+        2.56
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        2.8000000000000003,
+        3.04
+      ]
+    },
+    {
+      "text": "also",
+      "timestamp": [
+        3.04,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        3.2800000000000002,
+        3.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        3.6,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "catalog",
+      "timestamp": [
+        3.7600000000000002,
+        4.24
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        4.32,
+        4.48
+      ]
+    },
+    {
+      "text": "wireless",
+      "timestamp": [
+        4.48,
+        4.96
+      ]
+    },
+    {
+      "text": "headphones.",
+      "timestamp": [
+        4.96,
+        6.0
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.0,
+  "latency": {
+    "input_duration_s": 27.55,
+    "output_duration_s": 27.55,
+    "first_speech_s": 11.6
+  },
+  "user_done_unix": 1790689563.2841299,
+  "search_latency_breakdown": {
+    "room": "eval-40a91041",
+    "tool": "Search Tool",
+    "reasoning": 2.546,
+    "execution": 0.0,
+    "synthesis": 0.749,
+    "total": 3.295,
+    "agent_start_at": 1790689568.120411
+  },
+  "absolute_total_latency": 4.836,
+  "transcript": "Order ORD 556 is out for delivery. I also found wireless headphones premium priced at $99.99.",
+  "asr_chunks": [
+    {
+      "text": "Order",
+      "timestamp": [
+        11.44,
+        12.0
+      ]
+    },
+    {
+      "text": "ORD",
+      "timestamp": [
+        12.0,
+        12.48
+      ]
+    },
+    {
+      "text": "556",
+      "timestamp": [
+        12.56,
+        13.52
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        13.52,
+        13.68
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        13.68,
+        13.84
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        13.84,
+        14.0
+      ]
+    },
+    {
+      "text": "delivery.",
+      "timestamp": [
+        14.0,
+        14.48
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.8,
+        14.96
+      ]
+    },
+    {
+      "text": "also",
+      "timestamp": [
+        14.96,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        15.120000000000001,
+        15.44
+      ]
+    },
+    {
+      "text": "wireless",
+      "timestamp": [
+        15.44,
+        16.0
+      ]
+    },
+    {
+      "text": "headphones",
+      "timestamp": [
+        16.0,
+        16.48
+      ]
+    },
+    {
+      "text": "premium",
+      "timestamp": [
+        16.56,
+        16.96
+      ]
+    },
+    {
+      "text": "priced",
+      "timestamp": [
+        17.04,
+        17.36
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        17.36,
+        17.52
+      ]
+    },
+    {
+      "text": "$99.99.",
+      "timestamp": [
+        17.52,
+        18.72
+      ]
+    }
+  ],
+  "perceived_total_latency": 5.44,
+  "audio_agent_speech_start": 11.44,
+  "actual_tool_calls": [
+    {
+      "function": "track_order",
+      "args": {
+        "order_id": "ORD556"
+      },
+      "timestamp_start": 7.99,
+      "timestamp_end": 7.99
+    },
+    {
+      "function": "search_products",
+      "args": {
+        "query": "wireless headphones",
+        "max_price": null
+      },
+      "timestamp_start": 10.09,
+      "timestamp_end": 10.09
+    }
+  ],
+  "status": "completed"
+}

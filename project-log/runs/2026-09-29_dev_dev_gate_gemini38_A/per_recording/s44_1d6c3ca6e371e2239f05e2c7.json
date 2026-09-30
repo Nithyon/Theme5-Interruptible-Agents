@@ -1,0 +1,107 @@
+{
+  "pid": "1d6c3ca6e371e2239f05e2c7",
+  "example_id": "s44",
+  "category": "ecommerce",
+  "title": "devset s44: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T13:04:08.167577",
+  "inference_time_s": 12.13,
+  "room_name": "eval-544da5c6",
+  "stream_start_time": 1790687051.0841815,
+  "input_transcript": "Add product P42 to my cart, um. Quantity 3.",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.0,
+        0.48
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        0.48,
+        0.88
+      ]
+    },
+    {
+      "text": "P42",
+      "timestamp": [
+        0.88,
+        1.52
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        1.52,
+        1.6
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "cart,",
+      "timestamp": [
+        1.76,
+        2.08
+      ]
+    },
+    {
+      "text": "um.",
+      "timestamp": [
+        2.24,
+        2.4
+      ]
+    },
+    {
+      "text": "Quantity",
+      "timestamp": [
+        4.16,
+        4.88
+      ]
+    },
+    {
+      "text": "3.",
+      "timestamp": [
+        4.88,
+        5.36
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.36,
+  "latency": {
+    "input_duration_s": 7.15,
+    "output_duration_s": 7.15,
+    "first_speech_s": 7.15
+  },
+  "user_done_unix": 1790687056.4441814,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "P42",
+        "quantity": 1
+      },
+      "timestamp_start": 5.34,
+      "timestamp_end": 5.34
+    },
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "P42",
+        "quantity": 3
+      },
+      "timestamp_start": 8.34,
+      "timestamp_end": 8.34
+    }
+  ],
+  "status": "completed"
+}

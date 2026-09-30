@@ -1,0 +1,238 @@
+{
+  "pid": "ef9e6af0a8f8b00cac4ffe08",
+  "example_id": "s22",
+  "category": "housing",
+  "title": "devset s22: housing / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:15:34.475700",
+  "inference_time_s": 33.98,
+  "room_name": "eval-01ca330c",
+  "stream_start_time": 1790691337.4503434,
+  "input_transcript": "Find apartments in Denver with two bedrooms under $1,800. No wait, three bedrooms.",
+  "input_asr_chunks": [
+    {
+      "text": "Find",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.12
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        1.12,
+        1.6
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        1.76,
+        1.84
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        2.0,
+        2.4
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        2.4,
+        2.64
+      ]
+    },
+    {
+      "text": "$1,800.",
+      "timestamp": [
+        2.64,
+        3.6
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        4.16,
+        4.4
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        5.04,
+        5.2
+      ]
+    },
+    {
+      "text": "bedrooms.",
+      "timestamp": [
+        5.36,
+        6.48
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.48,
+  "latency": {
+    "input_duration_s": 27.9,
+    "output_duration_s": 27.9,
+    "first_speech_s": 11.1
+  },
+  "user_done_unix": 1790691343.9303434,
+  "search_latency_breakdown": {
+    "room": "eval-01ca330c",
+    "tool": "Search Tool",
+    "reasoning": 0.963,
+    "execution": 0.737,
+    "synthesis": 0.882,
+    "total": 2.583,
+    "agent_start_at": 1790691347.8563454
+  },
+  "absolute_total_latency": 3.926,
+  "transcript": "I found one three-bedroom apartment in Denver priced at seventeen hundred dollars per month.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        10.88,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        11.200000000000001,
+        11.76
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        11.76,
+        12.0
+      ]
+    },
+    {
+      "text": "three-bedroom",
+      "timestamp": [
+        12.0,
+        12.8
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        12.8,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        13.120000000000001,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        13.280000000000001,
+        13.68
+      ]
+    },
+    {
+      "text": "priced",
+      "timestamp": [
+        13.76,
+        14.16
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        14.16,
+        14.32
+      ]
+    },
+    {
+      "text": "seventeen",
+      "timestamp": [
+        14.32,
+        14.96
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        14.96,
+        15.36
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        15.36,
+        15.6
+      ]
+    },
+    {
+      "text": "per",
+      "timestamp": [
+        15.6,
+        15.92
+      ]
+    },
+    {
+      "text": "month.",
+      "timestamp": [
+        15.92,
+        16.56
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.4,
+  "audio_agent_speech_start": 10.88,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Denver",
+        "bedrooms": 3,
+        "max_price": 1800.0
+      },
+      "timestamp_start": 8.79,
+      "timestamp_end": 9.52
+    }
+  ],
+  "status": "completed"
+}

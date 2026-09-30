@@ -1,0 +1,151 @@
+{
+  "pid": "7dc45b82b9669bac551ec318",
+  "example_id": "s05",
+  "category": "travel",
+  "title": "devset s05: travel / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:07:17.893484",
+  "inference_time_s": 15.2,
+  "room_name": "eval-26bca56b",
+  "stream_start_time": 1790687240.9027472,
+  "input_transcript": "Book the flight for Sara Lee. Actually, wait, don't book yet, just update my passport number to P4471900.",
+  "input_asr_chunks": [
+    {
+      "text": "Book",
+      "timestamp": [
+        0.16,
+        0.56
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "flight",
+      "timestamp": [
+        0.64,
+        0.88
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": "Sara",
+      "timestamp": [
+        1.04,
+        1.36
+      ]
+    },
+    {
+      "text": "Lee.",
+      "timestamp": [
+        1.44,
+        1.84
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        2.24,
+        2.56
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        2.64,
+        2.96
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        3.2,
+        3.44
+      ]
+    },
+    {
+      "text": "book",
+      "timestamp": [
+        3.44,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "yet,",
+      "timestamp": [
+        3.7600000000000002,
+        4.0
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        4.16,
+        4.32
+      ]
+    },
+    {
+      "text": "update",
+      "timestamp": [
+        4.32,
+        4.72
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        4.72,
+        4.88
+      ]
+    },
+    {
+      "text": "passport",
+      "timestamp": [
+        4.88,
+        5.36
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        5.36,
+        5.6000000000000005
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.6000000000000005,
+        5.76
+      ]
+    },
+    {
+      "text": "P4471900.",
+      "timestamp": [
+        5.76,
+        8.08
+      ]
+    }
+  ],
+  "user_speech_end_rel": 8.08,
+  "latency": {
+    "input_duration_s": 10.0,
+    "output_duration_s": 10.0,
+    "first_speech_s": 10.0
+  },
+  "user_done_unix": 1790687248.982747,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

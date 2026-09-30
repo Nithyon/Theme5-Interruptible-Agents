@@ -1,0 +1,136 @@
+{
+  "pid": "b6bbed2a2128425461f8ce0f",
+  "example_id": "s16",
+  "category": "finance",
+  "title": "devset s16: finance / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T12:57:57.637750",
+  "inference_time_s": 11.65,
+  "room_name": "eval-6357c96c",
+  "stream_start_time": 1790686680.6276085,
+  "input_transcript": "Set auto pay for utilities from my checking account. Sorry, my savings account.",
+  "input_asr_chunks": [
+    {
+      "text": "Set",
+      "timestamp": [
+        0.16,
+        0.48
+      ]
+    },
+    {
+      "text": "auto",
+      "timestamp": [
+        0.48,
+        0.88
+      ]
+    },
+    {
+      "text": "pay",
+      "timestamp": [
+        0.96,
+        1.2
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.2,
+        1.36
+      ]
+    },
+    {
+      "text": "utilities",
+      "timestamp": [
+        1.36,
+        1.84
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        1.84,
+        2.0
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        2.0,
+        2.08
+      ]
+    },
+    {
+      "text": "checking",
+      "timestamp": [
+        2.24,
+        2.64
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        2.64,
+        2.88
+      ]
+    },
+    {
+      "text": "Sorry,",
+      "timestamp": [
+        2.96,
+        3.36
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        3.6,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        3.84,
+        4.48
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        4.48,
+        5.04
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.04,
+  "latency": {
+    "input_duration_s": 6.625,
+    "output_duration_s": 6.625,
+    "first_speech_s": 6.625
+  },
+  "user_done_unix": 1790686685.6676085,
+  "search_latency_breakdown": {
+    "room": "eval-6357c96c",
+    "tool": "Search Tool",
+    "reasoning": 0.965,
+    "execution": 0.0,
+    "synthesis": 0.856,
+    "total": 1.821,
+    "agent_start_at": 1790686688.9737227
+  },
+  "absolute_total_latency": 3.306,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "modify_autopay",
+      "args": {
+        "bill_type": "utilities",
+        "source_account": "savings account"
+      },
+      "timestamp_start": 7.49,
+      "timestamp_end": 7.49
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,74 @@
+{
+  "pid": "bc40f000ff71bdda95a5174d",
+  "example_id": "s41",
+  "category": "travel",
+  "title": "devset s41: travel / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T15:04:02.790803",
+  "inference_time_s": 33.13,
+  "room_name": "eval-3fa2cbe4",
+  "stream_start_time": 1790694245.8042238,
+  "input_transcript": "Search flights to Amsterdam on September 20th.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.04
+      ]
+    },
+    {
+      "text": "Amsterdam",
+      "timestamp": [
+        1.04,
+        1.76
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.76,
+        2.08
+      ]
+    },
+    {
+      "text": "September",
+      "timestamp": [
+        3.92,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "20th.",
+      "timestamp": [
+        4.5600000000000005,
+        5.36
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.36,
+  "latency": {
+    "input_duration_s": 26.975,
+    "output_duration_s": 26.975,
+    "first_speech_s": 26.975
+  },
+  "user_done_unix": 1790694251.1642237,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

@@ -1,0 +1,231 @@
+{
+  "pid": "ef9e6af0a8f8b00cac4ffe08",
+  "example_id": "s22",
+  "category": "housing",
+  "title": "devset s22: housing / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:39:34.990386",
+  "inference_time_s": 34.07,
+  "room_name": "eval-6c360f0b",
+  "stream_start_time": 1790689178.0144327,
+  "input_transcript": "Find apartments in Denver with two bedrooms under $1,800. No wait, three bedrooms.",
+  "input_asr_chunks": [
+    {
+      "text": "Find",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.12
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        1.12,
+        1.6
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        1.76,
+        1.84
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        2.0,
+        2.4
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        2.4,
+        2.64
+      ]
+    },
+    {
+      "text": "$1,800.",
+      "timestamp": [
+        2.64,
+        3.6
+      ]
+    },
+    {
+      "text": "No",
+      "timestamp": [
+        4.16,
+        4.4
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        5.04,
+        5.2
+      ]
+    },
+    {
+      "text": "bedrooms.",
+      "timestamp": [
+        5.36,
+        6.48
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.48,
+  "latency": {
+    "input_duration_s": 27.9,
+    "output_duration_s": 27.9,
+    "first_speech_s": 12.5
+  },
+  "user_done_unix": 1790689184.4944327,
+  "search_latency_breakdown": {
+    "room": "eval-6c360f0b",
+    "tool": "Search Tool",
+    "reasoning": 2.52,
+    "execution": 0.419,
+    "synthesis": 0.913,
+    "total": 3.851,
+    "agent_start_at": 1790689189.7822027
+  },
+  "absolute_total_latency": 5.288,
+  "transcript": "I found a three-bedroom apartment in Denver for seventeen hundred dollars per month.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        12.48,
+        12.8
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        12.8,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        13.120000000000001,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "three-bedroom",
+      "timestamp": [
+        13.280000000000001,
+        14.0
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        14.0,
+        14.4
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        14.4,
+        14.48
+      ]
+    },
+    {
+      "text": "Denver",
+      "timestamp": [
+        14.48,
+        14.96
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        14.96,
+        15.120000000000001
+      ]
+    },
+    {
+      "text": "seventeen",
+      "timestamp": [
+        15.120000000000001,
+        15.68
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        15.68,
+        16.0
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        16.0,
+        16.32
+      ]
+    },
+    {
+      "text": "per",
+      "timestamp": [
+        16.32,
+        16.56
+      ]
+    },
+    {
+      "text": "month.",
+      "timestamp": [
+        16.56,
+        17.12
+      ]
+    }
+  ],
+  "perceived_total_latency": 6.0,
+  "audio_agent_speech_start": 12.48,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Denver",
+        "bedrooms": 3,
+        "max_price": 1800.0
+      },
+      "timestamp_start": 10.44,
+      "timestamp_end": 10.85
+    }
+  ],
+  "status": "completed"
+}

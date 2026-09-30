@@ -1,0 +1,238 @@
+{
+  "pid": "259b2f92f910d37feb513189",
+  "example_id": "s42",
+  "category": "finance",
+  "title": "devset s42: finance / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:27:00.373349",
+  "inference_time_s": 33.75,
+  "room_name": "eval-d9270b0c",
+  "stream_start_time": 1790692023.357824,
+  "input_transcript": "Get the exchange rate for a three hundred US dollars to Japanese yen.",
+  "input_asr_chunks": [
+    {
+      "text": "Get",
+      "timestamp": [
+        0.24,
+        0.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        0.48,
+        0.56
+      ]
+    },
+    {
+      "text": "exchange",
+      "timestamp": [
+        0.56,
+        1.04
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        1.04,
+        1.28
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        1.6,
+        1.92
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        3.12,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "hundred",
+      "timestamp": [
+        3.44,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        3.7600000000000002,
+        4.16
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        4.16,
+        4.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.64,
+        4.8
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        4.8,
+        5.44
+      ]
+    },
+    {
+      "text": "yen.",
+      "timestamp": [
+        5.44,
+        6.0
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.0,
+  "latency": {
+    "input_duration_s": 27.675,
+    "output_duration_s": 27.675,
+    "first_speech_s": 4.7
+  },
+  "user_done_unix": 1790692029.357824,
+  "search_latency_breakdown": {
+    "room": "eval-d9270b0c",
+    "tool": "Search Tool",
+    "reasoning": 4.37,
+    "execution": 0.0,
+    "synthesis": 0.869,
+    "total": 5.239,
+    "agent_start_at": 1790692032.7861967
+  },
+  "absolute_total_latency": 3.428,
+  "transcript": "The exchange rate is 0.9, so 300 US dollars converts to 270 Japanese yen.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        10.16,
+        10.32
+      ]
+    },
+    {
+      "text": "exchange",
+      "timestamp": [
+        10.32,
+        10.96
+      ]
+    },
+    {
+      "text": "rate",
+      "timestamp": [
+        10.96,
+        11.28
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        11.28,
+        11.44
+      ]
+    },
+    {
+      "text": "0.9,",
+      "timestamp": [
+        11.44,
+        12.0
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        12.4,
+        12.64
+      ]
+    },
+    {
+      "text": "300",
+      "timestamp": [
+        12.64,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        13.280000000000001,
+        13.68
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        13.68,
+        14.08
+      ]
+    },
+    {
+      "text": "converts",
+      "timestamp": [
+        14.08,
+        14.56
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        14.56,
+        14.72
+      ]
+    },
+    {
+      "text": "270",
+      "timestamp": [
+        14.72,
+        15.84
+      ]
+    },
+    {
+      "text": "Japanese",
+      "timestamp": [
+        15.84,
+        16.4
+      ]
+    },
+    {
+      "text": "yen.",
+      "timestamp": [
+        16.4,
+        16.88
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.16,
+  "audio_agent_speech_start": 10.16,
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 300.0,
+        "from_currency": "USD",
+        "to_currency": "JPY"
+      },
+      "timestamp_start": 8.56,
+      "timestamp_end": 8.56
+    }
+  ],
+  "status": "completed"
+}

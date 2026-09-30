@@ -1,0 +1,140 @@
+{
+  "pid": "fe7f9609f280d1832019ff10",
+  "example_id": "s48",
+  "category": "ecommerce",
+  "title": "devset s48: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_A2",
+  "evaluated_at": "2026-09-29T14:30:24.947653",
+  "inference_time_s": 32.9,
+  "room_name": "eval-aff9d89e",
+  "stream_start_time": 1790692228.0125928,
+  "input_transcript": "Track order ORD seven seventy eight",
+  "input_asr_chunks": [
+    {
+      "text": "Track",
+      "timestamp": [
+        0.32,
+        0.72
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        0.72,
+        1.52
+      ]
+    },
+    {
+      "text": "ORD",
+      "timestamp": [
+        3.12,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "seven",
+      "timestamp": [
+        3.92,
+        4.32
+      ]
+    },
+    {
+      "text": "seventy",
+      "timestamp": [
+        4.32,
+        4.64
+      ]
+    },
+    {
+      "text": "eight",
+      "timestamp": [
+        4.72,
+        5.04
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.04,
+  "latency": {
+    "input_duration_s": 26.775,
+    "output_duration_s": 26.775,
+    "first_speech_s": 4.0
+  },
+  "user_done_unix": 1790692233.0525928,
+  "transcript": "I can help with that. What is your order ID?",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        3.92,
+        4.16
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        4.16,
+        4.4
+      ]
+    },
+    {
+      "text": "help",
+      "timestamp": [
+        4.4,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        4.5600000000000005,
+        4.72
+      ]
+    },
+    {
+      "text": "that.",
+      "timestamp": [
+        4.72,
+        4.96
+      ]
+    },
+    {
+      "text": "What",
+      "timestamp": [
+        5.2,
+        5.36
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        5.36,
+        5.5200000000000005
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        5.5200000000000005,
+        5.68
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        5.68,
+        6.0
+      ]
+    },
+    {
+      "text": "ID?",
+      "timestamp": [
+        6.0,
+        6.5600000000000005
+      ]
+    }
+  ],
+  "perceived_total_latency": -1.12,
+  "audio_agent_speech_start": 3.92,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

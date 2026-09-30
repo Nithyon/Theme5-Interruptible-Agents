@@ -1,0 +1,88 @@
+{
+  "pid": "e715446bbcbcf1239676ea21",
+  "example_id": "s31",
+  "category": "ecommerce",
+  "title": "devset s31: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:13:01.991946",
+  "inference_time_s": 10.7,
+  "room_name": "eval-44690fa3",
+  "stream_start_time": 1790687584.9534073,
+  "input_transcript": "Track order Bob 12. Actually, sorry, it's Bob 21.",
+  "input_asr_chunks": [
+    {
+      "text": "Track",
+      "timestamp": [
+        0.16,
+        0.56
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        0.56,
+        0.88
+      ]
+    },
+    {
+      "text": "Bob",
+      "timestamp": [
+        0.88,
+        1.2
+      ]
+    },
+    {
+      "text": "12.",
+      "timestamp": [
+        1.2,
+        1.6
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        1.92,
+        2.24
+      ]
+    },
+    {
+      "text": "sorry,",
+      "timestamp": [
+        2.32,
+        2.64
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        2.72,
+        2.96
+      ]
+    },
+    {
+      "text": "Bob",
+      "timestamp": [
+        2.96,
+        3.36
+      ]
+    },
+    {
+      "text": "21.",
+      "timestamp": [
+        3.36,
+        4.0
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.0,
+  "latency": {
+    "input_duration_s": 5.8,
+    "output_duration_s": 5.8,
+    "first_speech_s": 5.8
+  },
+  "user_done_unix": 1790687588.9534073,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

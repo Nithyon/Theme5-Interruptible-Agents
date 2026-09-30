@@ -1,0 +1,208 @@
+{
+  "pid": "ec40b686314d2d507fd8d7ff",
+  "example_id": "s19",
+  "category": "finance",
+  "title": "devset s19: finance / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:51:29.221923",
+  "inference_time_s": 32.19,
+  "room_name": "eval-32beef34",
+  "stream_start_time": 1790693492.2922313,
+  "input_transcript": "Can you tell me the benefits of the gold card?",
+  "input_asr_chunks": [
+    {
+      "text": "Can",
+      "timestamp": [
+        0.32,
+        0.64
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        0.96,
+        1.28
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        1.28,
+        1.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        2.56,
+        2.72
+      ]
+    },
+    {
+      "text": "benefits",
+      "timestamp": [
+        2.72,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        3.2800000000000002,
+        3.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        3.44,
+        3.52
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        3.52,
+        3.92
+      ]
+    },
+    {
+      "text": "card?",
+      "timestamp": [
+        3.92,
+        4.4
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.4,
+  "latency": {
+    "input_duration_s": 26.125,
+    "output_duration_s": 26.125,
+    "first_speech_s": 9.0
+  },
+  "user_done_unix": 1790693496.6922314,
+  "search_latency_breakdown": {
+    "room": "eval-32beef34",
+    "tool": "Search Tool",
+    "reasoning": 0.488,
+    "execution": 0.0,
+    "synthesis": 0.865,
+    "total": 1.353,
+    "agent_start_at": 1790693500.5044038
+  },
+  "absolute_total_latency": 3.812,
+  "transcript": "The gold card offers two percent cash back and no foreign transaction fees.",
+  "asr_chunks": [
+    {
+      "text": "The",
+      "timestamp": [
+        8.72,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "gold",
+      "timestamp": [
+        9.040000000000001,
+        9.52
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        9.52,
+        9.84
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        9.84,
+        10.24
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        10.24,
+        10.4
+      ]
+    },
+    {
+      "text": "percent",
+      "timestamp": [
+        10.56,
+        10.88
+      ]
+    },
+    {
+      "text": "cash",
+      "timestamp": [
+        10.88,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "back",
+      "timestamp": [
+        11.200000000000001,
+        11.36
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.52,
+        11.76
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        11.76,
+        12.0
+      ]
+    },
+    {
+      "text": "foreign",
+      "timestamp": [
+        12.0,
+        12.48
+      ]
+    },
+    {
+      "text": "transaction",
+      "timestamp": [
+        12.48,
+        13.200000000000001
+      ]
+    },
+    {
+      "text": "fees.",
+      "timestamp": [
+        13.200000000000001,
+        13.68
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.32,
+  "audio_agent_speech_start": 8.72,
+  "actual_tool_calls": [
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "gold"
+      },
+      "timestamp_start": 7.35,
+      "timestamp_end": 7.35
+    }
+  ],
+  "status": "completed"
+}

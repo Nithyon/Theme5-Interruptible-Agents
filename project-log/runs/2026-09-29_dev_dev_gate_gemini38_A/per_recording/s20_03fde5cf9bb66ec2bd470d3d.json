@@ -1,0 +1,109 @@
+{
+  "pid": "03fde5cf9bb66ec2bd470d3d",
+  "example_id": "s20",
+  "category": "finance",
+  "title": "devset s20: finance / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T12:58:53.442865",
+  "inference_time_s": 11.85,
+  "room_name": "eval-f3297e3c",
+  "stream_start_time": 1790686736.4559045,
+  "input_transcript": "Convert 200 US dollars to Euros, make that $250.",
+  "input_asr_chunks": [
+    {
+      "text": "Convert",
+      "timestamp": [
+        0.16,
+        0.72
+      ]
+    },
+    {
+      "text": "200",
+      "timestamp": [
+        0.72,
+        1.36
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        1.36,
+        1.76
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        1.76,
+        2.08
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        2.08,
+        2.24
+      ]
+    },
+    {
+      "text": "Euros,",
+      "timestamp": [
+        2.24,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        3.04,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        3.2800000000000002,
+        3.52
+      ]
+    },
+    {
+      "text": "$250.",
+      "timestamp": [
+        3.52,
+        4.5600000000000005
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.5600000000000005,
+  "latency": {
+    "input_duration_s": 6.8,
+    "output_duration_s": 6.8,
+    "first_speech_s": 6.8
+  },
+  "user_done_unix": 1790686741.0159044,
+  "search_latency_breakdown": {
+    "room": "eval-f3297e3c",
+    "tool": "Search Tool",
+    "reasoning": 0.964,
+    "execution": 0.0,
+    "synthesis": 0.821,
+    "total": 1.785,
+    "agent_start_at": 1790686744.818961
+  },
+  "absolute_total_latency": 3.803,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 250.0,
+        "from_currency": "USD",
+        "to_currency": "EUR"
+      },
+      "timestamp_start": 7.54,
+      "timestamp_end": 7.54
+    }
+  ],
+  "status": "completed"
+}

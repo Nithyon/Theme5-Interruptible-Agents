@@ -1,0 +1,129 @@
+{
+  "pid": "a048c8ab603eb4fc0267e369",
+  "example_id": "s34",
+  "category": "ecommerce",
+  "title": "devset s34: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:13:37.191154",
+  "inference_time_s": 11.29,
+  "room_name": "eval-01839a39",
+  "stream_start_time": 1790687620.2211354,
+  "input_transcript": "Add two of product P77 to my cart, actually make it five.",
+  "input_asr_chunks": [
+    {
+      "text": "Add",
+      "timestamp": [
+        0.16,
+        0.4
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        0.56,
+        0.64
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        0.8,
+        0.96
+      ]
+    },
+    {
+      "text": "product",
+      "timestamp": [
+        0.96,
+        1.2
+      ]
+    },
+    {
+      "text": "P77",
+      "timestamp": [
+        1.44,
+        2.32
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        2.32,
+        2.4
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        2.4,
+        2.56
+      ]
+    },
+    {
+      "text": "cart,",
+      "timestamp": [
+        2.56,
+        2.96
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        3.2800000000000002,
+        3.52
+      ]
+    },
+    {
+      "text": "make",
+      "timestamp": [
+        3.6,
+        3.84
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        3.84,
+        4.08
+      ]
+    },
+    {
+      "text": "five.",
+      "timestamp": [
+        4.08,
+        4.72
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.72,
+  "latency": {
+    "input_duration_s": 6.275,
+    "output_duration_s": 6.275,
+    "first_speech_s": 6.275
+  },
+  "user_done_unix": 1790687624.9411354,
+  "search_latency_breakdown": {
+    "room": "eval-01839a39",
+    "tool": "Search Tool",
+    "reasoning": 0.984,
+    "execution": 0.0,
+    "synthesis": 0.819,
+    "total": 1.803,
+    "agent_start_at": 1790687628.298655
+  },
+  "absolute_total_latency": 3.358,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "add_to_cart",
+      "args": {
+        "product_id": "p77",
+        "quantity": 5
+      },
+      "timestamp_start": 7.26,
+      "timestamp_end": 7.26
+    }
+  ],
+  "status": "completed"
+}

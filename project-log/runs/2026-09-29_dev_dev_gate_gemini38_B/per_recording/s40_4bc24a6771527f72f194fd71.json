@@ -1,0 +1,144 @@
+{
+  "pid": "4bc24a6771527f72f194fd71",
+  "example_id": "s40",
+  "category": "ecommerce",
+  "title": "devset s40: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:14:53.764753",
+  "inference_time_s": 14.52,
+  "room_name": "eval-710715f9",
+  "stream_start_time": 1790687696.8483865,
+  "input_transcript": "Um track order. Uh order ABC 50 no wait, it doesn't matter. Track order ABC 99 instead.",
+  "input_asr_chunks": [
+    {
+      "text": "Um",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        0.72,
+        1.04
+      ]
+    },
+    {
+      "text": "order.",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "Uh",
+      "timestamp": [
+        1.68,
+        2.08
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        2.24,
+        2.56
+      ]
+    },
+    {
+      "text": "ABC",
+      "timestamp": [
+        2.56,
+        3.04
+      ]
+    },
+    {
+      "text": "50",
+      "timestamp": [
+        3.12,
+        3.44
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        3.52,
+        3.6
+      ]
+    },
+    {
+      "text": "wait,",
+      "timestamp": [
+        3.68,
+        4.0
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        4.16,
+        4.32
+      ]
+    },
+    {
+      "text": "doesn't",
+      "timestamp": [
+        4.32,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "matter.",
+      "timestamp": [
+        4.5600000000000005,
+        4.8
+      ]
+    },
+    {
+      "text": "Track",
+      "timestamp": [
+        5.04,
+        5.36
+      ]
+    },
+    {
+      "text": "order",
+      "timestamp": [
+        5.36,
+        5.68
+      ]
+    },
+    {
+      "text": "ABC",
+      "timestamp": [
+        5.68,
+        6.16
+      ]
+    },
+    {
+      "text": "99",
+      "timestamp": [
+        6.24,
+        6.88
+      ]
+    },
+    {
+      "text": "instead.",
+      "timestamp": [
+        7.04,
+        7.68
+      ]
+    }
+  ],
+  "user_speech_end_rel": 7.68,
+  "latency": {
+    "input_duration_s": 9.275,
+    "output_duration_s": 9.275,
+    "first_speech_s": 9.275
+  },
+  "user_done_unix": 1790687704.5283866,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [],
+  "status": "completed"
+}

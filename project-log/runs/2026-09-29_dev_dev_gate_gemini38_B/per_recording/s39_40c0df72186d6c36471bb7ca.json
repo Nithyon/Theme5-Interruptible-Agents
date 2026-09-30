@@ -1,0 +1,133 @@
+{
+  "pid": "40c0df72186d6c36471bb7ca",
+  "example_id": "s39",
+  "category": "ecommerce",
+  "title": "devset s39: ecommerce / level 1",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:14:41.562981",
+  "inference_time_s": 11.95,
+  "room_name": "eval-0eaf6d4a",
+  "stream_start_time": 1790687684.6234899,
+  "input_transcript": "Search for Bluetooth speakers under $100.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        1.04
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.04,
+        1.36
+      ]
+    },
+    {
+      "text": "Bluetooth",
+      "timestamp": [
+        2.64,
+        3.36
+      ]
+    },
+    {
+      "text": "speakers",
+      "timestamp": [
+        3.36,
+        3.84
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        3.84,
+        3.92
+      ]
+    },
+    {
+      "text": "$100.",
+      "timestamp": [
+        4.08,
+        4.64
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.64,
+  "latency": {
+    "input_duration_s": 6.85,
+    "output_duration_s": 6.85,
+    "first_speech_s": 3.8
+  },
+  "user_done_unix": 1790687689.26349,
+  "transcript": "Please tell me what you'd like to search for.",
+  "asr_chunks": [
+    {
+      "text": "Please",
+      "timestamp": [
+        3.44,
+        4.0
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        4.0,
+        4.24
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        4.24,
+        4.4
+      ]
+    },
+    {
+      "text": "what",
+      "timestamp": [
+        4.4,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "you'd",
+      "timestamp": [
+        4.5600000000000005,
+        4.8
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        4.8,
+        4.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.96,
+        5.12
+      ]
+    },
+    {
+      "text": "search",
+      "timestamp": [
+        5.12,
+        5.68
+      ]
+    },
+    {
+      "text": "for.",
+      "timestamp": [
+        5.68,
+        5.92
+      ]
+    }
+  ],
+  "perceived_total_latency": -1.2,
+  "audio_agent_speech_start": 3.44,
+  "actual_tool_calls": [],
+  "status": "completed"
+}

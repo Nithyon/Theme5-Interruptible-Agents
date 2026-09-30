@@ -1,0 +1,224 @@
+{
+  "pid": "f7a2df3c7fea4b3b3eee671c",
+  "example_id": "p05",
+  "category": "housing",
+  "title": "devset p05: housing / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:23:05.040071",
+  "inference_time_s": 34.67,
+  "room_name": "eval-e52a86ea",
+  "stream_start_time": 1790688187.993052,
+  "input_transcript": "Look for apartments in Raleigh with a three bedrooms under $2,100.",
+  "input_asr_chunks": [
+    {
+      "text": "Look",
+      "timestamp": [
+        0.32,
+        0.48
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        0.48,
+        0.64
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.64,
+        1.04
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.04,
+        1.12
+      ]
+    },
+    {
+      "text": "Raleigh",
+      "timestamp": [
+        1.12,
+        1.52
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        1.92,
+        2.16
+      ]
+    },
+    {
+      "text": "three",
+      "timestamp": [
+        4.24,
+        4.4
+      ]
+    },
+    {
+      "text": "bedrooms",
+      "timestamp": [
+        4.5600000000000005,
+        5.2
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        5.2,
+        5.44
+      ]
+    },
+    {
+      "text": "$2,100.",
+      "timestamp": [
+        5.44,
+        6.32
+      ]
+    }
+  ],
+  "user_speech_end_rel": 2.16,
+  "latency": {
+    "input_duration_s": 28.525,
+    "output_duration_s": 28.525,
+    "first_speech_s": 4.2
+  },
+  "user_done_unix": 1790688190.153052,
+  "search_latency_breakdown": {
+    "room": "eval-e52a86ea",
+    "tool": "Search Tool",
+    "reasoning": 3.707,
+    "execution": 0.347,
+    "synthesis": 0.844,
+    "total": 4.898,
+    "agent_start_at": 1790688198.1094766
+  },
+  "absolute_total_latency": 7.956,
+  "transcript": "I'll wait. I found one three-bedroom apartment in Raleigh priced at $2,000 per month.",
+  "asr_chunks": [
+    {
+      "text": "I'll",
+      "timestamp": [
+        4.08,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "wait.",
+      "timestamp": [
+        4.5600000000000005,
+        5.2
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        10.24,
+        10.48
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        10.48,
+        10.96
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        10.96,
+        11.200000000000001
+      ]
+    },
+    {
+      "text": "three-bedroom",
+      "timestamp": [
+        11.200000000000001,
+        11.84
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        11.84,
+        12.24
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        12.24,
+        12.32
+      ]
+    },
+    {
+      "text": "Raleigh",
+      "timestamp": [
+        12.32,
+        12.64
+      ]
+    },
+    {
+      "text": "priced",
+      "timestamp": [
+        12.8,
+        13.120000000000001
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        13.120000000000001,
+        13.280000000000001
+      ]
+    },
+    {
+      "text": "$2,000",
+      "timestamp": [
+        13.280000000000001,
+        14.0
+      ]
+    },
+    {
+      "text": "per",
+      "timestamp": [
+        14.16,
+        14.4
+      ]
+    },
+    {
+      "text": "month.",
+      "timestamp": [
+        14.4,
+        15.040000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 1.92,
+  "audio_agent_speech_start": 4.08,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Raleigh",
+        "bedrooms": 3,
+        "max_price": 2100.0
+      },
+      "timestamp_start": 8.93,
+      "timestamp_end": 9.27
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,220 @@
+{
+  "pid": "dfb6a8939414b71ff6657f3e",
+  "example_id": "s06",
+  "category": "travel",
+  "title": "devset s06: travel / level 3",
+  "provider": "dev_gate_gemini38_B",
+  "evaluated_at": "2026-09-29T13:07:33.371240",
+  "inference_time_s": 16.11,
+  "room_name": "eval-f636b6d7",
+  "stream_start_time": 1790687256.385031,
+  "input_transcript": "Search flights to Berlin on May 5th, then book it for Mike. No, Michael Chen, and update my ID card number to ID 88213.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.16,
+        0.64
+      ]
+    },
+    {
+      "text": "flights",
+      "timestamp": [
+        0.64,
+        0.96
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        0.96,
+        1.04
+      ]
+    },
+    {
+      "text": "Berlin",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        1.44,
+        1.6
+      ]
+    },
+    {
+      "text": "May",
+      "timestamp": [
+        1.6,
+        1.76
+      ]
+    },
+    {
+      "text": "5th,",
+      "timestamp": [
+        1.76,
+        2.16
+      ]
+    },
+    {
+      "text": "then",
+      "timestamp": [
+        2.24,
+        2.48
+      ]
+    },
+    {
+      "text": "book",
+      "timestamp": [
+        2.48,
+        2.72
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        2.72,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        2.8000000000000003,
+        2.96
+      ]
+    },
+    {
+      "text": "Mike.",
+      "timestamp": [
+        2.96,
+        3.2800000000000002
+      ]
+    },
+    {
+      "text": "No,",
+      "timestamp": [
+        3.7600000000000002,
+        3.84
+      ]
+    },
+    {
+      "text": "Michael",
+      "timestamp": [
+        4.16,
+        4.5600000000000005
+      ]
+    },
+    {
+      "text": "Chen,",
+      "timestamp": [
+        4.5600000000000005,
+        4.96
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        5.12,
+        5.28
+      ]
+    },
+    {
+      "text": "update",
+      "timestamp": [
+        5.28,
+        5.68
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        5.68,
+        5.84
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        5.84,
+        6.24
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        6.24,
+        6.5600000000000005
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        6.5600000000000005,
+        6.8
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.8,
+        7.04
+      ]
+    },
+    {
+      "text": "ID",
+      "timestamp": [
+        7.04,
+        7.5200000000000005
+      ]
+    },
+    {
+      "text": "88213.",
+      "timestamp": [
+        7.5200000000000005,
+        8.72
+      ]
+    }
+  ],
+  "user_speech_end_rel": 8.72,
+  "latency": {
+    "input_duration_s": 10.85,
+    "output_duration_s": 10.85,
+    "first_speech_s": 10.85
+  },
+  "user_done_unix": 1790687265.105031,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "search_flights",
+      "args": {
+        "destination": "Berlin",
+        "date": "2026-05-05"
+      },
+      "timestamp_start": 11.81,
+      "timestamp_end": 12.48
+    },
+    {
+      "function": "book_flight",
+      "args": {
+        "passenger_name": "Michael Chen"
+      },
+      "timestamp_start": 12.48,
+      "timestamp_end": 12.48
+    },
+    {
+      "function": "update_identity_doc",
+      "args": {
+        "doc_type": "id_card",
+        "doc_number": "ID88213"
+      },
+      "timestamp_start": 12.48,
+      "timestamp_end": 12.48
+    }
+  ],
+  "status": "completed"
+}

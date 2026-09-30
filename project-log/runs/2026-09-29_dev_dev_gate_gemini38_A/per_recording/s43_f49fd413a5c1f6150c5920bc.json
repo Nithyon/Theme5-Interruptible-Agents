@@ -1,0 +1,116 @@
+{
+  "pid": "f49fd413a5c1f6150c5920bc",
+  "example_id": "s43",
+  "category": "housing",
+  "title": "devset s43: housing / level 1",
+  "provider": "dev_gate_gemini38_A",
+  "evaluated_at": "2026-09-29T13:03:55.302905",
+  "inference_time_s": 12.4,
+  "room_name": "eval-e23e7e84",
+  "stream_start_time": 1790687038.304706,
+  "input_transcript": "Calculate my commute from the office to home by driving.",
+  "input_asr_chunks": [
+    {
+      "text": "Calculate",
+      "timestamp": [
+        0.16,
+        0.88
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        0.88,
+        1.04
+      ]
+    },
+    {
+      "text": "commute",
+      "timestamp": [
+        1.04,
+        1.44
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        1.44,
+        1.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        1.6,
+        1.84
+      ]
+    },
+    {
+      "text": "office",
+      "timestamp": [
+        1.84,
+        2.48
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.0,
+        4.32
+      ]
+    },
+    {
+      "text": "home",
+      "timestamp": [
+        4.32,
+        4.72
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        4.72,
+        4.96
+      ]
+    },
+    {
+      "text": "driving.",
+      "timestamp": [
+        4.96,
+        5.76
+      ]
+    }
+  ],
+  "user_speech_end_rel": 5.76,
+  "latency": {
+    "input_duration_s": 7.35,
+    "output_duration_s": 7.35,
+    "first_speech_s": 7.35
+  },
+  "user_done_unix": 1790687044.064706,
+  "search_latency_breakdown": {
+    "room": "eval-e23e7e84",
+    "tool": "Search Tool",
+    "reasoning": 0.974,
+    "execution": 0.544,
+    "synthesis": 2.629,
+    "total": 4.147,
+    "agent_start_at": 1790687046.2149334
+  },
+  "absolute_total_latency": 2.15,
+  "transcript": "",
+  "asr_chunks": [],
+  "actual_tool_calls": [
+    {
+      "function": "calculate_commute",
+      "args": {
+        "origin_address": "the office",
+        "destination_address": "home",
+        "mode": "driving"
+      },
+      "timestamp_start": 4.74,
+      "timestamp_end": 5.28
+    }
+  ],
+  "status": "completed"
+}

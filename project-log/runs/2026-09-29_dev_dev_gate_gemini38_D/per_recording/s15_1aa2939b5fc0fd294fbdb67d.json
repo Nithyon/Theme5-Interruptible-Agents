@@ -1,0 +1,223 @@
+{
+  "pid": "1aa2939b5fc0fd294fbdb67d",
+  "example_id": "s15",
+  "category": "finance",
+  "title": "devset s15: finance / level 1",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:49:09.134863",
+  "inference_time_s": 32.03,
+  "room_name": "eval-c70b1d62",
+  "stream_start_time": 1790693352.4076767,
+  "input_transcript": "Please set up Autopay for my credit card from my checking account.",
+  "input_asr_chunks": [
+    {
+      "text": "Please",
+      "timestamp": [
+        0.24,
+        0.56
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        0.56,
+        0.72
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        0.72,
+        0.88
+      ]
+    },
+    {
+      "text": "Autopay",
+      "timestamp": [
+        0.88,
+        1.52
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        1.52,
+        1.68
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        1.68,
+        1.84
+      ]
+    },
+    {
+      "text": "credit",
+      "timestamp": [
+        1.84,
+        2.16
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        2.16,
+        2.48
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        2.64,
+        2.8000000000000003
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        2.8000000000000003,
+        2.96
+      ]
+    },
+    {
+      "text": "checking",
+      "timestamp": [
+        2.96,
+        3.6
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        3.6,
+        4.24
+      ]
+    }
+  ],
+  "user_speech_end_rel": 4.24,
+  "latency": {
+    "input_duration_s": 25.7,
+    "output_duration_s": 25.7,
+    "first_speech_s": 8.75
+  },
+  "user_done_unix": 1790693356.6476767,
+  "search_latency_breakdown": {
+    "room": "eval-c70b1d62",
+    "tool": "Search Tool",
+    "reasoning": 0.471,
+    "execution": 0.0,
+    "synthesis": 0.826,
+    "total": 1.297,
+    "agent_start_at": 1790693360.3353386
+  },
+  "absolute_total_latency": 3.688,
+  "transcript": "I've successfully set up autopay for your credit card using your check-in account.",
+  "asr_chunks": [
+    {
+      "text": "I've",
+      "timestamp": [
+        8.56,
+        9.040000000000001
+      ]
+    },
+    {
+      "text": "successfully",
+      "timestamp": [
+        9.040000000000001,
+        9.68
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        9.68,
+        9.92
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        9.92,
+        10.08
+      ]
+    },
+    {
+      "text": "autopay",
+      "timestamp": [
+        10.08,
+        10.72
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        10.72,
+        10.8
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        10.8,
+        10.96
+      ]
+    },
+    {
+      "text": "credit",
+      "timestamp": [
+        10.96,
+        11.28
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        11.28,
+        11.6
+      ]
+    },
+    {
+      "text": "using",
+      "timestamp": [
+        11.6,
+        11.84
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        11.84,
+        12.0
+      ]
+    },
+    {
+      "text": "check-in",
+      "timestamp": [
+        12.0,
+        12.4
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        12.56,
+        13.200000000000001
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.32,
+  "audio_agent_speech_start": 8.56,
+  "actual_tool_calls": [
+    {
+      "function": "modify_autopay",
+      "args": {
+        "bill_type": "credit_card",
+        "source_account": "checking"
+      },
+      "timestamp_start": 7.1,
+      "timestamp_end": 7.1
+    }
+  ],
+  "status": "completed"
+}

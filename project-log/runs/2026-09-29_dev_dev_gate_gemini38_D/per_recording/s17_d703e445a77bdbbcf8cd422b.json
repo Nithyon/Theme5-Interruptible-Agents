@@ -1,0 +1,430 @@
+{
+  "pid": "d703e445a77bdbbcf8cd422b",
+  "example_id": "s17",
+  "category": "finance",
+  "title": "devset s17: finance / level 3",
+  "provider": "dev_gate_gemini38_D",
+  "evaluated_at": "2026-09-29T14:50:14.723468",
+  "inference_time_s": 37.09,
+  "room_name": "eval-9f24ebdf",
+  "stream_start_time": 1790693417.7515397,
+  "input_transcript": "Convert 250 US dollars to Euros. Tell me the Platinum Card's benefits. And set up autopay for utilities from my savings account.",
+  "input_asr_chunks": [
+    {
+      "text": "Convert",
+      "timestamp": [
+        0.24,
+        0.72
+      ]
+    },
+    {
+      "text": "250",
+      "timestamp": [
+        0.72,
+        1.68
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        1.68,
+        2.08
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        2.08,
+        2.4
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        2.4,
+        2.56
+      ]
+    },
+    {
+      "text": "Euros.",
+      "timestamp": [
+        2.56,
+        3.12
+      ]
+    },
+    {
+      "text": "Tell",
+      "timestamp": [
+        3.44,
+        3.6
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        3.6,
+        3.7600000000000002
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        3.7600000000000002,
+        3.92
+      ]
+    },
+    {
+      "text": "Platinum",
+      "timestamp": [
+        3.92,
+        4.4
+      ]
+    },
+    {
+      "text": "Card's",
+      "timestamp": [
+        4.4,
+        4.8
+      ]
+    },
+    {
+      "text": "benefits.",
+      "timestamp": [
+        4.8,
+        5.36
+      ]
+    },
+    {
+      "text": "And",
+      "timestamp": [
+        5.6000000000000005,
+        5.84
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        5.84,
+        6.0
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        6.0,
+        6.16
+      ]
+    },
+    {
+      "text": "autopay",
+      "timestamp": [
+        6.16,
+        6.88
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.88,
+        7.04
+      ]
+    },
+    {
+      "text": "utilities",
+      "timestamp": [
+        7.04,
+        7.6000000000000005
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        7.6000000000000005,
+        7.76
+      ]
+    },
+    {
+      "text": "my",
+      "timestamp": [
+        7.76,
+        7.92
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        7.92,
+        8.72
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        8.72,
+        9.36
+      ]
+    }
+  ],
+  "user_speech_end_rel": 9.36,
+  "latency": {
+    "input_duration_s": 30.8,
+    "output_duration_s": 30.8,
+    "first_speech_s": 14.1
+  },
+  "user_done_unix": 1790693427.1115396,
+  "search_latency_breakdown": {
+    "room": "eval-9f24ebdf",
+    "tool": "Search Tool",
+    "reasoning": 0.471,
+    "execution": 0.0,
+    "synthesis": 0.95,
+    "total": 1.421,
+    "agent_start_at": 1790693431.1168725
+  },
+  "absolute_total_latency": 4.005,
+  "transcript": "250 US dollars is 225 euros. The platinum card offers 2% cash back and no foreign transaction fees. And I've set up autopay for your utilities from your savings account.",
+  "asr_chunks": [
+    {
+      "text": "250",
+      "timestamp": [
+        14.0,
+        15.040000000000001
+      ]
+    },
+    {
+      "text": "US",
+      "timestamp": [
+        15.040000000000001,
+        15.44
+      ]
+    },
+    {
+      "text": "dollars",
+      "timestamp": [
+        15.44,
+        15.84
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        15.84,
+        16.0
+      ]
+    },
+    {
+      "text": "225",
+      "timestamp": [
+        16.0,
+        17.12
+      ]
+    },
+    {
+      "text": "euros.",
+      "timestamp": [
+        17.12,
+        17.6
+      ]
+    },
+    {
+      "text": "The",
+      "timestamp": [
+        17.84,
+        18.080000000000002
+      ]
+    },
+    {
+      "text": "platinum",
+      "timestamp": [
+        18.080000000000002,
+        18.64
+      ]
+    },
+    {
+      "text": "card",
+      "timestamp": [
+        18.64,
+        18.88
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        18.88,
+        19.2
+      ]
+    },
+    {
+      "text": "2%",
+      "timestamp": [
+        19.2,
+        19.52
+      ]
+    },
+    {
+      "text": "cash",
+      "timestamp": [
+        19.84,
+        20.16
+      ]
+    },
+    {
+      "text": "back",
+      "timestamp": [
+        20.16,
+        20.32
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        20.48,
+        20.72
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        20.72,
+        21.04
+      ]
+    },
+    {
+      "text": "foreign",
+      "timestamp": [
+        21.04,
+        21.68
+      ]
+    },
+    {
+      "text": "transaction",
+      "timestamp": [
+        21.68,
+        22.32
+      ]
+    },
+    {
+      "text": "fees.",
+      "timestamp": [
+        22.32,
+        22.64
+      ]
+    },
+    {
+      "text": "And",
+      "timestamp": [
+        22.8,
+        22.96
+      ]
+    },
+    {
+      "text": "I've",
+      "timestamp": [
+        22.96,
+        23.12
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        23.12,
+        23.28
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        23.28,
+        23.44
+      ]
+    },
+    {
+      "text": "autopay",
+      "timestamp": [
+        23.44,
+        24.080000000000002
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        24.080000000000002,
+        24.16
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        24.16,
+        24.32
+      ]
+    },
+    {
+      "text": "utilities",
+      "timestamp": [
+        24.32,
+        24.88
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        24.88,
+        25.04
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        25.04,
+        25.2
+      ]
+    },
+    {
+      "text": "savings",
+      "timestamp": [
+        25.2,
+        25.84
+      ]
+    },
+    {
+      "text": "account.",
+      "timestamp": [
+        25.84,
+        26.400000000000002
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.64,
+  "audio_agent_speech_start": 14.0,
+  "actual_tool_calls": [
+    {
+      "function": "get_exchange_rate",
+      "args": {
+        "amount": 250.0,
+        "from_currency": "USD",
+        "to_currency": "EUR"
+      },
+      "timestamp_start": 12.41,
+      "timestamp_end": 12.41
+    },
+    {
+      "function": "get_card_benefits",
+      "args": {
+        "card_type": "platinum"
+      },
+      "timestamp_start": 12.41,
+      "timestamp_end": 12.41
+    },
+    {
+      "function": "modify_autopay",
+      "args": {
+        "bill_type": "utilities",
+        "source_account": "savings"
+      },
+      "timestamp_start": 12.41,
+      "timestamp_end": 12.41
+    }
+  ],
+  "status": "completed"
+}

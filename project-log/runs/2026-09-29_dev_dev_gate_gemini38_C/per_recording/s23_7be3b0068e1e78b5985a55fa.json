@@ -1,0 +1,245 @@
+{
+  "pid": "7be3b0068e1e78b5985a55fa",
+  "example_id": "s23",
+  "category": "housing",
+  "title": "devset s23: housing / level 1",
+  "provider": "dev_gate_gemini38_C",
+  "evaluated_at": "2026-09-29T13:40:09.475781",
+  "inference_time_s": 34.64,
+  "room_name": "eval-be9174be",
+  "stream_start_time": 1790689212.4983928,
+  "input_transcript": "Search apartments in Seattle with one bedroom under $1,500. Actually, let's say $1,800.",
+  "input_asr_chunks": [
+    {
+      "text": "Search",
+      "timestamp": [
+        0.24,
+        0.64
+      ]
+    },
+    {
+      "text": "apartments",
+      "timestamp": [
+        0.64,
+        1.2
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        1.2,
+        1.36
+      ]
+    },
+    {
+      "text": "Seattle",
+      "timestamp": [
+        1.36,
+        1.84
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        1.84,
+        2.0
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        2.0,
+        2.16
+      ]
+    },
+    {
+      "text": "bedroom",
+      "timestamp": [
+        2.24,
+        2.64
+      ]
+    },
+    {
+      "text": "under",
+      "timestamp": [
+        2.64,
+        2.88
+      ]
+    },
+    {
+      "text": "$1,500.",
+      "timestamp": [
+        2.88,
+        3.84
+      ]
+    },
+    {
+      "text": "Actually,",
+      "timestamp": [
+        4.48,
+        4.8
+      ]
+    },
+    {
+      "text": "let's",
+      "timestamp": [
+        4.96,
+        5.28
+      ]
+    },
+    {
+      "text": "say",
+      "timestamp": [
+        5.28,
+        5.5200000000000005
+      ]
+    },
+    {
+      "text": "$1,800.",
+      "timestamp": [
+        5.5200000000000005,
+        6.72
+      ]
+    }
+  ],
+  "user_speech_end_rel": 6.72,
+  "latency": {
+    "input_duration_s": 28.45,
+    "output_duration_s": 28.45,
+    "first_speech_s": 11.45
+  },
+  "user_done_unix": 1790689219.2183928,
+  "search_latency_breakdown": {
+    "room": "eval-be9174be",
+    "tool": "Search Tool",
+    "reasoning": 0.927,
+    "execution": 0.338,
+    "synthesis": 0.952,
+    "total": 2.217,
+    "agent_start_at": 1790689223.1385446
+  },
+  "absolute_total_latency": 3.92,
+  "transcript": "I found one apartment in Seattle that fits your criteria, priced at $1,700 per month.",
+  "asr_chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        11.28,
+        11.6
+      ]
+    },
+    {
+      "text": "found",
+      "timestamp": [
+        11.6,
+        12.0
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        12.0,
+        12.24
+      ]
+    },
+    {
+      "text": "apartment",
+      "timestamp": [
+        12.24,
+        12.72
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        12.72,
+        12.88
+      ]
+    },
+    {
+      "text": "Seattle",
+      "timestamp": [
+        12.88,
+        13.36
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        13.36,
+        13.52
+      ]
+    },
+    {
+      "text": "fits",
+      "timestamp": [
+        13.52,
+        13.76
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        13.76,
+        13.92
+      ]
+    },
+    {
+      "text": "criteria,",
+      "timestamp": [
+        13.92,
+        14.48
+      ]
+    },
+    {
+      "text": "priced",
+      "timestamp": [
+        14.64,
+        15.040000000000001
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        15.040000000000001,
+        15.280000000000001
+      ]
+    },
+    {
+      "text": "$1,700",
+      "timestamp": [
+        15.280000000000001,
+        16.240000000000002
+      ]
+    },
+    {
+      "text": "per",
+      "timestamp": [
+        16.48,
+        16.72
+      ]
+    },
+    {
+      "text": "month.",
+      "timestamp": [
+        16.72,
+        17.28
+      ]
+    }
+  ],
+  "perceived_total_latency": 4.56,
+  "audio_agent_speech_start": 11.28,
+  "actual_tool_calls": [
+    {
+      "function": "search_apartments",
+      "args": {
+        "city": "Seattle",
+        "bedrooms": 1,
+        "max_price": 1800.0
+      },
+      "timestamp_start": 9.35,
+      "timestamp_end": 9.69
+    }
+  ],
+  "status": "completed"
+}
