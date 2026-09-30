@@ -49,3 +49,29 @@ Steps 1–3 (about 1 h 45 min) give a working "plugin" demo without any account.
 - A second network hop makes slow tools slower; the progress line and the must-speak watchdog matter more.
 - OAuth tokens for real plugins must stay out of the repo and logs.
 - More tools in the prompt can lower tool-selection accuracy in the voice model (the FDB-v3 agents have 12 tools); load only the plugins a scenario needs.
+
+## Demo plan (not yet run)
+Files written, never executed: `extension/mcp_home_server.py` (stdio MCP mock: set_ac_temperature, start_washer, cancel_washer) and `extension/mcp_bridge.py` (wraps `list_tools()` output in `ToolRunner`, same slots as the home pack). Path shown: voice model -> Commit Harness / recovery layer -> plugin.
+
+### (a) Three beats, about 40 seconds
+| Beat | Say | Viewer sees | Log revealed after |
+|---|---|---|---|
+| 1 (10 s) | "Set the bedroom AC to 24, no, 22." | Plugin panel shows one `set_ac_temperature` call with 22. Agent: "Bedroom AC set to 22." | `proposed` 24 -> `superseded` -> `proposed` 22 -> `success`; 24 never reached the plugin |
+| 2 (15 s) | "Start the washer on cotton." then "make it eco." | Panel: `start_washer cotton` (WASH-0001), then `cancel_washer WASH-0001`, then `start_washer eco` (WASH-0002). Agent says what it undid. | `rollback` event with the compensating call, then the new job |
+| 3 (15 s) | Kill the plugin process by hand, then "set the bedroom AC to 20." | Agent gives a progress line, retries, then a handoff line with a reference | two `failed` events, then `handoff HANDOFF-0001` |
+
+The event log is shown after each beat, as in VIDEO_SCRIPT.md. Beat 3 needs the failure count to reach the handoff threshold (default 3 failed run() calls per slot, each with retries); expect to repeat the request or lower `handoff_after_failures` for the demo. Not tested.
+
+### (b) Setup, only AFTER the benchmark ends
+1. Separate env: `python -m venv .venv-mcp`, activate it, `pip install mcp livekit-agents==1.8.3` (plus the plugins the agent already uses). Do not touch the benchmark env.
+2. First check: `python -c "import mcp; print(mcp.__file__)"`, then `python extension/mcp_home_server.py` should sit waiting on stdin (Ctrl+C to stop).
+3. In a Python shell, start `MCPServerStdio(command="python", args=["extension/mcp_home_server.py"])`, `await server.initialize()`, and print `type(t)` and `t.info` for each of `await server.list_tools()`. This settles the unverified TODOs in `mcp_bridge.py`; fix the bridge to match.
+4. Add a flag in `ext_agent.py` to use `build_wrapped_tools(...)` instead of the home pack (not written yet). Run the three beats once off camera.
+
+### (c) Fallback if there is no time
+Show the plan slide and say: "designed, not built." Do not show the sketch files as working, and do not describe the demo as run.
+
+### (d) What this proves / does not prove
+- Proves (if the beats run): correction, undo and failure handling apply unchanged to a tool the agent did not define, across a process boundary.
+- Does not prove: behaviour with a real third-party plugin, real OAuth, or real network latency; the plugin is our own mock.
+- Does not prove that model tool-selection stays accurate with many plugin tools loaded.
