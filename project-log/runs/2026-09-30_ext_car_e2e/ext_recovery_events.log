@@ -1,0 +1,46 @@
+{"seq": 1, "kind": "proposed", "call_id": "c1", "tool": "reroute_navigation", "detail": "{\"destination\": \"the airport\"}", "ts": 11437.951}
+{"seq": 2, "kind": "started", "call_id": "c1", "tool": "reroute_navigation", "detail": "attempt 1", "ts": 11437.952}
+{"seq": 3, "kind": "succeeded", "call_id": "c1", "tool": "reroute_navigation", "detail": "attempt 1", "ts": 11438.003}
+{"seq": 4, "kind": "proposed", "call_id": "c2", "tool": "check_traffic", "detail": "{\"route_id\": \"current\"}", "ts": 11450.861}
+{"seq": 5, "kind": "started", "call_id": "c2", "tool": "check_traffic", "detail": "attempt 1", "ts": 11450.862}
+{"seq": 6, "kind": "succeeded", "call_id": "c2", "tool": "check_traffic", "detail": "attempt 1", "ts": 11457.653}
+{"seq": 7, "kind": "proposed", "call_id": "c3", "tool": "find_charging_station", "detail": "{\"connector_type\": \"ccs\", \"near\": \"downtown\"}", "ts": 11473.168}
+{"seq": 8, "kind": "started", "call_id": "c3", "tool": "find_charging_station", "detail": "attempt 1", "ts": 11473.169}
+{"seq": 9, "kind": "failed", "call_id": "c3", "tool": "find_charging_station", "detail": "attempt 1: charging-network lookup timed out for downtown", "ts": 11473.22}
+{"seq": 10, "kind": "retry", "call_id": "c3", "tool": "find_charging_station", "detail": "backing off 0.50s", "ts": 11473.22}
+{"seq": 11, "kind": "started", "call_id": "c3", "tool": "find_charging_station", "detail": "attempt 2", "ts": 11473.721}
+{"seq": 12, "kind": "failed", "call_id": "c3", "tool": "find_charging_station", "detail": "attempt 2: charging-network lookup timed out for downtown", "ts": 11473.772}
+{"seq": 13, "kind": "retry", "call_id": "c3", "tool": "find_charging_station", "detail": "backing off 1.00s", "ts": 11473.772}
+{"seq": 14, "kind": "started", "call_id": "c3", "tool": "find_charging_station", "detail": "attempt 3", "ts": 11474.773}
+{"seq": 15, "kind": "succeeded", "call_id": "c3", "tool": "find_charging_station", "detail": "attempt 3", "ts": 11474.824}
+{"seq": 16, "kind": "proposed", "call_id": "c4", "tool": "book_charging_slot", "detail": "{\"station_id\": \"chg-815\", \"time_slot\": \"18:00\"}", "ts": 11491.867}
+{"seq": 17, "kind": "started", "call_id": "c4", "tool": "book_charging_slot", "detail": "attempt 1", "ts": 11491.867}
+{"seq": 18, "kind": "succeeded", "call_id": "c4", "tool": "book_charging_slot", "detail": "attempt 1", "ts": 11491.919}
+{"seq": 19, "kind": "proposed", "call_id": "c5", "tool": "book_charging_slot", "detail": "{\"station_id\": \"chg-815\", \"time_slot\": \"18:00\"}", "ts": 11506.726}
+{"seq": 20, "kind": "duplicate", "call_id": "c5", "tool": "book_charging_slot", "detail": "returning cached result, not re-executed", "ts": 11506.726}
+{"seq": 21, "kind": "proposed", "call_id": "c6", "tool": "cancel_charging_booking", "detail": "{\"booking_ref\": \"book-0001\"}", "ts": 11519.934}
+{"seq": 22, "kind": "started", "call_id": "c6", "tool": "cancel_charging_booking", "detail": "attempt 1", "ts": 11519.934}
+{"seq": 23, "kind": "succeeded", "call_id": "c6", "tool": "cancel_charging_booking", "detail": "attempt 1", "ts": 11519.986}
+{"seq": 24, "kind": "proposed", "call_id": "c7", "tool": "book_charging_slot", "detail": "{\"station_id\": \"chg-815\", \"time_slot\": \"19:00\"}", "ts": 11519.986}
+{"seq": 25, "kind": "started", "call_id": "c7", "tool": "book_charging_slot", "detail": "attempt 1", "ts": 11519.986}
+{"seq": 26, "kind": "succeeded", "call_id": "c7", "tool": "book_charging_slot", "detail": "attempt 1", "ts": 11520.036}
+{"seq": 27, "kind": "rollback", "call_id": "c8", "tool": "book_charging_slot", "detail": "compensated book_charging_slot (key=book_charging_slot|{\"station_id\": \"chg-815\", \"time_slot\": \"18:00\"}) via cancel_charging_booking, then executed book_charging_slot", "ts": 11520.036}
+{"seq": 28, "kind": "proposed", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "{\"issue\": \"flat tire\"}", "ts": 11538.183}
+{"seq": 29, "kind": "started", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "attempt 1", "ts": 11538.183}
+{"seq": 30, "kind": "failed", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "attempt 1: dispatch line unreachable for: flat tire", "ts": 11538.235}
+{"seq": 31, "kind": "retry", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "backing off 0.50s", "ts": 11538.235}
+{"seq": 32, "kind": "started", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "attempt 2", "ts": 11538.736}
+{"seq": 33, "kind": "failed", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "attempt 2: dispatch line unreachable for: flat tire", "ts": 11538.787}
+{"seq": 34, "kind": "retry", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "backing off 1.00s", "ts": 11538.787}
+{"seq": 35, "kind": "started", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "attempt 3", "ts": 11539.788}
+{"seq": 36, "kind": "failed", "call_id": "c9", "tool": "call_roadside_assistance", "detail": "attempt 3: dispatch line unreachable for: flat tire", "ts": 11539.839}
+{"seq": 37, "kind": "proposed", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "{\"issue\": \"flat tire\"}", "ts": 11561.184}
+{"seq": 38, "kind": "started", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "attempt 1", "ts": 11561.185}
+{"seq": 39, "kind": "failed", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "attempt 1: dispatch line unreachable for: flat tire", "ts": 11561.236}
+{"seq": 40, "kind": "retry", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "backing off 0.50s", "ts": 11561.236}
+{"seq": 41, "kind": "started", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "attempt 2", "ts": 11561.737}
+{"seq": 42, "kind": "failed", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "attempt 2: dispatch line unreachable for: flat tire", "ts": 11561.788}
+{"seq": 43, "kind": "retry", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "backing off 1.00s", "ts": 11561.788}
+{"seq": 44, "kind": "started", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "attempt 3", "ts": 11562.789}
+{"seq": 45, "kind": "failed", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "attempt 3: dispatch line unreachable for: flat tire", "ts": 11562.84}
+{"seq": 46, "kind": "handoff", "call_id": "c10", "tool": "call_roadside_assistance", "detail": "ref=HANDOFF-0001 after 2 consecutive failures", "ts": 11562.84}

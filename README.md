@@ -39,7 +39,7 @@ flowchart LR
 | Reasoner (TypeSafe Jev) | benchmark agent | used when its key is set; Reflex decides alone otherwise |
 | Listener (Smart Turn) | benchmark agent, behind `GATE_SMART_TURN=1` | runs in a live room (smoke test); effect on the score not yet known |
 | Instant acknowledgement and must-speak watchdog (`fdb_agent/responsive.py`) | benchmark agent, off by default | offline tests only, never tried live |
-| Recovery layer with the in-car and home tool packs | extension agent | offline tests; the agent starts, no spoken conversation held yet |
+| Recovery layer with the in-car and home tool packs | extension agent | offline tests; run end to end on recorded request clips (in-car and home), see the Extension section |
 | Plugin bridge (`extension/mcp_bridge.py`) | nothing yet | tested offline against a mock plugin server through the recovery layer |
 | Local Gemma fallback (`extension/local_fallback.py`) | nothing yet | measured, not usable yet |
 
@@ -214,7 +214,7 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 
 **Second scenario: Bixby-style home assistant.** The same `ext_agent.py` and the same recovery layer also run a smart-home / device-assistant pack with mock SmartThings-like tools (AC, lights, washer with rollback, energy check, find phone, service-centre handoff). Run: `EXT_PACK=home LK_PROVIDER=ext_gemini38 EXT_SEED=0 python extension/ext_agent.py console` (`EXT_PACK=car` is the default). This is **not** an integration with Bixby or SmartThings and no real device API is called; it shows the recovery layer is scenario-independent, since swapping the tool pack needed no change to `recovery.py`. Details and the six-beat demo are in `extension/README.md`.
 
-**Status:** the offline core (`recovery.py`, `mock_tools.py`, `test_recovery.py`) passes 35/35 offline tests for the in-car pack (28 for the home pack, below). The LiveKit agent `extension/ext_agent.py` is written but had **not been run live** as of the last entry in `project-log/WORKLOG.md`; the demo video's extension segment depends on that live run (see `project-log/VIDEO_SCRIPT.md`). The mock tools are deterministic stand-ins, not real vehicle or booking services.
+**Status:** the offline core (`recovery.py`, `mock_tools.py`, `test_recovery.py`) passes 35/35 offline tests for the in-car pack (28 for the home pack, below). Run end to end on audio on 2026-09-30: a recorded request clip (our own lines, synthetic voice) was streamed through LiveKit to the extension agent the way the benchmark streams its recordings, and the agent's spoken replies and the recovery log were saved. **In-car EV assistant (the headline scenario), `project-log/runs/2026-09-30_ext_car_e2e/`:** a corrected reroute (one call), a traffic check, a charger lookup that failed twice and succeeded on the third try, a booking, a repeated booking that was not re-executed, a change of time that cancelled the first booking before making the new one, and two failed roadside requests ending in a hand-off with a reference. The home pack was run the same way (`runs/2026-09-30_ext_home_e2e*/`). Each folder has `conversation.wav` (the whole exchange), the recovery log and the agent log. Limits: one run per scenario, no live human speaker, and the spoken progress notice for slow tools is switched off because the model read its instruction aloud (see `WORKLOG.md`). The mock tools are deterministic stand-ins, not real vehicle or booking services.
 
 ## Scalability and what comes next
 
@@ -240,7 +240,7 @@ The organizer briefing (`project-log/meetings/2026-09-29_organizer_briefing_note
 - **Identifier canonicalization is an assumption** (single-character separators are speech artefacts).
 - **Cloud-dependent.** The voice model is a hosted realtime model (Gemini 3.8 Live); no fully local fallback in the current build.
 - **Tuned only on our own synthetic dev set** (`devset/scenarios.jsonl`, plus 12 pause scenarios from a teammate; 62 items in total, Kokoro TTS audio) — never on FDB-v3's own 100 recordings, per the organizers' disqualification rule. Timing constants are our best guess refined on synthetic data.
-- **`reproduce.sh` has not been run end to end on a clean machine** (`project-log/OBJECTIVES.md`, B1); the extension has not been run live.
+- **`reproduce.sh` has not been run end to end on a clean machine** (`project-log/OBJECTIVES.md`, B1); the extension has been run end to end on recorded clips only, not with a live speaker.
 - **`book_flight` argument scope.** The stock tool only takes `passenger_name`, no `flight_id` — an open question for how the judge treats any expected `flight_id` reference (`project-log/STATUS.md`).
 
 ## Declared models / APIs

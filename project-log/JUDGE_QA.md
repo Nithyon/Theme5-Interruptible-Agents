@@ -51,7 +51,7 @@ Format: each entry is a short decision record (Context, Decision, Consequence: t
 **Answer:** no. We wrote 62 practice scenarios of our own and tuned on those. We read only pass/fail and failure kinds from benchmark runs, never the expected answers.
 
 ## 9. Is the extension a Bixby or SmartThings integration?
-**Answer:** no. It is a recovery layer shown on two mock scenarios: in-car (35 offline tests) and a Bixby-style home assistant (28 offline tests). The device tools are mocks.
+**Answer:** no. It is a recovery layer shown on two mock scenarios: in-car (35 offline tests) and a Bixby-style home assistant (28 offline tests). The device tools are mocks. Both were run end to end on recorded request clips through LiveKit on 30 September; the in-car EV assistant is the headline scenario (`runs/2026-09-30_ext_car_e2e/`).
 
 ## 10. Can we reproduce it?
 **Answer:** one command, `./reproduce.sh`, with pinned package versions and a pinned benchmark commit. It has been run on our development machine only. A clean-folder test found and fixed one install error; the fix has not been re-tested yet.

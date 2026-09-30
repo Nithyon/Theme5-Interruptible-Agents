@@ -1,0 +1,16 @@
+{
+  "id": "car01",
+  "title": "extension end-to-end: in-car EV assistant, 8 spoken lines",
+  "domain": "car",
+  "expected_tool_calls": [],
+  "lines": [
+    "Reroute to the mall, no, sorry, the airport.",
+    "Check the traffic on my route.",
+    "Find me a charging station near downtown, CCS connector.",
+    "Book that station for 6 pm.",
+    "Book it again.",
+    "Actually, make it 7 pm instead.",
+    "Call roadside assistance, I have a flat tire.",
+    "Please try roadside assistance again."
+  ]
+}
