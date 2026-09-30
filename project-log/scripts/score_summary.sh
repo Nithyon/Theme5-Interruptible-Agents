@@ -3,8 +3,8 @@
 # answers). Usage: score_summary.sh <provider> [outdir]
 PROVIDER=${1:-gemini3_1}
 OUT=${2:-/tmp}
-source ~/theme5/fdb-env/bin/activate
-cd ~/theme5/Full-Duplex-Bench/v3
+source "${ENV_DIR:-$HOME/theme5/fdb-env}/bin/activate"
+cd "${FDB_V3_DIR:-$HOME/theme5/Full-Duplex-Bench/v3}"
 EXTRA=""; grep -q '^OPENAI_API_KEY=.\+' .env.local 2>/dev/null && EXTRA="--use-llm"
 set -a; source .env.local; set +a
 python evaluate_pass_rate.py --benchmark benchmark_data_v2.json --results-dir fdb_v3_data_released \

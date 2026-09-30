@@ -5,6 +5,11 @@ GOOGLE_GENAI_USE_VERTEXAI=true (bills the Cloud project in GOOGLE_CLOUD_PROJECT)
 """
 import os
 
+try:        # register the plugin at import time (main thread); console mode runs the job in a thread
+    from livekit.plugins import google as _google_plugin  # noqa: F401
+except Exception:  # pragma: no cover - the agent fails later with a clear message
+    _google_plugin = None
+
 
 def gemini_live(model: str):
     from livekit.plugins import google

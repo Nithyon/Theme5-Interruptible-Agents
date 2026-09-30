@@ -17,6 +17,8 @@
 #   Defaults to our submitted config: fdb_agent/gate_agent.py, provider gate_gemini38_final,
 #   with GATE_COMBINE=either (rules + Jev as one decider) and the rest of the final gate
 #   settings exported below — this matches project-log/scripts/full_run_final.sh exactly.
+#   SETUP_ONLY=1 ./reproduce.sh  does steps 1-6 only (checks the machine, starts no run).
+#   FDB_DIR / ENV_DIR can be set to install somewhere other than ~/theme5.
 #   For the stock baseline instead: ./reproduce.sh fdb_agent/baseline_agent.py gemini3_8
 #
 # Requires beforehand (typed by you, never by this script), in FDB_V3_DIR/.env.local:
@@ -39,6 +41,7 @@ FDB_COMMIT="${FDB_COMMIT:-3e799c45a045256f47d5f1c9cda90157e2d2ec9e}"  # FDB chec
 FDB_DIR="${FDB_DIR:-$HOME/theme5/Full-Duplex-Bench}"
 FDB_V3_DIR="$FDB_DIR/v3"
 ENV_DIR="${ENV_DIR:-$HOME/theme5/fdb-env}"
+export FDB_V3_DIR ENV_DIR          # read by project-log/scripts/score_summary.sh
 ENV_FREEZE="$REPO_ROOT/project-log/runs/env-freeze.txt"
 DATA_GDRIVE_ID="1SO_4MTazWQ_jvCx0dtmpQ-t40bdd07yz"   # from v3/README.md, per GEMINI_TASKS.md G1
 
@@ -67,6 +70,10 @@ die() { echo "[reproduce] ERROR: $*" >&2; exit 1; }
 
 # --- 1. system deps: detect apt vs dnf -----------------------------------------------
 install_system_deps() {
+  if command -v ffmpeg >/dev/null 2>&1 && command -v git >/dev/null 2>&1 && command -v curl >/dev/null 2>&1; then
+    log "system deps already present (ffmpeg, git, curl); skipping install"
+    return
+  fi
   if command -v apt-get >/dev/null 2>&1; then
     log "installing system deps via apt (Ubuntu)"
     sudo apt-get update -y
@@ -121,7 +128,8 @@ build_env() {
   fi
   # shellcheck disable=SC1091
   source "$ENV_DIR/bin/activate"
-  uv pip install -r "$ENV_FREEZE"
+  # torch/torchaudio are pinned to CUDA 12.8 builds, which live on PyTorch's own index
+  uv pip install -r "$ENV_FREEZE" --extra-index-url https://download.pytorch.org/whl/cu128     --index-strategy unsafe-best-match
   uv pip install -r "$FDB_V3_DIR/requirements.txt" 2>/dev/null || \
     log "no v3/requirements.txt found or already covered by env-freeze.txt"
 }
@@ -135,9 +143,10 @@ fetch_data() {
   fi
   log "downloading FDB-v3 data (gdrive id $DATA_GDRIVE_ID)"
   uv pip install gdown
-  mkdir -p "$HOME/theme5/downloads"
-  gdown "$DATA_GDRIVE_ID" -O "$HOME/theme5/downloads/fdb_v3_data_released.zip"
-  python3 - "$FDB_V3_DIR" "$HOME/theme5/downloads/fdb_v3_data_released.zip" <<'PY'
+  local dl; dl="$(dirname "$FDB_DIR")/downloads"
+  mkdir -p "$dl"
+  gdown "$DATA_GDRIVE_ID" -O "$dl/fdb_v3_data_released.zip"
+  python3 - "$FDB_V3_DIR" "$dl/fdb_v3_data_released.zip" <<'PY'
 import sys, zipfile
 dest, zip_path = sys.argv[1], sys.argv[2]
 z = zipfile.ZipFile(zip_path)
@@ -200,7 +209,7 @@ check_env_vars() {
 run_and_score() {
   local out="$REPO_ROOT/project-log/runs/$(date +%F)_repro_${PROVIDER}"
   mkdir -p "$out"
-  rm -f /tmp/agent_tool_calls.log /tmp/agent_heartbeat.log
+  rm -f /tmp/agent_tool_calls.log /tmp/agent_heartbeat.log /tmp/gate_stats.log /tmp/gate_events.log
 
   cd "$FDB_V3_DIR"
   echo "start $(date)" > "$out/run.txt"
@@ -212,14 +221,14 @@ run_and_score() {
   sleep 20
 
   log "running the 100-recording benchmark"
-  python run_tool_benchmark_all_released.py --provider "$PROVIDER" --force > "$out/inference.log" 2>&1
-  local rc=$?
+  local rc=0
+  python run_tool_benchmark_all_released.py --provider "$PROVIDER" --force > "$out/inference.log" 2>&1 || rc=$?
   echo "inference exit $rc at $(date)" >> "$out/run.txt"
 
   kill "$agent_pid" 2>/dev/null || true
   sleep 3
   kill -9 "$agent_pid" 2>/dev/null || true
-  cp /tmp/agent_tool_calls.log /tmp/agent_heartbeat.log "$out/" 2>/dev/null || true
+  cp /tmp/agent_tool_calls.log /tmp/agent_heartbeat.log /tmp/gate_stats.log /tmp/gate_events.log "$out/" 2>/dev/null || true
   cp "fdb_v3_data_released/evaluation_summary_${PROVIDER}.json" "$out/" 2>/dev/null || true
 
   bash "$REPO_ROOT/project-log/scripts/score_summary.sh" "$PROVIDER" "$out" | tee "$out/score.txt"
@@ -234,6 +243,10 @@ main() {
   build_env
   fetch_data
   check_env_vars
+  if [ "${SETUP_ONLY:-0}" = "1" ]; then
+    log "SETUP_ONLY=1: setup verified (clone, env, data, variables); not starting the run"
+    return
+  fi
   run_and_score
 }
 
