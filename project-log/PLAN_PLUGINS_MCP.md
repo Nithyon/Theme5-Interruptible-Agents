@@ -1,6 +1,6 @@
 # Plan: plugins (MCP tools) behind the Commit Harness
 
-Status: **designed, not built.** Written 2026-09-30. Names: Commit Harness = `fdb_agent/gate.py`; recovery layer = `extension/recovery.py`.
+Status: **plugin server and recovery path run and are tested offline (19 checks in `extension/test_mcp_plugin.py`, real stdio MCP subprocess); not yet attached to the live voice agent, and the LiveKit wrapping in `mcp_bridge.py` is not run.** Written 2026-09-30. Names: Commit Harness = `fdb_agent/gate.py`; recovery layer = `extension/recovery.py`.
 
 ## Why it fits the theme
 The theme is an agent that stays responsive while tools run, acts only on what the user finally meant, and recovers when a tool is slow or fails. A plugin is a tool that is slow, remote and unreliable by nature, so it is the case our two layers were built for. Nothing new has to be invented; plugins are more tools behind the same two layers.
@@ -50,8 +50,15 @@ Steps 1–3 (about 1 h 45 min) give a working "plugin" demo without any account.
 - OAuth tokens for real plugins must stay out of the repo and logs.
 - More tools in the prompt can lower tool-selection accuracy in the voice model (the FDB-v3 agents have 12 tools); load only the plugins a scenario needs.
 
-## Demo plan (not yet run)
-Files written, never executed: `extension/mcp_home_server.py` (stdio MCP mock: set_ac_temperature, start_washer, cancel_washer) and `extension/mcp_bridge.py` (wraps `list_tools()` output in `ToolRunner`, same slots as the home pack). Path shown: voice model -> Commit Harness / recovery layer -> plugin.
+## Demo plan (offline path tested; live voice attachment not run)
+What now runs (2026-09-30): `extension/mcp_home_server.py` (stdio MCP mock: set_ac_temperature, start_washer, cancel_washer) starts and answers the official `mcp` 1.30 client. Through `ToolRunner` (via `mcp_bridge.make_plugin_handler`, transport-independent), 19 offline checks pass: correction supersedes a pending call (only 22 reaches the server), duplicate start_washer gives one job, cotton -> eco rolls back (start, cancel, start), a killed plugin process gives failures then a handoff with no hang, a timed-out state change is not retried. The supersede test holds the first call before it is sent; a request already on the wire is not un-sent by a client cancel.
+Still NOT run: the LiveKit part of `extension/mcp_bridge.py` (`_make_wrapped`, `build_wrapped_tools`, `MCPServerStdio`, unverified TODOs), any attachment to `ext_agent.py` or a live voice session, and the three beats below by voice. Note `mcp` must be `<2` (2.x renamed FastMCP).
+
+Reproduce:
+1. Create env: `wsl -d Ubuntu bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/mcp_env_setup.sh`
+2. Run tests: `wsl -d Ubuntu bash /mnt/d/Theme5-Interruptible-Agents/project-log/scripts/mcp_test.sh` (expect `19 PASS, 0 FAIL`)
+
+Path shown: voice model -> Commit Harness / recovery layer -> plugin.
 
 ### (a) Three beats, about 40 seconds
 | Beat | Say | Viewer sees | Log revealed after |
@@ -63,8 +70,8 @@ Files written, never executed: `extension/mcp_home_server.py` (stdio MCP mock: s
 The event log is shown after each beat, as in VIDEO_SCRIPT.md. Beat 3 needs the failure count to reach the handoff threshold (default 3 failed run() calls per slot, each with retries); expect to repeat the request or lower `handoff_after_failures` for the demo. Not tested.
 
 ### (b) Setup, only AFTER the benchmark ends
-1. Separate env: `python -m venv .venv-mcp`, activate it, `pip install mcp livekit-agents==1.8.3` (plus the plugins the agent already uses). Do not touch the benchmark env.
-2. First check: `python -c "import mcp; print(mcp.__file__)"`, then `python extension/mcp_home_server.py` should sit waiting on stdin (Ctrl+C to stop).
+1. Separate env: `~/theme5/mcp-env` already exists with `mcp<2` (done); add `livekit-agents==1.8.3` there only after the benchmark ends. Do not touch the benchmark env.
+2. First check (done, passes): `python extension/mcp_home_server.py` sits waiting on stdin; `test_mcp_plugin.py` drives it.
 3. In a Python shell, start `MCPServerStdio(command="python", args=["extension/mcp_home_server.py"])`, `await server.initialize()`, and print `type(t)` and `t.info` for each of `await server.list_tools()`. This settles the unverified TODOs in `mcp_bridge.py`; fix the bridge to match.
 4. Add a flag in `ext_agent.py` to use `build_wrapped_tools(...)` instead of the home pack (not written yet). Run the three beats once off camera.
 
