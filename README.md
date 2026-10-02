@@ -10,7 +10,8 @@ To change the figure, edit and run `python docs/figures/make_overview.py`.*
 
 Demo video: [watch on YouTube](https://youtu.be/zBp5oEh5yhY)
 
-Presentation: [slides as PDF](presentation/TEAM%20REIGN%20-%20SAMSUNG%20PRISM%20HACKATHON.pdf) (opens in the browser) ·
+Presentation: [view the slides online](https://nithyon.github.io/commit-harness/slides.html) (no download) ·
+[slides as PDF](presentation/TEAM%20REIGN%20-%20SAMSUNG%20PRISM%20HACKATHON.pdf) (opens in the browser) ·
 [PowerPoint file](presentation/TEAM%20REIGN%20-%20SAMSUNG%20PRISM%20HACKATHON.pptx) (download)
 
 Website: [nithyon.github.io/commit-harness](https://nithyon.github.io/commit-harness/)
