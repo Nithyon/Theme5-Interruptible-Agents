@@ -1,6 +1,8 @@
 # AI disclosure
 
-Team Reign · Theme 05, Interruptible Real-Time Agents · updated 1 October 2026
+Team Reign (SRM Institute of Science and Technology) · Theme 05, Interruptible Real-Time Agents · updated 1 October 2026
+
+Members: Pokala Sai Nithin, Aryan Garg, Lohitashwa and V Preetha.
 
 ## In short
 
@@ -13,9 +15,9 @@ generate the benchmark's expected answers.
 
 | Person | Decisions and work | AI used |
 |---|---|---|
-| Saini (team lead) | Chose the approach and priorities: the Commit Harness, the recovery layer, the in-car EV use case, the SLURP and pause tests; decided which runs to make and which configuration to submit; created the accounts and typed every key; approved or stopped every action | Claude Code (Claude Opus, with Claude Sonnet sub-agents), plus Gemini CLI / Antigravity for small tasks |
-| Lohit | The upgrade pack for the harness (dangling-word rule, merged prompt rules, 12 pause practice scenarios); `reproduce_extension.sh`; the README setup guide and overview figure; the presentation files; an independent re-run of `reproduce.sh` on his laptop | An AI assistant for the upgrade pack (tool not recorded); Claude Code for the later work |
-| Aryan | The offline Gemma fallback: found why Gemma 4 returned no tool call (its thinking mode used up the reply limit) and fixed it; measured Gemma 4 26B and e4b on his laptop on our commands, real SLURP requests and the interruption set; audited the test summary against the raw result files | Claude Code |
+| Pokala Sai Nithin (team lead) | Chose the approach and priorities: the Commit Harness, the recovery layer, the in-car EV use case, the SLURP and pause tests; decided which runs to make and which configuration to submit; created the accounts and typed every key; approved or stopped every action | Claude Code (Claude Opus, with Claude Sonnet sub-agents), plus Gemini CLI / Antigravity for small tasks |
+| Lohitashwa | The upgrade pack for the harness (dangling-word rule, merged prompt rules, 12 pause practice scenarios); `reproduce_extension.sh`; the README setup guide and overview figure; the presentation files; an independent re-run of `reproduce.sh` on his laptop | An AI assistant for the upgrade pack (tool not recorded); Claude Code for the later work |
+| Aryan Garg | The offline Gemma fallback: found why Gemma 4 returned no tool call (its thinking mode used up the reply limit) and fixed it; measured Gemma 4 26B and e4b on his laptop on our commands, real SLURP requests and the interruption set; audited the test summary against the raw result files | Claude Code |
 
 ## AI tools used to build the submission
 

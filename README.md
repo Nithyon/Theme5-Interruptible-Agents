@@ -15,6 +15,9 @@ Presentation: [slides as PDF](presentation/TEAM%20REIGN%20-%20SAMSUNG%20PRISM%20
 
 Website: [nithyon.github.io/commit-harness](https://nithyon.github.io/commit-harness/)
 
+Team Reign, SRM Institute of Science and Technology: Pokala Sai Nithin, Aryan Garg, Lohitashwa and V Preetha.
+Theme 05, Interruptible Agents, Samsung PRISM.
+
 ## Contents
 
 - [Words used in this README](#words-used-in-this-readme)
